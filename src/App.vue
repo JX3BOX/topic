@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import {getAppIcon} from '@jx3box/jx3box-common/js/utils'
+import { getAppIcon } from "@jx3box/jx3box-common/js/utils";
 export default {
     name: "App",
     props: [],
@@ -32,7 +32,7 @@ export default {
         return {};
     },
     computed: {},
-    methods: {getAppIcon},
+    methods: { getAppIcon },
     components: {},
 };
 </script>
