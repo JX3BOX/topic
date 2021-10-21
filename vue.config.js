@@ -9,7 +9,7 @@ topics.forEach((topic) => {
         title: topic.title + Setting.suffix,
         entry: `src/pages/${topic.key}/index.js`,
         template: "public/pc.html",
-        filename: `topic/${topic.key}/index.html`,
+        filename: `${topic.key}/index.html`,
     };
 });
 
