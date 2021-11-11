@@ -1,12 +1,12 @@
 <template>
-    <div class="m-index">
-        首页
+    <div class="m-detail">
+        详情页
     </div>
 </template>
 
 <script>
 export default {
-   name : 'Index',
+   name : 'Detail',
    props:[],
    components : {},
    data : function(){
@@ -24,5 +24,5 @@ export default {
 </script>
 
 <style lang="less">
-@import "../../assets/css/cangjianshanzhuang/index.less";
+@import "../../assets/css/cangjianshanzhuang/detail.less";
 </style>
