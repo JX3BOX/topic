@@ -254,27 +254,26 @@ export default {
             this.tabImgLink = this.pvebanner[i].link;
         },
 
-        hanldMask(event) {
-            let x = document.body.offsetWidth / 2;
-            let y = document.body.offsetHeight / 2;
+        // hanldMask(event) {
+        //     let x = document.body.offsetWidth / 2;
+        //     let y = document.body.offsetHeight / 2;
 
-            var mx = event.clientX,
-                my = event.clientY;
-
-            // TO子璇:这啥玩意？不删疯狂报错，删了没任何影响
-            // this.$refs.mark?.style?.transform =
-            //     `translate3d(` +
-            //     (x - mx) / 90 +
-            //     `px, ` +
-            //     (y - my) / 70 +
-            //     `px, 0px)`;
-        },
+        //     var mx = event.clientX,
+        //         my = event.clientY;
+ 
+        //     // this.$refs.mark?.style?.transform =
+        //     //     `translate3d(` +
+        //     //     (x - mx) / 90 +
+        //     //     `px, ` +
+        //     //     (y - my) / 70 +
+        //     //     `px, 0px)`;
+        // },
     },
     filters: {},
     created: function () {},
     mounted: function () {
         this.init();
-        window.addEventListener("mousemove", this.hanldMask);
+        // window.addEventListener("mousemove", this.hanldMask);
     },
 };
 </script>
