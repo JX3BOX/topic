@@ -1,4 +1,7 @@
 @import "./set.less";
+.m-index{
+    box-shadow:0 0 10px rgba(0,0,0,.5);
+}
 
 // 头部
 .m-top {
@@ -76,6 +79,10 @@
 
         .u-btn4 {
             background-image: url('@{kv_cangjianshanzhuang}btn4.png');
+        }
+
+        a:hover{
+            filter:saturate(150%);
         }
     }
 }
@@ -204,6 +211,11 @@
             * {
                 .size(65px, 340px);
                 box-shadow: 0 8px 10px rgba(0, 0, 0, .4);
+            }
+
+            transition: 0.2s ease-in-out;
+            a:hover{
+                filter: brightness(105%);
             }
 
             .u-btn1 {
