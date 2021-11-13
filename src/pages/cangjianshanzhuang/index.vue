@@ -134,7 +134,6 @@ export default {
     init: function () {
       getTopic(KEY).then((res) => {
         this.raw = res.data.data;
-        console.log(this.data, "....");
         this.video = this.data.index_video[0]["link"];
         this.pve = this.data.index_pve;
         this.pvebanner = this.data.index_pve_banner;

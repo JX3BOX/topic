@@ -1,0 +1,162 @@
+@import "./sect.less";
+
+.m-cangjian {
+    .flex;
+}
+
+.m-left {
+    .size(320px, 1080px);
+    box-sizing: border-box;
+    padding: 20px 30px 0 30px;
+}
+
+.m-right {
+    flex: 1;
+    .flex;
+    align-items: center;
+    justify-content: center;
+    .h(1080px);
+}
+
+
+.m-tab {
+    .pt(40px);
+    .h(420px);
+    .flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .u-col {
+        .flex;
+        justify-content: center;
+        align-items: center;
+        .pointer;
+        .size(252px, 62px);
+        background-image: url('@{kv_cangjianshanzhuang}/sect/tab2.png');
+
+        &.active {
+            background-image: url('@{kv_cangjianshanzhuang}/sect/tab1.png');
+        }
+    }
+
+    .u-txt1 {
+        .size(87px, 40px);
+        background-image: url('@{kv_cangjianshanzhuang}/sect/txt1.png');
+    }
+
+    .u-txt2 {
+        .size(88px, 36px);
+        background-image: url('@{kv_cangjianshanzhuang}/sect/txt2.png');
+    }
+
+    .u-txt3 {
+        .size(90px, 39px);
+        background-image: url('@{kv_cangjianshanzhuang}/sect/txt3.png');
+    }
+
+    .u-txt4 {
+        .size(88px, 39px);
+        background-image: url('@{kv_cangjianshanzhuang}/sect/txt4.png');
+    }
+
+    .u-txt5 {
+        .size(90px, 37px);
+        background-image: url('@{kv_cangjianshanzhuang}/sect/txt5.png');
+    }
+}
+
+.m-cangjian-story .u-box {
+
+    .u-txt {
+        .size(1274px, 796px);
+    }
+
+    .u-txt1 {
+        .size(1286px, 374px);
+        .mb(30px);
+    }
+
+    .u-img {
+        .size(775px, 530px);
+    }
+}
+
+.m-cangjian-skill,
+.m-cangjian-mount {
+    align-self: start;
+
+
+}
+
+.m-cangjian-mount {
+    .pt(110px);
+
+    .u-txt {
+        .size(598px, 113px);
+        .mb(150px);
+    }
+
+    .u-img {
+        .size(923px, 291px);
+    }
+
+}
+
+.m-cangjian-skill {
+    .pt(120px);
+
+    .u-txt {
+        .size(699px, 69px);
+        .mb(70px);
+    }
+
+    .u-img {
+        .size(832px, 517px);
+    }
+
+}
+
+.m-cangjian-equip {
+    img {
+        .dbi;
+    }
+
+    .u-img1 {
+        .size(547px, 851px);
+        .mr(110px);
+    }
+
+    .u-img2 {
+        .size(560px, 897px);
+    }
+}
+
+.m-cangjian-weapon {
+    align-self: flex-start;
+
+    .u-box1 {
+        .pt(110px);
+
+        .u-img {
+            .size(120px, 494px);
+            .mb(20px);
+        }
+
+        .u-txt {
+            .size(1273px, 287px);
+        }
+    }
+
+    .u-box2 {
+        .pt(84px);
+        .u-img {
+            .size(260px, 494px);
+            .mb(45px);
+        }
+
+        .u-txt {
+            .size(1273px, 331px);
+        }
+    }
+
+}
