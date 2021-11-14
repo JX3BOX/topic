@@ -7,8 +7,8 @@
             :key="i"
             v-show="index == i + 1"
         >
-            <img class="u-img" :src="img_root + item + `.png`" />
-            <img class="u-txt" :src="img_root + item + `_txt.png`" />
+            <img class="u-img p-animation fadeIn" :src="img_root + item + `.png`" />
+            <img class="u-txt p-animation bounceIn" :src="img_root + item + `_txt.png`" />
         </div>
         <arr :len="len" :index="index" @toTurn="toTurn"></arr>
     </div>

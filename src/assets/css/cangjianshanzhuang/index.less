@@ -1,9 +1,12 @@
 @import "./set.less";
-.v-index{
-    background-color:rgb(16,40,50);
+@import './animation.less';
+
+.v-index {
+    background-color: rgb(16, 40, 50);
 }
-.m-index{
-    box-shadow:0 0 10px rgba(0,0,0,.5);
+
+.m-index {
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
 }
 
 // 头部
@@ -34,7 +37,7 @@
         .u-txtr {
             .pa;
             .size(91px, 605px);
-            .rt(-188px, -80px);
+            .rt(-180px, -82px);
             background-image: url('@{kv_cangjianshanzhuang}txtr.png');
         }
 
@@ -84,8 +87,8 @@
             background-image: url('@{kv_cangjianshanzhuang}btn4.png');
         }
 
-        a:hover{
-            filter:saturate(150%);
+        a:hover {
+            filter: saturate(150%);
         }
     }
 }
@@ -217,7 +220,8 @@
             }
 
             transition: 0.2s ease-in-out;
-            a:hover{
+
+            a:hover {
                 filter: brightness(105%);
             }
 
@@ -290,6 +294,14 @@
         .u-more {
             .size(280px, 104px);
             background-image: url('@{kv_cangjianshanzhuang}more.png');
+        }
+    }
+
+    .u-swiper {
+        .full;
+
+        img {
+            .full;
         }
     }
 

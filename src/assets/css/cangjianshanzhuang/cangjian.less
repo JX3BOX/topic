@@ -1,13 +1,17 @@
 @import "./sect.less";
-.v-cangjian{
+@import './animation.less';
+
+.v-cangjian {
     // background-color:rgb(120,77,47);
-    background-color:@bg-black;
+    background-color: @bg-black;
     min-height: calc(100vh - @header-height);
     min-width: 1280px;
 }
+
 .m-cangjian {
     .flex;
-    height:1080px;
+    max-width: 1920px;
+    height: 1080px;
 }
 
 .m-left {
@@ -71,9 +75,9 @@
     }
 }
 
-.m-cangjian-story{
+.m-cangjian-story {
 
-    padding:0 40px;
+    padding: 0 40px;
 
     .u-txt {
         // .size(1274px, 796px);
@@ -125,12 +129,14 @@
 
 .m-cangjian-equip {
     display: flex;
-    padding:0 40px;
+    padding: 0 40px;
     flex-shrink: 1;
-    div:first-child{
+
+    div:first-child {
         .mr(100px);
     }
-    img{
+
+    img {
         .db;
     }
 
@@ -144,7 +150,7 @@
 }
 
 .m-cangjian-weapon {
-    padding:0 40px;
+    padding: 0 40px;
 
     .u-box1 {
         .pt(110px);

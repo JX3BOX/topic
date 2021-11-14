@@ -1,7 +1,7 @@
 <template>
   <div class="m-cangjian-mount">
-    <img class="u-txt" :src="img_root + `xinfa_txt.png`" />
-    <img class="u-img" :src="img_root + `xinfa.png`" />
+    <img class="u-txt p-animation bounceIn" :src="img_root + `xinfa_txt.png`" />
+    <img class="u-img p-animation bounceIn" :src="img_root + `xinfa.png`" />
   </div>
 </template>
 

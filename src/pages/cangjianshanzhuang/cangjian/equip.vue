@@ -1,10 +1,10 @@
 <template>
     <div class="m-cangjian-equip">
         <div>
-            <img class="u-img1" :src="img_root + `jianming.png`" />
+            <img class="u-img1 p-animation bounceIn" :src="img_root + `jianming.png`" />
         </div>
         <div>
-            <img class="u-img2" :src="img_root + `yanyu.png`" />
+            <img class="u-img2 p-animation bounceIn" :src="img_root + `yanyu.png`" />
         </div>
     </div>
 </template>

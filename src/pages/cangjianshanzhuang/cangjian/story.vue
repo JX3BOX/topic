@@ -1,10 +1,10 @@
 <template>
   <div class="m-cangjian-story">
     <arr :len="len" :index="index" @toTurn="toTurn"></arr>
-    <img class="u-txt" :src="img_root + `bg_txt.png`" v-if="index == 1" />
+    <img class="u-txt p-animation bounceIn" :src="img_root + `bg_txt.png`" v-if="index == 1" />
     <div class="u-box" v-else>
-      <img class="u-txt1" :src="img_root + `bg_txt1.png`" />
-      <img class="u-img" :src="img_root + `bg_pic.png`" />
+      <img class="u-txt1 p-animation bounceIn" :src="img_root + `bg_txt1.png`" />
+      <img class="u-img p-animation bounceIn" :src="img_root + `bg_pic.png`" />
     </div>
   </div>
 </template>
