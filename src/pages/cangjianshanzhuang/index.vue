@@ -100,7 +100,7 @@ export default {
     data: function () {
         return {
             cangjian: [
-                { name: "藏剑武学", link: "#/detail", target: "_self" },
+                { name: "藏剑武学", link: "#/cangjian", target: "_self" },
                 {
                     name: "藏剑宏库",
                     link: "/macro/#/?subtype=问水诀",
