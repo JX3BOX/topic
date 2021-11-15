@@ -253,8 +253,10 @@ export default {
       let x = -event.clientX / 150;
       let y = -event.clientY / 150;
 
-      this.$refs.mark.style.backgroundPositionX = x + "px";
-      this.$refs.mark.style.backgroundPositionY = y + "px";
+      if (this.$refs.mark) {
+        this.$refs.mark.style.backgroundPositionX = x + "px";
+        this.$refs.mark.style.backgroundPositionY = y + "px";
+      }
     },
   },
   filters: {},

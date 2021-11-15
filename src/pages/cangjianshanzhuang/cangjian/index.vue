@@ -65,8 +65,7 @@ export default {
   methods: {
     changeTab(i) {
       this.tabIndex = i;
-    },
-    hanldMask() {},
+    }, 
   },
   filters: {},
   created: function () {},
