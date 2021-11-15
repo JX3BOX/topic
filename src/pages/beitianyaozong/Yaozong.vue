@@ -91,6 +91,7 @@ export default {
                 this.otherImg = this.getWeaponUrl(i);
             }
         },
+        hanldMask(){}
     },
     filters: {},
     created: function () {},
