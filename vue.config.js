@@ -3,7 +3,14 @@ const pkg = require("./package.json");
 const { JX3BOX, SEO } = require("@jx3box/jx3box-common");
 const Setting = require("./setting.json");
 let topics = Setting.topics;
-let topicPages = {};
+let topicPages = {
+    "index" : {
+        title: 'JX3BOX - 魔盒专题导航',
+        entry: `src/main.js`,
+        template: "public/pc.html",
+        filename: `index.html`,
+    }
+};
 topics.forEach((topic) => {
     topicPages[topic.key] = {
         title: topic.title + Setting.suffix,
@@ -52,12 +59,6 @@ module.exports = {
                 },
             },
             "/api/team": {
-                target: "https://team.api.jx3box.com",
-                onProxyReq: function(request) {
-                    request.setHeader("origin", "");
-                },
-            },
-            "/xoyo/daily": {
                 target: "https://team.api.jx3box.com",
                 onProxyReq: function(request) {
                     request.setHeader("origin", "");

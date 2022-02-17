@@ -12,26 +12,28 @@
 </template>
 
 <script>
+import { postStat } from "@jx3box/jx3box-common/js/stat";
 export default {
     name: "App",
     props: [],
     components: {},
-    data: function () {
+    data: function() {
         return {};
     },
     computed: {
-        page_name: function () {
+        page_name: function() {
             return this.$route.name;
         },
     },
     watch: {},
     methods: {},
     filters: {},
-    created: function () {},
-    mounted: function () {},
+    created: function() {
+        postStat("topic", "cangjianshanzhuang");
+    },
+    mounted: function() {},
 };
 </script>
-
 
 <style lang="less">
 @import "../../assets/css/cangjianshanzhuang/common.less";

@@ -1,25 +1,14 @@
 <template>
     <div id="app">
         <Header></Header>
-        <Breadcrumb
-            name="测试"
-            slug="test"
-            root="/test"
-            :publishEnable="true"
-            :adminEnable="true"
-            :feedbackEnable="true"
-            :crumbEnable="true"
-        >
-            <img slot="logo" svg-inline :src="getAppIcon('macro')" />
-        </Breadcrumb>
-        <LeftSidebar>left side</LeftSidebar>
-        <Main :withoutRight="false">
-            <div class="m-main">
-                <router-view />
+        <div class="p-topic-container">
+            <div class="m-topic-index">
+
+                资料片导航
+
             </div>
-            <RightSidebar>right side</RightSidebar>
-            <Footer></Footer>
-        </Main>
+        </div>
+        <Footer class="p-topic-footer"></Footer>
     </div>
 </template>
 
@@ -38,10 +27,5 @@ export default {
 </script>
 
 <style lang="less">
-@import "./assets/css/app.less";
-@media screen and (max-width: @phone) {
-    .c-crumb {
-        .none;
-    }
-}
+@import "~@/assets/css/index/index.less";
 </style>
