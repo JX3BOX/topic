@@ -10,7 +10,7 @@
             <div class="u-tabBox">
                 <div class="u-box" v-for="(item, index) in topic" :key="index">
                     <template v-if="item.client == key">
-                        <a :href="toTopic(img)" class="u-link" v-for="img in item.server" :key="img" :style="imgStyle(img)" @mouseenter="enter(img)"></a>
+                        <a :href="toTopic(img)" target="_blank" class="u-link" v-for="img in item.server" :key="img" :style="imgStyle(img)" @mouseenter="enter(img)"></a>
                     </template>
                 </div>
             </div>
@@ -18,7 +18,7 @@
     </div>
 </template>
 <script>
-import { __imgPath, __Root } from "@jx3box/jx3box-common/data/jx3box.json";
+import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
 export default {
     name: "demo",
     data: function() {
@@ -70,7 +70,7 @@ export default {
         },
         // 跳转
         toTopic(key) {
-            return __Root + "topic/" + key;
+            return "/topic/" + key;
         },
         // 动画效果
         showAnimation() {
