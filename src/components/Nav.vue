@@ -2,7 +2,7 @@
 	<div class="m-topic-nav" :class="`${bg}-box`">
 		<img class="m-logo p-animations" :class="[animation ? 'fadeInLeft' : '', screenWidth < 1600 ? 'small' : '']" :src="logoImg" :alt="bg" srcset="" />
 		<img class="m-bg p-animations" :class="animation ? 'fadeInHalf' : ''" :src="boxBG" :alt="bg" srcset="" />
-		<div class="m-tabs" :class="screenWidth < 1600 ? 'small' : ''">
+		<div class="m-tabs">
 			<img class="m-people p-animations" :class="[animation ? 'fadeInRight' : '', bg]" :src="peopleImg" alt="人物" srcset="" />
 			<div class="u-tab">
 				<span :class="[item.key == key ? 'active' : '', screenWidth < 1600 ? 'small' : '']" v-for="(item, index) in tabs" :key="index" @click="changeTabs(index)">{{ item.name }}</span>
