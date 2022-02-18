@@ -1,16 +1,16 @@
 <template>
 	<div class="m-topic-nav" :class="`${bg}-box`">
-		<img class="m-logo p-animation" :class="[animation ? 'fadeInLeft' : '', screenWidth < 1600 ? 'small' : '']" :src="logoImg" :alt="bg" srcset="" />
-		<img class="m-bg p-animation" :class="animation ? 'fadeInHalf' : ''" :src="boxBG" :alt="bg" srcset="" />
+		<img class="m-logo p-animations" :class="[animation ? 'fadeInLeft' : '', screenWidth < 1600 ? 'small' : '']" :src="logoImg" :alt="bg" srcset="" />
+		<img class="m-bg p-animations" :class="animation ? 'fadeInHalf' : ''" :src="boxBG" :alt="bg" srcset="" />
 		<div class="m-tabs" :class="screenWidth < 1600 ? 'small' : ''">
-			<img class="m-people p-animation" :class="[animation ? 'fadeInRight' : '', bg]" :src="peopleImg" alt="人物" srcset="" />
+			<img class="m-people p-animations" :class="[animation ? 'fadeInRight' : '', bg]" :src="peopleImg" alt="人物" srcset="" />
 			<div class="u-tab">
 				<span :class="[item.key == key ? 'active' : '', screenWidth < 1600 ? 'small' : '']" v-for="(item, index) in tabs" :key="index" @click="changeTabs(index)">{{ item.name }}</span>
 			</div>
 			<div class="u-tabBox">
 				<div class="u-box" v-for="(item, index) in topic" :key="index">
 					<template v-if="item.client == key">
-						<a :href="toTopic(img)" class="u-link" v-for="img in item.server" :key="img" :style="imgStyle(img)"></a>
+						<a :href="toTopic(img)" class="u-link" v-for="img in item.server" :key="img" :style="imgStyle(img)" @mouseenter="enter(img)"></a>
 					</template>
 				</div>
 			</div>
@@ -37,6 +37,7 @@ export default {
 			key: "all",
 			animation: true,
 			screenWidth: document.body.clientWidth,
+			showing: false,
 		};
 	},
 	computed: {
@@ -56,10 +57,7 @@ export default {
 		changeTabs(index) {
 			this.bg = this.tabs[index].bg;
 			this.key = this.tabs[index].key;
-			this.animation = false;
-			setTimeout(() => {
-				this.animation = true;
-			}, 10);
+			this.showAnimation();
 		},
 		imgStyle(img) {
 			return this.screenWidth < 1600
@@ -73,6 +71,20 @@ export default {
 		// 跳转
 		toTopic(key) {
 			return __Root + "topic/" + key;
+		},
+		// 动画效果
+		showAnimation() {
+			this.animation = false;
+			setTimeout(() => {
+				this.animation = true;
+			}, 10);
+		},
+		// 鼠标移入
+		enter(img) {
+			if (this.bg !== img) {
+				this.bg = img;
+				this.showAnimation();
+			}
 		},
 	},
 	watch: {
