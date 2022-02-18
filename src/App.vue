@@ -11,16 +11,9 @@
 </template>
 
 <script>
-import { getAppIcon } from "@jx3box/jx3box-common/js/utils";
-import Nav from "@/components/Nav.vue";
+import Nav from "@/components/index/Nav.vue";
 export default {
 	name: "App",
-	props: [],
-	data: function () {
-		return {};
-	},
-	computed: {},
-	methods: { getAppIcon },
 	components: { Nav },
 };
 </script>
