@@ -1,8 +1,15 @@
 @import "../common/animation.less";
+.p-topic-container{
+    .flex;
+    justify-content: center;
+    align-items: center
+}
 .m-topic-nav {
 	.pr;
 	.clip;
+	height: 1080px;
 	min-width: 1200px;
+	max-width: 1960px;
 	.m-bg {
 		.db;
 	}
@@ -37,7 +44,7 @@
 		background-image: url("@{image}logo.png");
 		background-repeat: no-repeat;
 		background-position: 100px 40px;
-        background-size: 128px 34px;
+		background-size: 128px 34px;
 		.u-tab {
 			.pr;
 			.z(1);
