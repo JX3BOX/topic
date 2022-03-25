@@ -29,12 +29,12 @@ export default {
     methods: {},
     filters: {},
     created: function() {
-        postStat("topic", "shengdianfengyun");
+        postStat("topic", "shengdianyunqi");
     },
     mounted: function() {},
 };
 </script>
 
 <style lang="less">
-@import "../../assets/css/shengdianfengyun/common.less";
+@import "../../assets/css/shengdianyunqi/common.less";
 </style>
