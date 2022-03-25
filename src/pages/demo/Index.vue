@@ -76,12 +76,12 @@
 </template>
 
 <script>
-const KEY = "shengdianyunqi";
+// TODO: 修改KEY
+const KEY = "cangjianshanzhuang";
 import { getTopic } from "@/service/topic";
 export default {
 	name: "Index",
 	props: [],
-	inject : ['__imgRoot'],
 	components: {},
 	data: function () {
 		return {
@@ -198,5 +198,5 @@ export default {
 </script>
 
 <style lang="less">
-@import "../../assets/css/shengdianyunqi/index.less";
+// @import "../../assets/css/cangjianshanzhuang/index.less";
 </style>

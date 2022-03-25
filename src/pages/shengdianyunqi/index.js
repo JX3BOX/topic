@@ -23,7 +23,7 @@ Object.keys(filters).forEach((key) => {
 });
 
 // 数据与路由
-import router from "../../router/shengdianyunqi.js";
+import router from "./router.js";
 // import store from "../../store";
 
 import App from "./App.vue";

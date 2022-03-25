@@ -23,13 +23,11 @@ Object.keys(filters).forEach(key => {
 });
 
 // 数据与路由
-import router from "../../router/cangjianshanzhuang.js";
-import store from "../../store";
+import router from "./router.js"; 
 
 import App from "./App.vue";
 new Vue({
-    router,
-    store,
+    router, 
     render: h => h(App),
 }).$mount("#app");
 

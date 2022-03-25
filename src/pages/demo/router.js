@@ -1,14 +1,14 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-const Index = () => import("../pages/shengdianyunqi/Index.vue");
-const Shengdian = () => import("../pages/shengdianyunqi/shengdian/index.vue");
+const Index = () => import("./Index.vue");
+const Info = () => import("./info/Index.vue");
 
 Vue.use(VueRouter);
 
 const routes = [
 	{ name: "index", path: "/", component: Index },
-	{ name: "shengdian", path: "/shengdian", component: Shengdian },
+	{ name: "info", path: "/shengdian", component: Info },
 ];
 
 const router = new VueRouter({
