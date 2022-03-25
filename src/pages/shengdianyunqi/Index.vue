@@ -81,6 +81,7 @@ import { getTopic } from "@/service/topic";
 export default {
 	name: "Index",
 	props: [],
+	inject : ['__imgRoot'],
 	components: {},
 	data: function () {
 		return {
