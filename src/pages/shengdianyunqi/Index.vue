@@ -1,7 +1,9 @@
 <template>
 	<div class="m-index">
+		<div class="m-top-png"></div>
 		<!-- 第一屏 -->
 		<div class="m-top">
+			<div class="u-logo p-animation" v-animate="'fadeInDown'"></div>
 			<div class="u-title p-animation" v-animate="'fadeInDown'"></div>
 			<div class="u-mohe p-animation" v-animate="'flipInX'"></div>
 		</div>
@@ -14,11 +16,11 @@
 			<div class="u-text p-animation" v-animate="'fadeInDown'"></div>
 			<!-- 链接 -->
 			<div class="u-btn p-animation" v-animate="'fadeInDown'">
-				<a :href="item.link" :target="item.target" v-for="(item, i) in cangjian" :key="i" :class="`u-btn` + (i + 1)"></a>
+				<a :href="item.link" :target="item.target" v-for="(item, i) in shengdian" :key="i" :class="`u-btn` + (i + 1)"></a>
 			</div>
 		</div>
 		<!-- PVE -->
-		<div class="m-pve">
+		<div class="m-one m-module">
 			<div class="u-title p-animation" v-animate="'fadeInDown'"></div>
 			<div class="u-box p-animation" v-animate="'bounceIn'">
 				<!-- 切换tab -->
@@ -45,16 +47,22 @@
 				</div>
 			</div>
 		</div>
-		<!-- PVP -->
-		<div class="m-pvp">
+		<!-- 秘境 -->
+		<div class="m-two m-module">
 			<div class="u-title p-animation" v-animate="'fadeInDown'"></div>
 			<div class="u-box">
 				<div class="u-slogan p-animation" v-animate="'bounceIn'"></div>
-				<div class="u-pvp p-animation" v-animate="'flipInY'"></div>
+			</div>
+		</div>
+		<!-- 阵营 -->
+		<div class="m-three m-module">
+			<div class="u-title p-animation" v-animate="'fadeInDown'"></div>
+			<div class="u-box">
+				<span v-for="item in 4" :key="item" :class="`u-img${item}`" class="u-img p-animation" v-animate="'fadeInDown'"></span>
 			</div>
 		</div>
 		<!-- 其它 -->
-		<div class="m-other">
+		<div class="m-four m-module">
 			<div class="u-title p-animation" v-animate="'fadeInDown'"></div>
 			<div class="u-box p-animation" v-animate="'fadeInDown'">
 				<div class="u-more" v-if="more.length < 1"></div>
@@ -81,24 +89,26 @@ import { getTopic } from "@/service/topic";
 export default {
 	name: "Index",
 	props: [],
-	inject : ['__imgRoot'],
+	inject: ["__imgRoot"],
 	components: {},
 	data: function () {
 		return {
-			cangjian: [
-				{ name: "藏剑武学", link: "#/cangjian", target: "_self" },
+			shengdian: [
+				{ name: "秘境背景", link: "#/shengdian", target: "_self" },
+				{ name: "秘境首领", link: "#/shengdian", target: "_self" },
+				{ name: "秘境掉落", link: "#/shengdian", target: "_self" },
 				{
-					name: "藏剑宏库",
+					name: "门派宏库",
 					link: "/macro/#/?subtype=问水诀",
 					target: "_blank",
 				},
 				{
-					name: "藏剑配装",
+					name: "门派配装",
 					link: "/pz/#/public?mount=10144",
 					target: "_blank",
 				},
 				{
-					name: "藏剑攻略",
+					name: "门派攻略",
 					link: "/bps/#/?subtype=问水诀",
 					target: "_blank",
 				},
@@ -163,6 +173,7 @@ export default {
 	methods: {
 		init: function () {
 			getTopic(KEY).then((res) => {
+				console.log(res, "?");
 				this.raw = res.data.data;
 				this.video = this.data.index_video[0]["link"];
 				this.pve = this.data.index_pve;

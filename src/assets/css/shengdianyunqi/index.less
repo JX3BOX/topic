@@ -6,22 +6,52 @@
 }
 
 .m-index {
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	.pr;
+	.flex;
+	.clip;
+	max-width: 1920px;
+	background-image: url("@{kv_shengdianyunqi}bg.jpg");
+	background-repeat: no-repeat;
+	background-position: 0 1583px;
+	align-items: center;
+	flex-direction: column;
 }
 
 // 头部
+.m-top-png {
+	.pa;
+	.lt(0,0);
+	.size(1920px,1583px);
+	user-select: none;
+	background: url("@{kv_shengdianyunqi}top.jpg") top center no-repeat;
+}
 .m-top {
-	.pt(680px);
-
+	.flex;
+	.pr;
+	.w(100%);
+	.pt(690px);
+	.pb(130px);
+	align-items: center;
+	flex-direction: column;
 	.u-title {
 		.size(1374px, 282px);
 		background-image: url("@{kv_shengdianyunqi}title.png");
 	}
-
+	.u-logo {
+		.pa;
+		.lt(370px,120px);
+		.size(228px, 169px);
+		background-image: url("@{kv_shengdianyunqi}logo.png");
+	}
 	.u-mohe {
 		.size(434px, 104px);
 		background-image: url("@{kv_shengdianyunqi}mohe.png");
 	}
+}
+.m-module {
+	.flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 // 视频
@@ -32,12 +62,12 @@
 		box-sizing: border-box;
 		padding: 21px 25px;
 		.auto(x);
-		background-color: rgba(255, 222, 126, 0.7);
+		background-color: rgba(179, 99, 39, 0.7);
 
 		.u-txtr {
 			.pa;
-			.size(91px, 605px);
-			.rt(-180px, -82px);
+			.size(91px, 310px);
+			.rt(-190px, 110px);
 			background-image: url("@{kv_shengdianyunqi}txtr.png");
 		}
 
@@ -56,35 +86,41 @@
 
 	.u-text {
 		.mt(30px);
-		.size(1088px, 332px);
-		background-image: url("@{kv_shengdianyunqi}cangjian.png");
+		.size(1269px, 402px);
+		background-image: url("@{kv_shengdianyunqi}shengdian.png");
 	}
 
 	.u-btn {
-		.pt(50px);
-		.size(257px, 250px);
-		.auto(x);
 		.flex;
 		justify-content: space-between;
+		.pt(50px);
+		.size(100%, 250px);
+		.auto(x);
+		.flex;
+		justify-content: center;
 
 		* {
 			.size(53px, 250px);
+			margin: 0 10px;
 		}
 
 		.u-btn1 {
 			background-image: url("@{kv_shengdianyunqi}btn1.png");
 		}
-
 		.u-btn2 {
 			background-image: url("@{kv_shengdianyunqi}btn2.png");
 		}
-
 		.u-btn3 {
 			background-image: url("@{kv_shengdianyunqi}btn3.png");
 		}
-
 		.u-btn4 {
 			background-image: url("@{kv_shengdianyunqi}btn4.png");
+		}
+		.u-btn5 {
+			background-image: url("@{kv_shengdianyunqi}btn5.png");
+		}
+		.u-btn6 {
+			background-image: url("@{kv_shengdianyunqi}btn6.png");
 		}
 
 		a:hover {
@@ -94,12 +130,12 @@
 }
 
 // 副本
-.m-pve {
+.m-one {
 	.pt(157px);
 
 	.u-title {
 		.size(1100px, 192px);
-		.pb(60px);
+		.mb(60px);
 		background-image: url("@{kv_shengdianyunqi}title1.png");
 	}
 
@@ -107,33 +143,32 @@
 		.auto(x);
 		.size(1294px, 580px);
 		padding: 70px;
+		box-sizing: border-box;
 		background-image: url("@{kv_shengdianyunqi}bgScroll.png");
 	}
 
 	.u-tab {
-		.size(500px, 44px);
+		.w(100%);
 		.auto(x);
 		.flex;
-		justify-content: space-between;
+		justify-content: center;
 
-		.u-tab1 {
+		span {
 			.pointer;
-			.size(275px, 44px);
-			background-image: url("@{kv_shengdianyunqi}tab3.png");
-
+			opacity: 0.5;
+			margin: 0 30px;
 			&.active {
-				background-image: url("@{kv_shengdianyunqi}tab1.png");
+				opacity: 1;
 			}
+		}
+		.u-tab1 {
+			.size(365px, 46px);
+			background-image: url("@{kv_shengdianyunqi}tab1.png");
 		}
 
 		.u-tab2 {
-			.pointer;
-			.size(92px, 44px);
-			background-image: url("@{kv_shengdianyunqi}tab4.png");
-
-			&.active {
-				background-image: url("@{kv_shengdianyunqi}tab2.png");
-			}
+			.size(325px, 44px);
+			background-image: url("@{kv_shengdianyunqi}tab2.png");
 		}
 	}
 
@@ -225,59 +260,83 @@
 			}
 
 			.u-btn1 {
-				background-image: url("@{kv_shengdianyunqi}btn5.png");
+				background-image: url("@{kv_shengdianyunqi}btn_1.png");
 			}
 
 			.u-btn2 {
-				background-image: url("@{kv_shengdianyunqi}btn6.png");
+				background-image: url("@{kv_shengdianyunqi}btn_2.png");
 			}
 
 			.u-btn3 {
-				background-image: url("@{kv_shengdianyunqi}btn7.png");
+				background-image: url("@{kv_shengdianyunqi}btn_3.png");
 			}
 
 			.u-btn4 {
-				background-image: url("@{kv_shengdianyunqi}btn8.png");
+				background-image: url("@{kv_shengdianyunqi}btn_4.png");
 			}
 		}
 	}
 }
 
-// pvp
-.m-pvp {
-	.pt(100px);
+// 秘境
+.m-two {
+	.w(1920px);
+	background-image: url("@{kv_shengdianyunqi}bg.png");
+	.pt(190px);
 
 	.u-title {
 		.size(1100px, 197px);
 		background-image: url("@{kv_shengdianyunqi}title2.png");
 	}
-
 	.u-box {
-		.pt(720px);
-		.auto(x);
-		.size(600px);
-
+		.pt(1040px);
 		.u-slogan {
-			.size(660px, 308px);
-			background-image: url("@{kv_shengdianyunqi}slogan.png");
-		}
-
-		.u-pvp {
-			.mt(20px);
-			.size(603px, 136px);
-			background-image: url("@{kv_shengdianyunqi}pvp.png");
+			.size(1068px, 195px);
+			background-image: url("@{kv_shengdianyunqi}jingjian.png");
 		}
 	}
 }
 
-// 其它
-.m-other {
-	.pt(110px);
-
+// 阵营
+.m-three {
+	.pt(135px);
 	.u-title {
 		.size(1100px, 194px);
 		background-image: url("@{kv_shengdianyunqi}title3.png");
-		.pb(60px);
+		.mb(60px);
+	}
+	.u-box {
+		.flex;
+		.w(1260px);
+		flex-wrap: wrap;
+		justify-content: space-between;
+		.u-img {
+			.size(585px,580px);
+			.mb(80px);
+			background-repeat: no-repeat;
+		}
+		.u-img1 {
+			background-image: url("@{kv_shengdianyunqi}zhenying1.png");
+		}
+		.u-img2 {
+			background-image: url("@{kv_shengdianyunqi}zhenying2.png");
+		}
+		.u-img3 {
+			background-image: url("@{kv_shengdianyunqi}zhenying3.png");
+		}
+		.u-img4 {
+			background-image: url("@{kv_shengdianyunqi}zhenying4.png");
+		}
+	}
+}
+// 其它
+.m-four {
+	.pt(110px);
+	.pb(300px);
+	.u-title {
+		.size(1100px, 194px);
+		background-image: url("@{kv_shengdianyunqi}title4.png");
+		.mb(60px);
 	}
 
 	.u-box {
@@ -286,6 +345,7 @@
 		align-items: center;
 		.size(1294px, 580px);
 		.auto(x);
+		box-sizing: border-box;
 		padding: 70px;
 		background-image: url("@{kv_shengdianyunqi}bgScroll.png");
 
@@ -297,15 +357,8 @@
 
 	.u-swiper {
 		.full;
-
 		img {
 			.full;
 		}
-	}
-
-	.u-logo {
-		.mt(200px);
-		.size(360px, 214px);
-		background-image: url("@{kv_shengdianyunqi}logo.png");
 	}
 }
