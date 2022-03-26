@@ -8,11 +8,9 @@
 export default {
 	name: "arr",
 	props: ["len", "index"],
-
 	data: function () {
 		return {};
 	},
-
 	methods: {
 		turn: function (direction) {
 			this.$emit("toTurn", direction);

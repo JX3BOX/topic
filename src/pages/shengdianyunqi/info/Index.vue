@@ -21,14 +21,12 @@
 		<div class="m-bg" :style="`background-image: ` + bgImg"></div>
 	</div>
 </template>
-
 <script>
 import boss from "./boss.vue";
 import equip from "./equip.vue";
 import story from "./story.vue";
 export default {
 	name: "Shengdian",
-	props: [],
 	inject: ["__imgRoot"],
 	data: function () {
 		return {
@@ -64,7 +62,6 @@ export default {
 			this.$router.push({ path: "/shengdian", query: { tab: i } });
 		},
 	},
-	filters: {},
 	created: function () {
 		this.tabIndex = this.$route.query.tab || 1;
 	},
