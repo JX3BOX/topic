@@ -46,15 +46,15 @@ export default {
 		bgImg: function () {
 			switch (this.tabIndex) {
 				case 1:
-					return `url('${this.__imgRoot}sect/bg1.png')`;
+					return `url('${this.img_root}bg1.png')`;
 				case 2:
 				case 4:
-					return `url('${this.__imgRoot}sect/bg2.png')`;
+					return `url('${this.img_root}bg2.png')`;
 				case 3:
 				case 5:
-					return `url('${this.__imgRoot}sect/bg3.png')`;
+					return `url('${this.img_root}bg3.png')`;
 			}
-			return `url('${this.__imgRoot}sect/bg1.png')`;
+			return `url('${this.img_root}bg1.png')`;
 		},
 	},
 	watch: {},
