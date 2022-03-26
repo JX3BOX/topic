@@ -18,7 +18,7 @@ export default {
 	components: { arr },
 	data: function () {
 		return {
-			len: 2,
+			len: 1,
 			index: 1,
 		};
 	},
