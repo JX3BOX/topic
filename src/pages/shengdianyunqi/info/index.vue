@@ -46,25 +46,28 @@ export default {
 		bgImg: function () {
 			switch (this.tabIndex) {
 				case 1:
-					return `url('${this.__imgRoot}bg.png')`;
+					return `url('${this.__imgRoot}sect/bg1.png')`;
 				case 2:
 				case 4:
-					return `url('${this.__imgRoot}bg1.png')`;
+					return `url('${this.__imgRoot}sect/bg2.png')`;
 				case 3:
 				case 5:
-					return `url('${this.__imgRoot}bg2.png')`;
+					return `url('${this.__imgRoot}sect/bg3.png')`;
 			}
-			return `url('${this.__imgRoot}bg.png')`;
+			return `url('${this.__imgRoot}sect/bg1.png')`;
 		},
 	},
 	watch: {},
 	methods: {
 		changeTab(i) {
 			this.tabIndex = i;
+			this.$router.push({ path: "/shengdian", query: { tab: i } });
 		},
 	},
 	filters: {},
-	created: function () {},
+	created: function () {
+		this.tabIndex = this.$route.query.tab || 1;
+	},
 	mounted: function () {},
 	components: {
 		boss,

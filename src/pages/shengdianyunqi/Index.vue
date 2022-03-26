@@ -88,28 +88,27 @@ const KEY = "shengdianyunqi";
 import { getTopic } from "@/service/topic";
 export default {
 	name: "Index",
-	props: [],
 	inject: ["__imgRoot"],
 	components: {},
 	data: function () {
 		return {
 			shengdian: [
 				{ name: "秘境背景", link: "#/shengdian", target: "_self" },
-				{ name: "秘境首领", link: "#/shengdian", target: "_self" },
-				{ name: "秘境掉落", link: "#/shengdian", target: "_self" },
+				{ name: "秘境首领", link: "#/shengdian?tab=2", target: "_self" },
+				{ name: "秘境掉落", link: "#/shengdian?tab=3", target: "_self" },
+				{
+					name: "门派攻略",
+					link: "/bps/#/",
+					target: "_blank",
+				},
 				{
 					name: "门派宏库",
-					link: "/macro/#/?subtype=问水诀",
+					link: "/macro/#/",
 					target: "_blank",
 				},
 				{
 					name: "门派配装",
-					link: "/pz/#/public?mount=10144",
-					target: "_blank",
-				},
-				{
-					name: "门派攻略",
-					link: "/bps/#/?subtype=问水诀",
+					link: "/pz/#/public",
 					target: "_blank",
 				},
 			],
@@ -119,7 +118,7 @@ export default {
 				{ name: "新配装器", link: "/pz" },
 				{
 					name: "副本掉落",
-					link: "/fb/#/drop_v2?fb_name=荻花宫后山&fb_zlp=风起稻香",
+					link: "/fb/#/drop_v2?fb_name=荻花圣殿&fb_zlp=巴蜀风云",
 				},
 				{ name: "战斗分析", link: "/battle" },
 				{ name: "团队工具", link: "/team" },
@@ -128,7 +127,7 @@ export default {
 			pvebanner: [],
 			more: [],
 			tabImg: "",
-			tabImgLink: "/fb/#/npc?fb_zlp=风起稻香&fb_name=荻花宫后山",
+			tabImgLink: "/fb/#/drop_v2?fb_name=荻花圣殿&fb_zlp=巴蜀风云",
 		};
 	},
 	directives: {
@@ -172,11 +171,10 @@ export default {
 	watch: {},
 	methods: {
 		init: function () {
-			getTopic(KEY).then((res) => {
-				console.log(res, "?");
+			getTopic(KEY).then((res) => { 
 				this.raw = res.data.data;
 				this.video = this.data.index_video[0]["link"];
-				this.pve = this.data.index_pve;
+				this.pve = this.data.index_pve_posts;
 				this.pvebanner = this.data.index_pve_banner;
 				this.more = this.data.index_more || [];
 
