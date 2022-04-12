@@ -1,7 +1,6 @@
 {
-    "new_topic": "jianghuwuxian",
-    "std_topic": [
-        { "id": 4, "name": "jianghuwuxian" },
+    "new_topic": "shengdianyunqi", 
+    "std_topic": [ 
         { "id": 1, "name": "beitianyaozong" }
     ],
     "origin_topic": [
