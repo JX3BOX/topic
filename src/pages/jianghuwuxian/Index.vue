@@ -22,9 +22,7 @@
             <div class="u-title p-animation" v-animate="'fadeInDown'"></div>
             <div class="u-box p-animation" v-animate="'bounceIn'">
                 <!-- 切换tab -->
-                <div class="u-tab">
-                    <span v-for="item in 2" :key="item" :class="[`u-tab` + item, item == tabIndex ? 'active' : '']" @click="changeTab(item)"></span>
-                </div>
+                <div class="u-tab"></div>
                 <div class="u-tab-block">
                     <!-- BOSS图片 -->
                     <div class="u-img">
@@ -77,7 +75,9 @@
             <div class="u-logo p-animation" v-animate="'bounceIn'"></div>
         </div>
         <!-- 底部logo -->
-        <div class="m-bottom" ref="mark"><div class="u-logo"></div></div>
+        <div class="m-bottom" ref="mark">
+            <div class="u-logo"></div>
+        </div>
     </div>
 </template>
 
@@ -123,7 +123,7 @@ export default {
                     const { top } = el.getBoundingClientRect();
                     const h = document.documentElement.clientHeight || document.body.clientHeight;
                     if (top < h) {
-                        if (el.className.indexOf(binding.value) == -1) { 
+                        if (el.className.indexOf(binding.value) == -1) {
                             el.className = binding.value + " " + el.className;
                         }
                         if (binding.addClass) {
