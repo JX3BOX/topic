@@ -30,7 +30,7 @@
                         <a :href="tabImgLink" class="u-more" target="_blank"></a>
                     </div>
                     <!-- 新闻 -->
-                    <div class="u-news">
+                    <div class="u-news"> 
                         <a :href="item.link" target="_blank" class="u-line" v-for="(item, i) in pve" :key="i">
                             <span class="u-name">{{ item.title }}</span>
                             <span class="u-author">{{ item.author }}</span>
@@ -157,7 +157,7 @@ export default {
     methods: {
         init: function () {
             getTopic(KEY).then((res) => {
-                if (!res.data.data.length) return;
+                if (!res.data.data.length) return; 
                 this.raw = res.data.data;
                 this.video = this.data.index_video[0]["link"];
                 this.pve = this.data.index_pve;
