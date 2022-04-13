@@ -30,7 +30,7 @@
                         <a :href="tabImgLink" class="u-more" target="_blank"></a>
                     </div>
                     <!-- 新闻 -->
-                    <div class="u-news"> 
+                    <div class="u-news">
                         <a :href="item.link" target="_blank" class="u-line" v-for="(item, i) in pve" :key="i">
                             <span class="u-name">{{ item.title }}</span>
                             <span class="u-author">{{ item.author }}</span>
@@ -93,19 +93,16 @@ export default {
             video: "",
             tabIndex: 1,
             wuxian: [
-                { name: "秘境背景", link: "#/", target: "_self" },
-                { name: "秘境首领", link: "/", target: "_blank" },
-                { name: "秘境掉落", link: "/", target: "_blank" },
-                { name: "门派攻略", link: "/", target: "_blank" },
-                { name: "门派宏库", link: "/", target: "_blank" },
-                { name: "门派配装", link: "/", target: "_blank" },
+                { name: "秘境背景", link: "/fb/#/story?fb_zlp=奉天证道&fb_name=河阳之战", target: "_self" },
+                { name: "秘境首领", link: "/fb/#/npc?fb_zlp=奉天证道&fb_name=河阳之战", target: "_blank" },
+                { name: "秘境掉落", link: "/fb/#/drop?fb_zlp=奉天证道&fb_name=河阳之战", target: "_blank" },
+                { name: "门派攻略", link: "/bps", target: "_blank" },
+                { name: "门派宏库", link: "/macro", target: "_blank" },
+                { name: "门派配装", link: "/pz/public", target: "_blank" },
             ],
             btn: [
                 { name: "新配装器", link: "/pz" },
-                {
-                    name: "副本掉落",
-                    link: "/fb/#/drop_v2?fb_name=荻花宫后山&fb_zlp=风起稻香",
-                },
+                { name: "副本掉落", link: "/fb/#/drop?fb_zlp=奉天证道&fb_name=河阳之战" },
                 { name: "战斗分析", link: "/battle" },
                 { name: "团队工具", link: "/team" },
             ],
@@ -113,7 +110,7 @@ export default {
             pvebanner: [],
             more: [],
             tabImg: "",
-            tabImgLink: "/fb/#/npc?fb_zlp=风起稻香&fb_name=荻花宫后山",
+            tabImgLink: "/fb/#/drop?fb_zlp=奉天证道&fb_name=河阳之战",
         };
     },
     directives: {
@@ -157,7 +154,7 @@ export default {
     methods: {
         init: function () {
             getTopic(KEY).then((res) => {
-                if (!res.data.data.length) return; 
+                if (!res.data.data.length) return;
                 this.raw = res.data.data;
                 this.video = this.data.index_video[0]["link"];
                 this.pve = this.data.index_pve;
@@ -165,7 +162,7 @@ export default {
                 this.more = this.data.index_more || [];
 
                 this.tabImg = this.pvebanner[0].img;
-                this.tabImgLink = this.pvebanner[0].link;
+                this.tabImgLink = this.pvebanner[0].link || this.tabImgLink;
             });
         },
         changeTab(i) {

@@ -101,7 +101,7 @@
     .u-tabBox {
         .pa;
         .lt(0,0);
-        .size(100%,80%);
+        .size(100%,1080px);
         .pt(100px);
         .pl(100px);
         box-sizing: border-box;
@@ -119,12 +119,35 @@
                 transform: scale(1.02);
                 filter: brightness(100%);
             }
+            &:last-child {
+                .mb(0);
+            }
         }
 
         &::-webkit-scrollbar {
             width: 0 !important;
             -ms-overflow-style: none;
             overflow: -moz-scrollbars-none;
+        }
+    }
+}
+
+@media screen and(max-width:1280px) {
+    .m-topic-index, .m-topic-nav{
+        .w(100%);
+    }
+    .m-topic-nav .m-left{
+        .none;
+    }
+    .m-topic-nav .m-tabs{
+        width: 80%;
+        .auto(x);
+        .m-people{
+            .none;
+        }
+        .u-tabBox .u-box{
+            .flex;
+            flex-direction: column;
         }
     }
 }
