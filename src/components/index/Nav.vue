@@ -7,7 +7,7 @@
         </div>
 
         <div class="m-tabs">
-            <img class="m-people p-animations" :class="[animation ? 'fadeInRight' : '', new_topic]" :src="peopleImg" alt="人物"  />
+            <img class="m-people p-animations" :class="[animation ? 'fadeInRight' : '', new_topic]" :src="peopleImg" alt="人物" />
             <div class="u-tab">
                 <span :class="[item.key == key ? 'active' : '', screenWidth < 1600 ? 'small' : '']" v-for="(item, index) in tabs" :key="index" @click="changeTabs(index)">{{ item.name }}</span>
             </div>
@@ -59,13 +59,13 @@ export default {
             ];
         },
         boxBG: function () {
-            return __imgPath + "image/topic/" + this.new_topic + "_bg.jpg";
+            return __imgPath + "topic/nav/" + this.new_topic + "_bg.jpg";
         },
         logoImg: function () {
-            return __imgPath + "image/topic/" + this.new_topic + "_logo.png";
+            return __imgPath + "topic/nav/" + this.new_topic + "_logo.png";
         },
         peopleImg: function () {
-            return __imgPath + "image/topic/" + this.new_topic + "_people.png";
+            return __imgPath + "topic/nav/" + this.new_topic + "_people.png";
         },
     },
 
@@ -79,10 +79,10 @@ export default {
         imgStyle(img) {
             return this.screenWidth < 1600
                 ? {
-                      backgroundImage: "url(" + __imgPath + "image/topic/" + img + "_smalltab.jpg)",
+                      backgroundImage: "url(" + __imgPath + "topic/nav/" + img + "_smalltab.jpg)",
                   }
                 : {
-                      backgroundImage: "url(" + __imgPath + "image/topic/" + img + "_bigtab.jpg)",
+                      backgroundImage: "url(" + __imgPath + "topic/nav/" + img + "_bigtab.jpg)",
                   };
         },
         // 跳转
