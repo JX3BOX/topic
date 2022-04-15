@@ -101,8 +101,8 @@ export default {
                 { name: "门派配装", link: "/pz/public", target: "_blank" },
             ],
             btn: [
-                { name: "新配装器", link: "/pz" },
-                { name: "副本掉落", link: "/fb/#/drop?fb_zlp=奉天证道&fb_name=河阳之战" },
+                { name: "秘境百强", link: "/rank/race/#/5" },
+                { name: "数据构建", link: "/dbm" },
                 { name: "战斗分析", link: "/battle" },
                 { name: "团队工具", link: "/team" },
             ],
@@ -110,7 +110,7 @@ export default {
             pvebanner: [],
             more: [],
             tabImg: "",
-            tabImgLink: "/fb/#/drop?fb_zlp=奉天证道&fb_name=河阳之战",
+            tabImgLink: "/fb?fb_zlp=奉天证道&fb_name=河阳之战",
         };
     },
     directives: {
