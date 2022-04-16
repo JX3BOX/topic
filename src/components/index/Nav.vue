@@ -42,8 +42,8 @@ export default {
         tabs() {
             return [
                 { key: "all", name: "全部", topic: this.new_topic },
-                { key: "std", name: "正式服", topic: this.std_topic[0].name },
-                { key: "origin", name: "怀旧服", topic: this.origin_topic[0].name },
+                { key: "std", name: "重制", topic: this.std_topic[0].name },
+                { key: "origin", name: "缘起", topic: this.origin_topic[0].name },
             ];
         },
         topic() {
