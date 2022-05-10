@@ -51,6 +51,11 @@
             .size(814px,1078px);
             .lb(-60%,-180px);
         }
+        &.wuduxianshi {
+            max-width: 1000px;
+            .size(1000px,726px);
+            .lb(-77%,-180px);
+        }
     }
     .m-bg,
     .m-logo,
@@ -105,22 +110,33 @@
         .pt(100px);
         .pl(100px);
         box-sizing: border-box;
-        overflow: scroll;
+        .u-box {
+            .flex;
+            .full;
+            flex-direction: column;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            &.u-hide {
+                display: none;
+            }
+            &.u-show {
+                display: block;
+            }
+        }
         .u-link {
-            .dbi;
+            .db;
             .pointer;
             .mb(20px);
             filter: brightness(80%);
             .size(820px,220px);
+
             transition: all 0.2s ease-in-out;
             background-repeat: no-repeat;
+            background-size: 820px 220px;
 
             &:hover {
                 transform: scale(1.02);
                 filter: brightness(100%);
-            }
-            &:last-child {
-                .mb(0);
             }
         }
 
@@ -133,21 +149,27 @@
 }
 
 @media screen and(max-width:1280px) {
-    .m-topic-index, .m-topic-nav{
+    .m-topic-index,
+    .m-topic-nav {
         .w(100%);
     }
-    .m-topic-nav .m-left{
+    .m-topic-nav .m-left {
         .none;
     }
-    .m-topic-nav .m-tabs{
+    .m-topic-nav .m-tabs {
         width: 80%;
         .auto(x);
-        .m-people{
+        .m-people {
             .none;
         }
-        .u-tabBox .u-box{
-            .flex;
-            flex-direction: column;
+        .u-tabBox {
+            .u-box {
+                width: 110%;
+            }
+            .u-link {
+                .size(480px,220px);
+                background-size: 480px 220px;
+            }
         }
     }
 }

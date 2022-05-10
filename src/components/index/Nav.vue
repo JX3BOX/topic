@@ -12,10 +12,8 @@
                 <span :class="[item.key == key ? 'active' : '', screenWidth < 1600 ? 'small' : '']" v-for="(item, index) in tabs" :key="index" @click="changeTabs(index)">{{ item.name }}</span>
             </div>
             <div class="u-tabBox">
-                <div class="u-box" v-for="(item, index) in topic" :key="index">
-                    <template v-if="item.client == key">
-                        <a :href="toTopic(img)" target="_blank" class="u-link" v-for="img in item.server" :key="img" :style="imgStyle(img)" @mouseenter="enter(img)"></a>
-                    </template>
+                <div class="u-box" :class="item.client == key?'u-show':'u-hide'" v-for="(item, index) in topic" :key="index">
+                    <a :href="toTopic(img)" target="_blank" class="u-link" v-for="img in item.server" :key="img" :style="imgStyle(img)" @mouseenter="enter(img)"></a>
                 </div>
             </div>
         </div>
