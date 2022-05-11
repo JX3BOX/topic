@@ -77,7 +77,7 @@ export default {
                 {
                     name: "mijing",
                     key: "btn_mijing",
-                    link: `${__OriginRoot}fb/#/story`,
+                    link: `${__OriginRoot}fb/#/story?fb_zlp=%E9%A3%8E%E8%B5%B7%E7%A8%BB%E9%A6%99&fb_name=%E8%8D%BB%E8%8A%B1%E5%9C%A3%E6%AE%BF`,
                     animate: "fadeInRight",
                 },
                 { name: "baiqiang", key: "btn_baiqiang", link: `${__Root}rank/`, animate: "fadeInLeft" },
