@@ -85,11 +85,11 @@ export default {
                 { name: "battle", key: "btn_battle", link: `${__OriginRoot}battle`, animate: "fadeInLeft" },
             ],
             more: [
-                { name: "chengwu", link: " ", animate: "fadeInRight" },
-                { name: "fushi", link: " ", animate: "fadeInLeft" },
-                { name: "paimai", link: " ", animate: "fadeInRight" },
-                { name: "guixu", link: " ", animate: "fadeInLeft" },
-                { name: "xianzonglin", link: " ", animate: "bounceIn" },
+                { name: "chengwu", link: `${__OriginRoot}notice/40605`, animate: "fadeInRight" },
+                { name: "fushi", link: `${__OriginRoot}notice/40601`, animate: "fadeInLeft" },
+                { name: "paimai", link: `${__OriginRoot}notice/40604`, animate: "fadeInRight" },
+                { name: "guixu", link: `${__OriginRoot}notice/40602`, animate: "fadeInLeft" },
+                { name: "xianzonglin", link: `${__Root}fb/31571`, animate: "bounceIn" },
             ],
             imgPath: __imgPath + "topic/wuduxianshi/",
         };
