@@ -5,7 +5,6 @@
             <div class="u-logo" v-animate="'fadeInDown'"></div>
             <div class="u-mohe" v-animate="'fadeInDown'"></div>
             <div class="u-slogan" v-animate="'fadeIn'"></div>
-            <div class="u-butterfly" v-animate="'fadeIn'"></div>
         </div>
 
         <!-- 五毒介绍 -->
