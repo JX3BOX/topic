@@ -12,7 +12,7 @@
         <div class="m-one m-module">
             <div class="u-bg" v-animate="'fadeIn'"></div>
             <div class="u-txt" v-animate="'fadeIn'"></div>
-            <div class="u-logo" v-animate="'fadeIn'"></div>
+            <a :href="`${OriginRoot}bps/#/?subtype=%E6%AF%92%E7%BB%8F`" class="u-logo" v-animate="'fadeIn'"></a>
         </div>
         <!-- 荻花圣殿-->
         <div class="m-two m-module">
@@ -53,21 +53,37 @@
 
 <script>
 const KEY = "wuduxianshi";
-import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
+import { __imgPath, __OriginRoot, __Root } from "@jx3box/jx3box-common/data/jx3box.json";
 export default {
     name: "Index",
     props: [],
     components: {},
     data: function () {
         return {
+            OriginRoot: __OriginRoot,
             buttons: [
-                { name: "dihua", key: "two_dihua", link: " ", animate: "fadeIn" },
-                { name: "fuben", key: "btn_fuben", link: " ", animate: "fadeInRight" },
-                { name: "team", key: "btn_team", link: " ", animate: "fadeInRight" },
-                { name: "mijing", key: "btn_mijing", link: " ", animate: "fadeInRight" },
-                { name: "baiqiang", key: "btn_baiqiang", link: " ", animate: "fadeInLeft" },
-                { name: "data", key: "btn_data", link: " ", animate: "fadeInLeft" },
-                { name: "battle", key: "btn_battle", link: " ", animate: "fadeInLeft" },
+                {
+                    name: "dihua",
+                    key: "two_dihua",
+                    link: `${__OriginRoot}fb/#/?fb_zlp=%E9%A3%8E%E8%B5%B7%E7%A8%BB%E9%A6%99&fb_name=%E8%8D%BB%E8%8A%B1%E5%9C%A3%E6%AE%BF`,
+                    animate: "fadeIn",
+                },
+                {
+                    name: "fuben",
+                    key: "btn_fuben",
+                    link: `${__OriginRoot}fb/#/?fb_zlp=%E9%A3%8E%E8%B5%B7%E7%A8%BB%E9%A6%99&fb_name=%E8%8D%BB%E8%8A%B1%E5%9C%A3%E6%AE%BF`,
+                    animate: "fadeInRight",
+                },
+                { name: "team", key: "btn_team", link: `${__OriginRoot}team/`, animate: "fadeInRight" },
+                {
+                    name: "mijing",
+                    key: "btn_mijing",
+                    link: `${__OriginRoot}fb/#/story`,
+                    animate: "fadeInRight",
+                },
+                { name: "baiqiang", key: "btn_baiqiang", link: `${__Root}rank/`, animate: "fadeInLeft" },
+                { name: "data", key: "btn_data", link: `${__OriginRoot}dbm`, animate: "fadeInLeft" },
+                { name: "battle", key: "btn_battle", link: `${__OriginRoot}battle`, animate: "fadeInLeft" },
             ],
             more: [
                 { name: "chengwu", link: " ", animate: "fadeInRight" },
@@ -116,10 +132,7 @@ export default {
             }
         },
     },
-    filters: {},
-    created: function () {},
     mounted: function () {
-        // this.init();
         window.addEventListener("mousemove", this.hanldMask);
     },
 };
