@@ -96,13 +96,9 @@ export default {
     methods: {
         init: function () {
             getTopic(KEY).then((res) => {
-                let _list = res.data.data;
-                _list.forEach((item) => {
+                res.data.data.forEach((item) => {
                     if (item.subtype == "index_btn") this.buttons.push(this.toButtons(item));
-                    if (item.subtype == "index_more") {
-                        this.more.push(this.toMore(item));
-                        console.log(item);
-                    }
+                    if (item.subtype == "index_more") this.more.push(this.toMore(item));
                 });
             });
         },
