@@ -53,6 +53,7 @@
 <script>
 const KEY = "wuduxianshi";
 import { __imgPath, __OriginRoot, __Root } from "@jx3box/jx3box-common/data/jx3box.json";
+import { getTopic } from "@/service/topic";
 export default {
     name: "Index",
     props: [],
@@ -60,37 +61,8 @@ export default {
     data: function () {
         return {
             OriginRoot: __OriginRoot,
-            buttons: [
-                {
-                    name: "dihua",
-                    key: "two_dihua",
-                    link: `${__OriginRoot}fb/#/?fb_zlp=%E9%A3%8E%E8%B5%B7%E7%A8%BB%E9%A6%99&fb_name=%E8%8D%BB%E8%8A%B1%E5%9C%A3%E6%AE%BF`,
-                    animate: "fadeIn",
-                },
-                {
-                    name: "fuben",
-                    key: "btn_fuben",
-                    link: `${__OriginRoot}fb/#/?fb_zlp=%E9%A3%8E%E8%B5%B7%E7%A8%BB%E9%A6%99&fb_name=%E8%8D%BB%E8%8A%B1%E5%9C%A3%E6%AE%BF`,
-                    animate: "fadeInRight",
-                },
-                { name: "team", key: "btn_team", link: `${__OriginRoot}team/`, animate: "fadeInRight" },
-                {
-                    name: "mijing",
-                    key: "btn_mijing",
-                    link: `${__OriginRoot}fb/#/story?fb_zlp=%E9%A3%8E%E8%B5%B7%E7%A8%BB%E9%A6%99&fb_name=%E8%8D%BB%E8%8A%B1%E5%9C%A3%E6%AE%BF`,
-                    animate: "fadeInRight",
-                },
-                { name: "baiqiang", key: "btn_baiqiang", link: `${__Root}rank/`, animate: "fadeInLeft" },
-                { name: "data", key: "btn_data", link: `${__OriginRoot}dbm`, animate: "fadeInLeft" },
-                { name: "battle", key: "btn_battle", link: `${__OriginRoot}battle`, animate: "fadeInLeft" },
-            ],
-            more: [
-                { name: "chengwu", link: `${__OriginRoot}notice/40605`, animate: "fadeInRight" },
-                { name: "fushi", link: `${__OriginRoot}notice/40601`, animate: "fadeInLeft" },
-                { name: "paimai", link: `${__OriginRoot}notice/40604`, animate: "fadeInRight" },
-                { name: "guixu", link: `${__OriginRoot}notice/40602`, animate: "fadeInLeft" },
-                { name: "xianzonglin", link: `${__Root}fb/31571`, animate: "bounceIn" },
-            ],
+            buttons: [],
+            more: [],
             imgPath: __imgPath + "topic/wuduxianshi/",
         };
     },
@@ -122,6 +94,31 @@ export default {
     computed: {},
     watch: {},
     methods: {
+        init: function () {
+            getTopic(KEY).then((res) => {
+                let _list = res.data.data;
+                _list.forEach((item) => {
+                    if (item.subtype == "index_btn") this.buttons.push(this.toButtons(item));
+                    if (item.subtype == "index_more") {
+                        this.more.push(this.toMore(item));
+                        console.log(item);
+                    }
+                });
+            });
+        },
+        // 按钮链接-转换
+        toButtons({ desc, link, id }) {
+            let _item = { name: desc, link };
+            _item.key = desc == "dihua" ? `two_` + desc : `btn_` + desc;
+            _item.animate = desc == "dihua" ? "fadeIn" : id < 178 ? "fadeInRight" : "fadeInLeft";
+            return _item;
+        },
+        // 更多内容-转换
+        toMore({ desc, link, id }) {
+            let _item = { name: desc, link };
+            _item.animate = desc == "xianzonglin" ? "bounceIn" : id % 2 === 0 ? "fadeInLeft" : "fadeInRight";
+            return _item;
+        },
         hanldMask(event) {
             let x = -event.clientX / 150;
             let y = -event.clientY / 150;
@@ -132,6 +129,7 @@ export default {
         },
     },
     mounted: function () {
+        this.init();
         window.addEventListener("mousemove", this.hanldMask);
     },
 };
