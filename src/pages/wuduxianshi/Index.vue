@@ -52,7 +52,7 @@
 
 <script>
 const KEY = "wuduxianshi";
-import { __imgPath, __OriginRoot, __Root } from "@jx3box/jx3box-common/data/jx3box.json";
+import { __imgPath, __OriginRoot } from "@jx3box/jx3box-common/data/jx3box.json";
 import { getTopic } from "@/service/topic";
 export default {
     name: "Index",
