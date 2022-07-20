@@ -1,20 +1,18 @@
 <template>
-	<div id="app">
-		<Header></Header>
-		<div class="p-topic-container">
-			<div class="m-topic-index">
-				<Nav />
-			</div>
-		</div>
-		<Footer class="p-topic-footer"></Footer>
-	</div>
+    <div id="app">
+        <Header></Header>
+        <div class="p-topic-container">
+            <Index />
+        </div>
+        <Footer class="p-topic-footer"></Footer>
+    </div>
 </template>
 
 <script>
-import Nav from "@/components/index/Nav.vue";
+import Index from "@/components/index/Index.vue";
 export default {
-	name: "App",
-	components: { Nav },
+    name: "App",
+    components: { Index },
 };
 </script>
 

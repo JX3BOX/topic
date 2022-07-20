@@ -1,0 +1,92 @@
+.m-navigation {
+    .pr;
+    .w(100%);
+    height: calc(100vh - 64px - 78px);
+    background: url("../../img/home/bg.png") no-repeat center center;
+    overflow: hidden;
+    .u-bg-line {
+        .full;
+        .pa;
+        background: url("../../img/home/line_01.png") no-repeat center center;
+    }
+    .u-button {
+        .pointer;
+        .size(350px,203px);
+        transition: all 0.2s ease-in-out;
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+    .u-std {
+        background: url("../../img/home/std.png") no-repeat center center;
+    }
+    .u-logo {
+        .size(190px,395px);
+        background: url("../../img/home/logo.png") no-repeat center center;
+    }
+    .u-origin {
+        background: url("../../img/home/origin.png") no-repeat center center;
+    }
+    .u-navigation {
+        .flex;
+        .full;
+        .pa;
+        align-items: center;
+        justify-content: center;
+    }
+    .m-list {
+        .none;
+        background: url("../../img/home/line_02.png") no-repeat center center;
+        &.show {
+            .db;
+        }
+        .m-content {
+            .flex;
+            .w(100%);
+            height: calc(100vh - 64px - 78px);
+            align-items: center;
+
+            .u-list-client {
+                .pr;
+                flex-shrink: 0;
+                .size(400px,600px);
+                background: url("../../img/home/version.png") no-repeat center center;
+                .u-button {
+                    .db;
+                    .pa;
+                    .size(250px,146px);
+                    background-size: 250px 146px;
+                    &.u-std {
+                        .lb(0px);
+                    }
+                    &.u-origin {
+                        .rb(0);
+                    }
+                }
+            }
+            .u-list {
+                flex-shrink: 0;
+                .flex;
+                flex-direction: column;
+                align-items: center;
+                gap:10px;
+                span {
+                    .db;
+                    .color(#F9D03D);
+                    opacity: 0.5;
+                }
+            }
+            .m-scroll {
+                overflow: hidden;
+                display: flex;
+                gap:20px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: @phone) {
+    .m-navigation {
+        height: 100%;
+    }
+}
