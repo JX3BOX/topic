@@ -15,14 +15,14 @@
                 <div class="u-list-client" v-if="client == 'std'">
                     <span class="u-button u-std" @click="goFirst"></span>
                 </div>
-                <div class="m-scroll" v-dragscroll.x="true">
+                <div class="m-scroll" v-dragscroll v-on:dragscrollmove="doSomething" :style="style">
                     <div class="u-item" v-for="(item, i) in list" :key="i">
                         <div class="u-list">
                             <a href="http://" target="_blank" class="u-link"
                                 ><img src="../../assets/img/home/normal.png"
                             /></a>
                             <img src="../../assets/img/home/circle.png" />
-                            <span class="u-title">未知</span>
+                            <span class="u-title">未知{{ i }}</span>
                             <span class="u-time">2022</span>
                         </div>
                         <div class="u-line"></div>
@@ -47,10 +47,10 @@ export default {
             firstAnimation: "",
             listShow: "",
             client: "",
-            params: {
-                x: 100,
-            },
             list: [1, 2, 3, 4, 5, 6, 7],
+            style: {
+                justifyContent: "flex-end",
+            },
         };
     },
     computed: {},
@@ -85,6 +85,9 @@ export default {
                     this.originAnimation = "fadeInRightBig";
                 }
             }, 500);
+        },
+        doSomething(e) {
+            this.style = {};
         },
     },
     created: function () {},
