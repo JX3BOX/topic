@@ -47,7 +47,25 @@
         }
         &.origin {
             .m-content {
-                justify-content: flex-end;
+                .m-scroll {
+                    transform: rotate(-180deg);
+                    .pr(40px);
+                    .u-item {
+                        transform: rotate(180deg);
+                        &:first-child {
+                            width: 235px;
+                            .u-line {
+                                .none;
+                            }
+                        }
+                        &:last-child {
+                            width: 303px;
+                            .u-line {
+                                .db;
+                            }
+                        }
+                    }
+                }
             }
         }
         .m-content {
@@ -97,7 +115,7 @@
                 flex-shrink: 0;
                 align-items: center;
                 &:last-child {
-                    .w(253px);
+                    width: 235px;
                     .u-line {
                         .none;
                     }
@@ -105,7 +123,10 @@
             }
             .m-scroll {
                 overflow: hidden;
-                .flex; 
+                .flex;
+                .u-item {
+                    flex: 0 0 auto;
+                }
             }
         }
     }

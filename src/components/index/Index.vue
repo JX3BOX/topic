@@ -15,7 +15,7 @@
                 <div class="u-list-client" v-if="client == 'std'">
                     <span class="u-button u-std" @click="goFirst"></span>
                 </div>
-                <div class="m-scroll" v-dragscroll v-on:dragscrollmove="doSomething" :style="style">
+                <div class="m-scroll" v-dragscroll>
                     <div class="u-item" v-for="(item, i) in list" :key="i">
                         <div class="u-list">
                             <a href="http://" target="_blank" class="u-link"
@@ -48,9 +48,6 @@ export default {
             listShow: "",
             client: "",
             list: [1, 2, 3, 4, 5, 6, 7],
-            style: {
-                justifyContent: "flex-end",
-            },
         };
     },
     computed: {},
@@ -86,12 +83,10 @@ export default {
                 }
             }, 500);
         },
-        doSomething(e) {
-            this.style = {};
-        },
     },
     created: function () {},
     mounted: function () {},
+    destroyed() {},
 };
 </script>
 <style lang="less">
