@@ -18,12 +18,11 @@
                 <div class="m-scroll" v-dragscroll>
                     <div class="u-item" v-for="(item, i) in list" :key="i">
                         <div class="u-list">
-                            <a href="http://" target="_blank" class="u-link"
-                                ><img src="../../assets/img/home/normal.png"
-                            /></a>
+                            <a :href="item.link" target="_blank" class="u-link"><img :src="showImg(item.key)" /></a>
                             <img src="../../assets/img/home/circle.png" />
-                            <span class="u-title">未知{{ i }}</span>
-                            <span class="u-time">2022</span>
+                            <span class="u-title">{{ item.name || "未知" }}</span>
+                            <span class="u-time">{{ item.year || " " }}</span>
+                            <span class="u-date">{{ item.date || " " }}</span>
                         </div>
                         <div class="u-line"></div>
                     </div>
@@ -36,6 +35,8 @@
     </div>
 </template>
 <script>
+import { std, origin } from "@/assets/data/topic.json";
+import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
 export default {
     name: "Index",
     data: function () {
@@ -47,10 +48,14 @@ export default {
             firstAnimation: "",
             listShow: "",
             client: "",
-            list: [1, 2, 3, 4, 5, 6, 7],
         };
     },
-    computed: {},
+    computed: {
+        list() {
+            let _list = this.client == "std" ? std : origin;
+            return _list.concat({});
+        },
+    },
     watch: {},
     methods: {
         goList(type) {
@@ -82,6 +87,10 @@ export default {
                     this.originAnimation = "fadeInRightBig";
                 }
             }, 500);
+        },
+        showImg(key) {
+            if (!key) key = "normal";
+            return __imgPath + "topic/index/" + key + ".png";
         },
     },
     created: function () {},
