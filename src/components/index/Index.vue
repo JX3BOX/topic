@@ -18,7 +18,7 @@
                 <div class="m-scroll" v-dragscroll>
                     <div class="u-item" v-for="(item, i) in list" :key="i">
                         <div class="u-list">
-                            <a :href="item.link" target="_blank" class="u-link"><img :src="showImg(item.key)" /></a>
+                            <a :href="item.link" target="_blank" class="u-link"><img class="u-img" :src="showImg(item.key)" /></a>
                             <img src="../../assets/img/home/circle.png" />
                             <span class="u-title">{{ item.name || "未知" }}</span>
                             <span class="u-time">{{ item.year || " " }}</span>
