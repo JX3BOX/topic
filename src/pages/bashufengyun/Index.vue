@@ -27,6 +27,7 @@
                 </template>
             </div>
         </div>
+        
         <div v-else @touchstart="handleTouchstart" @touchend="handleTouchend">
             <slider :height="mobileHeight" :autoplay="false" animation="fade" :indicators="false" v-model="sliderIndex">
                 <slider-item class="child" v-for="index in mobileList" :key="index" :style="background(index)">
