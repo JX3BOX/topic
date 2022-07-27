@@ -1,47 +1,60 @@
 <template>
-    <div class="m-bashufengyun" ref="fullPage" :style="height">
-        <div
-            class="fullPageContainer"
-            ref="fullPageContainer"
-            @mousewheel="mouseWheelHandle"
-            @DOMMouseScroll="mouseWheelHandle"
-        >
-            <template v-for="item in 6">
-                <div
-                    class="section"
-                    :class="`section${item}`"
-                    :style="[background(item), height]"
-                    v-if="item == 1 || item == 6"
-                    :key="item"
-                ></div>
-                <el-carousel arrow="always" :autoplay="false" :loop="false" :key="`${item}`" v-else height="800px">
-                    <el-carousel-item
-                        class="child"
-                        v-for="k in imgLen[item]"
-                        :key="k"
-                        :style="childBackground(item, k)"
-                    >
-                    </el-carousel-item>
-                </el-carousel>
-            </template>
+    <div class="m-index">
+        <div class="m-bashufengyun" ref="fullPage" :style="height" v-if="!mobile">
+            <div
+                class="fullPageContainer"
+                ref="fullPageContainer"
+                @mousewheel="mouseWheelHandle"
+                @DOMMouseScroll="mouseWheelHandle"
+            >
+                <template v-for="item in 6">
+                    <div
+                        class="section"
+                        :class="`section${item}`"
+                        :style="[background(item), height]"
+                        v-if="item == 1 || item == 6"
+                        :key="item"
+                    ></div>
+                    <el-carousel arrow="always" :autoplay="false" :loop="false" :key="`${item}`" v-else height="800px">
+                        <el-carousel-item
+                            class="child"
+                            v-for="k in imgLen[item]"
+                            :key="k"
+                            :style="childBackground(item, k)"
+                        >
+                        </el-carousel-item>
+                    </el-carousel>
+                </template>
+            </div>
+        </div>
+        <div v-else @touchstart="handleTouchstart" @touchend="handleTouchend">
+            <slider :height="mobileHeight" :autoplay="false" animation="fade" :indicators="false" v-model="sliderIndex">
+                <slider-item class="child" v-for="index in mobileList" :key="index" :style="background(index)">
+                </slider-item>
+            </slider>
         </div>
     </div>
 </template>
 <script>
 export default {
     name: "Index",
-
     data() {
         return {
             current: 1,
             isScrolling: false,
             deltaY: 0,
+            mobile: false,
             imgLen: {
                 2: 3,
                 3: 5,
                 4: 4,
                 5: 6,
             },
+            mobileHeight: "",
+            sliderIndex: 0,
+            startTime: "",
+            startX: "",
+            startY: "",
         };
     },
     computed: {
@@ -60,6 +73,19 @@ export default {
                 }
             }
             return arr;
+        },
+        mobileList() {
+            let list = [];
+            for (let i = 1; i < 7; i++) {
+                if (i == 1 || i == 6) {
+                    list.push(i + "");
+                } else {
+                    for (let k = 0; k < this.imgLen[i]; k++) {
+                        list.push(i + "_0" + (k + 1));
+                    }
+                }
+            }
+            return list;
         },
     },
     methods: {
@@ -122,8 +148,75 @@ export default {
                 this.pre();
             }
         },
+        //屏幕滑动
+        //手指按下屏幕
+        handleTouchstart(event) {
+            this.startTime = Date.now();
+            this.startX = event.changedTouches[0].clientX;
+            this.startY = event.changedTouches[0].clientY;
+        },
+        //手指离开屏幕
+        handleTouchend(event) {
+            const endTime = Date.now();
+            const endX = event.changedTouches[0].clientX;
+            const endY = event.changedTouches[0].clientY;
+            //判断按下的时长
+            if (endTime - this.startTime > 2000) {
+                return;
+            }
+            //滑动的方向
+            let direction = "";
+            //先判断用户滑动的距离，是否合法，合法:判断滑动的方向 注意 距离要加上绝对值
+            if (Math.abs(endY - this.startY) > 10) {
+                // Math.abs(endX - this.startX) > 10
+                //滑动方向
+                if (Math.abs(endX - this.startX) > 100) {
+                    // Math.abs(endY - this.startY) > 30
+                    // console.log( "y方向偏移太多，不让你滑了")
+                    return;
+                } else {
+                    direction = endY - this.startY > 0 ? "right" : "left";
+                    // direction = endX - this.startX > 0 ? "right" : "left";
+                }
+            } else {
+                return;
+            }
+            //用户做了合法的滑动操作
+            if (direction === "left") {
+                if (this.sliderIndex + 1 === this.mobileList.length) {
+                    this.sliderIndex = 0;
+                    return;
+                } else {
+                    this.sliderIndex++;
+                }
+            }
+            if (direction === "right") {
+                if (this.sliderIndex === 0) {
+                    this.sliderIndex = this.mobileList.length;
+                    return;
+                } else {
+                    this.sliderIndex--;
+                }
+            }
+        },
     },
-    mounted: function () {},
+    created() {
+        const width = document.documentElement.clientWidth;
+        const height = document.documentElement.clientHeight;
+        if (width < height) {
+            this.mobile = true;
+            this.mobileHeight = width + "px";
+        }
+    },
+    mounted() {
+        document.addEventListener(
+            "touchmove",
+            function (ev) {
+                ev.preventDefault();
+            },
+            { passive: false }
+        );
+    },
 };
 </script>
 

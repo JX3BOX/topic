@@ -14,6 +14,8 @@ Vue.use(JX3BOX_UI);
 // import Comments from "@jx3box/jx3box-comment-ui"
 // Vue.use(Comments)
 
+import EasySlider from 'vue-easy-slider'
+Vue.use(EasySlider)
 
 // 全局过滤器
 import * as filters from '@/utils/filters.js';
