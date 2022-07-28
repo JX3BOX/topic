@@ -7,10 +7,11 @@
             animation="fade"
             :indicators="false"
             v-model="sliderIndex"
+            :touch="false"
         >
             <slider-item class="u-item" v-for="index in 6" :key="index">
                 <template v-if="index == 1">
-                    <img :src="`${img}home_05.png`" class="p-animation fadeIn" />
+                    <img :src="`${img}home_05.png`" class="u-img p-animation fadeIn" />
                     <img :src="`${img}home_05_txt.png`" class="u-txt p-animation fadeIn" />
                 </template>
                 <template v-else>
@@ -54,6 +55,9 @@ export default {
         .w(100%);
         .u-item {
             .pr;
+            .u-img {
+                height: 100%;
+            }
             .u-txt {
                 .pa;
                 .lt(50%);
@@ -83,6 +87,26 @@ export default {
             }
             &.u-cont-6 {
                 margin: -335px 0 0 -467px;
+            }
+        }
+        .slider-btn {
+            outline: none;
+            .lt(50%,0);
+            background: none;
+            &:hover .slider-icon {
+                border-color: #000;
+            }
+            .slider-icon {
+                .size(30px);
+                border-left: 6px solid rgba(0, 0, 0, 0.8);
+                border-bottom: 6px solid rgba(0, 0, 0, 0.8);
+                transition: border 0.2s;
+            }
+            &.slider-btn-left {
+                .ml(-40%);
+            }
+            &.slider-btn-right {
+                .ml(40%);
             }
         }
     }

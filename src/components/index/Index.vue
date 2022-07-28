@@ -13,7 +13,7 @@
         <div class="m-list p-animation" :class="[listShow, client]">
             <div class="m-content">
                 <div class="u-list-client" v-if="client == 'std'">
-                    <span class="u-button u-std" @click="goFirst"></span>
+                    <span class="u-button u-origin" @click="goFirst"></span>
                 </div>
                 <div class="m-scroll" v-dragscroll>
                     <div class="u-item" v-for="(item, i) in list" :key="i">
@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="u-list-client" v-if="client == 'origin'">
-                    <span class="u-button u-origin" @click="goFirst"></span>
+                    <span class="u-button u-std" @click="goFirst"></span>
                 </div>
             </div>
         </div>

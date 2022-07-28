@@ -6,6 +6,7 @@
             :autoplay="false"
             animation="fade"
             :indicators="false"
+            :touch="false"
             v-model="sliderIndex"
         >
             <slider-item class="u-item" v-for="index in 3" :key="index">
@@ -70,6 +71,23 @@ export default {
                 &.u-people-3 {
                     .ml(-260px);
                 }
+            }
+        }
+        .slider-btn {
+            outline: none;
+            .lt(50%,0);
+            background: none;
+            .slider-icon {
+                .size(30px);
+                border-left: 6px solid rgba(255, 255, 255, 0.8);
+                border-bottom: 6px solid rgba(255, 255, 255, 0.8);
+                transition: border 0.2s;
+            }
+            &.slider-btn-left {
+                .ml(-40%);
+            }
+            &.slider-btn-right {
+                .ml(40%);
             }
         }
     }

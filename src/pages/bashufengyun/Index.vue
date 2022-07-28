@@ -143,7 +143,7 @@ export default {
             }
             console.log(direction);
             //用户做了合法的滑动操作
-            if (direction === "down") {
+            if (direction === "top") {
                 if (this.current === 1) {
                     this.current += 1;
                     return;
@@ -153,7 +153,7 @@ export default {
                     this.current++;
                 }
             }
-            if (direction === "top") {
+            if (direction === "down") {
                 this.current--;
                 if (this.current === 0) {
                     this.current = 6;
