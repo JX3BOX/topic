@@ -1,8 +1,10 @@
 <template>
     <!-- 专题页 -->
-    <div class="p-topic" :class="'v-' + page_name" id="app">
+    <div class="p-topic" :class="'v-' + page_name">
         <Header :overlayEnable="true"></Header>
-        <router-view></router-view>
+        <div id="box">
+            <router-view></router-view>
+        </div>
         <div class="p-topic-footer">
             <div class="wp">
                 <Footer></Footer>
@@ -27,14 +29,14 @@ export default {
         postStat("topic", "bashufengyun");
     },
     mounted: function () {
-        const width = document.documentElement.clientWidth ;
+        const width = document.documentElement.clientWidth;
         const height = document.documentElement.clientHeight;
         console.log(width, height);
         var screen_width = width; //屏幕宽度
         if (width < height) {
             screen_width = height; //如果 是竖屏，灵感的宽度就等于屏高
 
-            const contentDOM = document.getElementById("app");
+            const contentDOM = document.getElementById("box");
             contentDOM.style.width = height + "px";
             contentDOM.style.height = width + "px";
             contentDOM.style.top = (height - width) / 2 + "px";
@@ -44,3 +46,6 @@ export default {
     },
 };
 </script>
+<style lang="less">
+@import "../../assets/css/common/animation.less";
+</style>
