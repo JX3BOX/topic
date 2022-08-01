@@ -9,12 +9,46 @@
             :touch="false"
             v-model="sliderIndex"
         >
-            <slider-item class="u-item" v-for="index in 3" :key="index">
+            <slider-item class="u-item">
                 <img
-                    :src="`${img}home_02_0${index}.png`"
+                    :src="`${img}home_02_01.png`"
                     class="u-img p-animation"
                     :class="index == 1 ? 'fadeInRight' : 'bounceIn'"
                 />
+                <img
+                    :src="`${img}home_02_people.png`"
+                    class="u-people p-animation fadeIn"
+                    :class="`u-people-${index}`"
+                />
+            </slider-item>
+            <slider-item class="u-item">
+                <div class="u-video" v-html="video"></div>
+                <img
+                    :src="`${img}home_02_people.png`"
+                    class="u-people p-animation fadeIn"
+                    :class="`u-people-${index}`"
+                />
+            </slider-item>
+            <slider-item class="u-item">
+                <div class="u-icon">
+                    <img src="https://img.jx3box.com/image/xf/10224.png" @click="change" />
+                    <img src="https://img.jx3box.com/image/xf/10225.png" @click="change" />
+                </div>
+                <a href="http://" target="_blank">
+                    <img
+                        v-show="show"
+                        :src="`${img}home_02_02.png`"
+                        class="u-img"
+                        :class="show ? 'p-animation fadeInRight' : ''"
+                /></a>
+                <a href="http://" target="_blank">
+                    <img
+                        v-show="!show"
+                        :src="`${img}home_02_03.png`"
+                        class="u-img"
+                        :class="show ? '' : 'p-animation fadeInRight'"
+                    />
+                </a>
                 <img
                     :src="`${img}home_02_people.png`"
                     class="u-people p-animation fadeIn"
@@ -31,6 +65,7 @@ export default {
     data: function () {
         return {
             sliderIndex: 0,
+            show: true,
         };
     },
     computed: {
@@ -42,6 +77,14 @@ export default {
         },
         index() {
             return this.moduleData.index;
+        },
+        video() {
+            return `<iframe src="//player.bilibili.com/player.html?aid=513903294&bvid=BV17g41117o3&cid=786179224&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>`;
+        },
+    },
+    methods: {
+        change() {
+            this.show = !this.show;
         },
     },
 };
@@ -58,6 +101,25 @@ export default {
             .pr;
             .flex;
             align-items: center;
+            justify-content: center;
+            .u-icon {
+                .pa;
+                .z(3);
+                .lt(50%,120px);
+                .w(260px);
+                .flex;
+                .ml(-100px);
+                align-items: center;
+                justify-content: space-between;
+                img {
+                    .size(68px);
+                    cursor: pointer;
+                    transition: 0.2s ease;
+                    &:hover {
+                        transform: scale(1.25);
+                    }
+                }
+            }
             .u-people {
                 .pa;
                 .lb(50%,0);
@@ -72,6 +134,14 @@ export default {
                     .ml(-260px);
                 }
             }
+            .u-video {
+                .size(80%);
+                box-sizing: border-box;
+                iframe,
+                video {
+                    .size(100%);
+                }
+            }
         }
         .slider-btn {
             outline: none;
@@ -84,10 +154,10 @@ export default {
                 transition: border 0.2s;
             }
             &.slider-btn-left {
-                .ml(-40%);
+                .ml(-45%);
             }
             &.slider-btn-right {
-                .ml(40%);
+                .ml(42%);
             }
         }
     }

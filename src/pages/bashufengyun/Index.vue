@@ -7,7 +7,18 @@
                 @mousewheel="mouseWheelHandle"
                 @DOMMouseScroll="mouseWheelHandle"
             >
-                <component :is="moduleId" :moduleData="moduleData" />
+                <el-carousel
+                    class="fullPageContainer"
+                    direction="vertical"
+                    trigger="click"
+                    :autoplay="false"
+                    :height="carousel"
+                    ref="carousel"
+                >
+                    <el-carousel-item v-for="(item, i) in moduleList" :key="item" :name="i + ''">
+                        <component :is="item" :moduleData="moduleData" />
+                    </el-carousel-item>
+                </el-carousel>
             </div>
         </div>
         <div class="m-mobile" v-else @touchstart="handleTouchstart" @touchend="handleTouchend">
@@ -27,7 +38,7 @@ export default {
     name: "Index",
     data() {
         return {
-            current: 1,
+            current: 0,
             isScrolling: false,
             deltaY: 0,
             mobile: false,
@@ -41,7 +52,7 @@ export default {
             startTime: "",
             startX: "",
             startY: "",
-            moduleList: ["", "oneView", "twoView", "threeView", "fourView", "fiveView", "sixView"],
+            moduleList: ["oneView", "twoView", "threeView", "fourView", "fiveView", "sixView"],
         };
     },
     components: { oneView, twoView, threeView, fourView, fiveView, sixView },
@@ -58,7 +69,10 @@ export default {
             };
         },
         height() {
-            return this.current == 1 ? { height: "1066px" } : { height: "800px" };
+            return this.current == 0 ? { height: "1066px" } : { height: "800px" };
+        },
+        carousel() {
+            return this.current == 0 ? "1066px" : "800px";
         },
         img() {
             return __imgPath + "topic/bashufengyun/";
@@ -71,19 +85,26 @@ export default {
         childBackground(i, k) {
             return { backgroundImage: `url(https://img.jx3box.com/topic/bashufengyun/home_0${i}_0${k}.png)` };
         },
+        setActiveItem(i = this.current) {
+            this.isScrolling = true;
+            setTimeout(() => {
+                this.isScrolling = false;
+                this.$refs.carousel.setActiveItem(i);
+            }, 1500);
+        },
         // 往下切换
         next() {
             let len = 6; // 页面的个数
             if (this.current + 1 <= len) {
                 this.current += 1;
-                this.change();
+                this.setActiveItem();
             }
         },
         // 往上切换
         pre() {
             if (this.current - 1 > 0) {
                 this.current -= 1;
-                this.change();
+                this.setActiveItem();
             }
         },
         // 控制切换间隔1.5秒

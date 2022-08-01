@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-const Index = () => import("./Index.vue");
+const Index = () => import("./IndexPage.vue");
 
 
 Vue.use(VueRouter);

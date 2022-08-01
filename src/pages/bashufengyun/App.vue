@@ -41,7 +41,7 @@ export default {
             contentDOM.style.height = width + "px";
             contentDOM.style.top = (height - width) / 2 + "px";
             contentDOM.style.left = 0 - (height - width) / 2 + "px";
-            contentDOM.style.transform = "rotate(270deg)";
+            contentDOM.style.transform = "rotate(90deg)";
         }
     },
 };
