@@ -90,7 +90,7 @@
                         >
                             <slider-item class="u-item" v-for="index in 4" :key="index">
                                 <div class="u-all">
-                                    <img :src="`${img}home_03_0${index + 1}_num.png`" class="u-num" />
+                                    <img :src="`${img}home_03_0${index + 1}_num.png?num`" class="u-num" />
                                     <img
                                         :src="`${img}home_03_0${index + 1}.png`"
                                         :class="index ? 'p-animation fadeInRight' : ''"
