@@ -41,6 +41,13 @@
     ],
     "std": [
         {
+            "name": "横刀断浪",
+            "key": "hengdaoduanlang",
+            "year": "2022",
+            "date": "10-28",
+            "link": "./hengdaoduanlang"
+        },
+        {
             "name": "江湖无限",
             "key": "jianghuwuxian",
             "year": "2022",
