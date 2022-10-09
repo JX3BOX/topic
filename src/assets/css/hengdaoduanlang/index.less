@@ -4,8 +4,10 @@
     .clip;
     .auto(x);
     .pr;
+    user-select: none;
     max-width:1920px;
-    height:25080px;
+    //height:25080px;
+    height:18950px;
     align-items: center;
     flex-direction: column;
     background: url("@{kv_hengdaoduanlang}1.jpg") no-repeat,url("@{kv_hengdaoduanlang}2.jpg") no-repeat,url("@{kv_hengdaoduanlang}/3.jpg") no-repeat;
@@ -27,46 +29,59 @@
     @media (max-width: 1400px) {
         display: none;
     }
-    .size(209px,999px);
+    .size(166px,798px);
+    //.size(209px,999px);
+    .pf;
     background: url("@{kv_hengdaoduanlang}nav.png") no-repeat;
-    position: absolute;
+    //position: absolute;
     z-index: 999;
-    right:0;
-    top:0;
+    right:-1px;
+    top:calc(calc(100vh - 738px)/2);
     .u-img{
         .pa;
         .z(2);
         right: 0;
+        cursor:pointer;
         &.u-nav-active1{
-            top: 174px;
+            top: 139px;
         }
         &.u-nav-active2{
-            top: 300px;
+            top: 240px;
         }
         &.u-nav-active3{
-            top: 390px;
+            top: 312px;
         }
         &.u-nav-active4{
-            top: 480px;
+            top: 384px;
         }
         &.u-nav-active5{
-            top: 570px;
+            top: 456px;
         }
         &.u-nav-active6{
-            top: 660px;
+            top: 528px;
         }
     }
     .u-nav{
-        .size(140px,75px);
-        .mt(12px);
+        //display: block;
+        .size(140px,94px);
         .ml(69px);
+        .mt(66px);
+        cursor:pointer;
     }
-    .u-nav:first-of-type{
-        .mt(105px);
-        height: 105px;
+    .u-img-contrast{
+        filter:contrast(.8);
     }
-
 }
+//按钮动画
+.u-btn-animation{
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.u-btn-animation:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.05);
+}
+
 // 头部
 .m-top {
     .mt(64px);
@@ -97,6 +112,7 @@
             display: none;
         }
         .size(100%,690px);
+        background: rgba(0,0,0,0.3);
         .u-box{
             .w(100%);
             .h(100%);
@@ -105,17 +121,23 @@
                 .pa;
                 bottom: 0;
                 .size(100%,340px);
-                background: url("@{kv_hengdaoduanlang}p1/text-bg.png") no-repeat;
+                //background: url("@{kv_hengdaoduanlang}p1/text-bg.png") no-repeat;
                 text-align: left;
-                .pl(25%);
-                .u-textImg{
-                   .mt(32px);
+                .u-fb-title{
+                    .size(calc(100% - 80px),auto);
+                    .auto(x);
+                    .mt(60px);
+                    .bold(600);
                 }
                 .u-text{
-                    color: #000000;
+                    .size(calc(100% - 80px),auto);
+                    .auto(x);
+                    //padding: 40px;
+                    .mt(20px);
+                    color: #ffffff;
                     .fz(20px);
                     .bold(400);
-                    .w(632px);
+                    //.w(632px);
                     word-break: break-all;
                     word-wrap: break-word;
                     white-space: normal;
@@ -178,14 +200,29 @@
     //切换按钮位置
     .m-page{
         .pa;
-        .w(360px);
-        .h(104px);
+        //.w(360px);
+        //.h(104px);
+        .size(360px,104px);
         .lt(600px,223px);
         //background: url("@{kv_hengdaoduanlang}p1/p1-btn-bg.png") no-repeat;
+        &::after{
+            position: absolute;
+            content: '';
+            .size(360px,104px);
+            top: 0;
+            right: 0;
+            border-radius: 5px;
+            transition: all 0.2s ease;
+        }
+
+        &:hover::after {
+            //background-image: linear-gradient(45deg, #ffffff10 0%, #66666620 73%, #ffffff66 78%, #cccccc44 80%, #66666610 100%);
+            background-image: linear-gradient(45deg, #ffffff10 0%, #66666605 63%,#66666610 73%, #ffffff66 78%, #cccccc44 80%, #66666602 100%);
+        }
         .u-page-next{
             .pa;
-            .z(2);
-            width: 100%;
+            .z(3);
+            .size(100%,100%);
         }
         .u-shield{
             .pa;
@@ -238,6 +275,7 @@
         user-select: none;
         background: url("@{kv_hengdaoduanlang}/p1/p1-2-txtbg.png") 0 400px no-repeat,url("@{kv_hengdaoduanlang}/p1/p1-2-bg.png") bottom right no-repeat;
         .u-btn{
+            display: block;
             .pr;
             .lt(440px,550px);
         }
@@ -302,7 +340,6 @@
 
 .m-three{
     .size(100%,1030px);
-
     .u-title {
         .size(999px, 216px);
         .auto(x);
@@ -315,8 +352,9 @@
         .lt(0,45px);
         .auto(x);
         .flex;
-        background: url("@{kv_hengdaoduanlang}p3/p3-top.png") center no-repeat;
-        div{
+        background: url("@{kv_hengdaoduanlang}p3/top-tip.png") 769px 46px no-repeat,url("@{kv_hengdaoduanlang}p3/p3-top.png") center no-repeat;
+        //background-position:46px,769px;
+            div{
             cursor: pointer;
             .size(700px,190px);
 
@@ -328,11 +366,19 @@
         //.lt(466px,90px);
         .lt(0,90px);
         .auto(x);
-        background: url("@{kv_hengdaoduanlang}p3/p3-border.png") center no-repeat;
         .u-item{
+            .size(968px,482px);
             .pr;
-            .lt(10px,10px);
-
+            top:10px;
+            .auto(x);
+            img{
+                transition: all .1s;
+                .size(242px,482px);
+            }
+            img:hover{
+                transform: scale(1.1);
+            }
+            overflow: hidden;
         }
         .u-btn{
             .pa;
@@ -340,6 +386,13 @@
             .lt(277px,459px);
             background: url("@{kv_hengdaoduanlang}p3/p3-btn.png") center no-repeat;
         }
+    }
+    .u-box-xjd{
+        //background: url("@{kv_hengdaoduanlang}p3/p3-xjd2.png") center no-repeat;
+    }
+    .u-box-five{
+        background: url("@{kv_hengdaoduanlang}p3/p3-border.png") center no-repeat;
+
     }
     .u-five-btn{
         display: none;
@@ -564,10 +617,16 @@
             .auto(x);
         }
         .u-box{
-            .size(988px,502px);
-
-            .lt(-5px,90px);
+            width: calc(100% - 80px);
             .auto(x);
+            left:0;
+            padding: 0 40px;
+            .u-btn{
+                .pr;
+                .lt(0,-44px);
+                z-index: 9;
+                .auto(x);
+            }
         }
     }
     .m-four{
@@ -620,9 +679,12 @@
                 a{
                     display: block;
                     .auto(x);
+
                 }
                 left: 0;
-
+                img:nth-child(1){
+                    margin-right: 0;
+                }
             }
         }
         .u-content-box{
