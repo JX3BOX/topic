@@ -104,8 +104,8 @@
         <div class="m-three m-jump" ref="m-three">
             <div class="u-title p-animation" v-animate="'fadeInDown'"></div>
             <div class="u-tab">
-                <div @click="fbshow=false"></div>
-                <div @click="fbshow=true"></div>
+                <div @click="fbshow=false" :class="[fbshow?'':'u-div-xjd',fbBgShow==1 && fbshow?'u-div-xjd':'']" @mouseover="fbBgShow=1"  @mouseleave="fbBgShow=0"></div>
+                <div @click="fbshow=true" :class="[fbshow?'u-div-five':'',fbBgShow==2 && !fbshow?'u-div-five':'']" @mouseover="fbBgShow=2"   @mouseleave="fbBgShow=0"></div>
             </div>
 <!--            西津渡、五人本切换区-->
             <div class="u-box u-box-xjd" v-show="!fbshow">
@@ -274,6 +274,7 @@ export default {
             ],
             btnurl:['https://www.jx3box.com/fb/#/?fb_zlp=%E6%A8%AA%E5%88%80%E6%96%AD%E6%B5%AA&fb_name=%E8%A5%BF%E6%B4%A5%E6%B8%A1','https://www.jx3box.com/fb/#/'],
             fbshow:false, //西津渡、五人本切换
+            fbBgShow:0,
             fb:[
                 {imgurl:'wsy.png',href:'https://www.jx3box.com/fb/#/?fb_zlp=%E6%A8%AA%E5%88%80%E6%96%AD%E6%B5%AA&fb_name=%E6%B2%83%E7%9F%B3%E9%99%A2'},
                 {imgurl:'zhg.png',href:'https://www.jx3box.com/fb/#/?fb_zlp=%E6%A8%AA%E5%88%80%E6%96%AD%E6%B5%AA&fb_name=%E9%95%87%E6%B5%B7%E9%98%81%E5%9C%B0%E4%BA%95'},
