@@ -15,6 +15,7 @@
             "key": "bashufengyun",
             "year": "2022",
             "date": "07-28",
+            "time": "2022.07.28",
             "link": "./bashufengyun"
         },
         {
@@ -22,6 +23,7 @@
             "key": "wuduxianshi",
             "year": "2022",
             "date": "05-13",
+            "time": "2022.05.13",
             "link": "./wuduxianshi"
         },
         {
@@ -29,6 +31,7 @@
             "key": "shengdianyunqi",
             "year": "2022",
             "date": "03-31",
+            "time": "2022.03.31",
             "link": "./shengdianyunqi"
         },
         {
@@ -36,8 +39,10 @@
             "key": "cangjianshanzhuang",
             "year": "2021",
             "date": "11-19",
+            "time": "2021.11.19",
             "link": "./cangjianshanzhuang"
-        }
+        },
+        {"year":2020,"type":"normal","key":"normal"}
     ],
     "std": [
         {
@@ -45,6 +50,7 @@
             "key": "hengdaoduanlang",
             "year": "2022",
             "date": "10-27",
+            "time": "2022.10.27",
             "link": "./hengdaoduanlang"
         },
         {
@@ -52,6 +58,7 @@
             "key": "jianghuwuxian",
             "year": "2022",
             "date": "04-28",
+            "time": "2022.04.28",
             "link": "./jianghuwuxian"
         },
         {
@@ -59,19 +66,23 @@
             "key": "beitianyaozong",
             "year": "2021",
             "date": "10-28",
+            "time": "2022.10.28",
             "link": "./beitianyaozong"
         },
         {
             "name": "白帝风云",
             "key": "baidifengyun",
             "year": "2021",
-            "date": "04-22"
+            "date": "04-22",
+            "time": "2022.04.22"
         },
         {
             "name": "奉天证道",
             "key": "fengtianzhengdao",
             "year": "2020",
-            "date": "10-29"
-        }
+            "date": "10-29",
+            "time": "2022.10.29"
+        },
+        {"year":2020,"type":"normal","key":"normal"}
     ]
 }
