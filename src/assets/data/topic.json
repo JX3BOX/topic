@@ -11,6 +11,14 @@
     ],
     "origin": [
         {
+            "name": "剑湖神宫",
+            "key": "jianhushengong",
+            "year": "2022",
+            "date": "11-24",
+            "time": "2022.11.24",
+            "link": "./jianhushengong"
+        },
+        {
             "name": "巴蜀风云",
             "key": "bashufengyun",
             "year": "2022",
