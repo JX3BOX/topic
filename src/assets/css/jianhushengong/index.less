@@ -119,7 +119,7 @@
                     .pr;
                     left:50%;
                     &.boss4{
-                        left:39%;
+                        left:calc(50% - 210px);
                     }
                 }
                 .u-boss-text{
@@ -144,11 +144,13 @@
                         .w(493px);
                         .fz(18px,22px);
                     }
-                    .u-fb-btn{
-                       .mt(44px);
-                        text-align: right;
-                        cursor: pointer;
-                    }
+
+                }
+                .u-fb-btn{
+                    .pa;
+                    bottom: 10px;
+                    .lb(calc(50% - 150px),68px);
+                    cursor: pointer;
                 }
 
             }
@@ -241,6 +243,7 @@
     .m-index{
         zoom:0.8;
         .m-p1{
+            background: url("@{kv_jianhushengong}p1-legt.png") top left no-repeat;
             .u-box{
                 left: 0;
                 .auto(x);

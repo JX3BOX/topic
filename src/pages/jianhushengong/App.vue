@@ -45,18 +45,18 @@ export default {
 ::-webkit-scrollbar {
     width: 2px;
     height: 7px;
-    background-color: #f5f5f5;
+    background-color: #F7B38A;
 }
 ::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
-    background-color: #f5f5f5;
+    background-color: #F7B38A;
 }
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-    background-color: #c8c8c8;
+    background-color: #625041;
 }
 </style>

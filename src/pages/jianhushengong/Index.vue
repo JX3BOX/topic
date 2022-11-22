@@ -45,11 +45,12 @@
                         <div class="u-boss-name">{{boss[bossActive].name}}</div>
                         <div class="u-boss-gist">{{boss[bossActive].gist}}</div>
                         <div class="u-boss-content" v-html="boss[bossActive].textHtml"></div>
-                        <div class="u-fb-btn p-animation fadeIn">
-                            <a href="https://origin.jx3box.com/fb/#/npc" target="_blank">
+
+                    </div>
+                    <div class="u-fb-btn p-animation fadeIn">
+                        <a href="https://origin.jx3box.com/fb/#/npc" target="_blank">
                             <img :src="imgurl+'slsj.png'" />
-                            </a>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div class="u-bottom-img"></div>
@@ -99,7 +100,7 @@
             </div>
         </div>
 <!--        二维码区域-->
-        <div class="m-qrcode"></div>
+        <div class="m-qrcode p-animation"  v-animate="'fadeIn'"></div>
     </div>
 </template>
 
