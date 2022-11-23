@@ -3,6 +3,7 @@
     max-width:1920px;
     height:6428px;
     background-color: #483834;
+    .auto(x);
     .clip;
     .mt(64px);
     .m-p0{
@@ -48,6 +49,23 @@
                     .fz(18px,32px);
                     .bold(400);
                     color: #F7B38A;
+                }
+                &::-webkit-scrollbar {
+                    width: 2px !important;
+                    height: 7px;
+                    background-color: #F7B38A;
+                }
+                &::-webkit-scrollbar-track {
+                    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+                    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+                    border-radius: 10px;
+                    background-color: #F7B38A;
+                }
+                &::-webkit-scrollbar-thumb {
+                    border-radius: 10px;
+                    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+                    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+                    background-color: #625041;
                 }
             }
             .u-btn{
