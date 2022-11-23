@@ -1,7 +1,7 @@
 .m-index{
     user-select: none;
     max-width:1920px;
-    height:6428px;
+    //height:6428px;
     background-color: #483834;
     .auto(x);
     .clip;
@@ -248,20 +248,84 @@
             }
         }
     }
+    .m-p5-img{
+        .mt(250px);
+        .auto(x);
+        .size(518px,141px);
+        background: url("@{kv_jianhushengong}p4.png") top center no-repeat;
+    }
+    .m-p5{
+        .mt(100px);
+        .h(1365px);
+        background: url("@{kv_jianhushengong}p4-bg.png") top center no-repeat;
+        .u-text{
+            .w(716px);
+            .pr;
+            .auto(x);
+            text-align: center;
+            top:822px;
+            .fz(18px,32px);
+            .bold(400);
+            &.text1{
+                color:#FFDD7A;
+                .mb(40px);
+            }
+            &.text2{
+                color:#F7B38A;
+            }
+        }
+        .u-made{
+            .pr;
+            .w(540px);
+            .auto(x);
+            top:862px;
+            text-align: center;
+            .u-made-text{
+                .fz(18px,32px);
+                .bold(400);
+                color:#FBDE89;
+                .mt(20px);
+            }
+        }
+    }
+    .m-p6-img{
+        .mt(250px);
+        .auto(x);
+        .size(518px,141px);
+        background: url("@{kv_jianhushengong}p5.png") top center no-repeat;
+    }
+    .m-p6-title{
+        .mt(100px);
+        .w(661px);
+        .auto(x);
+    }
+    .m-p6{
+        .mt(100px);
+        background: url("@{kv_jianhushengong}p5-bg.png") top center no-repeat;
+        .h(3382px);
+        padding: 64px 0;
+        .u-p6-img{
+            .db;
+            .auto(x);
+        }
+        .u-img-mb{
+            .mb(100px)
+        }
+    }
     .m-qrcode{
         .mt(250px);
         .auto(x);
-        .h(240px);
-        max-width: 90%;
-        background: url("@{kv_jianhushengong}qrcode.png") top center no-repeat;
-        background-size: 100%;
+        .h(286px);
+        background: url("@{kv_jianhushengong}qrcode-bg.png") top center no-repeat;
+        padding: 60px 0;
+        text-align: center;
     }
 }
 @media screen and (orientation: portrait){
     .m-index{
         zoom:0.8;
         .m-p1{
-            background: url("@{kv_jianhushengong}p1-legt.png") top left no-repeat;
+            background: url("@{kv_jianhushengong}p3-bg.png") top left no-repeat;
             .u-box{
                 left: 0;
                 .auto(x);

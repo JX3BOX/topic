@@ -96,11 +96,48 @@
                 <div class="p-animation u-cover-img" v-animate="'fadeIn'">
                     <img :src="imgurl+'mbqy-map.png'" />
                 </div>
-
             </div>
         </div>
+<!--        p5 轩辕秘宝-->
+        <div class="p-animation m-p5-img" v-animate="'fadeIn'"></div>
+        <div class="m-p5">
+<!--            <div class="u-img">-->
+<!--                <img :src="imgurl+'p4-xymb.png'">-->
+<!--            </div>-->
+            <div class="u-text text1">
+                为酬谢各位豪侠前来助战，轩辕社将额外提供重磅秘宝作为奖励<br/>
+                所有达成第一阶段挑战目标的侠士可参与秘宝竞拍<br/>
+                达成第二阶段挑战目标的侠士可共同瓜分竞拍所得
+            </div>
+            <div class="u-text text2">
+                每场世界任务首领活动结束后，秘宝奖池将出现多件PVP强力装备<br/>
+                更有机会出现绑定版80级稀世神兵铸造材料「化玉玄晶」<br/>
+                注：首批拍品为330品，奖池拍品将随赛季进程逐渐提品<br/>
+                详细竞拍规则可在拍卖界面处了解。
+            </div>
+            <div class="u-made">
+                <img :src="imgurl+'p4-jzty.png'">
+                <div class="u-made-text">
+                    现在，公共日常「驰援·轩辕社」不再受阶段限制<br/>
+                    击败任意阶段敌人或收集道具可快速累计士气值，更快完成日常任务
+                </div>
+            </div>
+        </div>
+<!--        p6 玩法优化-->
+        <div class="p-animation m-p6-img" v-animate="'fadeIn'"></div>
+        <div class="p-animation m-p6-title" v-animate="'fadeIn'">
+            <img :src="imgurl+'p5-title.png'">
+        </div>
+        <div class="m-p6">
+            <img :src="imgurl+'p5-content1.png'" class="u-p6-img u-img-mb">
+            <img :src="imgurl+'p5-content2.png'" class="u-p6-img u-img-mb">
+            <img :src="imgurl+'p5-content3.png'" class="u-p6-img u-img-mb">
+            <img :src="imgurl+'p5-content4.png'" class="u-p6-img">
+        </div>
 <!--        二维码区域-->
-        <div class="m-qrcode p-animation"  v-animate="'fadeIn'"></div>
+        <div class="m-qrcode p-animation"  v-animate="'fadeIn'">
+            <img :src="imgurl+'qrcode.png'">
+        </div>
     </div>
 </template>
 
