@@ -132,7 +132,8 @@
             <img :src="imgurl+'p5-content1.png'" class="u-p6-img u-img-mb">
             <img :src="imgurl+'p5-content2.png'" class="u-p6-img u-img-mb">
             <img :src="imgurl+'p5-content3.png'" class="u-p6-img u-img-mb">
-            <img :src="imgurl+'p5-content4.png'" class="u-p6-img">
+            <img :src="imgurl+'p5-content4.png'" class="u-p6-img u-img-mb">
+            <img :src="imgurl+'p5-content5.png'" class="u-p6-img">
         </div>
 <!--        二维码区域-->
         <div class="m-qrcode p-animation"  v-animate="'fadeIn'">
