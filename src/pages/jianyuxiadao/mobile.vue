@@ -8,6 +8,9 @@
                     <div class="u-ljcq p-animation fadeIn">
                         <img :src="imgurl+'kslj.png'" @click="active=2" class="u-img">
                     </div>
+                    <div class="m-qrcode">
+                        <img :src="imgurl+'qrcode.jpg'">
+                    </div>
                 </div>
             </div>
 
@@ -53,7 +56,9 @@
                     <img :src="imgurl+'download@3x.png'" @click="toastMsg">
                     <div class="u-text" @click="active=1">返回主页</div>
                 </div>
-
+                <div class="m-qrcode">
+                    <img :src="imgurl+'qrcode.jpg'">
+                </div>
             </div>
         </div>
     </div>

@@ -12,6 +12,9 @@
                 注：本桌游建议5-10人参与游戏，建议使用Excel或记录纸，以获得更好的游戏体验。<br/>
                 本桌游虽由魔盒百强赛奖励20面骰子而生，但并不强制要求使用同骰子。
             </div>
+            <div class="m-qrcode">
+                <img :src="imgurl+'qrcode.jpg'">
+            </div>
         </div>
         <!--        第二屏-->
         <div class="m-p2 p-animation fadeIn" v-show="active===2">
@@ -52,7 +55,7 @@
                 <img :src="imgurl+'jyxd.png'" class=" p-animation fadeIn">
                 <div class="u-btn  p-animation fadeIn">
                     <img :src="imgurl+'download.png'" @click="toastMsg">
-                    <span class="u-text" @click="active=1">返回主页</span>
+                    <span class="u-text" @click="goHome">返回主页</span>
                 </div>
 
             </div>
@@ -120,6 +123,12 @@ export default {
             this.ljxqclass='fadeOutRight'
             setTimeout(() => {
                 this.active=2
+            }, 200);
+        },
+        goHome(){
+            this.ljxqclass='fadeIn'
+            setTimeout(() => {
+                this.active=1
             }, 200);
         },
         toastMsg(){
