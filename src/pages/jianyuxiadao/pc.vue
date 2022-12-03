@@ -1,4 +1,5 @@
 <template>
+    <div class="m-box">
     <div class="m-index">
         <!--        第一屏-->
         <div class="m-p1 p-animation fadeIn" v-show="active===1">
@@ -60,6 +61,7 @@
 
             </div>
         </div>
+    </div>
     </div>
 </template>
 
@@ -142,7 +144,12 @@ export default {
     },
 };
 </script>
-
+<style>
+body{
+    /*background-color: #000000;*/
+}
+</style>
 <style lang="less" scoped>
 @import "../../assets/css/jianyuxiadao/index.less";
+
 </style>
