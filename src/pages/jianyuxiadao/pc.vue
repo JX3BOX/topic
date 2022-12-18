@@ -1,61 +1,80 @@
 <template>
     <div class="m-box">
         <div class="m-index">
-            <!--        第一屏-->
+            <!-- 第一屏 -->
             <div class="m-p1 p-animation fadeIn">
-                <div class="m-title">
-                    <img :src="imgurl + 'jyxd.png'" class="p-animation fadeIn" />
-                    <div class="u-ljcq p-animation fadeIn">
-                        <a href="#p2">
-                            <img :src="imgurl + 'ljxq.png'" @click="ljxqclick" class="u-img" />
-                        </a>
+                <div class="wp">
+                    <div class="m-title">
+                        <img :src="imgurl + 'jyxd.png'" class="p-animation fadeIn" />
+                        <div class="u-ljcq p-animation fadeIn">
+                            <a href="#p2">
+                                <img :src="imgurl + 'ljxq.png'" @click="ljxqclick" class="u-img" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="m-tips p-animation fadeIn">
+                        注：本桌游建议5-10人参与游戏，建议使用Excel或记录纸，以获得更好的游戏体验。<br />
+                        本桌游虽由魔盒百强赛奖励20面骰子而生，但并不强制要求使用同骰子。
+                    </div>
+                    <div class="m-qrcode">
+                        <img :src="imgurl + 'qrcode.jpg'" />
                     </div>
                 </div>
-                <div class="m-tips p-animation fadeIn">
-                    注：本桌游建议5-10人参与游戏，建议使用Excel或记录纸，以获得更好的游戏体验。<br />
-                    本桌游虽由魔盒百强赛奖励20面骰子而生，但并不强制要求使用同骰子。
-                </div>
-                <div class="m-qrcode">
-                    <img :src="imgurl + 'qrcode.jpg'" />
-                </div>
             </div>
-            <!--        第二屏-->
-            <div class="m-p2 p-animation fadeIn" id="p2">
-                <div class="m-p2-content">
-                    <img :src="imgurl + 'p2-title.png'" class="p-animation fadeIn" />
-                    <div class="u-text p-animation fadeIn">
-                        每位玩家建立一个侠客角色，指定其门派、体型。每个玩家自选加点，确定侠客各项属性数值。<br />
-                        每个门派拥有1-2个属性类型，属性类型永久恒定，不因后期属性数值变化而变化。<br />
-                        注：所有玩家属性永久公开。<br /><br />
+            <!-- 第二屏 -->
+            <div class="m-txt p-animation fadeIn" id="p2">
+                <div class="wp">
+                    <h2>综述</h2>
+                    <span class="u-txt">➢ 本桌游建议5-10人参与游戏，建议使用Excel或记录纸，以获得更好的游戏体验。</span>
+                    <span class="u-txt">
+                        ➢
+                        本桌游分为建立角色阶段与江湖游历阶段。在江湖游历阶段，某玩家任一属性达到100点或达成其他胜利条件即获得胜利，其他玩家可继续游戏。
+                    </span>
+                    <span class="u-txt">
+                        ➢ 若某玩家任一属性类型降为0，则该玩家重伤。若某玩家任一条件降为0，则该玩家重伤。重伤玩家被淘汰。
+                    </span>
 
-                        本游戏一共有5个属性类型，4个条件类型。<br />
-                        自选属性单位为5，自选属性点数必须马上使用，自选后每一属性均不可超过50。<br />
-                        自选条件单位为5，自选条件点数必须马上使用，自选后每一条件均不可超过40。<br /><br />
-                    </div>
+                    <h2>建立角色阶段</h2>
+                    <span class="u-txt">
+                        ●
+                        【建立角色】每个玩家建立一个侠客角色，指定其门派、体型。每个玩家自选加点，确定侠客各项属性数值。
+                    </span>
+                    <span class="u-txt"
+                        >● 【属性类型】每个门派拥有1-2个属性类型，属性类型永久恒定，不因后期属性数值变化而变化。</span
+                    >
                 </div>
             </div>
-            <!-- 第三屏-->
-            <div class="m-p3 p-animation fadeIn">
-                <div class="m-p3-content p-animation fadeIn">
-                    <img :src="imgurl + 'p3-title.png'" class="p-animation fadeIn" />
-                    <div class="u-text p-animation fadeIn">
-                        所有玩家选择一个棋子单位代表自身，置于地图初始位置稻香村。而后向长安方向前进。<br />
-                        以-掷骰-抽牌-前进的顺序，掷得同属性门派获得前进1-2步资格，掷得其余门派获得前进1步资格，<br />
-                        掷得剑网三logo或魔盒logo获得前进1-3步资格。抽牌后玩家自由决定卡牌效果在侠客行动之前或之后生效。<br />
-                        牌库不可翻动，牌库抽完后重新洗牌。<br /><br />
 
-                        注：在江湖游历阶段，某玩家任一属性达到100点或达成其他胜利条件即获得胜利，其他玩家可继续游戏。<br />
-                        若某玩家任一属性类型降为0，则该玩家重伤。若某玩家任一条件降为0，则该玩家重伤。重伤玩家被淘汰。<br /><br />
-                    </div>
+            <!-- 第三屏 -->
+            <div class="m-txt p-animation fadeIn">
+                <div class="wp">
+                    <h2>属性详解</h2>
+                    <span class="u-txt">✧ 本游戏一共有5个属性类型，4个条件类型。</span>
+                    <span class="u-txt">✧ 自选属性单位为5，自选属性点数必须马上使用，自选后每一属性均不可超过50。</span>
+                    <span class="u-txt">✧ 自选条件单位为5，自选条件点数必须马上使用，自选后每一条件均不可超过40。</span>
                 </div>
             </div>
-            <!--        第四屏-->
+            <!-- 第四屏 -->
+            <div class="m-txt p-animation fadeIn">
+                <div class="wp">
+                    <h2>江湖游历阶段</h2>
+                    <span class="u-txt"
+                        >❋
+                        【地图说明】所有侠士选择一个棋子单位代表自身，置于地图初始位置稻香村。而后向长安方向前进。</span
+                    >
+                    <span class="u-txt"
+                        >❋ 【玩家行动】①掷骰 ②抽牌
+                        ③前进。掷得同属性门派获得前进1-2步资格，掷得其余门派获得前进1步资格，掷得魔盒logo或百强logo获得前进1-3步资格。抽牌后玩家自由决定卡牌效果在侠客行动之前或之后生效。牌库不可翻动，牌库抽完后重新洗牌。</span
+                    >
+                </div>
+            </div>
+            <!-- 第五屏 -->
             <div class="m-p4 p-animation fadeIn">
                 <div class="m-p4-title">
                     <img :src="imgurl + 'jyxd.png'" class="p-animation fadeIn" />
                     <div class="u-btn p-animation fadeIn">
                         <img :src="imgurl + 'download.png'" @click="toastMsg" />
-                        <span class="u-text" @click="goHome">返回主页</span>
+                        <span class="u-text" @click="goHome">返回顶部</span>
                     </div>
                 </div>
             </div>
@@ -115,12 +134,8 @@ export default {
     },
     watch: {},
     methods: {
-        ljxqclick() {},
         goHome() {
-            this.ljxqclass = "fadeIn";
-            setTimeout(() => {
-                this.active = 1;
-            }, 200);
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
         },
         toastMsg() {
             alert("百强结榜后放出，敬请期待");
@@ -133,11 +148,6 @@ export default {
     },
 };
 </script>
-<style>
-body {
-    /*background-color: #000000;*/
-}
-</style>
-<style lang="less" scoped>
+<style lang="less">
 @import "../../assets/css/jianyuxiadao/index.less";
 </style>
