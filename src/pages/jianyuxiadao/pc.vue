@@ -8,7 +8,7 @@
                         <img :src="imgurl + 'jyxd.png'" class="p-animation fadeIn" />
                         <div class="u-ljcq p-animation fadeIn">
                             <a href="#p2">
-                                <img :src="imgurl + 'ljxq.png'" @click="ljxqclick" class="u-img" />
+                                <img :src="imgurl + 'ljxq.png'" class="u-img" />
                             </a>
                         </div>
                     </div>
@@ -24,51 +24,59 @@
             <!-- 第二屏 -->
             <div class="m-txt p-animation fadeIn" id="p2">
                 <div class="wp">
-                    <h2>综述</h2>
-                    <span class="u-txt">➢ 本桌游建议5-10人参与游戏，建议使用Excel或记录纸，以获得更好的游戏体验。</span>
-                    <span class="u-txt">
-                        ➢
-                        本桌游分为建立角色阶段与江湖游历阶段。在江湖游历阶段，某玩家任一属性达到100点或达成其他胜利条件即获得胜利，其他玩家可继续游戏。
-                    </span>
-                    <span class="u-txt">
-                        ➢ 若某玩家任一属性类型降为0，则该玩家重伤。若某玩家任一条件降为0，则该玩家重伤。重伤玩家被淘汰。
-                    </span>
+                    <h2>{{ play.zongshu.title }}</h2>
+                    <span class="u-txt" v-for="item in play.zongshu.content" :key="item">➢ {{ item }}</span>
 
-                    <h2>建立角色阶段</h2>
-                    <span class="u-txt">
-                        ●
-                        【建立角色】每个玩家建立一个侠客角色，指定其门派、体型。每个玩家自选加点，确定侠客各项属性数值。
-                    </span>
-                    <span class="u-txt"
-                        >● 【属性类型】每个门派拥有1-2个属性类型，属性类型永久恒定，不因后期属性数值变化而变化。</span
-                    >
+                    <h2>{{ play.juese.title }}</h2>
+                    <span class="u-txt" v-for="item in play.juese.content" :key="item">● {{ item }}</span>
+
+                    <div class="m-img">
+                        <img :src="imgurl + 'p-1.png'" class="u-img" />
+                        <img :src="imgurl + 'p-2.png'" class="u-img" />
+                    </div>
                 </div>
             </div>
 
             <!-- 第三屏 -->
             <div class="m-txt p-animation fadeIn">
                 <div class="wp">
-                    <h2>属性详解</h2>
-                    <span class="u-txt">✧ 本游戏一共有5个属性类型，4个条件类型。</span>
-                    <span class="u-txt">✧ 自选属性单位为5，自选属性点数必须马上使用，自选后每一属性均不可超过50。</span>
-                    <span class="u-txt">✧ 自选条件单位为5，自选条件点数必须马上使用，自选后每一条件均不可超过40。</span>
+                    <h2>{{ play.shuxing.title }}</h2>
+                    <span class="u-txt" v-for="item in play.shuxing.content" :key="item">✧ {{ item }}</span>
+                    <div class="m-img">
+                        <img :src="imgurl + 'p-3.png'" class="u-img" />
+                        <img :src="imgurl + 'p-4.png'" class="u-img" />
+                    </div>
                 </div>
             </div>
             <!-- 第四屏 -->
             <div class="m-txt p-animation fadeIn">
                 <div class="wp">
-                    <h2>江湖游历阶段</h2>
-                    <span class="u-txt"
-                        >❋
-                        【地图说明】所有侠士选择一个棋子单位代表自身，置于地图初始位置稻香村。而后向长安方向前进。</span
-                    >
-                    <span class="u-txt"
-                        >❋ 【玩家行动】①掷骰 ②抽牌
-                        ③前进。掷得同属性门派获得前进1-2步资格，掷得其余门派获得前进1步资格，掷得魔盒logo或百强logo获得前进1-3步资格。抽牌后玩家自由决定卡牌效果在侠客行动之前或之后生效。牌库不可翻动，牌库抽完后重新洗牌。</span
-                    >
+                    <h2>{{ play.youli.title }}</h2>
+                    <span class="u-txt" v-for="item in play.youli.content" :key="item">❋ {{ item }}</span>
+                    <img :src="imgurl + 'p-5.png'" class="u-img" />
                 </div>
             </div>
-            <!-- 第五屏 -->
+            <!-- 第六屏 -->
+            <div class="m-txt p-animation fadeIn">
+                <div class="wp">
+                    <h2>玩法说明</h2>
+                    <span class="u-txt"> {{ play.kapai.info }} </span>
+                    <h3>{{ play.kapai.putong.title }}</h3>
+                    <span class="u-txt" v-for="item in play.kapai.putong.content" :key="item">{{ item }}</span>
+                    <h3>{{ play.kapai.jueze.title }}</h3>
+                    <span class="u-txt" v-for="item in play.kapai.jueze.content" :key="item">{{ item }}</span>
+                    <h3>{{ play.kapai.teshu.title }}</h3>
+                    <span class="u-txt" v-for="item in play.kapai.teshu.content" :key="item">{{ item }}</span>
+                </div>
+            </div>
+            <!-- 第七屏 -->
+            <div class="m-txt p-animation fadeIn">
+                <div class="wp">
+                    <h2>{{ play.jiyu.title }}</h2>
+                    <span class="u-txt" v-for="item in play.jiyu.content" :key="item">❂ {{ item }}</span>
+                </div>
+            </div>
+            <!-- 第八屏 -->
             <div class="m-p4 p-animation fadeIn">
                 <div class="m-p4-title">
                     <img :src="imgurl + 'jyxd.png'" class="p-animation fadeIn" />
@@ -85,6 +93,7 @@
 <script>
 const KEY = "jianyuxiadao";
 import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
+import play from "@/assets/data/dnd.json";
 export default {
     name: "Index",
     props: [],
@@ -92,6 +101,7 @@ export default {
     data: function () {
         return {
             imgurl: __imgPath + "/topic/jianyuxiadao/",
+            play,
         };
     },
     directives: {
