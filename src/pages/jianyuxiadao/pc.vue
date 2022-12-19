@@ -70,6 +70,13 @@
                 </div>
             </div>
             <!-- 第七屏 -->
+            <div class="m-txt p-animation fadeIn">
+                <div class="wp">
+                    <h2>{{ play.jiyu.title }}</h2>
+                    <span class="u-txt" v-for="item in play.jiyu.content" :key="item">❂ {{ item }}</span>
+                </div>
+            </div>
+            <!-- 第八屏 -->
             <div class="m-p4 p-animation fadeIn">
                 <div class="m-p4-title">
                     <img :src="imgurl + 'jyxd.png'" class="p-animation fadeIn" />
