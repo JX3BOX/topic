@@ -1,84 +1,107 @@
 <template>
     <div class="m-box">
-    <div class="m-index">
-        <!--        第一屏-->
-        <div class="m-p1 p-animation fadeIn" v-show="active===1">
-            <div class="m-title">
-                <img :src="imgurl+'jyxd.png'" class="p-animation fadeIn">
-                <div class="u-ljcq p-animation" :class="ljxqclass">
-                    <img :src="imgurl+'ljxq.png'" @click="ljxqclick" class="u-img">
+        <div class="m-index">
+            <!-- 第一屏 -->
+            <div class="m-p1 p-animation fadeIn">
+                <div class="wp">
+                    <div class="m-title">
+                        <img :src="imgurl + 'jyxd.png'" class="p-animation fadeIn" />
+                        <div class="u-ljcq p-animation fadeIn">
+                            <a href="#p2">
+                                <img :src="imgurl + 'ljxq.png'" class="u-img" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="m-tips p-animation fadeIn">
+                        注：本桌游建议5-10人参与游戏，建议使用Excel或记录纸，以获得更好的游戏体验。<br />
+                        本桌游虽由魔盒百强赛奖励20面骰子而生，但并不强制要求使用同骰子。
+                    </div>
+                    <div class="m-qrcode">
+                        <img :src="imgurl + 'qrcode.jpg'" />
+                    </div>
                 </div>
             </div>
-            <div class="m-tips p-animation fadeIn">
-                注：本桌游建议5-10人参与游戏，建议使用Excel或记录纸，以获得更好的游戏体验。<br/>
-                本桌游虽由魔盒百强赛奖励20面骰子而生，但并不强制要求使用同骰子。
-            </div>
-            <div class="m-qrcode">
-                <img :src="imgurl+'qrcode.jpg'">
-            </div>
-        </div>
-        <!--        第二屏-->
-        <div class="m-p2 p-animation fadeIn" v-show="active===2">
-            <div class="m-p2-content">
-                <img :src="imgurl+'p2-title.png'" class="p-animation fadeIn">
-                <div class="u-text p-animation fadeIn">
-                    每位玩家建立一个侠客角色，指定其门派、体型。每个玩家自选加点，确定侠客各项属性数值。<br/>
-                    每个门派拥有1-2个属性类型，属性类型永久恒定，不因后期属性数值变化而变化。<br/>
-                    注：所有玩家属性永久公开。<br/><br/>
+            <!-- 第二屏 -->
+            <div class="m-txt p-animation fadeIn" id="p2">
+                <div class="wp">
+                    <h2>{{ play.zongshu.title }}</h2>
+                    <span class="u-txt" v-for="item in play.zongshu.content" :key="item">➢ {{ item }}</span>
 
-                    本游戏一共有5个属性类型，4个条件类型。<br/>
-                    自选属性单位为5，自选属性点数必须马上使用，自选后每一属性均不可超过50。<br/>
-                    自选条件单位为5，自选条件点数必须马上使用，自选后每一条件均不可超过40。<br/><br/>
+                    <h2>{{ play.juese.title }}</h2>
+                    <span class="u-txt" v-for="item in play.juese.content" :key="item">● {{ item }}</span>
+
+                    <div class="m-img">
+                        <img :src="imgurl + 'p-1.png'" class="u-img" />
+                        <img :src="imgurl + 'p-2.png'" class="u-img" />
+                    </div>
                 </div>
-                <img :src="imgurl+'continue.png'" @click="active=3"  class="u-img p-animation fadeIn">
             </div>
-        </div>
-        <!-- 第三屏-->
-        <div class="m-p3 p-animation fadeIn" v-show="active===3">
-            <div class="m-p3-content p-animation fadeIn">
-                <img :src="imgurl+'p3-title.png'" class="p-animation fadeIn">
-                <div class="u-text p-animation fadeIn">
-                    所有玩家选择一个棋子单位代表自身，置于地图初始位置稻香村。而后向长安方向前进。<br/>
-                    以-掷骰-抽牌-前进的顺序，掷得同属性门派获得前进1-2步资格，掷得其余门派获得前进1步资格，<br/>
-                    掷得剑网三logo或魔盒logo获得前进1-3步资格。抽牌后玩家自由决定卡牌效果在侠客行动之前或之后生效。<br/>
-                    牌库不可翻动，牌库抽完后重新洗牌。<br/><br/>
 
-                    注：在江湖游历阶段，某玩家任一属性达到100点或达成其他胜利条件即获得胜利，其他玩家可继续游戏。<br/>
-                    若某玩家任一属性类型降为0，则该玩家重伤。若某玩家任一条件降为0，则该玩家重伤。重伤玩家被淘汰。<br/><br/>
-
+            <!-- 第三屏 -->
+            <div class="m-txt p-animation fadeIn">
+                <div class="wp">
+                    <h2>{{ play.shuxing.title }}</h2>
+                    <span class="u-txt" v-for="item in play.shuxing.content" :key="item">✧ {{ item }}</span>
+                    <div class="m-img">
+                        <img :src="imgurl + 'p-3.png'" class="u-img" />
+                        <img :src="imgurl + 'p-4.png'" class="u-img" />
+                    </div>
                 </div>
-                <img :src="imgurl+'continue.png'" @click="active=4" class="u-img p-animation fadeIn">
             </div>
-        </div>
-        <!--        第四屏-->
-        <div class="m-p4 p-animation fadeIn" v-show="active===4">
-            <div class="m-p4-title">
-                <img :src="imgurl+'jyxd.png'" class=" p-animation fadeIn">
-                <div class="u-btn  p-animation fadeIn">
-                    <img :src="imgurl+'download.png'" @click="toastMsg">
-                    <span class="u-text" @click="goHome">返回主页</span>
+            <!-- 第四屏 -->
+            <div class="m-txt p-animation fadeIn">
+                <div class="wp">
+                    <h2>{{ play.youli.title }}</h2>
+                    <span class="u-txt" v-for="item in play.youli.content" :key="item">❋ {{ item }}</span>
+                    <img :src="imgurl + 'p-5.png'" class="u-img" />
                 </div>
-
+            </div>
+            <!-- 第六屏 -->
+            <div class="m-txt p-animation fadeIn">
+                <div class="wp">
+                    <h2>玩法说明</h2>
+                    <span class="u-txt"> {{ play.kapai.info }} </span>
+                    <h3>{{ play.kapai.putong.title }}</h3>
+                    <span class="u-txt" v-for="item in play.kapai.putong.content" :key="item">{{ item }}</span>
+                    <h3>{{ play.kapai.jueze.title }}</h3>
+                    <span class="u-txt" v-for="item in play.kapai.jueze.content" :key="item">{{ item }}</span>
+                    <h3>{{ play.kapai.teshu.title }}</h3>
+                    <span class="u-txt" v-for="item in play.kapai.teshu.content" :key="item">{{ item }}</span>
+                </div>
+            </div>
+            <!-- 第七屏 -->
+            <div class="m-txt p-animation fadeIn">
+                <div class="wp">
+                    <h2>{{ play.jiyu.title }}</h2>
+                    <span class="u-txt" v-for="item in play.jiyu.content" :key="item">❂ {{ item }}</span>
+                </div>
+            </div>
+            <!-- 第八屏 -->
+            <div class="m-p4 p-animation fadeIn">
+                <div class="m-p4-title">
+                    <img :src="imgurl + 'jyxd.png'" class="p-animation fadeIn" />
+                    <div class="u-btn p-animation fadeIn">
+                        <img :src="imgurl + 'download.png'" @click="toastMsg" />
+                        <span class="u-text" @click="goHome">返回顶部</span>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 </template>
 
 <script>
-
 const KEY = "jianyuxiadao";
+import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
+import play from "@/assets/data/dnd.json";
 export default {
     name: "Index",
     props: [],
-    components: {
-    },
+    components: {},
     data: function () {
         return {
-            imgurl: "https://img.jx3box.com/topic/jianyuxiadao/",
-            active:1,
-            ljxqclass:'fadeIn'
-
+            imgurl: __imgPath + "/topic/jianyuxiadao/",
+            play,
         };
     },
     directives: {
@@ -121,21 +144,12 @@ export default {
     },
     watch: {},
     methods: {
-        ljxqclick(){
-            this.ljxqclass='fadeOutRight'
-            setTimeout(() => {
-                this.active=2
-            }, 200);
+        goHome() {
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
         },
-        goHome(){
-            this.ljxqclass='fadeIn'
-            setTimeout(() => {
-                this.active=1
-            }, 200);
+        toastMsg() {
+            alert("百强结榜后放出，敬请期待");
         },
-        toastMsg(){
-            alert('百强结榜后放出，敬请期待')
-        }
     },
     filters: {},
     created: function () {},
@@ -144,12 +158,6 @@ export default {
     },
 };
 </script>
-<style>
-body{
-    /*background-color: #000000;*/
-}
-</style>
-<style lang="less" scoped>
+<style lang="less">
 @import "../../assets/css/jianyuxiadao/index.less";
-
 </style>
