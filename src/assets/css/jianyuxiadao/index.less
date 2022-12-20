@@ -1,5 +1,5 @@
 //pc
-.m-box {
+.m-page {
     background-color: #000000;
     .w(100%);
 }
@@ -139,11 +139,94 @@
         .u-img {
             .mt(20px);
         }
-        .m-img {
-            .flex;
+        .m-box {
+            .flex; 
             align-items: flex-start;
-            justify-content: center;
             gap: 20px;
         }
+        .m-table {
+            .flex;
+            .mt(20px);
+            flex-wrap: wrap;
+            flex: 1;
+            .m-line {
+                .flex;
+                width: 100%;
+                span {
+                    .fz(16px,2);
+                    .x;
+                    width: 60px;
+                    margin-top: -1px;
+                    &.u-label {
+                        letter-spacing: 4px;
+                        box-sizing: border-box;
+                        border: 1px solid #ddd;
+                        color: #000;
+                    }
+                }
+            }
+            &.m-column {
+                .m-line {
+                    .w(auto);
+                    flex-direction: column;
+                    span {
+                        border: 1px solid #ddd;
+                        box-sizing: border-box;
+                        margin: -1px 0 0 -1px;
+                        color: #000;
+                        &.u-label {
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+            &.m-number {
+                .m-line {
+                    .w(auto);
+                    span {
+                        border: 1px solid #666;
+                        box-sizing: border-box;
+                        margin: -1px 0 0 -1px;
+                        background-color: #fff;
+                        color: #000;
+                    }
+                }
+            }
+        }
+        .m-map {
+            .mt(20px);
+            .m-map-line {
+                .flex;
+                span {
+                    .size(130px,75px);
+                    .lh(75px);
+                    .x;
+                    margin: -1px 0 0 -1px;
+                    box-sizing: border-box;
+                    border: 1px solid #666;
+                    background-color: #fff;
+                    color: #000;
+                    &.u-blank {
+                        background-color: #000;
+                        border: 1px solid #000;
+                    }
+                }
+            }
+        }
+    }
+    .lidao {
+        background-color: #febf00 !important;
+    }
+    .tizhi {
+        background-color: #d8d8d8 !important;
+    }
+    .yuanqi {
+        background-color: #b09fc6 !important;
+    }
+    .gengu {
+        background-color: #91cf50 !important;
+    }
+    .shenfa {
+        background-color: #00afef !important;
     }
 }

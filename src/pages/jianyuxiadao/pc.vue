@@ -1,5 +1,5 @@
 <template>
-    <div class="m-box">
+    <div class="m-page">
         <div class="m-index">
             <!-- 第一屏 -->
             <div class="m-p1 p-animation fadeIn">
@@ -24,15 +24,29 @@
             <!-- 第二屏 -->
             <div class="m-txt p-animation fadeIn" id="p2">
                 <div class="wp">
+                    <!-- 综述 -->
                     <h2>{{ play.zongshu.title }}</h2>
                     <span class="u-txt" v-for="item in play.zongshu.content" :key="item">➢ {{ item }}</span>
-
+                    <!-- 建立角色阶段 -->
                     <h2>{{ play.juese.title }}</h2>
                     <span class="u-txt" v-for="item in play.juese.content" :key="item">● {{ item }}</span>
-
-                    <div class="m-img">
-                        <img :src="imgurl + 'p-1.png'" class="u-img" />
-                        <img :src="imgurl + 'p-2.png'" class="u-img" />
+                    <!-- 属性对应门派 -->
+                    <div class="m-table">
+                        <div class="m-line" v-for="(item, key) in play.group" :key="key">
+                            <span class="u-label" :class="name[key]">{{ key }}</span>
+                            <span v-for="school in item" :key="school">
+                                {{ school }}
+                            </span>
+                        </div>
+                    </div>
+                    <!-- 门派对应属性 -->
+                    <div class="m-table m-column">
+                        <div class="m-line" v-for="(item, key) in play.menpai" :key="key">
+                            <span class="u-label">{{ key }}</span>
+                            <span v-for="school in item.tag" :key="school" :class="name[school]">
+                                {{ school }}
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -40,20 +54,55 @@
             <!-- 第三屏 -->
             <div class="m-txt p-animation fadeIn">
                 <div class="wp">
+                    <!-- 属性详解 -->
                     <h2>{{ play.shuxing.title }}</h2>
                     <span class="u-txt" v-for="item in play.shuxing.content" :key="item">✧ {{ item }}</span>
-                    <div class="m-img">
-                        <img :src="imgurl + 'p-3.png'" class="u-img" />
-                        <img :src="imgurl + 'p-4.png'" class="u-img" />
+                    <div class="m-box">
+                        <!-- 门派对应属性 -->
+                        <div class="m-table m-number">
+                            <div class="m-line">
+                                <span class="u-label" v-for="item in title[0]" :key="item" :class="name[item]">
+                                    {{ item }}
+                                </span>
+                            </div>
+                            <div class="m-line" v-for="(item, key) in play.menpai" :key="key">
+                                <span class="u-label">{{ key }}</span>
+                                <span v-for="(number, i) in item.attribute" :key="i">
+                                    {{ number }}
+                                </span>
+                                <span>{{ count(item.attribute) }}</span>
+                            </div>
+                        </div>
+                        <!-- 体型对应属性 -->
+                        <div class="m-table m-number">
+                            <div class="m-line">
+                                <span class="u-label" v-for="item in title[1]" :key="item" :class="name[item]">
+                                    {{ item }}
+                                </span>
+                            </div>
+                            <div class="m-line" v-for="(item, key) in play.tixing" :key="key">
+                                <span class="u-label">{{ key }}</span>
+                                <span v-for="(number, i) in item" :key="i">
+                                    {{ number }}
+                                </span>
+                                <span>{{ count(item) }}</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <!-- 第四屏 -->
             <div class="m-txt p-animation fadeIn">
                 <div class="wp">
+                    <!-- 江湖游历 -->
                     <h2>{{ play.youli.title }}</h2>
                     <span class="u-txt" v-for="item in play.youli.content" :key="item">❋ {{ item }}</span>
-                    <img :src="imgurl + 'p-5.png'" class="u-img" />
+
+                    <div class="m-map">
+                        <div class="m-map-line" v-for="(item, key) in play.maps" :key="key">
+                            <span v-for="(name, i) in item" :key="i" :class="!name ? 'u-blank' : ''">{{ name }}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- 第六屏 -->
@@ -61,10 +110,13 @@
                 <div class="wp">
                     <h2>玩法说明</h2>
                     <span class="u-txt"> {{ play.kapai.info }} </span>
+                    <!-- 普通 -->
                     <h3>{{ play.kapai.putong.title }}</h3>
                     <span class="u-txt" v-for="item in play.kapai.putong.content" :key="item">{{ item }}</span>
+                    <!-- 抉择 -->
                     <h3>{{ play.kapai.jueze.title }}</h3>
                     <span class="u-txt" v-for="item in play.kapai.jueze.content" :key="item">{{ item }}</span>
+                    <!-- 特殊 -->
                     <h3>{{ play.kapai.teshu.title }}</h3>
                     <span class="u-txt" v-for="item in play.kapai.teshu.content" :key="item">{{ item }}</span>
                 </div>
@@ -72,6 +124,7 @@
             <!-- 第七屏 -->
             <div class="m-txt p-animation fadeIn">
                 <div class="wp">
+                    <!-- 游戏寄语 -->
                     <h2>{{ play.jiyu.title }}</h2>
                     <span class="u-txt" v-for="item in play.jiyu.content" :key="item">❂ {{ item }}</span>
                 </div>
@@ -94,6 +147,7 @@
 const KEY = "jianyuxiadao";
 import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
 import play from "@/assets/data/dnd.json";
+import { reduce } from "lodash";
 export default {
     name: "Index",
     props: [],
@@ -102,6 +156,17 @@ export default {
         return {
             imgurl: __imgPath + "/topic/jianyuxiadao/",
             play,
+            name: {
+                身法: "shenfa",
+                体质: "tizhi",
+                根骨: "gengu",
+                元气: "yuanqi",
+                力道: "lidao",
+            },
+            title: [
+                ["门派", "力道", "元气", "体质", "根骨", "身法", "自选", "总计"],
+                ["体型", "财富", "阅历", "颜值", "天赋", "自选", "总计"],
+            ],
         };
     },
     directives: {
@@ -144,6 +209,12 @@ export default {
     },
     watch: {},
     methods: {
+        count(obj) {
+            const num = reduce(obj, (result, value, key) => {
+                return result + value;
+            });
+            return num;
+        },
         goHome() {
             document.body.scrollTop = document.documentElement.scrollTop = 0;
         },
