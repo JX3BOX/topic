@@ -134,7 +134,7 @@
                 <div class="m-p4-title">
                     <img :src="imgurl + 'jyxd.png'" class="p-animation fadeIn" />
                     <div class="u-btn p-animation fadeIn">
-                        <img :src="imgurl + 'download.png'" @click="toastMsg" />
+                    <a :href="imgurl + '魔盒 - 桌游 - 桌上江湖 - 盾咚.pptx'"  > <img :src="imgurl + 'download.png'" @click="toastMsg" /></a>   
                         <span class="u-text" @click="goHome">返回顶部</span>
                     </div>
                 </div>
@@ -219,7 +219,7 @@ export default {
             document.body.scrollTop = document.documentElement.scrollTop = 0;
         },
         toastMsg() {
-            alert("百强结榜后放出，敬请期待");
+            // alert("百强结榜后放出，敬请期待");
         },
     },
     filters: {},
