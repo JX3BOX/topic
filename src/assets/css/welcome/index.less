@@ -1,0 +1,113 @@
+.m-index {
+    background: url("@{kv_welcome}bg.jpg") center top no-repeat;
+    background-size: 1920px auto;
+}
+.m-screen {
+    max-width: 1920px;
+    .auto(x);
+    .pa {
+        .pa;
+        .z(1);
+    }
+    .u-title {
+        .flex;
+        .size(170px);
+        .lh(70px);
+        .fz(65px);
+        .pointer;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 4px solid #ffffff;
+        color: #fff;
+        .label {
+            .fz(35px);
+            b {
+                .bold;
+            }
+        }
+        .value {
+            .fz(50px);
+        }
+    }
+}
+// 第一屏
+.m-first {
+    position: relative;
+    .people {
+        .h(1490px);
+        background: url("@{kv_welcome}people.png") center top no-repeat;
+        background-size: 1920px 1563px;
+    }
+    .title {
+        .size(1275px,495px);
+        .lt(50%,524px);
+        .z(2);
+        .ml(-637px);
+        background: url("@{kv_welcome}title.png") center top no-repeat;
+        background-size: 1275px, 495px;
+    }
+    .fish-1 {
+        .size(100%,1662px);
+        .lt(0,357px);
+        background: url("@{kv_welcome}fish-1.png") center top no-repeat;
+        background-size: 1920px 1662px;
+    }
+}
+
+// 第二屏
+.m-two {
+    position: relative;
+    .h(1480px);
+    .u-title {
+        .lt(50%,0);
+        .ml(-85px);
+        cursor: default;
+    }
+    .video {
+        .lt(50%,320px);
+        .size(1000px,580px);
+        .ml(-500px);
+        background: url("@{kv_welcome}video.png") #000 center top no-repeat;
+    }
+    .lantern {
+        .lt(50%,204px);
+        .size(842px,813px);
+        .ml(115px);
+        background: url("@{kv_welcome}lantern.png") center top no-repeat;
+    }
+    .fish-2 {
+        .lt(0,710px);
+        .size(100%,1687px);
+        background: url("@{kv_welcome}fish-2.png") center top no-repeat;
+        background-size: 1920px 1687px;
+    }
+}
+// 第三屏
+.m-three {
+    position: relative;
+    .h(1100px);
+    .u-title {
+        .lt(50%,60px);
+        .ml(-85px);
+    }
+    .m-content {
+        .size(1020px,370px);
+        .lt(50%,485px);
+        .ml(-510px);
+        padding: 10px;
+        box-sizing: border-box;
+        background: url("@{kv_welcome}school/school-bg.png") center top no-repeat;
+        .mark {
+            background: #000;
+            .full;
+            .r(50px);
+        }
+    }
+    .m-name {
+        .size(1024px,64px);
+        .lt(50%,890px);
+        .ml(-512px);
+        background: url("@{kv_welcome}school/school-button.png") center top no-repeat;
+    }
+}
