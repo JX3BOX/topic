@@ -91,7 +91,28 @@
         .lt(50%,60px);
         .ml(-85px);
     }
+    @mp: {
+        wh: 0;
+        qx: 1;
+        sl: 2;
+        tc: 3;
+        cy: 4;
+        cj: 5;
+        wd: 6;
+        tm: 7;
+        mj: 8;
+        gb: 9;
+        cyun: 10;
+        cg: 11;
+        bd: 12;
+        pl: 13;
+        lx: 14;
+        yt: 15;
+        yz: 16;
+        dz: 17;
+    };
     .m-content {
+        position: relative;
         .size(1020px,370px);
         .lt(50%,485px);
         .ml(-510px);
@@ -99,15 +120,56 @@
         box-sizing: border-box;
         background: url("@{kv_welcome}school/school-bg.png") center top no-repeat;
         .mark {
-            background: #000;
+            background-color: #000;
             .full;
             .r(50px);
         }
+        each(@mp, {
+            .mark-@{key} {
+                background: url("@{kv_welcome}school/@{key}-bg.png") #000 center top no-repeat;
+            }
+            .people-@{key}{
+                .size(100%,528px);
+                .lb(10px);
+                background: url("@{kv_welcome}school/@{key}.png")left bottom no-repeat;
+            }
+            .text-@{key}{
+                .rb(10px);
+                .size(477px,350px);
+                padding: 56px 0 0 78px;
+                box-sizing:border-box;
+                background: url("@{kv_welcome}school/txt-bg.png")left bottom no-repeat;
+            }
+        });
+        .txt {
+            .w(310px);
+            .mt(40px);
+            color: rgba(255, 255, 255, 0.54);
+        }
     }
     .m-name {
+        .flex;
         .size(1024px,64px);
         .lt(50%,890px);
         .ml(-512px);
+        gap: 10px;
+        justify-content: center;
+        padding: 12px 110px;
+        align-items: center;
+        box-sizing: border-box;
         background: url("@{kv_welcome}school/school-button.png") center top no-repeat;
+        .u-name {
+            .size(35px);
+            background-image: url("@{kv_welcome}school/name.png");
+        }
+        each(@mp, {
+            .u-@{key} {
+                background-position: -@value*35px 0;
+                &.active,&:hover{ 
+                    .pointer;
+                    background-position:-@value*35px -35px;
+                }
+            }  
+        });
     }
 }
