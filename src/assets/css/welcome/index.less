@@ -303,10 +303,11 @@
     }
 }
 
-// 第五屏 pvp
-.m-five {
+// 第五屏&第六屏 pvp&其他玩法
+.m-five,
+.m-six {
     .pt(390px);
-    min-height: 1300px;
+    min-height: 1250px;
     box-sizing: border-box;
     .m-content {
         .flex;
@@ -316,8 +317,9 @@
         background: url("@{kv_welcome}pvp.png") center top no-repeat;
     }
     .carousel {
+        .ml(-460px);
         .size(480px,600px);
-        position: relative; 
+        position: relative;
         background-color: #fff;
         .arr {
             .size(60px,100%);
@@ -376,5 +378,10 @@
                 }
             }
         }
+    }
+}
+.m-six {
+    .carousel {
+        .ml(460px);
     }
 }

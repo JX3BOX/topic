@@ -129,7 +129,34 @@
             </div>
             <div class="m-content">
                 <div class="carousel">
-               
+                    <div class="content" v-for="(item, i) in pvp" :key="i">
+                        <template v-if="index == i">
+                            <span class="label">{{ item.label }}</span>
+                            <span class="title">{{ item.title }}</span>
+                            <span class="desc">{{ item.desc }}</span>
+                            <span class="info">{{ item.info }}</span>
+                        </template>
+                    </div>
+                    <span class="arr left pa"></span>
+                    <span class="arr right pa"></span>
+                    <div class="m-dot pa">
+                        <span class="dot" v-for="item in pvpArr" :key="item" :class="{ active: index == item }"> </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 第六屏：其他玩法 -->
+        <div class="m-six m-screen">
+            <div class="u-title pa">
+                <span class="label">PART <b>04</b></span>
+                <span class="value">缘</span>
+                <span class="value value-hover">缘之章</span>
+                <span class="desc">
+                    奇遇，成就，还是伙伴侠客，又或是每个NPC背后的故事？本部分主要介绍游戏内主流PVX玩法。
+                </span>
+            </div>
+            <div class="m-content">
+                <div class="carousel">
                     <div class="content" v-for="(item, i) in pvp" :key="i">
                         <template v-if="index == i">
                             <span class="label">{{ item.label }}</span>
