@@ -35,7 +35,7 @@
                 "marginLeft": "-12px"
             },
             "textStyle": {
-                "float": "right", 
+                "float": "right",
                 "width": "500px"
             }
         },
@@ -55,7 +55,7 @@
                 "marginLeft": "-12px"
             },
             "textStyle": {
-                "float": "right", 
+                "float": "right",
                 "width": "500px"
             }
         },
@@ -71,7 +71,7 @@
                 "height": "200px",
                 "marginLeft": "12px"
             },
-            "textStyle": { 
+            "textStyle": {
                 "width": "440px"
             }
         },
@@ -114,6 +114,14 @@
                 "height": "370px",
                 "marginLeft": "12px"
             }
+        }
+    },
+    "pvp": {
+        "mjdh": {
+            "label": "小队竞技",
+            "title": "名剑大会",
+            "desc": "2v2 / 3v3 / 5v5",
+            "info": "在江南掀起叛乱的刘展叛军与唐军的战事到了最关键的阶段。双方即将于西津渡口展开决战。而这场扑朔迷离的叛乱背后，出现了李重茂的影子，他联合了香巫教残部与藤原家阴阳师，正在酝酿一个丧心病狂的阴谋。"
         }
     }
 }

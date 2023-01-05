@@ -42,7 +42,7 @@
                 ></span>
             </div>
         </div>
-        <!-- 第三屏：玩法 -->
+        <!-- 第四屏： pve玩法 -->
         <div class="m-four m-screen">
             <div class="u-title pa">
                 <span class="label">PART <b>02</b></span>
@@ -117,13 +117,42 @@
                 </div>
             </div>
         </div>
+        <!-- 第五屏：pvp玩法 -->
+        <div class="m-five m-screen">
+            <div class="u-title pa">
+                <span class="label">PART <b>03</b></span>
+                <span class="value">武</span>
+                <span class="value value-hover">武之章</span>
+                <span class="desc">
+                    本部分主要介绍游戏内主流PVP玩法，方便各位新玩家了解并找到自己喜欢的内容以及相对应的攻略或数据资源。
+                </span>
+            </div>
+            <div class="m-content">
+                <div class="carousel">
+               
+                    <div class="content" v-for="(item, i) in pvp" :key="i">
+                        <template v-if="index == i">
+                            <span class="label">{{ item.label }}</span>
+                            <span class="title">{{ item.title }}</span>
+                            <span class="desc">{{ item.desc }}</span>
+                            <span class="info">{{ item.info }}</span>
+                        </template>
+                    </div>
+                    <span class="arr left pa"></span>
+                    <span class="arr right pa"></span>
+                    <div class="m-dot pa">
+                        <span class="dot" v-for="item in pvpArr" :key="item" :class="{ active: index == item }"> </span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
 const KEY = "welcome";
 import { getTopic } from "@/service/topic";
-import { mp, play } from "@/assets/data/welcome.json";
+import { mp, play, pvp } from "@/assets/data/welcome.json";
 export default {
     name: "Index",
     inject: ["__imgRoot"],
@@ -133,6 +162,8 @@ export default {
             active: "wh",
             mp,
             play,
+            pvp,
+            index: "mjdh",
         };
     },
     directives: {
@@ -161,7 +192,11 @@ export default {
             },
         },
     },
-    computed: {},
+    computed: {
+        pvpArr() {
+            return Object.keys(this.pvp);
+        },
+    },
     watch: {},
     methods: {
         change(name) {
