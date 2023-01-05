@@ -5,7 +5,6 @@
 .m-screen {
     max-width: 1920px;
     .auto(x);
-    .clip;
     .pa {
         .pa;
         .z(1);
@@ -98,9 +97,10 @@
     }
     .lantern {
         .lt(50%,204px);
-        .size(842px,813px);
+        .size(442px,813px);
         .ml(115px);
-        background: url("@{kv_welcome}lantern.png") center top no-repeat;
+        background: url("@{kv_welcome}lantern.png") left top no-repeat;
+        background-size: 842px 813px;
     }
     .fish-2 {
         .lt(0,710px);
@@ -230,6 +230,7 @@
     .m-content {
         .flex;
         .size(100%,730px);
+        .clip;
         padding: 50px 0;
         background-color: rgba(0, 0, 0, 0.3);
         .m-item {
