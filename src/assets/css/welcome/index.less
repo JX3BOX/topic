@@ -5,6 +5,7 @@
 .m-screen {
     max-width: 1920px;
     .auto(x);
+    .clip;
     .pa {
         .pa;
         .z(1);
@@ -15,6 +16,7 @@
         .lh(70px);
         .fz(65px);
         .pointer;
+        .ml(-85px);
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -29,9 +31,29 @@
         .value {
             .fz(50px);
         }
+        .desc {
+            .none;
+            .fz(16px);
+        }
+        .value-hover {
+            .none;
+        }
+        &:hover {
+            .ml(-500px);
+            .w(1000px);
+            background-color: rgba(0, 0, 0, 0.3);
+            .label,
+            .value {
+                .none;
+            }
+            .value-hover,
+            .desc {
+                .db;
+            }
+        }
     }
 }
-// 第一屏
+// 第一屏 人物
 .m-first {
     position: relative;
     .people {
@@ -55,14 +77,18 @@
     }
 }
 
-// 第二屏
+// 第二屏 视频
 .m-two {
     position: relative;
     .h(1480px);
     .u-title {
         .lt(50%,0);
-        .ml(-85px);
         cursor: default;
+        &:hover {
+            .w(170px);
+            .ml(-85px);
+            background-color: transparent;
+        }
     }
     .video {
         .lt(50%,320px);
@@ -83,13 +109,12 @@
         background-size: 1920px 1687px;
     }
 }
-// 第三屏
+// 第三屏 门派
 .m-three {
     position: relative;
-    .h(1100px);
+    .h(1114px);
     .u-title {
         .lt(50%,60px);
-        .ml(-85px);
     }
     @mp: {
         wh: 0;
@@ -136,13 +161,24 @@
             .text-@{key}{
                 .rb(10px);
                 .size(477px,350px);
-                padding: 56px 0 0 78px;
+                .pt(56px);
                 box-sizing:border-box;
                 background: url("@{kv_welcome}school/txt-bg.png")left bottom no-repeat;
             }
         });
+        .macro {
+            .size(143px,32px);
+            .pointer;
+            .rt(60px,-60px);
+            background: url("@{kv_welcome}school/macro.png") center center no-repeat;
+        }
+        .img {
+            .ml(78px);
+        }
         .txt {
-            .w(310px);
+            .ml(66px);
+            .w(336px);
+            .fz(14px);
             .mt(40px);
             color: rgba(255, 255, 255, 0.54);
         }
@@ -171,5 +207,104 @@
                 }
             }  
         });
+    }
+}
+
+// 第四屏 玩法
+.m-four {
+    .h(1430px);
+    .pt(330px);
+    position: relative;
+    box-sizing: border-box;
+    .u-title {
+        .lt(50%,60px);
+    }
+    @play: {
+        baizhan: 1014px 264px;
+        week: 854px 224px;
+        more: 514px 394px;
+        lang: 324px 189px;
+        shilian: 324px 189px;
+        fb: 1014px 354px;
+    };
+    .m-content {
+        .flex;
+        .size(100%,730px);
+        padding: 50px 0;
+        background-color: rgba(0, 0, 0, 0.3);
+        .m-item {
+            position: relative;
+            .size(100%,630px);
+            padding: 0 0 0 10px;
+            box-sizing: border-box;
+            &:first-child {
+                padding: 0 10px 0 0;
+            }
+            each(@play, {
+                .@{key} {
+                    flex-shrink: 0;
+                    position: relative;
+                    background-image: url("@{kv_welcome}play/@{key}.png");
+                    background-repeat: no-repeat;
+                    background-size: @value; 
+                    .clip;
+                    .mark{ 
+                        .none;
+                        .pointer;
+                        .w(100%); 
+                        margin: 12px 0;
+                        box-sizing:border-box;
+                        background-image: url("@{kv_welcome}play/@{key}-bg.png");
+                        background-repeat: no-repeat;
+                        background-color: rgba(0, 0, 0, 0.2); 
+                        .text{ 
+                            .flex;
+                            .h(100%);
+                            position: relative;
+                            color:#fff;
+                            padding: 20px;
+                            flex-direction: column;
+                            box-sizing:border-box;
+                            .label{
+                                .fz(16px,22px);
+                            }
+                            .title{
+                                .fz(40px,52px);
+                            }
+                            .desc{
+                                .mt(5px);
+                                .fz(14px,18px);
+                            }
+                            .info{
+                                .mt(13px);
+                                .fz(14px,18px);
+                                text-indent: 2em;
+                            }
+                            .alink{
+                                .pa;
+                                .size(90px,40px);
+                                .rb(100px,30px); 
+                                &.boss{
+                                    right: 200px; 
+                                }
+                            }
+                        }
+                    }
+                    &:hover{
+                        .mark{.db;} 
+                    }
+                }
+            });
+        }
+        .m-box {
+            .flex;
+            .mt(20px);
+            gap: 20px;
+            .left {
+                .flex;
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
     }
 }
