@@ -183,15 +183,16 @@
                         <span class="desc">{{ item.desc }}</span>
                         <span class="info">{{ item.info }}</span>
                         <div class="m-button pa" v-if="item.button">
-                            <a
+                            <span
                                 :href="btn.link"
                                 target="_blank"
                                 class="u-btn"
                                 v-for="(btn, key) in item.button"
                                 :key="key"
+                                @click="open(btn.link)"
                             >
                                 {{ btn.name }}
-                            </a>
+                            </span>
                         </div>
                     </div>
                     <div class="m-dot pa">
@@ -220,6 +221,8 @@
             </div>
             <div class="code"></div>
         </div>
+        <!-- tips -->
+        <div class="m-tips" v-if="show">敬请期待</div>
     </div>
 </template>
 
@@ -240,6 +243,7 @@ export default {
             pvx,
             pvpIndex: "mjdh",
             pvxIndex: "hcqy",
+            show: false,
         };
     },
     directives: {
@@ -299,10 +303,15 @@ export default {
             if (this.pvpIndex == index) this.pvpIndex = name;
             if (this.pvxIndex == index) this.pvxIndex = name;
         },
-    
+        open(link) {
+            if (link) return window.open(link, "_blank");
+            this.show = true;
+            setTimeout(() => {
+                this.show = false;
+            }, 1000);
+        },
     },
-    mounted: function () { 
-    },
+    mounted: function () {},
 };
 </script>
 

@@ -25,7 +25,7 @@
         align-items: center;
         border: 4px solid #ffffff;
         color: #fff;
-        transition: .3s ease;
+        transition: 0.3s ease;
         .label {
             .fz(35px);
             b {
@@ -292,6 +292,7 @@
                             }
                             .alink{
                                 .pa;
+                                .pointer;
                                 .size(90px,40px);
                                 .rb(100px,30px); 
                                 &.boss{
@@ -357,7 +358,7 @@
         .arr {
             .size(60px,100%);
             .pointer;
-            transition: .3s ease;
+            transition: 0.3s ease;
             &.left {
                 .lt(0);
             }
@@ -413,6 +414,7 @@
                     .flex;
                     .size(115px,40px);
                     .x;
+                    .pointer;
                     justify-content: center;
                     align-items: center;
                     color: #fff;
@@ -430,7 +432,7 @@
             .dot {
                 .pointer;
                 .size(10px);
-                transition: .3s ease;
+                transition: 0.3s ease;
                 background: url("@{kv_welcome}dot.png") center top no-repeat;
                 &.active {
                     background: url("@{kv_welcome}dot-active.png") center top no-repeat;
@@ -483,7 +485,21 @@
         background: url("@{kv_welcome}qrcode.png") center top no-repeat;
     }
 }
-
+// 提示
+.m-tips {
+    .pf;
+    .flex;
+    .size(180px,80px);
+    .lt(50%);
+    .fz(20px);
+    .bold;
+    .r(5px);
+    margin: -30px 0 0 -60px;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
 @media screen and (max-width: 1080px) {
     .m-four {
         .m-content {

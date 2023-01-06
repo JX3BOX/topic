@@ -126,21 +126,21 @@
             "title": "名剑大会",
             "desc": "2v2 / 3v3 / 5v5",
             "info": "侠士可通过组队或散排方式，选择2V2、3V3、5V5进入一个随即地图进行PK。获胜队伍侠士赢得相应分数，输掉的队伍则失去相应分数。每场竞技结束后，会获得相应的名剑币，可以兑换高品级的PVP装备。",
-            "button": [{ "name": "战斗分析", "link": "" }]
+            "button": [{ "name": "战斗分析", "link": "https://www.jx3box.com/battle/#/public" }]
         },
         "zyzc": {
             "label": "团队竞技",
             "title": "阵营战场",
             "desc": "10v10 / 15v15 / 25v25",
             "info": "侠士可通过组队或散排方式，进入当日战场。战场会分为浩气盟阵营和恶人谷阵营。每个战场都有不同的环境和作战目标，侠士们要通过对资源合理的分配控制或奇袭敌对阵营的切入方式获得战场胜利。",
-            "button": [{ "name": "战斗分析", "link": "" }]
+            "button": [{ "name": "战斗分析", "link": "https://www.jx3box.com/battle/#/public" }]
         },
         "zygf": {
             "label": "大型斗争",
             "title": "阵营攻防",
             "desc": "每周二周四 / 周六周日",
             "info": "每周二周四，浩气盟和恶人谷的侠士会在特定的沙盘地图上进行据点争夺战，成功夺下据点且贡献分最多的帮会将负责该据点的一切事物，包括失去据点后的损失......<br/>而每周六和周日，双方阵营首领将率领大量侠士入侵对立阵营，防守方的侠士是否能助力同阵营的首领低于外敌，亦或是趁机反守为攻奇袭敌方大本营？",
-            "button": [{ "name": "沙盘查询", "link": "" }]
+            "button": [{ "name": "沙盘查询", "link": "https://www.jx3box.com/pvp/sandbox" }]
         },
         "jjzc": {
             "label": "求生玩法",
@@ -156,8 +156,8 @@
             "desc": "PVX玩法",
             "info": "行走江湖路上，总会遇到一些不一样的事情。经历这段故事，体验一番人生的百态。",
             "button": [
-                { "name": "奇遇大全", "link": "" },
-                { "name": "宠物大全", "link": "" }
+                { "name": "奇遇大全", "link": "https://www.jx3box.com/adventure/" },
+                { "name": "宠物大全", "link": "https://www.jx3box.com/pet" }
             ]
         },
         "dtjh": {
@@ -166,10 +166,10 @@
             "desc": "PVX玩法",
             "info": "每个地图每个任务，都讲述着每个NPC背后的人生，体会并感悟他们的故事，走出自己的江湖路。",
             "button": [
-                { "name": "任务百科", "link": "" },
-                { "name": "声望百科", "link": "" },
-                { "name": "科举题库", "link": "" },
-                { "name": "技艺助手", "link": "" }
+                { "name": "任务百科", "link": "https://www.jx3box.com/quest" },
+                { "name": "声望百科", "link": "https://www.jx3box.com/reputation" },
+                { "name": "科举题库", "link": "https://j3cx.com/exam/" },
+                { "name": "技艺助手", "link": "https://www.jx3box.com/pvg/manufacture" }
             ]
         },
         "hcxy": {
@@ -185,8 +185,8 @@
             "desc": "家园",
             "info": "体验海量惊喜交互和超多趣味休闲玩法，或者建造自己向往的家园，并在全方位体验居家休闲的惬意生活。",
             "button": [
-                { "name": "家具大全", "link": "" },
-                { "name": "家具蓝图", "link": "" }
+                { "name": "家具大全", "link": "https://www.jx3box.com/furniture" },
+                { "name": "家具蓝图", "link": "https://jx3.xoyo.com/zt/2020/09/24/blueprint/#/" }
             ]
         }
     }
