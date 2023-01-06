@@ -143,7 +143,7 @@
                         <span class="label">{{ item.label }}</span>
                         <span class="title">{{ item.title }}</span>
                         <span class="desc">{{ item.desc }}</span>
-                        <span class="info">{{ item.info }}</span>
+                        <span class="info" v-html="item.info"></span>
                         <div class="m-button pa" v-if="item.button">
                             <a
                                 :href="btn.link"
