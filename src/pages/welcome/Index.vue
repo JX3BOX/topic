@@ -5,6 +5,10 @@
             <div class="people"></div>
             <div class="title pa"></div>
             <div class="fish-1 pa"></div>
+            <div class="logo pa">
+                <a href="https://jx3.xoyo.com/" target="_blank"></a>
+                <a href="https://www.jx3box.com/index/" target="_blank"></a>
+            </div>
         </div>
         <!-- 第二屏：视频&鱼 -->
         <div class="m-two m-screen">
@@ -127,25 +131,41 @@
                     本部分主要介绍游戏内主流PVP玩法，方便各位新玩家了解并找到自己喜欢的内容以及相对应的攻略或数据资源。
                 </span>
             </div>
-            <div class="m-content">
+            <div class="m-content" :class="pvpIndex">
                 <div class="carousel">
-                    <div class="content" v-for="(item, i) in pvp" :key="i">
-                        <template v-if="index == i">
-                            <span class="label">{{ item.label }}</span>
-                            <span class="title">{{ item.title }}</span>
-                            <span class="desc">{{ item.desc }}</span>
-                            <span class="info">{{ item.info }}</span>
-                        </template>
+                    <div class="content" v-for="(item, i) in pvp" :key="i" :class="{ active: pvpIndex == i }">
+                        <span class="label">{{ item.label }}</span>
+                        <span class="title">{{ item.title }}</span>
+                        <span class="desc">{{ item.desc }}</span>
+                        <span class="info">{{ item.info }}</span>
+                        <div class="m-button pa" v-if="item.button">
+                            <a
+                                :href="btn.link"
+                                target="_blank"
+                                class="u-btn"
+                                v-for="(btn, key) in item.button"
+                                :key="key"
+                            >
+                                {{ btn.name }}
+                            </a>
+                        </div>
                     </div>
-                    <span class="arr left pa"></span>
-                    <span class="arr right pa"></span>
+                    <span class="arr left pa" @click="changeArr(pvpArr, pvpIndex, 'left')"></span>
+                    <span class="arr right pa" @click="changeArr(pvpArr, pvpIndex, 'right')"></span>
                     <div class="m-dot pa">
-                        <span class="dot" v-for="item in pvpArr" :key="item" :class="{ active: index == item }"> </span>
+                        <span
+                            class="dot"
+                            v-for="item in pvpArr"
+                            :key="item"
+                            :class="{ active: pvpIndex == item }"
+                            @click="changePlay(item, 'pvp')"
+                        >
+                        </span>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- 第六屏：其他玩法 -->
+        <!-- 第六屏：pvx玩法 -->
         <div class="m-six m-screen">
             <div class="u-title pa">
                 <span class="label">PART <b>04</b></span>
@@ -155,23 +175,51 @@
                     奇遇，成就，还是伙伴侠客，又或是每个NPC背后的故事？本部分主要介绍游戏内主流PVX玩法。
                 </span>
             </div>
-            <div class="m-content">
+            <div class="m-content" :class="pvxIndex">
                 <div class="carousel">
-                    <div class="content" v-for="(item, i) in pvp" :key="i">
-                        <template v-if="index == i">
-                            <span class="label">{{ item.label }}</span>
-                            <span class="title">{{ item.title }}</span>
-                            <span class="desc">{{ item.desc }}</span>
-                            <span class="info">{{ item.info }}</span>
-                        </template>
+                    <div class="content" v-for="(item, i) in pvx" :key="i" :class="{ active: pvxIndex == i }">
+                        <span class="label">{{ item.label }}</span>
+                        <span class="title">{{ item.title }}</span>
+                        <span class="desc">{{ item.desc }}</span>
+                        <span class="info">{{ item.info }}</span>
+                        <div class="m-button pa" v-if="item.button">
+                            <a
+                                :href="btn.link"
+                                target="_blank"
+                                class="u-btn"
+                                v-for="(btn, key) in item.button"
+                                :key="key"
+                            >
+                                {{ btn.name }}
+                            </a>
+                        </div>
                     </div>
-                    <span class="arr left pa"></span>
-                    <span class="arr right pa"></span>
+
+                    <span class="arr left pa" @click="changeArr(pvxArr, pvxIndex, 'left')"></span>
+                    <span class="arr right pa" @click="changeArr(pvxArr, pvxIndex, 'right')"></span>
                     <div class="m-dot pa">
-                        <span class="dot" v-for="item in pvpArr" :key="item" :class="{ active: index == item }"> </span>
+                        <span
+                            class="dot"
+                            v-for="item in pvxArr"
+                            :key="item"
+                            :class="{ active: pvxIndex == item }"
+                            @click="changePlay(item, 'pvx')"
+                        >
+                        </span>
                     </div>
                 </div>
             </div>
+        </div>
+        <!-- 第七屏：魔盒助力 -->
+        <div class="m-seven">
+            <div class="m-content">
+                <div class="title">豪行江湖 魔盒助力</div>
+                <div class="label">一站式剑网3资源工具站</div>
+                <div class="m-box">
+                    <div class="item" v-for="item in 5" :key="item"></div>
+                </div>
+            </div>
+            <div class="code"></div>
         </div>
     </div>
 </template>
@@ -179,7 +227,7 @@
 <script>
 const KEY = "welcome";
 import { getTopic } from "@/service/topic";
-import { mp, play, pvp } from "@/assets/data/welcome.json";
+import { mp, play, pvp, pvx } from "@/assets/data/welcome.json";
 export default {
     name: "Index",
     inject: ["__imgRoot"],
@@ -190,7 +238,9 @@ export default {
             mp,
             play,
             pvp,
-            index: "mjdh",
+            pvx,
+            pvpIndex: "mjdh",
+            pvxIndex: "hcqy",
         };
     },
     directives: {
@@ -223,11 +273,32 @@ export default {
         pvpArr() {
             return Object.keys(this.pvp);
         },
+        pvxArr() {
+            return Object.keys(this.pvx);
+        },
     },
     watch: {},
     methods: {
         change(name) {
             this.active = name;
+        },
+        changePlay(item, type) {
+            if (type == "pvp") this.pvpIndex = item;
+            if (type == "pvx") this.pvxIndex = item;
+        },
+        changeArr(arr, index, type) {
+            const _index = arr.findIndex((item) => item == index);
+            let name = "";
+            if (type == "left") {
+                const i = _index - 1;
+                name = i < 0 ? arr[arr.length - 1] : arr[i];
+            }
+            if (type == "right") {
+                const i = _index + 1;
+                name = i < arr.length ? arr[i] : arr[0];
+            }
+            if (this.pvpIndex == index) this.pvpIndex = name;
+            if (this.pvxIndex == index) this.pvxIndex = name;
         },
     },
     mounted: function () {},

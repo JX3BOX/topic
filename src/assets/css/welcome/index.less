@@ -56,6 +56,17 @@
 }
 // 第一屏 人物
 .m-first {
+    .logo {
+        .flex;
+        .size(500px,196px);
+        .lt(50%,30px);
+        .z(9);
+        .ml(-730px);
+        background: url("@{kv_welcome}logo.png") center top no-repeat;
+        a {
+            flex: 1;
+        }
+    }
     .people {
         .h(1490px);
         background: url("@{kv_welcome}people.png") center top no-repeat;
@@ -206,7 +217,7 @@
     }
 }
 
-// 第四屏 玩法
+// 第四屏 pve玩法
 .m-four {
     .h(1610px);
     .pt(330px);
@@ -303,19 +314,36 @@
     }
 }
 
-// 第五屏&第六屏 pvp&其他玩法
+// 第五屏&第六屏 pvp & pvx
 .m-five,
 .m-six {
     .pt(390px);
     min-height: 1250px;
     box-sizing: border-box;
+    @play: {
+        mjdh: 0;
+        zyzc: 1;
+        zygf: 0;
+        jjzc: 0;
+        hcqy: 0;
+        dtjh: 0;
+        hcxy: 0;
+        jljh: 0;
+    };
     .m-content {
         .flex;
         .size(100%,640px);
         justify-content: center;
         align-items: center;
-        background: url("@{kv_welcome}pvp.png") center top no-repeat;
+        background-color: rgba(255, 255, 255, 0.3);
+        background-position: center 20px;
+        background-repeat: no-repeat;
     }
+    each(@play, {
+        .@{key} {
+            background-image: url("@{kv_welcome}play/@{key}.jpg");
+        }
+    });
     .carousel {
         .ml(-460px);
         .size(480px,600px);
@@ -340,13 +368,19 @@
             }
         }
         .content {
-            .flex;
+            .full;
+            .none;
             position: relative;
+            color: #983715;
             flex-direction: column;
+            align-items: center;
             gap: 10px;
             padding: 100px;
-            color: #983715;
-            align-items: center;
+            box-sizing: border-box;
+            &.active {
+                .flex;
+            }
+
             .label {
                 .fz(16px,22px);
             }
@@ -361,10 +395,28 @@
                 .fz(14px,18px);
                 text-indent: 2em;
             }
+            .m-button {
+                .flex;
+                .lb(50%,120px);
+                .ml(-130px);
+                width: 260px;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+                .u-btn {
+                    .flex;
+                    .size(115px,40px);
+                    .x;
+                    justify-content: center;
+                    align-items: center;
+                    color: #fff;
+                    background: url("@{kv_welcome}pvp-button.png") center top no-repeat;
+                }
+            }
         }
         .m-dot {
             .flex;
-            .lb(0,100px);
+            .lb(0,70px);
             .size(100%,20px);
             justify-content: center;
             align-items: center;
@@ -381,7 +433,46 @@
     }
 }
 .m-six {
+    min-height: 1330px;
     .carousel {
         .ml(460px);
+    }
+}
+
+// 第七屏 魔盒助力
+.m-seven {
+    .pt(60px);
+    min-height: 950px;
+    .m-content {
+        .flex;
+        .bold;
+        .size(100%,580px);
+        .color(#000);
+        padding: 52px 0;
+        gap: 15px;
+        box-sizing: border-box;
+        flex-direction: column;
+        align-items: center;
+        background: url("@{kv_welcome}box.jpg") center top no-repeat;
+        .title {
+            .fz(50px,66px);
+        }
+        .label {
+            .fz(20px,26px);
+        }
+        .m-box {
+            .flex;
+            justify-content: center;
+            gap: 30px;
+            .item {
+                .size(125px,360px);
+                background-color: #000;
+            }
+        }
+    }
+    .code {
+        .mt(110px);
+        .size(100%,167px);
+        background: url("@{kv_welcome}qrcode.png") center top no-repeat;
     }
 }
