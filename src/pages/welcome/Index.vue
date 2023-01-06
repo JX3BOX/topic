@@ -299,8 +299,10 @@ export default {
             if (this.pvpIndex == index) this.pvpIndex = name;
             if (this.pvxIndex == index) this.pvxIndex = name;
         },
+    
     },
-    mounted: function () {},
+    mounted: function () { 
+    },
 };
 </script>
 

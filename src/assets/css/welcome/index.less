@@ -1,6 +1,8 @@
 .m-index {
     background: url("@{kv_welcome}bg.jpg") center top no-repeat;
     background-size: 1920px auto;
+    .w(100%);
+    .clip;
 }
 .m-screen {
     position: relative;
@@ -73,10 +75,9 @@
         background-size: 1920px 1563px;
     }
     .title {
-        .size(1275px,495px);
-        .lt(50%,524px);
+        .size(100%,495px);
+        .lt(0,524px);
         .z(2);
-        .ml(-637px);
         background: url("@{kv_welcome}title.png") center top no-repeat;
         background-size: 1275px, 495px;
     }
@@ -108,7 +109,7 @@
     }
     .lantern {
         .lt(50%,204px);
-        .size(442px,813px);
+        .size(384px,813px);
         .ml(115px);
         background: url("@{kv_welcome}lantern.png") left top no-repeat;
         background-size: 842px 813px;
@@ -476,5 +477,20 @@
         .mt(110px);
         .size(100%,167px);
         background: url("@{kv_welcome}qrcode.png") center top no-repeat;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .m-four {
+        .m-content {
+            color: red;
+            zoom: 0.75 !important;
+        }
+    }
+
+    .m-seven {
+        .code {
+            background-size: contain;
+        }
     }
 }
