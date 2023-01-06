@@ -174,6 +174,24 @@
                 .pt(56px);
                 box-sizing:border-box;
                 background: url("@{kv_welcome}school/txt-bg.png")left bottom no-repeat;
+                .m-button{
+                    .flex;
+                    .lb(0,30px);
+                    .size(100%,40px);
+                    .pl(50px);
+                    gap:20px;
+                    align-items: center;
+                    color:rgba(255, 220, 172, 0.8);
+                    .u-btn{
+                        .flex;
+                        .size(132px,29px);
+                        .fz(16px);
+                        align-items: center;
+                        justify-content: center;
+                        color:rgba(255, 220, 172, 0.8);
+                        background: url("@{kv_welcome}school/button.png")left bottom no-repeat;
+                    }
+                }
             }
         });
         .macro {
@@ -186,10 +204,10 @@
             .ml(78px);
         }
         .txt {
-            .ml(66px);
-            .w(336px);
+            .w(390px);
             .fz(14px);
             .mt(40px);
+            .auto(x);
             color: rgba(255, 255, 255, 0.54);
         }
     }

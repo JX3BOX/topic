@@ -33,6 +33,12 @@
                     <div class="txt">
                         {{ mp[active] }}
                     </div>
+                    <div class="m-button pa">
+                        <span>门派心法:</span>
+                        <a :href="item.link" target="_blank" class="u-btn" v-for="(item, i) in xf[active]" :key="i">
+                            {{ item.name }}
+                        </a>
+                    </div>
                 </div>
                 <a href="https://www.jx3box.com/macro/#/" target="_blank" class="macro pa"></a>
             </div>
@@ -229,7 +235,7 @@
 <script>
 const KEY = "welcome";
 import { getTopic } from "@/service/topic";
-import { mp, play, pvp, pvx } from "@/assets/data/welcome.json";
+import { mp, xf, play, pvp, pvx } from "@/assets/data/welcome.json";
 export default {
     name: "Index",
     inject: ["__imgRoot"],
@@ -238,6 +244,7 @@ export default {
         return {
             active: "wh",
             mp,
+            xf,
             play,
             pvp,
             pvx,
