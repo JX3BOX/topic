@@ -59,7 +59,7 @@
             <div class="m-content">
                 <div class="m-item">
                     <div class="fb" :style="play.fb.style">
-                        <div class="mark" :style="play.fb.mark">
+                        <div class="mark pa" :style="play.fb.mark">
                             <div class="text" :style="play.fb.textStyle">
                                 <span class="label">{{ play.fb.label }}</span>
                                 <span class="title">{{ play.fb.title }}</span>
@@ -71,7 +71,7 @@
                         </div>
                     </div>
                     <div class="baizhan" :style="play.baizhan.style">
-                        <div class="mark" :style="play.baizhan.mark">
+                        <div class="mark pa" :style="play.baizhan.mark">
                             <div class="text" :style="play.baizhan.textStyle">
                                 <span class="label">{{ play.baizhan.label }}</span>
                                 <span class="title">{{ play.baizhan.title }}</span>
@@ -150,8 +150,6 @@
                             </a>
                         </div>
                     </div>
-                    <span class="arr left pa" @click="changeArr(pvpArr, pvpIndex, 'left')"></span>
-                    <span class="arr right pa" @click="changeArr(pvpArr, pvpIndex, 'right')"></span>
                     <div class="m-dot pa">
                         <span
                             class="dot"
@@ -162,6 +160,8 @@
                         >
                         </span>
                     </div>
+                    <span class="arr left pa" @click="changeArr(pvpArr, pvpIndex, 'left')"></span>
+                    <span class="arr right pa" @click="changeArr(pvpArr, pvpIndex, 'right')"></span>
                 </div>
             </div>
         </div>
@@ -194,9 +194,6 @@
                             </a>
                         </div>
                     </div>
-
-                    <span class="arr left pa" @click="changeArr(pvxArr, pvxIndex, 'left')"></span>
-                    <span class="arr right pa" @click="changeArr(pvxArr, pvxIndex, 'right')"></span>
                     <div class="m-dot pa">
                         <span
                             class="dot"
@@ -207,6 +204,8 @@
                         >
                         </span>
                     </div>
+                    <span class="arr left pa" @click="changeArr(pvxArr, pvxIndex, 'left')"></span>
+                    <span class="arr right pa" @click="changeArr(pvxArr, pvxIndex, 'right')"></span>
                 </div>
             </div>
         </div>

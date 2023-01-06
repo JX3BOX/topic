@@ -240,10 +240,12 @@
         .m-item {
             position: relative;
             .size(100%,630px);
+            max-width: 874px;
             padding: 0 0 0 10px;
             box-sizing: border-box;
             &:first-child {
                 padding: 0 10px 0 0;
+                max-width: 1034px;
             }
             each(@play, {
                 .@{key} {
@@ -256,7 +258,7 @@
                     .mark{ 
                         .none;
                         .pointer;
-                        .w(100%); 
+                        .w(100%);  
                         margin: 12px 0;
                         box-sizing:border-box;
                         background-image: url("@{kv_welcome}play/@{key}-bg.png");

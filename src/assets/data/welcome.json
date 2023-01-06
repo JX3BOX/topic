@@ -32,7 +32,8 @@
             "mark": {
                 "height": "330px",
                 "backgroundPosition": "top right",
-                "marginLeft": "-12px"
+                "right": "12px",
+                "maxWidth": "988px"
             },
             "textStyle": {
                 "float": "right",
@@ -52,7 +53,8 @@
             "mark": {
                 "height": "240px",
                 "backgroundPosition": "top right",
-                "marginLeft": "-12px"
+                "right": "12px",
+                "maxWidth": "988px"
             },
             "textStyle": {
                 "float": "right",
@@ -69,7 +71,8 @@
             },
             "mark": {
                 "height": "200px",
-                "marginLeft": "12px"
+                "marginLeft": "12px",
+                "maxWidth": "828px"
             },
             "textStyle": {
                 "width": "440px"
@@ -112,7 +115,8 @@
             },
             "mark": {
                 "height": "370px",
-                "marginLeft": "12px"
+                "marginLeft": "12px",
+                "maxWidth": "488px"
             }
         }
     },
