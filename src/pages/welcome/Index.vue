@@ -13,7 +13,9 @@
         <!-- 第二屏：视频&鱼 -->
         <div class="m-two m-screen">
             <div class="u-title pa">序</div>
-            <div class="video pa"></div>
+            <div class="video pa">
+                <div class="u-video" v-html="video"></div>
+            </div>
             <div class="lantern pa"></div>
             <div class="fish-2 pa"></div>
         </div>
@@ -233,8 +235,6 @@
 </template>
 
 <script>
-const KEY = "welcome";
-import { getTopic } from "@/service/topic";
 import { mp, xf, play, pvp, pvx } from "@/assets/data/welcome.json";
 export default {
     name: "Index",
@@ -242,6 +242,7 @@ export default {
     components: {},
     data: function () {
         return {
+            video: `<iframe src="//player.bilibili.com/player.html?aid=933209181&bvid=BV1qM4y1377P&cid=413035263&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>`,
             active: "wh",
             mp,
             xf,
@@ -251,6 +252,7 @@ export default {
             pvpIndex: "mjdh",
             pvxIndex: "hcqy",
             show: false,
+            zIndex: false,
         };
     },
     directives: {
