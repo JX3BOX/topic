@@ -2,7 +2,7 @@
     <div class="m-index">
         <!-- 第一屏：人物&标题 -->
         <div class="m-first m-screen">
-            <div class="people"></div>
+            <div class="people" ref="mark"></div>
             <div class="title pa"></div>
             <div class="fish-1 pa"></div>
             <div class="logo pa">
@@ -123,7 +123,20 @@
                             </div>
                         </div>
                         <div class="more" :style="play.more.style">
-                            <div class="mark" :style="play.more.mark"></div>
+                            <div class="mark" :style="play.more.mark">
+                                <div class="box">
+                                    <a
+                                        class="item"
+                                        :href="item.link"
+                                        target="_blank"
+                                        v-for="(item, i) in play.more.list"
+                                        :key="i"
+                                    >
+                                        <img class="icon" :src="item.icon" />
+                                        <span>{{ item.name }}</span>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -224,7 +237,10 @@
                 <div class="title">豪行江湖 魔盒助力</div>
                 <div class="label">一站式剑网3资源工具站</div>
                 <div class="m-box">
-                    <div class="item" v-for="item in 5" :key="item"></div>
+                    <a :href="item.link" target="_blank" class="item" v-for="(item, i) in box" :key="i">
+                        <span :class="`item-bg item-${i + 1}`"> </span>
+                        <span class="u-title">{{ item.title }}</span>
+                    </a>
                 </div>
             </div>
             <div class="code"></div>
@@ -235,7 +251,7 @@
 </template>
 
 <script>
-import { mp, xf, play, pvp, pvx } from "@/assets/data/welcome.json";
+import { mp, xf, play, pvp, pvx, box } from "@/assets/data/welcome.json";
 export default {
     name: "Index",
     inject: ["__imgRoot"],
@@ -249,6 +265,7 @@ export default {
             play,
             pvp,
             pvx,
+            box,
             pvpIndex: "mjdh",
             pvxIndex: "hcqy",
             show: false,
@@ -319,8 +336,18 @@ export default {
                 this.show = false;
             }, 1000);
         },
+        hanldMask(event) {
+            let x = -event.clientX / 150;
+            let y = -event.clientY / 150;
+            if (this.$refs.mark) {
+                this.$refs.mark.style.backgroundPositionX = x + "px";
+                this.$refs.mark.style.backgroundPositionY = y + "px";
+            }
+        },
     },
-    mounted: function () {},
+    mounted: function () {
+        window.addEventListener("mousemove", this.hanldMask);
+    },
 };
 </script>
 

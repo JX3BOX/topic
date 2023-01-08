@@ -2,6 +2,8 @@
     background: url("@{kv_welcome}bg.jpg") center top no-repeat;
     background-size: 1920px auto;
     .w(100%);
+    max-width: 1920px;
+    .auto(x);
     .clip;
 }
 .m-screen {
@@ -335,6 +337,36 @@
                     }
                 }
             });
+            .more {
+                .box {
+                    .flex;
+                    .w(280px);
+                    flex-wrap: wrap;
+                    gap: 20px;
+                    box-sizing: border-box;
+                    padding: 88px 20px 0 20px;
+                    .item {
+                        .flex;
+                        .size(72px);
+                        .r(4px);
+                        .fz(12px,2.4);
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        border: 1px solid transparent;
+                        transition: all 0.1s ease-in;
+                        box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+                        background-color: #fafbfc;
+                        color: #777;
+                        &:hover {
+                            border: 1px solid #39d45d;
+                        }
+                        .icon {
+                            .size(32px);
+                        }
+                    }
+                }
+            }
         }
         .m-box {
             .flex;
@@ -504,8 +536,40 @@
             gap: 30px;
             .item {
                 .size(125px,360px);
-                background-color: #000;
+                .flex;
+                .clip;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                .item-bg {
+                    .pa;
+                    .full;
+                    .lt(0);
+                    filter: brightness(80%);
+                    transition: 0.3s ease;
+                    &:hover {
+                        transform: scale(1.15);
+                    }
+                }
+                .u-title {
+                    .pa;
+                    .z(2);
+                    .db;
+                    .x;
+                    .w(1em);
+                    .fz(20px,30px);
+                    color: #fff;
+                    word-wrap: break-word;
+                }
             }
+            .run-item(@n, @i: 1) when (@i =< @n) {
+                .item-@{i} {
+                    background: url("@{kv_welcome}@{i}.png") center top no-repeat;
+                }
+                .run-item(@n, (@i + 1));
+            }
+
+            .run-item(5);
         }
     }
     .code {
@@ -540,6 +604,14 @@
     .m-seven {
         .code {
             background-size: contain;
+        }
+    }
+}
+
+@media screen and(min-width:1920px) {
+    .m-first {
+        .people,.fish-1{
+            transform: scale(1.01);
         }
     }
 }

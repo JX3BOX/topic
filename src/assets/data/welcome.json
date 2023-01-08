@@ -33,58 +33,59 @@
             { "name": "洗髓经", "link": "https://www.jx3box.com/bps/#/?subtype=%E6%B4%97%E9%AB%93%E7%BB%8F" }
         ],
         "tc": [
-            { "name": "傲血战意", "link": "https://www.jx3box.com/bps/#/?subtype=%E5%82%B2%E8%A1%80%E6%88%98%E6%84%8F" },
+            {
+                "name": "傲血战意",
+                "link": "https://www.jx3box.com/bps/#/?subtype=%E5%82%B2%E8%A1%80%E6%88%98%E6%84%8F"
+            },
             { "name": "铁牢律", "link": "https://www.jx3box.com/bps/#/?subtype=%E9%93%81%E7%89%A2%E5%BE%8B" }
         ],
         "cy": [
-            { "name": "紫霞功", "link": "https://www.jx3box.com/macro/#/?subtype=%E7%B4%AB%E9%9C%9E%E5%8A%9F" },
-            { "name": "太虚剑意", "link": "https://www.jx3box.com/macro/#/?subtype=%E5%A4%AA%E8%99%9A%E5%89%91%E6%84%8F" }
+            { "name": "紫霞功", "link": "https://www.jx3box.com/bps/#/?subtype=%E7%B4%AB%E9%9C%9E%E5%8A%9F" },
+            {
+                "name": "太虚剑意",
+                "link": "https://www.jx3box.com/bps/#/?subtype=%E5%A4%AA%E8%99%9A%E5%89%91%E6%84%8F"
+            }
         ],
-        "cj": [
-            { "name": "问水诀", "link": "https://www.jx3box.com/macro/#/?subtype=%E9%97%AE%E6%B0%B4%E8%AF%80" }
-        ],
+        "cj": [{ "name": "问水诀", "link": "https://www.jx3box.com/bps/#/?subtype=%E9%97%AE%E6%B0%B4%E8%AF%80" }],
         "wd": [
-            { "name": "毒经", "link": "https://www.jx3box.com/macro/#/?subtype=%E6%AF%92%E7%BB%8F" },
-            { "name": "补天诀", "link": "https://www.jx3box.com/macro/#/?subtype=%E8%A1%A5%E5%A4%A9%E8%AF%80" }
+            { "name": "毒经", "link": "https://www.jx3box.com/bps/#/?subtype=%E6%AF%92%E7%BB%8F" },
+            { "name": "补天诀", "link": "https://www.jx3box.com/bps/#/?subtype=%E8%A1%A5%E5%A4%A9%E8%AF%80" }
         ],
         "tm": [
-            { "name": "天罗诡道", "link": "https://www.jx3box.com/macro/#/?subtype=%E5%A4%A9%E7%BD%97%E8%AF%A1%E9%81%93" },
-            { "name": "惊羽诀", "link": "https://www.jx3box.com/macro/#/?subtype=%E6%83%8A%E7%BE%BD%E8%AF%80" }
+            {
+                "name": "天罗诡道",
+                "link": "https://www.jx3box.com/bps/#/?subtype=%E5%A4%A9%E7%BD%97%E8%AF%A1%E9%81%93"
+            },
+            { "name": "惊羽诀", "link": "https://www.jx3box.com/bps/#/?subtype=%E6%83%8A%E7%BE%BD%E8%AF%80" }
         ],
         "mj": [
-            { "name": "焚影圣诀", "link": "https://www.jx3box.com/macro/#/?subtype=%E7%84%9A%E5%BD%B1%E5%9C%A3%E8%AF%80" },
-            { "name": "明尊琉璃体", "link": "https://www.jx3box.com/macro/#/?subtype=%E6%98%8E%E5%B0%8A%E7%90%89%E7%92%83%E4%BD%93" }
+            {
+                "name": "焚影圣诀",
+                "link": "https://www.jx3box.com/bps/#/?subtype=%E7%84%9A%E5%BD%B1%E5%9C%A3%E8%AF%80"
+            },
+            {
+                "name": "明尊琉璃体",
+                "link": "https://www.jx3box.com/bps/#/?subtype=%E6%98%8E%E5%B0%8A%E7%90%89%E7%92%83%E4%BD%93"
+            }
         ],
-        "gb": [
-            { "name": "笑尘诀", "link": "https://www.jx3box.com/macro/#/?subtype=%E7%AC%91%E5%B0%98%E8%AF%80" }
-        ],
+        "gb": [{ "name": "笑尘诀", "link": "https://www.jx3box.com/bps/#/?subtype=%E7%AC%91%E5%B0%98%E8%AF%80" }],
         "cyun": [
-            { "name": "分山劲", "link": "https://www.jx3box.com/macro/#/?subtype=%E5%88%86%E5%B1%B1%E5%8A%B2" },
-            { "name": "铁骨衣", "link": "https://www.jx3box.com/macro/#/?subtype=%E9%93%81%E9%AA%A8%E8%A1%A3" }
+            { "name": "分山劲", "link": "https://www.jx3box.com/bps/#/?subtype=%E5%88%86%E5%B1%B1%E5%8A%B2" },
+            { "name": "铁骨衣", "link": "https://www.jx3box.com/bps/#/?subtype=%E9%93%81%E9%AA%A8%E8%A1%A3" }
         ],
         "cg": [
-            { "name": "莫问", "link": "https://www.jx3box.com/macro/#/?subtype=%E8%8E%AB%E9%97%AE" },
-            { "name": "相知", "link": "https://www.jx3box.com/macro/#/?subtype=%E7%9B%B8%E7%9F%A5" }
+            { "name": "莫问", "link": "https://www.jx3box.com/bps/#/?subtype=%E8%8E%AB%E9%97%AE" },
+            { "name": "相知", "link": "https://www.jx3box.com/bps/#/?subtype=%E7%9B%B8%E7%9F%A5" }
         ],
-        "bd": [
-            { "name": "北傲诀", "link": "https://www.jx3box.com/macro/#/?subtype=%E5%8C%97%E5%82%B2%E8%AF%80" }
-        ],
-        "pl": [
-            { "name": "凌海诀", "link": "https://www.jx3box.com/macro/#/?subtype=%E5%87%8C%E6%B5%B7%E8%AF%80" }
-        ],
-        "lx": [
-            { "name": "隐龙诀", "link": "https://www.jx3box.com/macro/#/?subtype=%E9%9A%90%E9%BE%99%E8%AF%80" }
-        ],
-        "yt": [
-            { "name": "太玄经", "link": "https://www.jx3box.com/macro/#/?subtype=%E5%A4%AA%E7%8E%84%E7%BB%8F" }
-        ],
+        "bd": [{ "name": "北傲诀", "link": "https://www.jx3box.com/bps/#/?subtype=%E5%8C%97%E5%82%B2%E8%AF%80" }],
+        "pl": [{ "name": "凌海诀", "link": "https://www.jx3box.com/bps/#/?subtype=%E5%87%8C%E6%B5%B7%E8%AF%80" }],
+        "lx": [{ "name": "隐龙诀", "link": "https://www.jx3box.com/bps/#/?subtype=%E9%9A%90%E9%BE%99%E8%AF%80" }],
+        "yt": [{ "name": "太玄经", "link": "https://www.jx3box.com/bps/#/?subtype=%E5%A4%AA%E7%8E%84%E7%BB%8F" }],
         "yz": [
-            { "name": "无方", "link": "https://www.jx3box.com/macro/#/?subtype=%E6%97%A0%E6%96%B9" },
-            { "name": "灵素", "link": "https://www.jx3box.com/macro/#/?subtype=%E7%81%B5%E7%B4%A0" }
+            { "name": "无方", "link": "https://www.jx3box.com/bps/#/?subtype=%E6%97%A0%E6%96%B9" },
+            { "name": "灵素", "link": "https://www.jx3box.com/bps/#/?subtype=%E7%81%B5%E7%B4%A0" }
         ],
-        "dz": [
-            { "name": "孤锋诀", "link": "https://www.jx3box.com/macro/#/?subtype=%E5%AD%A4%E9%94%8B%E8%AF%80" }
-        ]
+        "dz": [{ "name": "孤锋诀", "link": "https://www.jx3box.com/bps/#/?subtype=%E5%AD%A4%E9%94%8B%E8%AF%80" }]
     },
     "play": {
         "fb": {
@@ -184,7 +185,39 @@
                 "height": "370px",
                 "marginLeft": "12px",
                 "maxWidth": "488px"
-            }
+            },
+            "list": [
+                {
+                    "name": "配装",
+                    "icon": "https://img.jx3box.com/image/box/pz.svg",
+                    "link": "https://www.jx3box.com/pz/mine"
+                },
+                {
+                    "name": "数据",
+                    "icon": "https://img.jx3box.com/image/box/database.svg",
+                    "link": "https://www.jx3box.com/app/database/"
+                },
+                {
+                    "name": "战斗",
+                    "icon": "https://img.jx3box.com/image/box/battle.svg",
+                    "link": "https://www.jx3box.com/battle/#/public"
+                },
+                {
+                    "name": "团队",
+                    "icon": "https://img.jx3box.com/image/box/team.svg",
+                    "link": "https://www.jx3box.com/team/"
+                },
+                {
+                    "name": "百强",
+                    "icon": "https://img.jx3box.com/image/box/rank.svg",
+                    "link": "https://www.jx3box.com/rank/"
+                },
+                {
+                    "name": "插件",
+                    "icon": "https://img.jx3box.com/image/box/jx3dat.svg",
+                    "link": "https://www.jx3box.com/jx3dat/#/plugins"
+                }
+            ]
         }
     },
     "pvp": {
@@ -256,5 +289,12 @@
                 { "name": "家具蓝图", "link": "https://jx3.xoyo.com/zt/2020/09/24/blueprint/#/" }
             ]
         }
-    }
+    },
+    "box": [
+        { "title": "w o w e r入坑指北", "link": "https://www.jx3box.com/bps/50422" },
+        { "title": "萌新设置导航", "link": "https://www.jx3box.com/bps/29552" },
+        { "title": "剑三硬核理论", "link": "https://www.jx3box.com/bps/#/?subtype=%E9%80%9A%E7%94%A8&page=1" },
+        { "title": "剑三配装器", "link": "https://www.jx3box.com/pz/mine" },
+        { "title": "剑三团队平台", "link": "https://www.jx3box.com/team" }
+    ]
 }
