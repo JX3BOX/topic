@@ -85,11 +85,15 @@
         background: url("@{kv_welcome}title.png") center top no-repeat;
         background-size: 1275px, 495px;
     }
+    .fish,
     .fish-1 {
         .size(100%,1662px);
-        .lt(0,318px);
+        .lt(0,357px);
         background: url("@{kv_welcome}fish-1.png") center top no-repeat;
         background-size: 1920px 1662px;
+    }
+    .fish {
+        .lt(-557px,337px);
     }
 }
 
@@ -599,7 +603,7 @@
 }
 @media screen and (max-width: 1080px) {
     .m-first {
-        .logo{
+        .logo {
             .ml(-500px);
         }
     }
@@ -619,7 +623,8 @@
 
 @media screen and(min-width:1920px) {
     .m-first {
-        .people,.fish-1{
+        .people,
+        .fish-1 {
             transform: scale(1.01);
         }
     }

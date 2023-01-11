@@ -4,6 +4,7 @@
         <div class="m-first m-screen">
             <div class="people" ref="mark"></div>
             <div class="title pa"></div>
+            <div class="fish pa"></div>
             <div class="fish-1 pa"></div>
             <div class="logo pa">
                 <a href="https://jx3.xoyo.com/" target="_blank"></a>
