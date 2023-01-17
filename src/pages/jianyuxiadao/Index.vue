@@ -1,7 +1,7 @@
 <template>
 	<div class="m-box">
-        <pc v-if="show=='pc'"></pc>
-        <mobile v-if="show=='mobile'"></mobile>
+        <pc></pc>
+        <!-- <mobile v-if="show=='mobile'"></mobile> -->
     </div>
 </template>
 
