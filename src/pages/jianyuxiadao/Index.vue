@@ -7,11 +7,10 @@
 
 <script>
 import pc from  './pc'
-import mobile from  './mobile'
 export default {
 	name: "Index",
     components:{
-        pc,mobile
+        pc
     },
 	data: function () {
 		return {
@@ -41,7 +40,7 @@ export default {
 	},
 	filters: {},
 	created: function () {
-        this.show=this.browserRedirect()
+        // this.show=this.browserRedirect()
     },
 	mounted: function () {},
 };
