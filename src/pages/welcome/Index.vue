@@ -17,8 +17,8 @@
             <div class="video pa">
                 <div class="u-video" v-html="video"></div>
             </div>
-            <div class="lantern pa"></div>
-            <div class="fish-2 pa"></div>
+            <div class="lantern pa" style="pointer-events:none"></div>
+            <div class="fish-2 pa" style="pointer-events:none"></div>
         </div>
         <!-- 第三屏：门派 -->
         <div class="m-three m-screen">
@@ -259,7 +259,7 @@ export default {
     components: {},
     data: function () {
         return {
-            video: `<iframe src="//player.bilibili.com/player.html?aid=933209181&bvid=BV1qM4y1377P&cid=413035263&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>`,
+            video: `<iframe src="//player.bilibili.com/player.html?aid=478020716&bvid=BV1nK411k716&cid=971857784&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>`,
             active: "wh",
             mp,
             xf,
