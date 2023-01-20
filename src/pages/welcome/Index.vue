@@ -32,7 +32,7 @@
                 <div class="mark" :class="`mark-${active}`"></div>
                 <div :class="`people-${active} pa`"></div>
                 <div :class="`text-${active} pa`">
-                    <img :src="`${__imgRoot}school/${active}-text.png`" class="img" />
+                    <img :src="`${__imgRoot}school/${active}-text.png?welcome`" class="img" />
                     <div class="txt">
                         {{ mp[active] }}
                     </div>
