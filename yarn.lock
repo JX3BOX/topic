@@ -1032,10 +1032,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@jx3box/jx3box-common-ui@^6.7.0":
-  "integrity" "sha512-eZHKNEWohmnsE2ljvG2vl3xLFytQD17uG/3ycUhhv+HMeA4S7HUlEGcpKcg7jt9uIe4ZMa5j+Up3LApF3f/q2g=="
-  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common-ui/-/jx3box-common-ui-6.7.0.tgz"
-  "version" "6.7.0"
+"@jx3box/jx3box-common-ui@^6.7.6":
+  "integrity" "sha512-/xowm7bBOL3DGovf5sXEq9pF4SN+YYr7l0mwpMH/mzzMEERuVQoobfuFaKCl7RDz9sTat4l+bzMAGkFWvEt/1g=="
+  "resolved" "https://registry.npmjs.org/@jx3box/jx3box-common-ui/-/jx3box-common-ui-6.7.6.tgz"
+  "version" "6.7.6"
   dependencies:
     "@jx3box/jx3box-common" "^7.6.2"
     "@jx3box/jx3box-data" "^3.0.3"
