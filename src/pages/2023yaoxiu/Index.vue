@@ -1,5 +1,8 @@
 <template>
     <div class="m-index">
+        <a class="m-jb" target="_blank" href="/">
+            <img src="@/assets/img/jb2.png" alt="魔盒">
+        </a>
         <div class="m-logo">
             <div class="u-box">
                 <!-- <div class="u-txtr p-animation" v-animate="'fadeInRight'"></div> -->
@@ -47,7 +50,8 @@
                 <div class="m-dialog-content">
                     <div class="u-common u-step1" v-if="step == 1">
                         <Avatar :uid="userInfo.uid" :url="userInfo.avatar_origin" class="u-avatar" />
-                        <div class="u-name">{{ userInfo.name || "未知" }}，你当前还没有领取过称号哦</div>
+                        <!-- <div class="u-name">{{ userInfo.name || "未知" }}，你当前还没有领取过称号哦</div> -->
+                        <div class="u-desc">绑定任意一个服务器的【正太七秀】角色即可领取限定称号。</div>
                         <div class="u-btn-box">
                             <div class="u-btn" @click="bindRole">绑定角色</div>
                             <div class="u-btn" @click="getHonor">领取称号</div>
@@ -62,6 +66,7 @@
                             v-clipboard:success="onCopy"
                             v-clipboard:error="onError"
                         >
+                            <i class="el-icon-document-copy"></i>
                             {{ token }}
                         </div>
                         <div class="u-tips">
@@ -164,7 +169,10 @@ export default {
     methods: {
         init: function () {
             getAllMyRoles().then((res) => {
-                this.roles = res.data.data.list || [];
+                this.roles =
+                    res.data.data.list?.filter((item) => {
+                        return (item.body_type == 5) && (item.mount == 4) && item.custom == 0;
+                    }) || [];
             });
         },
         getToken() {
