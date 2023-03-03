@@ -4,8 +4,17 @@
             <div class="u-box">
                 <!-- <div class="u-txtr p-animation" v-animate="'fadeInRight'"></div> -->
                 <div class="u-video">
-                    <iframe
+                    <!-- <iframe
                         src="//www.bilibili.com/video/BV1n54y1u7bu/?vd_source=01c3106a06b3cb3f34cfd07de3204752"
+                        scrolling="no"
+                        border="0"
+                        frameborder="no"
+                        framespacing="0"
+                        allowfullscreen="true"
+                    >
+                    </iframe> -->
+                    <iframe
+                        src="//player.bilibili.com/player.html?aid=865435138&bvid=BV1n54y1u7bu&cid=1037931815&page=1"
                         scrolling="no"
                         border="0"
                         frameborder="no"
@@ -19,7 +28,7 @@
                         <Avatar :uid="userInfo.uid" :url="userInfo.avatar_origin" class="u-avatar" />
                         <div class="u-name">{{ userInfo.name || "未知" }}</div>
                     </div>
-                    <div class="u-btn" @click="getHonorShow">绑定角色领取称号</div>
+                    <div class="u-btn" @click="getHonorShow" v-if="isLogin">绑定角色领取称号</div>
                 </div>
             </div>
         </div>
@@ -121,6 +130,7 @@ export default {
             token: "",
             roles: [],
             role: "",
+            isLogin: User.isLogin(),
         };
     },
     directives: {
