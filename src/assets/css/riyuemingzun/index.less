@@ -1,0 +1,102 @@
+@base: 1px;
+
+body {
+    background-color: #fff;
+}
+
+.m-index {
+    .flex;
+    .clip;
+    .auto(x);
+    .pr;
+    user-select: none;
+    max-width: 1920px;
+    align-items: center;
+    flex-direction: column;
+    background: url("@{kv_riyuemingzun}/p0/rainbow.png") no-repeat;
+    background-size: 100%;
+    background-position: 0 1700px;
+}
+
+// 顶部
+.m-top {
+    .mt(64px);
+    .pr;
+    .size(100%, 800px);
+    user-select: none;
+    background: url("@{kv_riyuemingzun}/p0/top.png") top center no-repeat;
+    background-size: 100%;
+}
+
+// 全新内容
+.m-one {
+    .size(100%, 990px);
+    .pr;
+    .flex;
+    .pt(168px);
+    justify-content: center;
+    box-sizing: border-box;
+
+    .u-title {
+        .size(410px, 318px);
+        .mt(120px);
+        background: url("@{kv_riyuemingzun}/p1/p1-title.png") center no-repeat;
+
+    }
+
+    .u-nav {
+        .size(120px, 560px);
+        .mr(10px);
+        .pointer;
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
+
+        &:hover {
+            scale: 1.05;
+        }
+    }
+}
+
+//技改
+.m-two {
+    .size(100%, 990px);
+    .pr;
+    .flex;
+    justify-content: center;
+
+    .m-skill {
+        .pr;
+        .size(1440px, 660px);
+        background: url("@{kv_riyuemingzun}/p2/p2-bg1.png") no-repeat,
+        url("@{kv_riyuemingzun}/p2/p2-bg2.png") no-repeat,
+        url("@{kv_riyuemingzun}/p2/p2-title.png") no-repeat;
+        background-position: 0 0, 0 533px, 764px 0;
+
+        .u-button {
+            .size(449px, 116px);
+            .pa;
+            right: 0;
+            bottom: 228px;
+            -webkit-transition: all 0.5s;
+            transition: all 0.5s;
+            background: url("@{kv_riyuemingzun}/p2/p2-button.png") no-repeat;
+            background-size: 100%;
+
+            &:hover {
+                scale: 1.05;
+            }
+        }
+
+        .u-text {
+            .db;
+            .bold;
+            color: #fff;
+            text-align: center;
+            .fz(36px, 116px);
+            letter-spacing: 1px;
+        }
+    }
+}
+
+
+@media screen and (orientation: portrait) {}

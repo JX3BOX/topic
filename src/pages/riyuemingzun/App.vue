@@ -33,7 +33,7 @@ export default {
 	methods: {},
 	filters: {},
 	created: function () {
-		postStat("topic", "hengdaoduanlang");
+		postStat("topic", "riyuemingzun");
 	},
 	mounted: function () { },
 };

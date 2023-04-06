@@ -11,23 +11,24 @@
         </div>
         <!-- 点击后显示第二屏 -->
         <div class="m-list p-animation" :class="[listShow, client]">
-            <div class="m-content p-animation" :class="client=='std'?'fadeInLeft':'fadeInRight'">
+            <div class="m-content p-animation" :class="client == 'std' ? 'fadeInLeft' : 'fadeInRight'">
                 <div class="u-client-phone" @click="goFirst"></div>
                 <div class="u-list-client" v-if="client == 'origin'">
                     <span class="u-button u-std" @click="goStd"></span>
                 </div>
                 <div class="m-scroll" v-dragscroll ref="scrollRef">
-                    <div class="u-item p-animations3" v-for="(item, i) in list" :key="i" :class="client=='std'?'fadeInLeft':'fadeInRight'">
+                    <div class="u-item p-animations3" v-for="(item, i) in list" :key="i"
+                        :class="client == 'std' ? 'fadeInLeft' : 'fadeInRight'">
                         <div class="u-list">
                             <a :href="item.link" target="_blank" class="u-link">
-                                <img class="u-img" :src="showImg(item.key)" :class="item.link?'u-hover':''"/>
+                                <img class="u-img" :src="showImg(item.key)" :class="item.link ? 'u-hover' : ''" />
                             </a>
-                            <img src="../../assets/img/home/circle.png" style="margin-top: 30px"/>
+                            <img src="../../assets/img/home/circle.png" style="margin-top: 30px" />
                             <span class="u-title">{{ item.name || "未知" }}</span>
-<!--                            <span class="u-time">{{ item.year || " " }}</span>-->
-<!--                            <span class="u-date">{{ item.date || " " }}</span>-->
+                            <!--                            <span class="u-time">{{ item.year || " " }}</span>-->
+                            <!--                            <span class="u-date">{{ item.date || " " }}</span>-->
                             <div class="u-time">
-                                {{item.time}}
+                                {{ item.time }}
                             </div>
                         </div>
                         <div class="u-line"></div>
@@ -58,23 +59,23 @@ export default {
     },
     computed: {
         list() {
-            let stdarr=JSON.parse(JSON.stringify(std)).reverse()
+            let stdarr = JSON.parse(JSON.stringify(std)).reverse()
             let _list = this.client == "std" ? stdarr : origin;
             return _list
         },
     },
     watch: {},
     methods: {
-        goStd(){
+        goStd() {
             this.client = "std";
             setTimeout(() => {
                 this.listShow = "show fadeIn";
-                this.$nextTick(()=>{
-                    this.$refs.scrollRef.scrollTo(this.$refs.scrollRef.clientWidth,0)
+                this.$nextTick(() => {
+                    this.$refs.scrollRef.scrollTo(this.$refs.scrollRef.clientWidth, 0)
                 })
             }, 500);
         },
-        goOrign(){
+        goOrign() {
             this.client = "origin";
             setTimeout(() => {
                 this.listShow = "show fadeIn";
@@ -94,9 +95,9 @@ export default {
             }
             setTimeout(() => {
                 this.listShow = "show fadeIn";
-                if(this.client=='std'){
-                    this.$nextTick(()=>{
-                        this.$refs.scrollRef.scrollTo(this.$refs.scrollRef.clientWidth,0)
+                if (this.client == 'std') {
+                    this.$nextTick(() => {
+                        this.$refs.scrollRef.scrollTo(this.$refs.scrollRef.clientWidth, 0)
                     })
                 }
             }, 500);
@@ -120,9 +121,9 @@ export default {
             return __imgPath + "topic/index/" + key + ".png";
         },
     },
-    created: function () {},
-    mounted: function () {},
-    destroyed() {},
+    created: function () { },
+    mounted: function () { },
+    destroyed() { },
 };
 </script>
 <style lang="less">

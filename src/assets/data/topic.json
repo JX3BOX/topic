@@ -1,15 +1,38 @@
 {
     "new_topic": "wuduxianshi",
     "std_topic": [
-        { "id": 4, "name": "jianghuwuxian" },
-        { "id": 1, "name": "beitianyaozong" }
+        {
+            "id": 4,
+            "name": "jianghuwuxian"
+        },
+        {
+            "id": 1,
+            "name": "beitianyaozong"
+        }
     ],
     "origin_topic": [
-        { "id": 5, "name": "wuduxianshi" },
-        { "id": 3, "name": "shengdianyunqi" },
-        { "id": 2, "name": "cangjianshanzhuang" }
+        {
+            "id": 5,
+            "name": "wuduxianshi"
+        },
+        {
+            "id": 3,
+            "name": "shengdianyunqi"
+        },
+        {
+            "id": 2,
+            "name": "cangjianshanzhuang"
+        }
     ],
     "origin": [
+        {
+            "name": "日月明尊",
+            "key": "riyuemingzun",
+            "year": "2023",
+            "date": "03-30",
+            "time": "2023.03.30",
+            "link": "./riyuemingzun"
+        },
         {
             "name": "剑湖神宫",
             "key": "jianhushengong",
@@ -50,7 +73,11 @@
             "time": "2021.11.19",
             "link": "./cangjianshanzhuang"
         },
-        {"year":2020,"type":"normal","key":"normal"}
+        {
+            "year": 2020,
+            "type": "normal",
+            "key": "normal"
+        }
     ],
     "std": [
         {
@@ -91,6 +118,10 @@
             "date": "10-29",
             "time": "2022.10.29"
         },
-        {"year":2020,"type":"normal","key":"normal"}
+        {
+            "year": 2020,
+            "type": "normal",
+            "key": "normal"
+        }
     ]
 }
