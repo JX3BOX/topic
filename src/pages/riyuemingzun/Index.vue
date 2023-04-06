@@ -1,15 +1,15 @@
 <template>
     <div class="m-index">
-        <!-- KV -->
+        <!--KV头部背景-->
         <div class="m-top"></div>
-        <!--P1-->
+        <!--P1全新内容导航-->
         <div class="m-one" ref="m-one">
             <div class="u-title p-animation" v-animate="'fadeInDown'"></div>
             <div class="u-nav p-animation" v-animate="'fadeInDown'" v-for="(item, key) in p1nav" :key="key">
                 <img :src="imgurl + 'p1/' + item.imgurl" v-animate="'p-animation fadeInDown'">
             </div>
         </div>
-        <!--P2-->
+        <!--P2技改-->
         <div class="m-two" ref="m-two">
             <div class="m-skill p-animation">
                 <a href="" class="u-button">
@@ -17,11 +17,39 @@
                 </a>
             </div>
         </div>
+        <!--p3明教及大战本-->
+        <div class="m-three" ref="m-three">
+            <div class="m-mj p-animation">
+                <div class="m-content">
+                    <div class="u-text">{{ mj.desc }}</div>
+                    <div class="m-mountGroup">
+                        <div class="m-xf" v-for="(item, key) in mj.xf" :key="key">
+                            <img class="u-pic" :src="showMountIcon(item.id)" :alt="item.name" />
+                            <span class="u-name">{{ item.name }}</span>
+                            <div class="m-buttonGroup">
+                                <a :href="item.macroUrl" class="u-button" target="_blank">{{ item.desc }}宏库</a>
+                                <a :href="item.bpsUrl" class="u-button" target="_blank">{{ item.desc }}攻略</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="m-fb p-animation">
+                <div class="m-content">
+                    <div class="u-text">{{ fb.gmdmd.desc }}</div>
+                    <div class="m-buttonGroup">
+                        <a :href="fb.gmdmd.fbUrl" class="u-button" target="_blank">副本攻略</a>
+                        <a :href="fb.gmdmd.achieveUrl" class="u-button" target="_blank">副本成就</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
 import { slider, slideritem } from 'vue-concise-slider'// 引入slider组件
+import { showMountIcon } from "@jx3box/jx3box-common/js/utils";//引入心法图标
 const KEY = "riyuemingzun";
 import { getTopic } from "@/service/topic";
 export default {
@@ -57,7 +85,35 @@ export default {
                 { imgurl: "p1-nav6.png", name: "" },
                 { imgurl: "p1-nav7.png", name: "" },
                 { imgurl: "p1-nav8.png", name: "" }
-            ]
+            ],
+            mj: {
+                desc: "明教武学由教主陆危楼所创，出招之时如有日月之威，往往能从敌人意想不到的地方发动摧枯拉朽般之攻击，防不胜防。坚定的信仰则可令信徒受到明尊护佑，身化琉璃妙相，常常令敌人难以捉摸，攻击落空。即便遭受攻击，也能从敌人身上获取新生的活力。",
+                xf: [
+                    {
+                        name: "焚影圣诀",
+                        desc: "焚影",
+                        id: 10242,
+                        bpsUrl: "https://origin.jx3box.com/bps/?subtype=%E7%84%9A%E5%BD%B1%E5%9C%A3%E8%AF%80",
+                        macroUrl: "https://origin.jx3box.com/macro/?subtype=%E7%84%9A%E5%BD%B1%E5%9C%A3%E8%AF%80"
+                    },
+                    {
+                        name: "明尊琉璃体",
+                        desc: "明尊",
+                        id: 10243,
+                        bpsUrl: "https://origin.jx3box.com/bps/?subtype=%E6%98%8E%E5%B0%8A%E7%90%89%E7%92%83%E4%BD%93",
+                        macroUrl: "https://origin.jx3box.com/macro/?subtype=%E6%98%8E%E5%B0%8A%E7%90%89%E7%92%83%E4%BD%93"
+                    }
+                ],
+            },
+            fb: {
+                gmdmd: {
+                    name: "光明顶密道",
+                    desc: "\"大光明寺事件\"已逾数载，明教与中原各大门派关系稍见缓和，为促进明教与各大门派之间的交流，维护目前相对良好的关系，也为日后明教重回中原做些准备，明教教主陆危楼决定派遣一些有资质的弟子下山前往中原。中原之行实属不易，需才能出众之人方可胜任，于是陆危楼下令，只有通过乾坤大挪移五行阵法考验的弟子，才有资格下山。此乾坤大挪移五行阵法，即光明顶秘道，由明教五行旗各大掌旗使镇守，分别为琉金旗，星木旗，洪水旗，妙火旗以及方土旗，此间机关重重，变化莫测，欲通过此考验，还得颇花心思才行！",
+                    fbUrl: "https://origin.jx3box.com/fb/?fb_name=%E5%85%89%E6%98%8E%E9%A1%B6%E7%A7%98%E9%81%93",
+                    achieveUrl: "https://origin.jx3box.com/fb/cj?fb_name=%E5%85%89%E6%98%8E%E9%A1%B6%E7%A7%98%E9%81%93"
+                }
+            }
+
         };
     },
     directives: {
@@ -118,7 +174,8 @@ export default {
         },
         toastMsg() {
             alert('敬请期待')
-        }
+        },
+        showMountIcon
     },
     filters: {},
     created: function () { },

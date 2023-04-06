@@ -98,5 +98,131 @@ body {
     }
 }
 
+//明教
+.m-three {
+    .w(100%);
+    .pr;
+    .flex;
+    flex-direction: column;
+    align-items: center;
+    .pt(330px);
+    background: url("@{kv_riyuemingzun}/p3/p3-title.png")top center no-repeat;
+
+    .m-mj {
+        .size(1440px, 600px);
+        background: url("@{kv_riyuemingzun}/p3/p3-bg1.png")no-repeat;
+        .mb(180px);
+        .pr;
+
+        .m-content {
+            .pa;
+            right: 0;
+            .size(510px, 100%);
+            background: url("@{kv_riyuemingzun}/p3/p3-subtitle1.png")center 30px no-repeat;
+            box-sizing: border-box;
+            .pt(280px);
+
+            .m-mountGroup {
+                .size(500px, 195px);
+                .auto(x);
+                background: url("@{kv_riyuemingzun}/p3/p3-bg3.png")center center no-repeat;
+                .flex;
+                justify-content: center;
+
+                .m-xf {
+                    .size(45%, 100%);
+                    .flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+
+                    .u-pic {
+                        .size(50px);
+                    }
+
+                    .u-name {
+                        .fz(20px);
+                        .bold;
+                        color: #E9B96E;
+                        .mt(5px);
+                        .mb(10px);
+                    }
+                }
+            }
+
+            .m-buttonGroup {
+                .size(180px, 25px);
+                .flex;
+                justify-content: space-between;
+
+                .u-button {
+                    .size(80px, 25px);
+                    background: #E9B96E;
+                    .r(5px);
+                    .bold;
+                    color: #8B5259;
+                    .fz(16px, 25px);
+                    text-align: center;
+                    .pointer;
+                    -webkit-transition: all 0.5s;
+                    transition: all 0.5s;
+
+                    &:hover {
+                        scale: 1.05;
+                    }
+                }
+
+            }
+        }
+    }
+
+    .m-fb {
+        .size(1440px, 600px);
+        background: url("@{kv_riyuemingzun}/p3/p3-bg2.png")right no-repeat;
+
+        .m-content {
+            .size(510px, 100%);
+            background: url("@{kv_riyuemingzun}/p3/p3-subtitle2.png")center 30px no-repeat;
+            box-sizing: border-box;
+            .pt(280px);
+
+            .m-buttonGroup {
+                .size(480px, 58px);
+                .flex;
+                justify-content: space-between;
+                .auto(x);
+
+                .u-button {
+                    .size(200px, 58px);
+                    background: url("@{kv_riyuemingzun}/p3/p3-button.png")no-repeat;
+                    .bold;
+                    color: #fff;
+                    .fz(22px, 54px);
+                    letter-spacing: 1px;
+                    text-align: center;
+                    .pointer;
+                    -webkit-transition: all 0.5s;
+                    transition: all 0.5s;
+
+                    &:hover {
+                        scale: 1.05;
+                    }
+                }
+            }
+        }
+    }
+
+    .u-text {
+        .pr;
+        .bold;
+        .auto(x);
+        .mb(20px);
+        .w(480px);
+        text-align: center;
+        .fz(16px);
+    }
+
+}
+
 
 @media screen and (orientation: portrait) {}
