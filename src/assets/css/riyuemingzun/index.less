@@ -100,16 +100,20 @@ body {
 
 //明教
 .m-three {
-    .w(100%);
+    .size(100%, 1685px);
     .pr;
-    .flex;
-    flex-direction: column;
-    align-items: center;
-    .pt(330px);
-    background: url("@{kv_riyuemingzun}/p3/p3-title.png")top center no-repeat;
+
+    .u-title {
+        .size(1440px, 250px);
+        .auto(x);
+        background: url("@{kv_riyuemingzun}/p3/p3-title.png")top center no-repeat;
+        .mb(55px);
+    }
+
 
     .m-mj {
         .size(1440px, 600px);
+        .auto(x);
         background: url("@{kv_riyuemingzun}/p3/p3-bg1.png")no-repeat;
         .mb(180px);
         .pr;
@@ -179,6 +183,7 @@ body {
     .m-fb {
         .size(1440px, 600px);
         background: url("@{kv_riyuemingzun}/p3/p3-bg2.png")right no-repeat;
+        .auto(x);
 
         .m-content {
             .size(510px, 100%);
@@ -220,6 +225,145 @@ body {
         .w(480px);
         text-align: center;
         .fz(16px);
+    }
+
+}
+
+//抓马
+.m-four {
+    .size(100%, 1100px);
+    .pr;
+    .mt(350px);
+
+    .u-title {
+        .size(1440px, 250px);
+        .auto(x);
+        background: url("@{kv_riyuemingzun}/p4/p4-title.png")top center no-repeat;
+        .mb(55px);
+    }
+
+    .m-content {
+        .size(1440px, 720px);
+        .auto(x);
+        background: url("@{kv_riyuemingzun}/p4/p4-bg1.png")top left no-repeat,
+        url("@{kv_riyuemingzun}/p4/p4-bg2.png")top right no-repeat;
+
+        .m-tabGroup {
+            .size(580px, 50px);
+            .auto(x);
+            .flex;
+            justify-content: space-between;
+
+            .u-tab {
+                .size(180px, 50px);
+                .pointer;
+                opacity: 0.7;
+                -webkit-transition: all 0.5s;
+                transition: all 0.5s;
+                overflow: hidden;
+                .r(5px);
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+
+            .u-tab-act {
+                opacity: 1;
+            }
+
+            .u-tab-sys {
+                background: url("@{kv_riyuemingzun}/p4/p4-button1.png") no-repeat,
+            }
+
+            .u-tab-map {
+                background: url("@{kv_riyuemingzun}/p4/p4-button2.png") no-repeat,
+            }
+
+            .u-tab-sw {
+                background: url("@{kv_riyuemingzun}/p4/p4-button3.png") no-repeat,
+            }
+        }
+
+        .m-detail {
+            .size(780px, 570px);
+            .auto(x);
+
+            .u-subTitle {
+                .size(100%, 95px);
+                .mt(100px);
+            }
+
+            .u-mapTitle {
+                background: url("@{kv_riyuemingzun}/p4/p4-sub1.png")center no-repeat;
+                .mb(40px);
+            }
+
+            .u-sysTitle {
+                background: url("@{kv_riyuemingzun}/p4/p4-sub2.png")center no-repeat;
+                .mb(20px);
+            }
+
+            .u-swTitle {
+                background: url("@{kv_riyuemingzun}/p4/p4-sub3.png")center no-repeat;
+                .mb(85px);
+            }
+
+            .u-text {
+                .auto(x);
+                .h(24px);
+                .fz(18px, 24px);
+                .bold;
+                text-align: center;
+            }
+
+            .u-pic {
+                .size(700px, 255px);
+                .auto(x);
+                .mt(40px);
+                background: url("@{kv_riyuemingzun}/p4/p4-map.png") no-repeat;
+            }
+
+            .m-xy {
+                .size(670px, 380px);
+                .auto(x);
+                background: url("@{kv_riyuemingzun}/p4/p4-text1.png")top left no-repeat,
+                url("@{kv_riyuemingzun}/p4/p4-text2.png")top right no-repeat,
+                url("@{kv_riyuemingzun}/p4/p4-text3.png")bottom center no-repeat;
+            }
+
+            .m-sw {
+                .size(680px, 176px);
+                .auto(x);
+                background: url("@{kv_riyuemingzun}/p4/p4-text4.png")top center no-repeat,
+                url("@{kv_riyuemingzun}/p4/p4-text5.png")bottom center no-repeat;
+            }
+
+            .u-button {
+                .db;
+                .pr;
+                .size(205px, 48px);
+                .auto(x);
+                .mt(20px);
+                background: url("@{kv_riyuemingzun}/p4/p4-button4.png")no-repeat;
+
+                .u-arrow {
+                    .pa;
+                    right: 0;
+                    -webkit-transition: all 0.5s;
+                    transition: all 0.5s;
+                }
+
+                &:hover {
+                    .u-arrow {
+                        right: -20px;
+                    }
+                }
+            }
+
+
+
+        }
     }
 
 }

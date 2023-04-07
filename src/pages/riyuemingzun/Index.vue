@@ -11,7 +11,8 @@
         </div>
         <!--P2技改-->
         <div class="m-two" ref="m-two">
-            <div class="m-skill p-animation">
+            <div class="u-title p-animation" v-animate="'fadeInDown'"></div>
+            <div class="m-skill p-animation" v-animate="'fadeInDown'">
                 <a href="" class="u-button">
                     <span class="u-text">立即查看</span>
                 </a>
@@ -19,7 +20,8 @@
         </div>
         <!--p3明教及大战本-->
         <div class="m-three" ref="m-three">
-            <div class="m-mj p-animation">
+            <div class="u-title p-animation" v-animate="'fadeInDown'"></div>
+            <div class="m-mj p-animation" v-animate="'fadeInDown'">
                 <div class="m-content">
                     <div class="u-text">{{ mj.desc }}</div>
                     <div class="m-mountGroup">
@@ -34,13 +36,44 @@
                     </div>
                 </div>
             </div>
-            <div class="m-fb p-animation">
+            <div class="m-fb p-animation" v-animate="'fadeInDown'">
                 <div class="m-content">
                     <div class="u-text">{{ fb.gmdmd.desc }}</div>
                     <div class="m-buttonGroup">
                         <a :href="fb.gmdmd.fbUrl" class="u-button" target="_blank">副本攻略</a>
                         <a :href="fb.gmdmd.achieveUrl" class="u-button" target="_blank">副本成就</a>
                     </div>
+                </div>
+            </div>
+        </div>
+        <!--p4苍山洱海抓马-->
+        <div class="m-four" ref="m-four">
+            <div class="u-title p-animation" v-animate="'fadeInDown'"></div>
+            <div class="m-content p-animation" v-animate="'fadeInDown'">
+                <!--切换按钮-->
+                <div class="m-tabGroup">
+                    <div class="u-tab u-tab-sys" :class="p4Tab == 1 ? 'u-tab-act' : ''" @click="p4Tab = 1"></div>
+                    <div class="u-tab u-tab-map" :class="p4Tab == 2 ? 'u-tab-act' : ''" @click="p4Tab = 2"></div>
+                    <div class="u-tab u-tab-sw" :class="p4Tab == 3 ? 'u-tab-act' : ''" @click="p4Tab = 3"></div>
+                </div>
+                <!-- 系统 -->
+                <div class="m-detail p-animation" v-show="p4Tab == 1" v-animate="'fadeInDown'">
+                    <div class="u-subTitle u-sysTitle"></div>
+                    <div class="m-xy"></div>
+                </div>
+                <!-- 地图 -->
+                <div class="m-detail p-animation" v-show="p4Tab == 2" v-animate="'fadeInDown'">
+                    <div class="u-subTitle u-mapTitle"></div>
+                    <div class="u-text" v-for="(line, key) in csrh" :key="key">{{ line }}</div>
+                    <div class="u-pic"></div>
+                </div>
+                <!-- 声望 -->
+                <div class="m-detail p-animation" v-show="p4Tab == 3" v-animate="'fadeInDown'">
+                    <div class="u-subTitle u-swTitle"></div>
+                    <div class="m-sw"></div>
+                    <a href="https://origin.jx3box.com/cj/" class="u-button">
+                        <img :src="imgurl + '/p4/p4-right.png'" class="u-arrow">
+                    </a>
                 </div>
             </div>
         </div>
@@ -112,8 +145,14 @@ export default {
                     fbUrl: "https://origin.jx3box.com/fb/?fb_name=%E5%85%89%E6%98%8E%E9%A1%B6%E7%A7%98%E9%81%93",
                     achieveUrl: "https://origin.jx3box.com/fb/cj?fb_name=%E5%85%89%E6%98%8E%E9%A1%B6%E7%A7%98%E9%81%93"
                 }
+            },
+            p4Tab: 2,
+            csrh: {
+                //苍山洱海地图描述
+                text1: "风花雪月古城开，洱海苍山次第排。",
+                text2: "水光万顷开天镜，山色四时环翠屏。",
+                text3: "新增苍山洱海地图场景和剧情任务，全新内容静待各位侠士探索!"
             }
-
         };
     },
     directives: {
