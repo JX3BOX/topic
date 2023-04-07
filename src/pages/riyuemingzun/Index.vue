@@ -77,6 +77,22 @@
                 </div>
             </div>
         </div>
+        <!--p5烛龙殿南诏皇宫-->
+        <div class="m-five" ref="m-five">
+            <div class="u-title p-animation" v-animate="'fadeInDown'"></div>
+            <div class="m-boss p-animation" v-animate="'fadeInDown'">
+                <div class="u-profile" v-for="(boss, key) in fb.zld.boss" :key="key"></div>
+            </div>
+            <div class="m-fb  p-animation" v-animate="'fadeInDown'">
+                <div class="u-name"></div>
+                <div class="u-text">{{ fb.zld.desc1 }}</div>
+                <div class="u-text">{{ fb.zld.desc2 }}</div>
+                <div class="m-buttonGroup">
+                    <a href="" class="u-button"></a>
+                    <a href="" class="u-button"></a>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -144,6 +160,23 @@ export default {
                     desc: "\"大光明寺事件\"已逾数载，明教与中原各大门派关系稍见缓和，为促进明教与各大门派之间的交流，维护目前相对良好的关系，也为日后明教重回中原做些准备，明教教主陆危楼决定派遣一些有资质的弟子下山前往中原。中原之行实属不易，需才能出众之人方可胜任，于是陆危楼下令，只有通过乾坤大挪移五行阵法考验的弟子，才有资格下山。此乾坤大挪移五行阵法，即光明顶秘道，由明教五行旗各大掌旗使镇守，分别为琉金旗，星木旗，洪水旗，妙火旗以及方土旗，此间机关重重，变化莫测，欲通过此考验，还得颇花心思才行！",
                     fbUrl: "https://origin.jx3box.com/fb/?fb_name=%E5%85%89%E6%98%8E%E9%A1%B6%E7%A7%98%E9%81%93",
                     achieveUrl: "https://origin.jx3box.com/fb/cj?fb_name=%E5%85%89%E6%98%8E%E9%A1%B6%E7%A7%98%E9%81%93"
+                },
+                zld: {
+                    name: "烛龙殿",
+                    desc1: "在毒虫密布的南疆黑龙沼之中，隐藏着一座巨大雄伟的宫殿一一烛龙殿。这里是散落各地的天一教教徒心中的无上圣所，这里是他们信仰的最终寄托，这里是教众们前仆后继投入黑暗行动中的唯一一点烛光",
+                    desc2: "为了天一教“万世长存”的痴梦，教主乌蒙贵依托着烛龙殿，四处收集高手壮士的遗体，大量制造凶悍的非人傀儡迅速壮大了天一教，并试图称霸中原武林。还请侠士待新赛季[日月明尊]开启后，与豪侠们组团攻打[烛龙殿]，摧毁其阴谋，并解救中原各派掌门!",
+                    fbUrl: "https://origin.jx3box.com/fb/?fb_name=%E7%83%9B%E9%BE%99%E6%AE%BF&topic=",
+                    achieveUrl: "https://origin.jx3box.com/fb/cj?fb_name=%E7%83%9B%E9%BE%99%E6%AE%BF",
+                    boss: [
+                        { name: '胡靼', icon: '' },
+                        { name: '武逸青', icon: '' },
+                        { name: '南之雷神', icon: '' },
+                        { name: '索迪尔', icon: '' },
+                        { name: '陆寻', icon: '' },
+                        { name: '醉蛛老人', icon: '' },
+                        { name: '千秋子', icon: '' },
+                        { name: '乌蒙贵', icon: '' },
+                    ]
                 }
             },
             p4Tab: 2,

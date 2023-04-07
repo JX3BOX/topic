@@ -368,5 +368,81 @@ body {
 
 }
 
+//烛龙殿,南诏皇宫
+.m-five {
+    .size(100%, 2760px);
+    .pr;
+    .mt(350px);
+    background: url("@{kv_riyuemingzun}/p5/p5-shadow.png")top center no-repeat;
+    background-color: #283E67;
+
+    .u-title {
+        .size(1440px, 250px);
+        .auto(x);
+        background: url("@{kv_riyuemingzun}/p5/p5-title.png")top center no-repeat;
+        .mb(55px);
+    }
+
+    .m-boss {
+        .size(1080px, 100px);
+        .auto(x);
+        .flex;
+        overflow: hidden;
+        justify-content: space-between;
+        .mb(78px);
+
+        .u-profile {
+            .size(100px, 100%);
+            background: url("@{kv_riyuemingzun}/p5/p5-profile.png")no-repeat;
+            .pr;
+
+
+            &::after {
+                content: '';
+                .db;
+                .size(20px, 2px);
+                .pa;
+                top: 50px;
+                left: 110px;
+                background: url("@{kv_riyuemingzun}/p5/p5-cut.png")center no-repeat;
+            }
+        }
+    }
+
+    .m-fb {
+        .size(1440px, 720px);
+        .auto(x);
+        background: url("@{kv_riyuemingzun}/p5/p5-boss.png")right no-repeat;
+
+        .u-name {
+            .size(706px, 245px);
+            .ml(35px);
+            .mb(22px);
+            background: url("@{kv_riyuemingzun}/p5/p5-name.png") no-repeat;
+        }
+
+        .u-text {
+            .w(570px);
+            color: #fff;
+            .fz(18px, 20px);
+            .mb(34px);
+            .ml(43px);
+        }
+
+        .m-buttonGroup {
+            .size(410px, 60px);
+            .flex;
+            justify-content: space-between;
+            .ml(43px);
+
+            .u-button {
+                .size(195px, 100%);
+                .r(5px);
+                background-color: #fff;
+            }
+        }
+    }
+}
+
 
 @media screen and (orientation: portrait) {}
