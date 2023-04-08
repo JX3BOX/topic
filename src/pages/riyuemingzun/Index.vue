@@ -1,12 +1,12 @@
 <template>
     <div class="m-index">
         <!--KV头部背景-->
-        <div class="m-top"></div>
+        <div class="m-top m-jump"></div>
         <!--P1全新内容导航-->
-        <div class="m-one" ref="m-one">
+        <div class="m-one " ref="m-one">
             <div class="u-title p-animation" v-animate="'fadeInDown'"></div>
             <div class="u-nav p-animation" v-animate="'fadeInDown'" v-for="(item, key) in p1nav" :key="key">
-                <img :src="imgurl + 'p1/' + item.imgurl" v-animate="'p-animation fadeInDown'">
+                <img :src="imgurl + 'p1/' + item.imgurl" v-animate="'p-animation fadeInDown'" @click="goAnchor(item.index)">
             </div>
         </div>
         <!--P2技改-->
@@ -19,9 +19,9 @@
             </div>
         </div>
         <!--p3明教及大战本-->
-        <div class="m-three" ref="m-three">
+        <div class="m-three m-jump" ref="m-three">
             <div class="u-title p-animation" v-animate="'fadeInDown'"></div>
-            <div class="m-mj p-animation" v-animate="'fadeInDown'">
+            <div class="m-mj p-animation " v-animate="'fadeInDown'">
                 <div class="m-content">
                     <div class="u-text">{{ mj.desc }}</div>
                     <div class="m-mountGroup">
@@ -36,7 +36,7 @@
                     </div>
                 </div>
             </div>
-            <div class="m-fb p-animation" v-animate="'fadeInDown'">
+            <div class="m-fb p-animation " v-animate="'fadeInDown'">
                 <div class="m-content">
                     <div class="u-text">{{ fb.gmdmd.desc }}</div>
                     <div class="m-buttonGroup">
@@ -47,7 +47,7 @@
             </div>
         </div>
         <!--p4苍山洱海抓马-->
-        <div class="m-four" ref="m-four">
+        <div class="m-four m-jump" ref="m-four">
             <div class="u-title p-animation" v-animate="'fadeInDown'"></div>
             <div class="m-content p-animation" v-animate="'fadeInDown'">
                 <!--切换按钮-->
@@ -78,7 +78,7 @@
             </div>
         </div>
         <!--p5烛龙殿南诏皇宫-->
-        <div class="m-five" ref="m-five">
+        <div class="m-five m-jump" ref="m-five">
             <div class="u-title p-animation" v-animate="'fadeInDown'"></div>
             <div class="m-boss p-animation" v-animate="'fadeInDown'">
                 <div class="u-profile" v-for="(boss, key) in fb.zld.boss" :key="key"></div>
@@ -126,14 +126,14 @@ export default {
                 pagination: false
             },
             p1nav: [
-                { imgurl: "p1-nav1.png", name: "" },
-                { imgurl: "p1-nav2.png", name: "" },
-                { imgurl: "p1-nav3.png", name: "" },
-                { imgurl: "p1-nav4.png", name: "" },
-                { imgurl: "p1-nav5.png", name: "" },
-                { imgurl: "p1-nav6.png", name: "" },
-                { imgurl: "p1-nav7.png", name: "" },
-                { imgurl: "p1-nav8.png", name: "" }
+                { imgurl: "p1-nav1.png", name: "", index: 1 },
+                { imgurl: "p1-nav3.png", name: "", index: 1 },
+                { imgurl: "p1-nav2.png", name: "", index: 2 },
+                { imgurl: "p1-nav4.png", name: "", index: 3 },
+                { imgurl: "p1-nav5.png", name: "", index: 0 },
+                { imgurl: "p1-nav6.png", name: "", index: 0 },
+                { imgurl: "p1-nav7.png", name: "", index: 0 },
+                { imgurl: "p1-nav8.png", name: "", index: 0 }
             ],
             mj: {
                 desc: "明教武学由教主陆危楼所创，出招之时如有日月之威，往往能从敌人意想不到的地方发动摧枯拉朽般之攻击，防不胜防。坚定的信仰则可令信徒受到明尊护佑，身化琉璃妙相，常常令敌人难以捉摸，攻击落空。即便遭受攻击，也能从敌人身上获取新生的活力。",
@@ -247,7 +247,49 @@ export default {
         toastMsg() {
             alert('敬请期待')
         },
-        showMountIcon
+        showMountIcon,
+        goAnchor(index) {
+            // 用 class="m-jump" 添加锚点
+            let jump = document.querySelectorAll('.m-jump');
+            let total = jump[index].offsetTop
+            console.log(total)
+            if (index == 0) {
+                total = 0
+            }
+            let distance = document.documentElement.scrollTop || document.body.scrollTop
+            // 平滑滚动，时长500ms，每10ms一跳，共50跳
+            let step = total / 50
+            if (total > distance) {
+                smoothDown()
+            } else {
+                let newTotal = distance - total
+                step = newTotal / 50
+                smoothUp()
+            }
+            function smoothDown() {
+                if (distance < total) {
+                    distance += step
+                    document.body.scrollTop = distance
+                    document.documentElement.scrollTop = distance
+                    setTimeout(smoothDown, 10)
+                } else {
+                    document.body.scrollTop = total
+                    document.documentElement.scrollTop = total
+                }
+            }
+            function smoothUp() {
+                if (distance > total) {
+                    distance -= step
+                    document.body.scrollTop = distance
+                    document.documentElement.scrollTop = distance
+                    setTimeout(smoothUp, 10)
+                } else {
+                    document.body.scrollTop = total
+                    document.documentElement.scrollTop = total
+                }
+            }
+
+        },
     },
     filters: {},
     created: function () { },
