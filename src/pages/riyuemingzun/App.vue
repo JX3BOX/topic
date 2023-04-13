@@ -5,7 +5,7 @@
 		<router-view></router-view>
 		<div class="p-topic-footer">
 			<div class="wp">
-				<Footer></Footer>
+				<Footer darkMode></Footer>
 			</div>
 		</div>
 	</div>

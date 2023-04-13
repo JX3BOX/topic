@@ -13,7 +13,7 @@
         <div class="m-two" ref="m-two">
             <div class="u-title p-animation" v-animate="'fadeInDown'"></div>
             <div class="m-skill p-animation" v-animate="'fadeInDown'">
-                <a href="" class="u-button">
+                <a href="https://origin.jx3box.com/bps/56494" class="u-button" target="_blank">
                     <span class="u-text">立即查看</span>
                 </a>
             </div>
