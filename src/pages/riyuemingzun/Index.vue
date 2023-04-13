@@ -36,6 +36,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="m-four m-jump" ref="m-four">
             <div class="m-fb p-animation " v-animate="'fadeInDown'">
                 <div class="m-content">
                     <div class="u-text">{{ fb.gmdmd.desc }}</div>
@@ -46,29 +48,29 @@
                 </div>
             </div>
         </div>
-        <!--p4苍山洱海抓马-->
-        <div class="m-four m-jump" ref="m-four">
+        <!--p5苍山洱海抓马-->
+        <div class="m-five m-jump" ref="m-five">
             <div class="u-title p-animation" v-animate="'fadeInDown'"></div>
             <div class="m-content p-animation" v-animate="'fadeInDown'">
                 <!--切换按钮-->
                 <div class="m-tabGroup">
-                    <div class="u-tab u-tab-sys" :class="p4Tab == 1 ? 'u-tab-act' : ''" @click="p4Tab = 1"></div>
-                    <div class="u-tab u-tab-map" :class="p4Tab == 2 ? 'u-tab-act' : ''" @click="p4Tab = 2"></div>
-                    <div class="u-tab u-tab-sw" :class="p4Tab == 3 ? 'u-tab-act' : ''" @click="p4Tab = 3"></div>
+                    <div class="u-tab u-tab-sys" :class="p5Tab == 1 ? 'u-tab-act' : ''" @click="p5Tab = 1"></div>
+                    <div class="u-tab u-tab-map" :class="p5Tab == 2 ? 'u-tab-act' : ''" @click="p5Tab = 2"></div>
+                    <div class="u-tab u-tab-sw" :class="p5Tab == 3 ? 'u-tab-act' : ''" @click="p5Tab = 3"></div>
                 </div>
                 <!-- 系统 -->
-                <div class="m-detail p-animation" v-show="p4Tab == 1" v-animate="'fadeInDown'">
+                <div class="m-detail p-animation" v-show="p5Tab == 1" v-animate="'fadeInDown'">
                     <div class="u-subTitle u-sysTitle"></div>
                     <div class="m-xy"></div>
                 </div>
                 <!-- 地图 -->
-                <div class="m-detail p-animation" v-show="p4Tab == 2" v-animate="'fadeInDown'">
+                <div class="m-detail p-animation" v-show="p5Tab == 2" v-animate="'fadeInDown'">
                     <div class="u-subTitle u-mapTitle"></div>
                     <div class="u-text" v-for="(line, key) in csrh" :key="key">{{ line }}</div>
                     <div class="u-pic"></div>
                 </div>
                 <!-- 声望 -->
-                <div class="m-detail p-animation" v-show="p4Tab == 3" v-animate="'fadeInDown'">
+                <div class="m-detail p-animation" v-show="p5Tab == 3" v-animate="'fadeInDown'">
                     <div class="u-subTitle u-swTitle"></div>
                     <div class="m-sw"></div>
                     <a href="https://origin.jx3box.com/cj/" class="u-button">
@@ -77,21 +79,48 @@
                 </div>
             </div>
         </div>
-        <!--p5烛龙殿南诏皇宫-->
-        <div class="m-five m-jump" ref="m-five">
+        <!--p6烛龙殿-->
+        <div class="m-six m-jump" ref="m-six">
             <div class="u-title p-animation" v-animate="'fadeInDown'"></div>
             <div class="m-boss p-animation" v-animate="'fadeInDown'">
-                <div class="u-profile" v-for="(boss, key) in fb.zld.boss" :key="key"></div>
+                <div class="u-profile u-profile-moon" @click="zldBoss = 'index'"></div>
+                <div class="u-profile u-profile-sun" v-for="(boss, key) in fb.zld.boss" :key="key"
+                    @click="zldBoss = boss.name">
+                    <img v-if="boss.icon" class="u-icon" :src="imgurl + 'p5/p5-icon-' + boss.icon + '.png'">
+                </div>
             </div>
-            <div class="m-fb  p-animation" v-animate="'fadeInDown'">
+            <div class="m-fb p-animation u-bg-all" v-animate="'fadeInDown'" v-show="zldBoss == 'index'">
                 <div class="u-name"></div>
                 <div class="u-text">{{ fb.zld.desc1 }}</div>
                 <div class="u-text">{{ fb.zld.desc2 }}</div>
                 <div class="m-buttonGroup">
-                    <a href="" class="u-button"></a>
-                    <a href="" class="u-button"></a>
+                    <a :href="fb.zld.storyUrl" class="u-button" target="_blank">秘境传说</a>
+                    <a :href="fb.zld.bossUrl" class="u-button" target="_blank">首领数据</a>
                 </div>
             </div>
+            <div :class="'u-bg-' + boss.icon" class="m-fb p-animation" v-animate="'fadeInDown'"
+                v-for="(boss, key) in fb.zld.boss" :key="key" v-show="zldShow(boss.name)">
+                <div class="u-name"></div>
+                <div class="u-text">{{ boss.desc }}</div>
+                <div class="m-buttonGroup">
+                    <a :href="fb.zld.storyUrl" class="u-button" target="_blank">秘境传说</a>
+                    <a :href="fb.zld.bossUrl" class="u-button" target="_blank">首领数据</a>
+                </div>
+            </div>
+        </div>
+        <!--p7南诏皇宫-->
+        <div class="m-seven m-jump" ref="m-seven">
+            <div class="u-title p-animation" v-animate="'fadeInDown'"></div>
+            <div class="m-content p-animation" v-animate="'fadeInDown'"></div>
+        </div>
+        <!--p8竞技-->
+        <div class="m-eight m-jump" ref="m-eight">
+            <div class="u-title p-animation" v-animate="'fadeInDown'"></div>
+        </div>
+        <!--p9红尘-->
+        <div class="m-nine m-jump" ref="m-nine">
+            <div class="u-title p-animation" v-animate="'fadeInDown'"></div>
+            <div class="m-content p-animation" v-animate="'fadeInDown'"></div>
         </div>
     </div>
 </template>
@@ -127,13 +156,13 @@ export default {
             },
             p1nav: [
                 { imgurl: "p1-nav1.png", name: "", index: 1 },
-                { imgurl: "p1-nav3.png", name: "", index: 1 },
-                { imgurl: "p1-nav2.png", name: "", index: 2 },
-                { imgurl: "p1-nav4.png", name: "", index: 3 },
-                { imgurl: "p1-nav5.png", name: "", index: 0 },
-                { imgurl: "p1-nav6.png", name: "", index: 0 },
-                { imgurl: "p1-nav7.png", name: "", index: 0 },
-                { imgurl: "p1-nav8.png", name: "", index: 0 }
+                { imgurl: "p1-nav3.png", name: "", index: 2 },
+                { imgurl: "p1-nav2.png", name: "", index: 3 },
+                { imgurl: "p1-nav4.png", name: "", index: 4 },
+                { imgurl: "p1-nav5.png", name: "", index: 5 },
+                { imgurl: "p1-nav6.png", name: "", index: 6 },
+                { imgurl: "p1-nav7.png", name: "", index: 6 },
+                { imgurl: "p1-nav8.png", name: "", index: 7 }
             ],
             mj: {
                 desc: "明教武学由教主陆危楼所创，出招之时如有日月之威，往往能从敌人意想不到的地方发动摧枯拉朽般之攻击，防不胜防。坚定的信仰则可令信徒受到明尊护佑，身化琉璃妙相，常常令敌人难以捉摸，攻击落空。即便遭受攻击，也能从敌人身上获取新生的活力。",
@@ -165,27 +194,55 @@ export default {
                     name: "烛龙殿",
                     desc1: "在毒虫密布的南疆黑龙沼之中，隐藏着一座巨大雄伟的宫殿一一烛龙殿。这里是散落各地的天一教教徒心中的无上圣所，这里是他们信仰的最终寄托，这里是教众们前仆后继投入黑暗行动中的唯一一点烛光",
                     desc2: "为了天一教“万世长存”的痴梦，教主乌蒙贵依托着烛龙殿，四处收集高手壮士的遗体，大量制造凶悍的非人傀儡迅速壮大了天一教，并试图称霸中原武林。还请侠士待新赛季[日月明尊]开启后，与豪侠们组团攻打[烛龙殿]，摧毁其阴谋，并解救中原各派掌门!",
-                    fbUrl: "https://origin.jx3box.com/fb/?fb_name=%E7%83%9B%E9%BE%99%E6%AE%BF&topic=",
-                    achieveUrl: "https://origin.jx3box.com/fb/cj?fb_name=%E7%83%9B%E9%BE%99%E6%AE%BF",
+                    storyUrl: "https://origin.jx3box.com/fb/story?fb_name=%E7%83%9B%E9%BE%99%E6%AE%BF",
+                    bossUrl: "https://origin.jx3box.com/fb/npc?fb_name=%E7%83%9B%E9%BE%99%E6%AE%BF",
                     boss: [
-                        { name: '胡靼', icon: '' },
-                        { name: '武逸青', icon: '' },
-                        { name: '南之雷神', icon: '' },
-                        { name: '索迪尔', icon: '' },
-                        { name: '陆寻', icon: '' },
-                        { name: '醉蛛老人', icon: '' },
-                        { name: '千秋子', icon: '' },
-                        { name: '乌蒙贵', icon: '' },
+                        {
+                            name: '胡靼',
+                            icon: 'hd',
+                            desc: '白眉鼠王胡鞑自创配合白眉老鼠打洞遁形的偏门武学，纵横披靡；青翼蝠王武逸青则创出独门蝙蝠武学，屡立奇功。他们听命血眼龙王萧沙，两人联手形成了烛龙殿的第一道防线。'
+                        },
+                        {
+                            name: '索迪尔',
+                            icon: 'sde',
+                            desc: '乌蒙贵不惜用五毒秘制灵药和奇功为索笛尔炼体，令他迅速成长为一个擅长各家武学的高手，更被天一教立为“圣童”。烛龙殿中索迪尔负责看守七秀坊主叶芷青，却在无意间对她产生了不可抑止的爱慕。'
+                        },
+                        {
+                            name: '醉蛛老人',
+                            icon: 'zzlr',
+                            desc: '醉蛛老人是天一教中辈分最高的人，手段残忍，服侍之人若稍令其不满，便会被他用特制药酒灌醉后喂食蜘蛛。此次因纯阳掌门李忘生内力深厚，轻功超群，乌蒙贵便将他交给醉蛛老人看守。'
+                        },
+                        {
+                            name: '南之雷神',
+                            icon: 'nzls',
+                            desc: '南之雷神乃司徒一一呕心沥血地打造出的巨型机甲。为了让这个具有强大火力的机甲正名，司徒一一提出指定这个机甲负责关押万花谷主，以此证明他是拥有超越了万花技艺的机关大宗师。'
+                        },
+                        {
+                            name: '千秋子',
+                            icon: 'qqz',
+                            desc: '星宿老仙千秋子在烛龙殿尝试将山河社稷图制成沙盘，以供攻唐之用，后来获悉万花谷主东方宇轩被带到此处，不忘旧日恩怨的他主动向乌蒙贵要求看守东方宇轩，还引来万古寒泉对其高深功力进行抑制。'
+                        },
+                        {
+                            name: '陆寻',
+                            icon: 'lx',
+                            desc: '陆寻本为大唐宫廷内卫，因得罪皇族而被刺文双颊，充入边军。南诏王对陆寻进行招揽，赐予南诏龙威大军将之职。陆寻听闻少林方丈玄正被南诏王拿下，主动请命担负看守，其本意却是折辱大唐皇室。'
+                        },
+                        {
+                            name: '乌蒙贵',
+                            icon: 'wmg',
+                            desc: '乌蒙贵以烛龙殿为依仗，并在各地开始收集高手壮士的尸身，大量制造着战斗傀儡，迅速壮大了天一教，激烈对抗取得中原武林支持的五仙教。他心中渴望着击败曲云，夺回魂牵梦绕的五仙教圣地！'
+                        },
                     ]
                 }
             },
-            p4Tab: 2,
+            p5Tab: 2,
             csrh: {
                 //苍山洱海地图描述
                 text1: "风花雪月古城开，洱海苍山次第排。",
                 text2: "水光万顷开天镜，山色四时环翠屏。",
                 text3: "新增苍山洱海地图场景和剧情任务，全新内容静待各位侠士探索!"
-            }
+            },
+            zldBoss: 'index',
         };
     },
     directives: {
@@ -290,6 +347,13 @@ export default {
             }
 
         },
+        zldShow: function (name) {
+            if (this.zldBoss == name) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     },
     filters: {},
     created: function () { },
