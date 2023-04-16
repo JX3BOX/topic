@@ -80,6 +80,7 @@
             </div>
         </div>
         <!--p6烛龙殿-->
+        <div class="m-six-gap"></div>
         <div class="m-six m-jump" ref="m-six">
             <div class="u-title p-animation" v-animate="'fadeInDown'"></div>
             <div class="m-boss p-animation" v-animate="'fadeInDown'">

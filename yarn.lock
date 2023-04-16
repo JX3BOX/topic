@@ -1058,10 +1058,10 @@
     vue "^2.6.11"
     vuex "^3.6.2"
 
-"@jx3box/jx3box-common-ui@^7.1.9":
-  version "7.1.9"
-  resolved "https://registry.npmjs.org/@jx3box/jx3box-common-ui/-/jx3box-common-ui-7.1.9.tgz"
-  integrity sha512-zQiz/v6G49AOihmmj+1wmAJyR+/ELiHLT6Y6BRwt77mWjHi6Vz5M2NYpcbW/skWcODRwTn/hRe52cRa8vKeYnA==
+"@jx3box/jx3box-common-ui@^7.2.2":
+  version "7.2.2"
+  resolved "https://registry.npmjs.org/@jx3box/jx3box-common-ui/-/jx3box-common-ui-7.2.2.tgz"
+  integrity sha512-plst8BB6E3k6pycy/B0u6Bg8c6menaURPQpI/ner64cAo3Kj8vrnr292rhMbxH/hmiE8y3saVT9M+fgsye2NcQ==
   dependencies:
     "@jx3box/jx3box-comment-ui" "^1.7.12"
     "@jx3box/jx3box-common" "^7.8.7"
@@ -1109,10 +1109,10 @@
     moment "^2.29.1"
     vue "^2.6.12"
 
-"@jx3box/jx3box-common@^7.4.2", "@jx3box/jx3box-common@^7.7.3", "@jx3box/jx3box-common@^7.7.6", "@jx3box/jx3box-common@^7.8.7", "@jx3box/jx3box-common@^7.8.8":
-  version "7.8.8"
-  resolved "https://registry.npmjs.org/@jx3box/jx3box-common/-/jx3box-common-7.8.8.tgz"
-  integrity sha512-dUu3gXILRLbnZxdOFiNKDOBVRmVh+DSBstuWt+Jq5s5kH4+r4DElEnYGDITqMQ5dQS4mIcCh1JaEI72vO7Ao/g==
+"@jx3box/jx3box-common@^7.4.2", "@jx3box/jx3box-common@^7.7.3", "@jx3box/jx3box-common@^7.7.6", "@jx3box/jx3box-common@^7.8.7", "@jx3box/jx3box-common@^7.8.9":
+  version "7.8.9"
+  resolved "https://registry.npmjs.org/@jx3box/jx3box-common/-/jx3box-common-7.8.9.tgz"
+  integrity sha512-drNLTL20Qltt59VjrVEJX0Ta1TS78BzOVrhjfspF0TULzE0mELGH8Rct8MTYDnt7Kxa+vvHOnltdQFxLPIK9Qw==
   dependencies:
     axios "^0.20.0"
     cheerio "1.0.0-rc.10"
