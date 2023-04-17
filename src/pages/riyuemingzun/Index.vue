@@ -5,13 +5,15 @@
         <!--P1全新内容导航-->
         <div class="m-one " ref="m-one">
             <div class="u-title p-animation" v-animate="'fadeInDown'"></div>
-            <div class="u-nav p-animation" v-animate="'fadeInDown'" v-for="(item, key) in p1nav" :key="key">
-                <img :src="imgurl + 'p1/' + item.imgurl" v-animate="'p-animation fadeInDown'" @click="goAnchor(item.index)">
+            <div class="m-nav">
+                <div class="u-nav p-animation" v-animate="'fadeInDown'" v-for="(item, key) in p1nav" :key="key">
+                    <img :src="imgurl + 'p1/' + item.imgurl" v-animate="'p-animation fadeInDown'"
+                        @click="goAnchor(item.index)">
+                </div>
             </div>
         </div>
         <!--P2技改-->
         <div class="m-two" ref="m-two">
-            <div class="u-title p-animation" v-animate="'fadeInDown'"></div>
             <div class="m-skill p-animation" v-animate="'fadeInDown'">
                 <a href="https://origin.jx3box.com/bps/56494" class="u-button" target="_blank">
                     <span class="u-text">立即查看</span>
@@ -117,12 +119,17 @@
         <!--p8竞技-->
         <div class="m-eight m-jump" ref="m-eight">
             <div class="u-title p-animation" v-animate="'fadeInDown'"></div>
+            <div class="m-content p-animation" v-animate="'fadeInDown'"></div>
         </div>
         <!--p9红尘-->
         <div class="m-nine m-jump" ref="m-nine">
             <div class="u-title p-animation" v-animate="'fadeInDown'"></div>
             <div class="m-content p-animation" v-animate="'fadeInDown'"></div>
         </div>
+        <!--二维码-->
+        <!-- <div class="m-qrcode p-animation">
+            <img src="https://img.jx3box.com/topic/jianhushengong/qrcode.png" class="u-code" v-animate="'fadeInDown'">
+        </div> -->
     </div>
 </template>
 

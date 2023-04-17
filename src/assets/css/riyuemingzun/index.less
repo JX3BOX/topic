@@ -44,17 +44,24 @@ body {
 
     }
 
-    .u-nav {
-        .size(120px, 560px);
-        .mr(10px);
-        .pointer;
-        -webkit-transition: all 0.5s;
-        transition: all 0.5s;
+    .m-nav {
+        .flex;
+        justify-content: center;
 
-        &:hover {
-            scale: 1.05;
+        .u-nav {
+            .size(120px, 560px);
+            .mr(10px);
+            .pointer;
+            -webkit-transition: all 0.5s;
+            transition: all 0.5s;
+
+            &:hover {
+                scale: 1.05;
+            }
         }
     }
+
+
 }
 
 //技改
@@ -558,8 +565,7 @@ body {
 .m-eight {
     .size(100%, 1450px);
     .pr;
-    background: url("@{kv_riyuemingzun}/p7/p7-bg2.png")center 294px no-repeat,
-    url("@{kv_riyuemingzun}/p7/p7-bg1.png")center top no-repeat,
+    background: url("@{kv_riyuemingzun}/p7/p7-bg1.png")center top no-repeat,
     url("@{kv_riyuemingzun}/p7/p7-bg3.png")center 1100px no-repeat;
 
     .u-title {
@@ -567,6 +573,11 @@ body {
         .auto(x);
         background: url("@{kv_riyuemingzun}/p7/p7-title.png")top center no-repeat;
         .mb(44px);
+    }
+
+    .m-content {
+        .size(100%, 1100px);
+        background: url("@{kv_riyuemingzun}/p7/p7-bg2.png")center top no-repeat,
     }
 }
 
@@ -590,4 +601,161 @@ body {
     }
 }
 
-@media screen and (orientation: portrait) {}
+//二维码
+.m-qrcode {
+    .size(100%, 400px);
+    .flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (orientation: portrait) {
+    .m-top {
+        .h(400px);
+    }
+
+    .m-one {
+        flex-direction: column;
+        align-items: center;
+        .pt(0);
+
+        .u-title {
+            .mt(0);
+        }
+
+        .m-nav {
+            max-width: 100%;
+        }
+    }
+
+    .m-two {
+        align-items: center;
+
+        .m-skill {
+            .size(100%, 850px);
+            background:url("@{kv_riyuemingzun}/p2/p2-title.png")top center no-repeat,
+            url("@{kv_riyuemingzun}/p2/p2-bg1.png")center 189px no-repeat,
+            url("@{kv_riyuemingzun}/p2/p2-bg2.png")bottom center no-repeat;
+
+        }
+    }
+
+    .m-three {
+        .h(auto);
+
+        .u-title {
+            .w(100%);
+        }
+
+        .m-mj {
+            .size(100%, 1200px);
+            background: url("@{kv_riyuemingzun}/p3/p3-bg1.png")center top no-repeat;
+            .mb(180px);
+
+            .m-content {
+                .w(100%);
+                background: url("@{kv_riyuemingzun}/p3/p3-subtitle1.png")center 30px no-repeat;
+                .mt(650px);
+            }
+        }
+    }
+
+    .m-four {
+        .h(auto);
+        .pr;
+
+        .m-fb {
+            .size(100%, 1200px);
+            background: url("@{kv_riyuemingzun}/p3/p3-bg2.png")center top no-repeat;
+
+            .m-content {
+                .w(100%);
+                .pa;
+                background: url("@{kv_riyuemingzun}/p3/p3-subtitle2.png")center 30px no-repeat;
+                box-sizing: border-box;
+                .mt(650px);
+            }
+        }
+    }
+
+    .m-five {
+        .mt(150px);
+
+        .u-title {
+            .w(100%);
+        }
+
+        .m-content {
+            .w(100%);
+            background: none;
+        }
+    }
+
+    .m-six {
+        .u-title {
+            .w(100%);
+        }
+
+        .m-boss {
+            .w(100%);
+
+            .u-profile {
+                &::after {
+                    display: none;
+                }
+            }
+        }
+
+        .m-fb {
+            .w(100%);
+        }
+
+        .u-bg-hd {
+            background: url(https://img.jx3box.com/topic/riyuemingzun//p5/p5-pic-hd.png) right top no-repeat;
+        }
+
+        .u-bg-sde {
+            background: url(https://img.jx3box.com/topic/riyuemingzun//p5/p5-pic-sde.png) right top no-repeat;
+        }
+
+        .u-bg-zzlr {
+            background: url("@{kv_riyuemingzun}/p5/p5-pic-zzlr.png")550px top no-repeat;
+        }
+
+        .u-bg-nzls {
+            background: url("@{kv_riyuemingzun}/p5/p5-pic-nzls.png")450px top no-repeat;
+        }
+
+        .u-bg-qqz {
+            background: url("@{kv_riyuemingzun}/p5/p5-pic-qqz.png")right top no-repeat;
+        }
+
+        .u-bg-lx {
+            background: url("@{kv_riyuemingzun}/p5/p5-pic-lx.png")right top no-repeat;
+        }
+
+        .u-bg-wmg {
+            background: url("@{kv_riyuemingzun}/p5/p5-pic-wmg.png")550px top no-repeat;
+        }
+    }
+
+    .m-seven {
+        .u-title {
+            .w(100%);
+        }
+    }
+
+    .m-eight {
+
+        .u-title {
+            .w(100%);
+        }
+
+    }
+
+    .m-nine {
+        .u-title {
+            .w(100%);
+        }
+    }
+}
