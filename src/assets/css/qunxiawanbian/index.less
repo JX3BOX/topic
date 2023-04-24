@@ -1,0 +1,303 @@
+@base: 1px;
+
+body {
+    background-color: #fff;
+}
+
+.m-index {
+    .flex;
+    .clip;
+    .auto(x);
+    .pr;
+    user-select: none;
+    max-width: 1920px;
+    align-items: center;
+    flex-direction: column;
+    background: url("@{kv_qunxiawanbian}kv/kv-bg2.png") center 990px no-repeat,
+    url("@{kv_qunxiawanbian}kv/kv-bg.png") center top no-repeat;
+}
+
+// 顶部
+.m-top {
+    .mt(64px);
+    .pr;
+    .size(100%, 980px);
+    user-select: none;
+
+    .u-logo {
+        .size(1137px, 432px);
+        .auto(x);
+        background: url("@{kv_qunxiawanbian}kv/kv-logo.png")no-repeat;
+        .mt(452px);
+    }
+}
+
+// p1技改
+.m-one {
+    .size(100%, 805px);
+    background: url("@{kv_qunxiawanbian}p1/p1-logo.png")no-repeat;
+    .pr;
+
+    .m-link {
+        .size(497px, 43px);
+        .db;
+        .pa;
+        .pointer;
+        .lt(964px, 438px);
+        background: url("@{kv_qunxiawanbian}p1/p1-link.png")no-repeat;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+
+        &:hover {
+            left: 994px;
+        }
+
+        .u-play {
+            .size(10px, 16px);
+            background: url("@{kv_qunxiawanbian}p1/p1-play.png")no-repeat;
+            .pa;
+            right: 49px;
+            top: 14px;
+        }
+    }
+}
+
+// p2副本
+.m-two {
+    .size(100%, 1343px);
+
+    .u-title {
+        .size(655px, 181px);
+        .auto(x);
+        background: url("@{kv_qunxiawanbian}p2/p2-title.png")no-repeat;
+        .mt(367px);
+        .mb(20px);
+    }
+
+    .m-group {
+        .size(100%, 374px);
+        .pr;
+
+        .u-boss {
+            .pa;
+            bottom: 0px;
+        }
+
+        .u-sf-on {
+            .size(752px, 345px);
+            left: 568px;
+            background: url("@{kv_qunxiawanbian}p2/p2-sf-on.png")no-repeat;
+            z-index: 99;
+        }
+
+        .u-sf-off {
+            .size(492px, 345px);
+            left: 578px;
+            background: url("@{kv_qunxiawanbian}p2/p2-sf-off.png")no-repeat;
+            z-index: 6;
+        }
+
+        .u-ylc-on {
+            .size(354px, 338px);
+            left: 917px;
+            background: url("@{kv_qunxiawanbian}p2/p2-ylc-on.png")no-repeat;
+            z-index: 99;
+        }
+
+        .u-ylc-off {
+            .size(318px, 338px);
+            left: 924px;
+            background: url("@{kv_qunxiawanbian}p2/p2-ylc-off.png")no-repeat;
+            z-index: 3;
+        }
+
+        .u-nb-on {
+            .size(874px, 365px);
+            left: 176px;
+            background: url("@{kv_qunxiawanbian}p2/p2-nb-on.png")no-repeat;
+            z-index: 99;
+        }
+
+        .u-nb-off {
+            .size(821px, 365px);
+            left: 176px;
+            background: url("@{kv_qunxiawanbian}p2/p2-nb-off.png")no-repeat;
+            z-index: 4;
+        }
+
+        .u-hz-on {
+            .size(470px, 373px);
+            left: 528px;
+            background: url("@{kv_qunxiawanbian}p2/p2-hz-on.png")no-repeat;
+            z-index: 99;
+        }
+
+        .u-hz-off {
+            .size(445px, 373px);
+            left: 528px;
+            background: url("@{kv_qunxiawanbian}p2/p2-hz-off.png")no-repeat;
+            z-index: 5;
+        }
+
+        .u-hz-on {
+            .size(470px, 373px);
+            left: 528px;
+            background: url("@{kv_qunxiawanbian}p2/p2-hz-on.png")no-repeat;
+            z-index: 99;
+        }
+
+        .u-hz-off {
+            .size(445px, 373px);
+            left: 528px;
+            background: url("@{kv_qunxiawanbian}p2/p2-hz-off.png")no-repeat;
+        }
+
+        .u-wyq-on {
+            .size(553px, 373px);
+            left: 876px;
+            background: url("@{kv_qunxiawanbian}p2/p2-wyq-on.png")no-repeat;
+            z-index: 99;
+        }
+
+        .u-wyq-off {
+            .size(553px, 373px);
+            left: 876px;
+            background: url("@{kv_qunxiawanbian}p2/p2-wyq-off.png")no-repeat;
+            z-index: 2;
+        }
+
+        .u-xlz-on {
+            .size(375px, 373px);
+            left: 1073px;
+            background: url("@{kv_qunxiawanbian}p2/p2-xlz-on.png")no-repeat;
+            z-index: 99;
+        }
+
+        .u-xlz-off {
+            .size(375px, 373px);
+            left: 1073px;
+            background: url("@{kv_qunxiawanbian}/p2/p2-xlz-off.png")no-repeat;
+            z-index: 1;
+        }
+
+        .u-wyz-on {
+            .size(894px, 373px);
+            left: 417px;
+            background: url("@{kv_qunxiawanbian}/p2/p2-wyz-on.png")no-repeat;
+            z-index: 99;
+        }
+
+        .u-wyz-off {
+            .size(695px, 373px);
+            left: 482px;
+            background: url("@{kv_qunxiawanbian}/p2/p2-wyz-off.png")no-repeat;
+            z-index: 4;
+        }
+
+        .u-profile {
+            .size(100%, 109px);
+            .pa;
+            z-index: 100;
+            bottom: 0;
+        }
+
+        .u-profile-sf {
+            background: url("@{kv_qunxiawanbian}/p2/p2-profile-sf.png")center top no-repeat;
+        }
+    }
+
+    .u-text {
+        .size(1000px, 189px);
+        .auto(x);
+    }
+
+    .u-text-sf {
+        background: url("@{kv_qunxiawanbian}p2/p2-text-sf.png")center 4px no-repeat;
+    }
+
+    .u-subtitle {
+        .size(181px, 26px);
+        margin: 20px;
+        .auto(x);
+        background: url("@{kv_qunxiawanbian}p2/p2-subtitle.png")center 4px no-repeat;
+    }
+
+    .m-links {
+        .size(100%, 66px);
+        background: url("@{kv_qunxiawanbian}p2/p2-line.png")left center no-repeat,
+        url("@{kv_qunxiawanbian}p2/p2-line.png")right center no-repeat;
+
+        .m-btnGroup {
+            .size(630px, 100%);
+            .auto(x);
+            .flex;
+            justify-content: space-between;
+
+            .u-button {
+                .pointer;
+                -webkit-transition: 0.5s;
+                transition: 0.5s;
+
+                &:hover {
+                    scale: 1.05;
+                }
+            }
+
+            .u-btn1 {
+                .size(120px, 66px);
+                background: url("@{kv_qunxiawanbian}p2/p2-btn1.png")no-repeat,
+            }
+
+            .u-btn2 {
+                .size(120px, 66px);
+                background: url("@{kv_qunxiawanbian}p2/p2-btn2.png")no-repeat,
+            }
+
+            .u-btn3 {
+                .size(160px, 66px);
+                background: url("@{kv_qunxiawanbian}p2/p2-btn3.png")no-repeat,
+            }
+
+            .u-btn4 {
+                .size(160px, 66px);
+                background: url("@{kv_qunxiawanbian}p2/p2-btn4.png")no-repeat,
+            }
+        }
+    }
+
+
+}
+
+// p3百强
+.m-three {
+    .size(100%, 461px);
+    .pr;
+    background: url("@{kv_qunxiawanbian}p3/p3-yt.png")center left no-repeat,
+    url("@{kv_qunxiawanbian}p3/p3-wd.png")center right no-repeat,
+    url("@{kv_qunxiawanbian}p3/p3-bg2.png")center top no-repeat;
+
+    .u-logo {
+        .size(746px, 360px);
+        .auto(x);
+        background: url("@{kv_qunxiawanbian}p3/p3-logo.png")center top no-repeat;
+    }
+
+    .u-button {
+        .db;
+        .size(322px, 57px);
+        .auto(x);
+        .pointer;
+        background: url("@{kv_qunxiawanbian}p3/p3-button.png")no-repeat;
+        -webkit-transition: 0.2s;
+        transition: 0.2s;
+
+        &:hover {
+            box-shadow: 0px 0px 10px 0px #fff;
+        }
+    }
+}
+
+//p4
+.m-four {
+    .size(100%, 500px);
+}
