@@ -32,9 +32,34 @@
             <div class="u-logo"></div>
             <a href="https://www.jx3box.com/jdt/7th/rank?server=&achieve_id=10907" class="u-button" target="_blank"></a>
         </div>
-        <!--p4-->
+        <!--p4体型-->
         <div class="m-four m-jump">
-
+            <div class="u-logo p-animation" v-animate="'fadeInDown'"></div>
+            <div class="m-panel p-animation" v-animate="'fadeInDown'">
+                <a href="https://www.jx3box.com/face/" class="u-button" target="_blank"></a>
+            </div>
+            <div class="m-detail p-animation" v-animate="'fadeInDown'"></div>
+        </div>
+        <!--p5单人吃鸡-->
+        <div class="m-five m-jump">
+            <div class="u-logo p-animation" v-animate="'fadeInDown'"></div>
+            <div class="m-btnGroup">
+                <div v-for="index in 4" :key="index" :class="'u-button ' + 'u-act'" @click="changeCJ(index)">
+                    <i class="u-act" v-show="index == jjsc_present"></i>
+                </div>
+            </div>
+            <div class="m-panel " v-for="item in jjsc" :key="item" v-show="item.index == jjsc_present">
+                <div :class="'p-animation u-pic u-bg' + item.index" v-animate="'fadeInRight'"></div>
+                <div class="m-textBox">
+                    <div class="u-text p-animation" v-for="desc in item.desc" :key="desc" v-animate="'fadeInRight'">{{ desc
+                    }}</div>
+                </div>
+            </div>
+        </div>
+        <!-- p6新侠客 -->
+        <div class="m-six m-jump">
+            <div class="u-logo p-animation" v-animate="'fadeInDown'"></div>
+            <div class="m-panel p-animation" v-animate="'fadeInDown'"></div>
         </div>
     </div>
 </template>
@@ -124,7 +149,48 @@ export default {
                     }
 
                 ]
-            }
+            },
+            //单人吃鸡绝境沙场
+            jjsc_present: 1,
+            jjsc: [
+                {
+                    index: 1,
+                    desc: [
+                        "“群侠万变”资料片公测后至6月26日维护前，侠士们将可进入新绝境场景【洱海绝境】参与单人模式战斗!【劫掠的货物】随机刷新，【南诏王的召唤】与全新道具带来更多变数!更多精彩待君探索，一人成队独行千里，利刃出鞘谁与争锋!",
+                        "",
+                        "众人皆敌，群狼环伺，这是一场对武力与智力的综合考验!为保证与提升侠士们的体验，单人模式基于原有的绝境战场玩法上有所调整。",
+                        "◇每局至多有80位侠士参与。",
+                        "◇为防止恶意组队，除地图频道外，所有侠士名字都将以“未知侠士”标识，且禁止使用近聊频道。",
+                        "◇本模式结算时，若名次排行在前50%，即可计为完成了1次绝境战场周常任务条件。"
+                    ]
+                }, {
+                    index: 2,
+                    desc: [
+                        "无需击溃马匪，刷新倒计时结束后即可拾取【劫掠的货物】!内含橙色品质装备与神秘道具，可助侠士一臂之力。",
+                        "战斗越临近终章，则【劫掠的货物】价值越高!是逆风翻盘还是如虎添翼?或许你最需要的东西就在这里!"
+                    ]
+                }, {
+                    index: 3,
+                    desc: [
+                        "每场战斗将会有三次【南诏王的召唤】，开始前均会发布全图公告召集侠士参与。",
+                        "处于脱战状态的侠士届时可直接点击使用背包中自动获得的【南诏王的信物】，进入决斗场地准备作战。",
+                        "从【南诏王的召唤】中存活胜出的侠士们不仅可以将其中拾获的稀有装备直接带到【洱海绝境】继续使用，而且将会获得持续一段时间的隐身与毒圈免疫效果,期间攻击他人将立即失效。"
+                    ]
+                }, {
+                    index: 4,
+                    desc: [
+                        "此去危险重重，宜早作多手准备!侠士们进入时，将自动获得【步步为营】【洱海飞爪】，带你体验不一样的战斗!",
+                        "",
+                        "【步步为营】",
+                        "侠士可提前在某处放置一个5分钟内隐形的【步步为营】，自身身受重伤时可立即在这处复活并获得一套基础绿色品质装备。",
+                        "【步步为营】为一次性道具，且无法于【南诏王的召唤】中使用。",
+                        "",
+                        "【洱海飞爪】",
+                        "【洱海绝境】地势复杂，既有崇山峻岭悬崖陡立，也有深潭幽幽岩谷赤红。【洱海飞爪】可充能3层使用，助你千里追击,飞掠迎敌!",
+                    ]
+                }
+
+            ]
         };
     },
     directives: {
@@ -228,6 +294,10 @@ export default {
                 }
             }
 
+        },
+        //吃鸡页面切换
+        changeCJ(val) {
+            this.jjsc_present = val;
         },
     },
     filters: {},

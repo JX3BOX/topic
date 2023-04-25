@@ -13,7 +13,10 @@ body {
     max-width: 1920px;
     align-items: center;
     flex-direction: column;
-    background: url("@{kv_qunxiawanbian}kv/kv-bg2.png") center 990px no-repeat,
+    background: url("@{kv_qunxiawanbian}kv/kv-bg5.png") center 5980px no-repeat,
+    url("@{kv_qunxiawanbian}kv/kv-bg4.png") center 3535px no-repeat,
+    url("@{kv_qunxiawanbian}kv/kv-bg3.png") center 3080px no-repeat,
+    url("@{kv_qunxiawanbian}kv/kv-bg2.png") center 990px no-repeat,
     url("@{kv_qunxiawanbian}kv/kv-bg.png") center top no-repeat;
 }
 
@@ -297,7 +300,143 @@ body {
     }
 }
 
-//p4
+//p4体型
 .m-four {
-    .size(100%, 500px);
+    .size(865px, 830px);
+    .auto(x);
+    .mt(508px);
+
+    .u-logo {
+        .size(865px, 231px);
+        background:url("@{kv_qunxiawanbian}p4/p4-logo.png")no-repeat;
+    }
+
+    .m-panel {
+        .size(865px, 419px);
+        background:url("@{kv_qunxiawanbian}p4/p4-bg.png")no-repeat;
+        .pr;
+
+        .u-button {
+            .size(170px, 38px);
+            .pa;
+            top: 32px;
+            right: 33px;
+            background:url("@{kv_qunxiawanbian}p4/p4-button.png")no-repeat;
+            .pointer;
+            -webkit-transition: 0.3s;
+            transition: 0.3s;
+
+            &:hover {
+                scale: 1.05;
+            }
+        }
+    }
+
+    .m-detail {
+        .size(865px, 159px);
+        background:url("@{kv_qunxiawanbian}p4/p4-detail.png")no-repeat;
+        .mt(20px);
+    }
+}
+
+//p5吃鸡
+.m-five {
+    .size(858px, 899px);
+    .auto(x);
+    .mt(779px);
+    .pr;
+
+    .u-logo {
+        .size(858px, 218px);
+        background:url("@{kv_qunxiawanbian}p5/p5-logo.png")no-repeat;
+    }
+
+    .m-panel {
+        .size(846px, 681px);
+        .pr;
+        z-index: 0;
+
+
+        .u-pic {
+            .size(834px, 447px);
+            .auto(x);
+        }
+
+        .u-bg1 {
+            background:url("@{kv_qunxiawanbian}p5/p5-bg1.png")center no-repeat;
+        }
+
+        .u-bg2 {
+            background:url("@{kv_qunxiawanbian}p5/p5-bg2.png")center no-repeat;
+        }
+
+        .u-bg3 {
+            background:url("@{kv_qunxiawanbian}p5/p5-bg3.png")center no-repeat;
+        }
+
+        .u-bg4 {
+            background:url("@{kv_qunxiawanbian}p5/p5-bg4.png")center no-repeat;
+        }
+
+        .m-textBox {
+            .size(846px, 220px);
+            background:url("@{kv_qunxiawanbian}p5/p5-textBg.png")center no-repeat;
+            .mt(14px);
+            box-sizing: border-box;
+            padding: 21px 15px 9px 23px;
+
+            .u-text {
+                min-height: 18px;
+                color: #fff;
+                .bold;
+                .fz(16px, 18px);
+                .auto(x);
+            }
+        }
+    }
+
+    .m-btnGroup {
+        .size(100%, 20px);
+        .pa;
+        .flex;
+        justify-content: center;
+        top: 610px;
+        z-index: 1;
+        opacity: 0.8;
+
+        .u-button {
+            .size(20px);
+            background:url("@{kv_qunxiawanbian}p5/p5-button.png") center no-repeat;
+            background-size: 100%;
+            .pointer;
+            margin: 0 5px;
+
+            .u-act {
+                .db;
+                .size(100%);
+                background:url("@{kv_qunxiawanbian}p5/p5-act.png") center no-repeat;
+                background-size: 50%;
+            }
+        }
+    }
+}
+
+///p6侠客
+.m-six {
+    .size(856px, 707px);
+    .auto(x);
+    .mt(481px);
+    .pr;
+
+    .u-logo {
+        .size(852px, 219px);
+        background:url("@{kv_qunxiawanbian}p6/p6-title.png")no-repeat;
+    }
+
+    .m-panel {
+        .size(856px, 488px);
+        background:url("@{kv_qunxiawanbian}p6/p6-bg1.png")left center no-repeat,
+        url("@{kv_qunxiawanbian}p6/p6-bg2.png")right top no-repeat,
+        url("@{kv_qunxiawanbian}p6/p6-bg3.png")right bottom no-repeat;
+    }
 }

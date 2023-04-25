@@ -63,7 +63,8 @@
                         <div class="u-shield">
                             <div class="u-page-box">
                                 <img class="u-page-last" :src="imgurl + '/p1/p1-last.png'" @click="pageChange" />
-                                <img class="u-page-active" :class="'pg-' + pve_present" :src="imgurl + '/p1/p1-present.png'" />
+                                <img class="u-page-active" :class="'pg-' + pve_present"
+                                    :src="imgurl + '/p1/p1-present.png'" />
                                 <img class="u-page-ling" :src="imgurl + '/p1/p1-ling.png'" v-for="index in 4" :key="index"
                                     @click="pageChange(index)" />
                             </div>
@@ -109,9 +110,11 @@
         <div class="m-three m-jump" ref="m-three">
             <div class="u-title p-animation" v-animate="'fadeInDown'"></div>
             <div class="u-tab">
-                <div @click="fbshow = false" :class="[fbshow ? '' : 'u-div-xjd', fbBgShow == 1 && fbshow ? 'u-div-xjd' : '']"
+                <div @click="fbshow = false"
+                    :class="[fbshow ? '' : 'u-div-xjd', fbBgShow == 1 && fbshow ? 'u-div-xjd' : '']"
                     @mouseover="fbBgShow = 1" @mouseleave="fbBgShow = 0"></div>
-                <div @click="fbshow = true" :class="[fbshow ? 'u-div-five' : '', fbBgShow == 2 && !fbshow ? 'u-div-five' : '']"
+                <div @click="fbshow = true"
+                    :class="[fbshow ? 'u-div-five' : '', fbBgShow == 2 && !fbshow ? 'u-div-five' : '']"
                     @mouseover="fbBgShow = 2" @mouseleave="fbBgShow = 0"></div>
             </div>
             <!--            西津渡、五人本切换区-->
@@ -484,4 +487,6 @@ export default {
 };
 </script>
 
-<style lang="less">@import "../../assets/css/hengdaoduanlang/index.less";</style>
+<style lang="less">
+@import "../../assets/css/hengdaoduanlang/index.less";
+</style>
