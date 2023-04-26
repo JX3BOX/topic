@@ -6,7 +6,8 @@
         </div>
         <!--p1技改-->
         <div class="m-one m-jump">
-            <a class="m-link  p-animation" target="_blank" v-animate="'fadeInRight'">
+            <a class="m-link  p-animation" target="_blank" v-animate="'fadeInRight'"
+                href="https://www.jx3box.com/bps/56720">
                 <i class="u-play"></i>
             </a>
         </div>
@@ -30,7 +31,7 @@
         <!--p3百强-->
         <div class="m-three m-jump p-animation" v-animate="'fadeInDown'">
             <div class="u-logo"></div>
-            <a href="https://www.jx3box.com/jdt/7th/rank?server=&achieve_id=10907" class="u-button" target="_blank"></a>
+            <a href="https://www.jx3box.com/jdt/7th/rank" class="u-button" target="_blank"></a>
         </div>
         <!--p4体型-->
         <div class="m-four m-jump">
