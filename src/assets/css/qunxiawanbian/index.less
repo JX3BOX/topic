@@ -13,7 +13,9 @@ body {
     max-width: 1920px;
     align-items: center;
     flex-direction: column;
-    background: url("@{kv_qunxiawanbian}kv/kv-bg5.png") center 5980px no-repeat,
+    background: url("@{kv_qunxiawanbian}kv/kv-bg7.png") center 10294px no-repeat,
+    url("@{kv_qunxiawanbian}kv/kv-bg6.png") center 8400px no-repeat,
+    url("@{kv_qunxiawanbian}kv/kv-bg5.png") center 5980px no-repeat,
     url("@{kv_qunxiawanbian}kv/kv-bg4.png") center 3535px no-repeat,
     url("@{kv_qunxiawanbian}kv/kv-bg3.png") center 3080px no-repeat,
     url("@{kv_qunxiawanbian}kv/kv-bg2.png") center 990px no-repeat,
@@ -439,4 +441,65 @@ body {
         url("@{kv_qunxiawanbian}p6/p6-bg2.png")right top no-repeat,
         url("@{kv_qunxiawanbian}p6/p6-bg3.png")right bottom no-repeat;
     }
+}
+
+///p7帮会宣战
+.m-seven {
+    .size(835px, 1103px);
+    .auto(x);
+    .mt(170px);
+    .pr;
+
+    .u-logo {
+        .size(642px, 232px);
+        .auto(x);
+        background:url("@{kv_qunxiawanbian}p7/p7-title.png")no-repeat;
+    }
+
+    .m-panel {
+        .size(835px, 640px);
+        background:url("@{kv_qunxiawanbian}p7/p7-bg1.png")center center no-repeat;
+        .pointer;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+
+
+        &:hover {
+            background:url("@{kv_qunxiawanbian}p7/p7-bg2.png")center center no-repeat;
+        }
+    }
+
+    .m-text {
+        .size(835px, 222px);
+        .auto(x);
+        .mt(29px);
+        background:url("@{kv_qunxiawanbian}p7/p7-text.png")no-repeat;
+    }
+}
+
+///p8世界首领
+.m-eight {
+    .size(874px, 1516px);
+    .auto(x);
+    .mt(659px);
+    .pr;
+
+    .u-logo {
+        .size(509px, 181px);
+        .auto(x);
+        background:url("@{kv_qunxiawanbian}p8/p8-title.png")no-repeat;
+    }
+
+    .m-panel {
+        .mt(31px);
+        .size(874px, 1304px);
+        background:url("@{kv_qunxiawanbian}p8/p8-detail.png")center 10px no-repeat,
+        url("@{kv_qunxiawanbian}p8/p8-shadow.png")top center no-repeat;
+    }
+}
+
+///p9底部
+.m-nine {
+    .size(100%, 1419px);
+    .pr;
 }

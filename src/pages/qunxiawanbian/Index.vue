@@ -62,6 +62,19 @@
             <div class="u-logo p-animation" v-animate="'fadeInDown'"></div>
             <div class="m-panel p-animation" v-animate="'fadeInDown'"></div>
         </div>
+        <!-- p7帮会宣战 -->
+        <div class="m-seven m-jump">
+            <div class="u-logo p-animation" v-animate="'fadeInDown'"></div>
+            <div class="m-panel p-animation" v-animate="'fadeInDown'"></div>
+            <div class="m-text p-animation" v-animate="'fadeInDown'"></div>
+        </div>
+        <!--p8世界首领 -->
+        <div class="m-eight m-jump">
+            <div class="u-logo p-animation" v-animate="'fadeInDown'"></div>
+            <div class="m-panel p-animation" v-animate="'fadeInDown'"></div>
+        </div>
+        <!--p9黑底-->
+        <div class="m-nine"></div>
     </div>
 </template>
 
