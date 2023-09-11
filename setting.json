@@ -37,24 +37,16 @@
             "title": "剑湖神宫"
         },
         {
-            "key": "jianyuxiadao",
-            "title": "剑与侠道"
-        },
-        {
-            "key": "welcome",
-            "title": "剑网3欢迎你"
-        },
-        {
-            "key": "2023yaoxiu",
-            "title": "剑网3妖秀节"
-        },
-        {
             "key": "riyuemingzun",
             "title": "日月明尊"
         },
         {
             "key": "qunxiawanbian",
             "title": "群侠万变"
+        },
+        {
+            "key": "anshizhiluan",
+            "title": "安史之乱"
         }
     ]
 }
