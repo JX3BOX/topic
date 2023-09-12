@@ -1,5 +1,17 @@
 <template>
-    <div class="m-index"></div>
+    <div class="m-index">
+        <div class="m-top"></div>
+        <!-- 全新副本 -->
+        <div class="m-one"></div>
+        <!-- 五大场景 -->
+        <div class="m-two"></div>
+        <!-- 全新门派 -->
+        <div class="m-three"></div>
+        <!-- 两大玩法 -->
+        <div class="m-four"></div>
+        <!-- 更多资讯 -->
+        <div class="m-five"></div>
+    </div>
 </template>
 
 <script>
@@ -49,20 +61,16 @@ export default {
         },
     },
     methods: {
-        init: function () {
+        init() {
             getTopic(KEY).then((res) => {
                 this.raw = res.data.data;
-                this.video = this.data.index_video[0]["link"];
-                this.pve = this.data.index_pve;
-                this.pvebanner = this.data.index_pve_banner;
-                this.more = this.data.index_more || [];
-
-                this.tabImg = this.pvebanner[0].img;
-                this.tabImgLink = this.pvebanner[0].link;
+                console.log(this.data);
             });
         },
     },
-    mounted: function () {},
+    mounted: function () {
+        this.init();
+    },
 };
 </script>
 
