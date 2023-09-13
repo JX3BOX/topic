@@ -5,6 +5,7 @@
 .m-index {
     .w(100%);
     .auto(x);
+    .pb(170px);
     max-width: 1920px;
 }
 
@@ -43,10 +44,53 @@
     gap: 170px;
     h2 {
         .x;
+        margin: 0;
     }
     .m-box {
         .auto(x);
         .pt(40px);
+    }
+}
+.m-one {
+    .m-box {
+        .pr;
+        .flex;
+        .size(1000px,800px);
+        gap: 10px;
+        align-items: center;
+        box-sizing: border-box;
+        padding: 40px 70px 240px 70px;
+        background: url("@{kv_anshizhiluan}1/bg.png") center -100px no-repeat;
+        .u-item {
+            .db;
+            .pointer;
+            .size(278px,462px);
+            &-0 {
+                background-image: url("@{kv_anshizhiluan}1/1.png");
+            }
+            &-1 {
+                background-image: url("@{kv_anshizhiluan}1/2.png");
+            }
+            &-2 {
+                background-image: url("@{kv_anshizhiluan}1/3.png");
+            }
+            &:hover {
+                background-position: 278px 0;
+            }
+        }
+        .u-mark {
+            .pa;
+            .db;
+            .size(1400px,800px);
+            .lt(50%,-100px);
+            .z(1);
+            .ml(-700px);
+            pointer-events: none;
+            background: url("@{kv_anshizhiluan}1/mark.png") center center no-repeat;
+        }
+    }
+    .m-txt {
+        .x;
     }
 }
 .m-two {
@@ -131,7 +175,7 @@
     opacity: 1;
     background-color: #fff;
     &:hover {
-        background-color: #ecb83b; 
+        background-color: #ecb83b;
     }
 }
 .el-carousel__indicator.is-active button {

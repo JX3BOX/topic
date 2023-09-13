@@ -15,6 +15,20 @@
             <!-- 全新副本 -->
             <div class="m-one">
                 <h2><img :src="title[1]" /></h2>
+                <div class="m-box">
+                    <a
+                        :class="['u-item', `u-item-${index}`]"
+                        :href="item.link"
+                        target="_blank"
+                        v-for="(item, index) in fb"
+                        :key="item.id"
+                    >
+                    </a>
+                    <span class="u-mark"></span>
+                </div>
+                <div class="m-txt">
+                    <img :src="pic.txt" />
+                </div>
             </div>
             <!-- 五大场景 -->
             <div class="m-two">
@@ -80,6 +94,7 @@ export default {
             pic: {},
             title: {},
             play: {},
+            fb: [],
             slider: [],
         };
     },
@@ -129,6 +144,7 @@ export default {
                 this.title = this.changePic(this.data.title, "desc");
                 this.play = this.data.play;
                 this.slider = this.data.slider;
+                this.fb = this.data.fb;
 
                 console.log(this.play);
                 console.log(this.data, this.pic);
