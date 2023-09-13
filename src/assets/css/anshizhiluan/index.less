@@ -138,9 +138,11 @@
         .u-item {
             .size(468px,500px);
             background-image: url("@{kv_anshizhiluan}4/img.png");
-
+            background-position: 468px 0;
+            order:1;
             &-1 {
-                background-position: 468px 0;
+                order: 0;
+                background-position: 0 0;
             }
         }
     }
@@ -191,6 +193,10 @@
 }
 .el-carousel__indicator.is-active button {
     background-color: #ecb83b;
+}
+.el-carousel__arrow{
+    background-color: #fff;
+    .db;
 }
 
 @media screen and (max-width: 980px) {

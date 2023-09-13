@@ -62,7 +62,13 @@
             <div class="m-four">
                 <h2><img :src="title[4]" /></h2>
                 <div class="m-box">
-                    <div :class="['u-item', `u-item-${index}`]" v-for="(item, index) in play" :key="item.id"></div>
+                    <a
+                        :href="item.link"
+                        target="_blank"
+                        :class="['u-item', `u-item-${index}`]"
+                        v-for="(item, index) in play"
+                        :key="item.id"
+                    ></a>
                 </div>
             </div>
             <!-- 更多资讯 -->
