@@ -1,3 +1,139 @@
+.p-topic {
+    background: url("@{kv_anshizhiluan}bg.png") center 280px #601e08 no-repeat;
+}
+
 .m-index {
-    background: url("@{kv_anshizhiluan}bg.jpg") center top #601e08 no-repeat;
+    .w(100%);
+    .auto(x);
+    max-width: 1920px;
+}
+
+.m-top {
+    .pr;
+    .clip;
+    .m-mp4 {
+        .w(100%);
+        min-height: 550px;
+        max-height: 1080px;
+    }
+    .logo {
+        .pa;
+        .size(832px,382px);
+        .lt(50%);
+        .z(2);
+        margin: -191px 0 0 -416px;
+    }
+    .m-mark {
+        .pa;
+        .db;
+        .full;
+        .z(1);
+        .lt(0);
+        background: url("@{kv_anshizhiluan}bg.png") center 260px no-repeat;
+    }
+}
+.m-introduction {
+    .x;
+    .h(196px);
+}
+
+.m-content {
+    .flex;
+    flex-direction: column;
+    gap: 170px;
+    h2 {
+        .x;
+    }
+    .m-box {
+        .auto(x);
+        .pt(40px);
+    }
+}
+.m-two {
+    .m-box {
+        .w(1120px);
+    }
+}
+.m-three {
+    .m-box {
+        .pr;
+        .size(100%,740px);
+        background: url("@{kv_anshizhiluan}3/bg.png") top center no-repeat;
+        .m-sect {
+            .pa;
+            .lt(50%);
+            .size(500px,150px);
+            .flex;
+            margin: 102px 0 0 -406px;
+            gap: 20px;
+            .u-item {
+                .size(230px,150px);
+                &:hover {
+                    filter: brightness(110%);
+                }
+            }
+        }
+    }
+}
+
+.m-four {
+    .m-box {
+        .flex;
+        .w(980px);
+        justify-content: space-between;
+        .u-item {
+            .size(468px,500px);
+            background-image: url("@{kv_anshizhiluan}4/img.png");
+            &-1 {
+                background-position: 468px 0;
+            }
+        }
+    }
+}
+.m-five {
+    .m-box {
+        .flex;
+        .w(980px);
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px;
+        .u-item {
+            .size(210px,100px);
+            background-image: url("@{kv_anshizhiluan}5/img.png");
+            &-1 {
+                background-position: 1050px 0;
+            }
+            &-2 {
+                background-position: 840px 0;
+            }
+            &-3 {
+                background-position: 630px 0;
+            }
+            &-4 {
+                background-position: 420px 0;
+            }
+            &-5 {
+                background-position: 210px 0;
+            }
+        }
+    }
+}
+
+.el-carousel__mask {
+    background-color: #000;
+    .h(326px);
+}
+.el-carousel__button {
+    .size(15px);
+    .r(50%);
+}
+.el-carousel__indicators--outside button {
+    opacity: 1;
+    background-color: #fff;
+    &:hover {
+        background-color: #ecb83b; 
+    }
+}
+.el-carousel__indicator.is-active button {
+    background-color: #ecb83b;
 }

@@ -1,26 +1,87 @@
 <template>
     <div class="m-index">
-        <div class="m-top"></div>
-        <!-- 全新副本 -->
-        <div class="m-one"></div>
-        <!-- 五大场景 -->
-        <div class="m-two"></div>
-        <!-- 全新门派 -->
-        <div class="m-three"></div>
-        <!-- 两大玩法 -->
-        <div class="m-four"></div>
-        <!-- 更多资讯 -->
-        <div class="m-five"></div>
+        <div class="m-top">
+            <video class="m-mp4" playsinline="" autoplay="" muted="" loop="" :poster="pic.top">
+                <source src="./top.mp4" type="video/mp4" />
+            </video>
+            <img class="logo" :src="pic.logo" />
+            <span class="m-mark"></span>
+        </div>
+
+        <div class="m-content">
+            <div class="m-introduction">
+                <img class="img" :src="pic.introduction" />
+            </div>
+            <!-- 全新副本 -->
+            <div class="m-one">
+                <h2><img :src="title[1]" /></h2>
+            </div>
+            <!-- 五大场景 -->
+            <div class="m-two">
+                <h2><img :src="title[2]" /></h2>
+                <div class="m-box">
+                    <el-carousel :interval="4000" type="card" height="400px" trigger="click" loop :autoplay="false">
+                        <el-carousel-item v-for="item in slider" :key="item.id">
+                            <img :src="item.img" />
+                        </el-carousel-item>
+                    </el-carousel>
+                </div>
+            </div>
+            <!-- 全新门派 -->
+            <div class="m-three">
+                <h2><img :src="title[3]" /></h2>
+                <div class="m-box">
+                    <div class="m-sect">
+                        <a
+                            :class="['u-item', `u-item-${index}`]"
+                            :href="item.link"
+                            target="_blank"
+                            v-for="(item, index) in data.sect"
+                            :key="item.id"
+                        >
+                            <img :src="item.img" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 两大玩法 -->
+            <div class="m-four">
+                <h2><img :src="title[4]" /></h2>
+                <div class="m-box">
+                    <div :class="['u-item', `u-item-${index}`]" v-for="(item, index) in play" :key="item.id"></div>
+                </div>
+            </div>
+            <!-- 更多资讯 -->
+            <div class="m-five">
+                <h2><img :src="title[5]" /></h2>
+                <div class="m-box">
+                    <a
+                        :class="['u-item', `u-item-${index}`]"
+                        :href="item.link"
+                        target="_blank"
+                        v-for="(item, index) in data.info"
+                        :key="item.id"
+                    ></a>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
 const KEY = "anshizhiluan";
 import { getTopic } from "@/service/topic";
+import { keyBy } from "lodash";
 export default {
     name: "Index",
     data: function () {
-        return {};
+        return {
+            raw: [],
+            pic: {},
+            title: {},
+            play: {},
+            slider: [],
+        };
     },
     directives: {
         animate: {
@@ -49,7 +110,7 @@ export default {
         },
     },
     computed: {
-        data: function () {
+        data: function (val) {
             let _data = {};
             this.raw.forEach((item) => {
                 if (!_data[item.subtype]) {
@@ -64,8 +125,21 @@ export default {
         init() {
             getTopic(KEY).then((res) => {
                 this.raw = res.data.data;
-                console.log(this.data);
+                this.pic = this.changePic(this.data.pic, "desc");
+                this.title = this.changePic(this.data.title, "desc");
+                this.play = this.data.play;
+                this.slider = this.data.slider;
+
+                console.log(this.play);
+                console.log(this.data, this.pic);
             });
+        },
+        changePic(arr, key) {
+            const obj = keyBy(arr, key);
+            for (const key in obj) {
+                obj[key] = obj[key].img;
+            }
+            return obj;
         },
     },
     mounted: function () {
