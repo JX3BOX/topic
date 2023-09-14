@@ -123,7 +123,7 @@
             .u-item {
                 .size(230px,150px);
                 &:hover {
-                    filter: brightness(110%);
+                    filter: brightness(120%);
                 }
             }
         }
@@ -139,10 +139,14 @@
             .size(468px,500px);
             background-image: url("@{kv_anshizhiluan}4/img.png");
             background-position: 468px 0;
-            order:1;
+            order: 1;
+            transition: all 0.4s ease 0s;
             &-1 {
                 order: 0;
                 background-position: 0 0;
+            }
+            &:hover {
+                transform: translateY(-10px);
             }
         }
     }
@@ -156,21 +160,9 @@
         gap: 40px;
         .u-item {
             .size(210px,100px);
-            background-image: url("@{kv_anshizhiluan}5/img.png");
-            &-1 {
-                background-position: 1050px 0;
-            }
-            &-2 {
-                background-position: 840px 0;
-            }
-            &-3 {
-                background-position: 630px 0;
-            }
-            &-4 {
-                background-position: 420px 0;
-            }
-            &-5 {
-                background-position: 210px 0;
+            transition: all 0.4s ease 0s;
+            &:hover {
+                transform: translateY(-10px);
             }
         }
     }
@@ -193,10 +185,6 @@
 }
 .el-carousel__indicator.is-active button {
     background-color: #ecb83b;
-}
-.el-carousel__arrow{
-    background-color: #fff;
-    .db;
 }
 
 @media screen and (max-width: 980px) {

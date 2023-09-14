@@ -26,6 +26,14 @@
     ],
     "origin": [
         {
+            "name": "安史之乱",
+            "key": "anshizhiluan",
+            "year": "2023",
+            "date": "09-14",
+            "time": "2023.09.14",
+            "link": "./anshizhiluan"
+        },
+        {
             "name": "日月明尊",
             "key": "riyuemingzun",
             "year": "2023",

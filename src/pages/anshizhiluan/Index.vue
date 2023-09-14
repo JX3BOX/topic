@@ -4,18 +4,18 @@
             <video class="m-mp4" playsinline="" autoplay="" muted="" loop="" :poster="pic.top">
                 <source src="./top.mp4" type="video/mp4" />
             </video>
-            <img class="logo" :src="pic.logo" />
+            <img class="logo p-animation" v-animate="'bounceIn'" :src="pic.logo" />
             <span class="m-mark"></span>
         </div>
 
         <div class="m-content">
-            <div class="m-introduction">
+            <div class="m-introduction p-animations" v-animate="'slideInDown'">
                 <img class="img" :src="pic.introduction" />
             </div>
             <!-- 全新副本 -->
             <div class="m-one">
-                <h2><img :src="title[1]" /></h2>
-                <div class="m-box">
+                <h2 class="p-animation" v-animate="'fadeInDown'"><img :src="title[1]" /></h2>
+                <div class="m-box p-animations" v-animate="'fadeInUp'">
                     <a
                         :class="['u-item', `u-item-${index}`]"
                         :href="item.link"
@@ -26,15 +26,15 @@
                     </a>
                     <span class="u-mark"></span>
                 </div>
-                <div class="m-txt">
+                <div class="m-txt p-animation" v-animate="'bounceIn'">
                     <img :src="pic.txt" />
                 </div>
             </div>
             <!-- 五大场景 -->
             <div class="m-two">
-                <h2><img :src="title[2]" /></h2>
-                <div class="m-box">
-                    <el-carousel :interval="4000" type="card" height="400px" trigger="click" loop :autoplay="false">
+                <h2 class="p-animation" v-animate="'fadeInDown'"><img :src="title[2]" /></h2>
+                <div class="m-box p-animation" v-animate="'fadeInUp'">
+                    <el-carousel type="card" height="400px" trigger="click">
                         <el-carousel-item v-for="item in slider" :key="item.id">
                             <img :src="item.img" />
                         </el-carousel-item>
@@ -43,8 +43,8 @@
             </div>
             <!-- 全新门派 -->
             <div class="m-three">
-                <h2><img :src="title[3]" /></h2>
-                <div class="m-box">
+                <h2 class="p-animation" v-animate="'fadeInDown'"><img :src="title[3]" /></h2>
+                <div class="m-box p-animation" v-animate="'fadeInUp'">
                     <div class="m-sect">
                         <a
                             :class="['u-item', `u-item-${index}`]"
@@ -60,8 +60,8 @@
             </div>
             <!-- 两大玩法 -->
             <div class="m-four">
-                <h2><img :src="title[4]" /></h2>
-                <div class="m-box">
+                <h2 class="p-animation" v-animate="'fadeInDown'"><img :src="title[4]" /></h2>
+                <div class="m-box p-animation" v-animate="'fadeInUp'">
                     <a
                         :href="item.link"
                         target="_blank"
@@ -73,15 +73,17 @@
             </div>
             <!-- 更多资讯 -->
             <div class="m-five">
-                <h2><img :src="title[5]" /></h2>
-                <div class="m-box">
+                <h2 class="p-animation" v-animate="'fadeInDown'"><img :src="title[5]" /></h2>
+                <div class="m-box p-animation" v-animate="'fadeInUp'">
                     <a
                         :class="['u-item', `u-item-${index}`]"
                         :href="item.link"
                         target="_blank"
-                        v-for="(item, index) in data.info"
+                        v-for="(item, index) in info"
                         :key="item.id"
-                    ></a>
+                    >
+                        <img :src="item.img" />
+                    </a>
                 </div>
             </div>
         </div>
@@ -92,6 +94,7 @@
 const KEY = "anshizhiluan";
 import { getTopic } from "@/service/topic";
 import { keyBy } from "lodash";
+
 export default {
     name: "Index",
     data: function () {
@@ -102,6 +105,7 @@ export default {
             play: {},
             fb: [],
             slider: [],
+            info: [],
         };
     },
     directives: {
@@ -151,6 +155,7 @@ export default {
                 this.play = this.data.play;
                 this.slider = this.data.slider;
                 this.fb = this.data.fb;
+                this.info = this.data.info.reverse();
 
                 console.log(this.play);
                 console.log(this.data, this.pic);
@@ -162,6 +167,9 @@ export default {
                 obj[key] = obj[key].img;
             }
             return obj;
+        },
+        change(a) {
+            console.log(a);
         },
     },
     mounted: function () {

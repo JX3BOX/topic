@@ -17,8 +17,12 @@
                     <span class="u-button u-std" @click="goStd"></span>
                 </div>
                 <div class="m-scroll" v-dragscroll ref="scrollRef">
-                    <div class="u-item p-animations3" v-for="(item, i) in list" :key="i"
-                        :class="client == 'std' ? 'fadeInLeft' : 'fadeInRight'">
+                    <div
+                        class="u-item p-animations3"
+                        v-for="(item, i) in list"
+                        :key="i"
+                        :class="client == 'std' ? 'fadeInLeft' : 'fadeInRight'"
+                    >
                         <div class="u-list">
                             <a :href="item.link" target="_blank" class="u-link">
                                 <img class="u-img" :src="showImg(item.key)" :class="item.link ? 'u-hover' : ''" />
@@ -59,9 +63,9 @@ export default {
     },
     computed: {
         list() {
-            let stdarr = JSON.parse(JSON.stringify(std)).reverse()
+            let stdarr = JSON.parse(JSON.stringify(std)).reverse();
             let _list = this.client == "std" ? stdarr : origin;
-            return _list
+            return _list;
         },
     },
     watch: {},
@@ -71,8 +75,8 @@ export default {
             setTimeout(() => {
                 this.listShow = "show fadeIn";
                 this.$nextTick(() => {
-                    this.$refs.scrollRef.scrollTo(this.$refs.scrollRef.clientWidth, 0)
-                })
+                    this.$refs.scrollRef.scrollTo(this.$refs.scrollRef.clientWidth, 0);
+                });
             }, 500);
         },
         goOrign() {
@@ -95,10 +99,10 @@ export default {
             }
             setTimeout(() => {
                 this.listShow = "show fadeIn";
-                if (this.client == 'std') {
+                if (this.client == "std") {
                     this.$nextTick(() => {
-                        this.$refs.scrollRef.scrollTo(this.$refs.scrollRef.clientWidth, 0)
-                    })
+                        this.$refs.scrollRef.scrollTo(this.$refs.scrollRef.clientWidth, 0);
+                    });
                 }
             }, 500);
         },
@@ -121,9 +125,6 @@ export default {
             return __imgPath + "topic/index/" + key + ".png";
         },
     },
-    created: function () { },
-    mounted: function () { },
-    destroyed() { },
 };
 </script>
 <style lang="less">
