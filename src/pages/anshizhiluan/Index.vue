@@ -17,12 +17,14 @@
                 <h2 class="p-animation" v-animate="'fadeInDown'"><img :src="title[1]" /></h2>
                 <div class="m-box p-animations" v-animate="'fadeInUp'">
                     <a
-                        :class="['u-item', `u-item-${index}`]"
+                        :class="['u-item', `u-item-${item.id}`]"
                         :href="item.link"
                         target="_blank"
-                        v-for="(item, index) in fb"
+                        v-for="item in fb"
                         :key="item.id"
                     >
+                    <img :src="item.img" class="u-img1">
+                    <img :src="item.desc" class="u-img2">
                     </a>
                     <span class="u-mark"></span>
                 </div>
