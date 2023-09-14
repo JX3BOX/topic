@@ -23,8 +23,8 @@
                         v-for="item in fb"
                         :key="item.id"
                     >
-                    <img :src="item.img" class="u-img1">
-                    <img :src="item.desc" class="u-img2">
+                        <img :src="item.img" class="u-img1" />
+                        <img :src="item.desc" class="u-img2" />
                     </a>
                     <span class="u-mark"></span>
                 </div>
@@ -97,7 +97,7 @@
 <script>
 const KEY = "anshizhiluan";
 import { getTopic } from "@/service/topic";
-import { keyBy } from "lodash";
+import { keyBy, sortBy } from "lodash";
 
 export default {
     name: "Index",
@@ -156,13 +156,12 @@ export default {
                 this.raw = res.data.data;
                 this.pic = this.changePic(this.data.pic, "desc");
                 this.title = this.changePic(this.data.title, "desc");
-                this.play = this.data.play;
+                this.play =sortBy(this.data.play, (o) => o.id);
                 this.slider = this.data.slider;
-                this.fb = this.data.fb;
-                this.info = this.data.info.reverse();
+                this.fb = sortBy(this.data.fb, (o) => o.id);
+                this.info = sortBy(this.data.info, (o) => o.id);
 
-                console.log(this.play);
-                console.log(this.data, this.pic);
+                console.log(this.info);
             });
         },
         changePic(arr, key) {
