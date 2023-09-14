@@ -104,8 +104,55 @@
 }
 .m-two {
     .m-box {
-        .w(100%);
-        max-width: 1120px;
+        .w(1120px);
+        .pr;
+        .u-img {
+            .pa;
+            .size(50px);
+            .z(9);
+            .mt(-25px);
+            pointer-events: none;
+            &.u-left {
+                .lt(0,50%);
+                .ml(130px);
+            }
+            &.u-right {
+                .rt(0,50%);
+                .mr(130px);
+            }
+        }
+        .u-item {
+            .el-carousel__mask {
+                .none;
+            }
+            filter: brightness(50%);
+            &.is-active {
+                filter: brightness(100%);
+            }
+            img {
+                object-fit: scale-down;
+                .full;
+            }
+        }
+        .el-carousel__arrow--left,
+        .el-carousel__arrow--right {
+            .none;
+        }
+
+        .el-carousel__indicator--horizontal button {
+            .size(15px);
+            .r(50%);
+        }
+        .el-carousel__indicator.is-active button {
+            background-color: #ecb83b;
+        }
+        .el-carousel__indicators--outside .el-carousel__indicator:hover button,
+        .el-carousel__indicators--outside button {
+            .tm(1);
+        }
+        .el-carousel__indicators--outside .el-carousel__indicator:hover button {
+            background-color: #fff;
+        }
     }
 }
 .m-three {
@@ -168,24 +215,48 @@
     }
 }
 
-.el-carousel__mask {
-    background-color: #000;
-    .h(326px);
-}
-.el-carousel__button {
-    .size(15px);
-    .r(50%);
-}
-.el-carousel__indicators--outside button {
-    opacity: 1;
-    background-color: #fff;
-    &:hover {
-        background-color: #ecb83b;
-    }
-}
-.el-carousel__indicator.is-active button {
-    background-color: #ecb83b;
-}
+// .el-carousel__mask {
+//     background-color: #000;
+// }
+// .el-carousel__button {
+//     .size(15px);
+//     .r(50%);
+// }
+// .el-carousel__indicators--outside button {
+//     opacity: 1;
+//     background-color: #fff;
+//     &:hover {
+//         background-color: #ecb83b;
+//     }
+// }
+// .el-carousel__indicator.is-active button {
+//     background-color: #ecb83b;
+// }
+
+// .el-carousel {
+//     .el-carousel__item.is-in-stage {
+//         .size(684px,400px);
+//     }
+
+//     /deep/ .el-carousel__indicators {
+//         // 指示器
+//         left: unset;
+//         transform: unset;
+//         right: 2%;
+//     }
+//     /deep/ .el-carousel__button {
+//         // 指示器按钮
+//         width: 10px;
+//         height: 10px;
+//         border: none;
+//         border-radius: 50%;
+//         background-color: rgba(0, 0, 0, 0.2);
+//     }
+//     /deep/ .is-active .el-carousel__button {
+//         // 指示器激活按钮
+//         background: #3f8ec8;
+//     }
+// }
 
 @media screen and (max-width: 980px) {
     .p-topic {

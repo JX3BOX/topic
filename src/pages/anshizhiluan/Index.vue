@@ -34,8 +34,10 @@
             <div class="m-two">
                 <h2 class="p-animation" v-animate="'fadeInDown'"><img :src="title[2]" /></h2>
                 <div class="m-box p-animation" v-animate="'fadeInUp'">
-                    <el-carousel type="card" height="400px" trigger="click">
-                        <el-carousel-item v-for="item in slider" :key="item.id">
+                    <img :src="pic.left" class="u-img u-left" />
+                    <img :src="pic.right" class="u-img u-right" />
+                    <el-carousel class="u-carousel" type="card" trigger="click" height="400px" :autoplay="false">
+                        <el-carousel-item v-for="item in slider" :key="item.id" class="u-item">
                             <img :src="item.img" />
                         </el-carousel-item>
                     </el-carousel>
