@@ -1,7 +1,6 @@
 <template>
-    <div class="m-index">
-                导航
-        <div class="m-nav p-animation" v-animate="'fadeInDown'" :style="navStyle" @mouseleave="mouseout">
+    <div class="m-index" :class="{'is-mobile': isMobile}">
+        <div class="m-nav p-animation" v-animate="'fadeInDown'" :style="navStyle" @mouseleave="mouseout" v-if="!isMobile">
             <img :src="item.bg" class="u-img"
                  :class="['u-nav-active' + index, index == mouseoverActive ? 'u-img-contrast' : '', index != navActive ? 'u-not-active' : '']" v-for="(item, index) in navs"
                  :key="'navimg' + index" @click="goAnchor(index)" @mouseover="mouseover(index)">
@@ -11,20 +10,27 @@
         </div>
         <!--首屏-->
         <div class="m-top m-jump">
-            <video class="u-video-background" autoplay muted loop >
+            <video class="u-video-background" autoplay muted loop v-if="!isMobile">
                 <source :src="top.video" type="video/mp4">
             </video>
-            <img class="u-title" :src="top.title"/>
-            <div class="u-transition"></div>
+            <img class="u-title" :src="isMobile ? top.mobileTitle :top.title"/>
+            <div class="u-transition">
+                <div class="m-down" v-if="isMobile">
+                    <img class="u-down-icon" :src="topDownIcon" />
+                    <span class="u-down-text">向下滑动查看内容</span>
+                </div>
+            </div>
             <a href="" class="u-button" @click.prevent="playVideo('top')"></a>
-            <img class="u-title-bottom" :src="top.titleBottom"/>
-            <img class="u-box-logo" :src="top.logo"/>
+            <img class="u-title-bottom" :src="isMobile ? top.mobileTitleBottom : top.titleBottom"/>
+            <a href="https://www.jx3box.com/index/">
+                <img class="u-box-logo" :src="top.logo"/>
+            </a>
         </div>
         <!--1全新门派-->
         <div class="m-one m-jump">
-            <div class="u-title"></div>
+            <div class="u-title p-animation" v-animate="'fadeInUpBig'"></div>
             <div class="u-line"></div>
-            <div class="m-content p-animation" v-animate="'fadeInUp'">
+            <div class="m-content p-animation" v-animate="'fadeInUpBig'">
                 <div class="m-content-box">
                     <div class="u-sect-logo"></div>
                     <div class="u-sect-desc" v-html="sectDesc"></div>
@@ -33,17 +39,22 @@
                 <a href="" class="u-button u-introduction">门派攻略</a>
                 <a href="" class="u-button u-macro">门派宏库</a>
             </div>
+            <div class="m-content m-content-mobile p-animation" v-animate="'fadeInUpBig'" v-if="isMobile">
+                <a href="" class="u-video-button" @click.prevent="playVideo('top')"></a>
+                <a href="" class="u-button u-introduction">门派攻略</a>
+                <a href="" class="u-button u-macro">门派宏库</a>
+            </div>
         </div>
         <!--2副本-->
         <div class="m-two m-jump">
-            <div class="u-title"></div>
+            <div class="u-title p-animation" v-animate="'fadeInUpBig'"></div>
             <div class="u-line"></div>
-            <div class="m-content">
+            <div class="m-content p-animation" id="two-content" v-animate="'fadeInUpBig'">
                 <div class="m-content-box p-animation"
                      v-for="(item, index) in ['qldt','jld']"
-                     v-show="currentFb === item"
+                     v-show="currentFb === item || isMobile"
                      :key="'fb'+index"
-                     v-animate="'fadeInRight'">
+                     v-animate="'fadeIn'">
                     <img class="u-bg-img" :src="fb[item].bg" alt="">
                     <div v-show="currentFb === item" class="u-title-fb p-animation">{{fb[item].title}}</div>
                     <div class="u-desc">{{fb[item].desc}}</div>
@@ -53,7 +64,7 @@
                            :src="fb[item].button"
                             />
                     </a>
-                    <a href="" class="u-change-fb"
+                    <a href="" class="u-change-fb" v-if="!isMobile"
                        @click.prevent="currentFb === 'qldt' ? currentFb = 'jld' :  currentFb = 'qldt'">
                         切换到{{currentFb === 'qldt' ? '九老洞' : '栖灵洞天·旧事'}}
                     </a>
@@ -62,9 +73,9 @@
         </div>
         <!--3剧情-->
         <div class="m-three m-jump">
-            <div class="u-title"></div>
+            <div class="u-title p-animation" v-animate="'fadeInUpBig'"></div>
             <div class="u-line"></div>
-            <div class="m-content">
+            <div class="m-content p-animation" v-animate="'fadeInUpBig'">
                 <div class="m-content-box p-animation"
                      v-for="(item, index) in ['qxzx','wlsh']"
                      v-show="currentJq === item"
@@ -88,9 +99,9 @@
         </div>
         <!--4旗舰画质-->
         <div class="m-four m-jump">
-            <div class="u-title"></div>
+            <div class="u-title p-animation" v-animate="'fadeInUpBig'"></div>
             <div class="u-line"></div>
-            <div class="m-content">
+            <div class="m-content p-animation" v-animate="'fadeInUpBig'">
                 <div class="m-content-box">
                     <a href=""
                        class="u-refresh-button"
@@ -124,7 +135,7 @@
                     <div class="m-content-bottom">
                         <a :href="subscribe.url">
                             <img
-                                class="u-button"
+                                class="u-button u-subscribe"
                                 :src="subscribe.img"
                             />
                         </a>
@@ -135,9 +146,9 @@
         </div>
         <!--5捏脸-->
         <div class="m-five m-jump">
-            <div class="u-title"></div>
+            <div class="u-title p-animation" v-animate="'fadeInUpBig'"></div>
             <div class="u-line"></div>
-            <div class="m-content">
+            <div class="m-content p-animation" v-animate="'fadeInUpBig'">
                 <div class="m-content-box">
                     <div class="m-box-left">
                         <div class="m-scroll">
@@ -168,7 +179,7 @@
                         </div>
                         <a :href="faceContent.url">
                             <img
-                                class="u-button"
+                                class="u-button u-subscribe"
                                 :src="faceContent.img"
                             />
                         </a>
@@ -178,9 +189,9 @@
         </div>
         <!--p6more-->
         <div class="m-more m-jump">
-            <div class="u-title"></div>
+            <div class="u-title p-animation" v-animate="'fadeInUpBig'"></div>
             <div class="u-line"></div>
-            <div class="m-content">
+            <div class="m-content p-animation" v-animate="'fadeInUpBig'">
                 <div class="m-content-box">
                     <a :href="item.link" v-for="(item, index) in more" :key="`more${index}`">
                         <img :src="item.img" alt="">
@@ -215,6 +226,7 @@ export default {
     },
     data: function () {
         return {
+            isMobile: navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i),
             imgPath: 'https://img.jx3box.com/topic/wanlingdangge/',
             // nav
             navs: [{
@@ -243,10 +255,13 @@ export default {
             navActive: 1,
             mouseoverActive: null, //导航鼠标经过事件
             // top
+            topDownIcon: IMG_PATH + 'top/down-icon.png',
             top: {
                 video: IMG_PATH + 'top/wanlingshanzhuang.mp4',
                 title: IMG_PATH +  'top/title.png',
+                mobileTitle: IMG_PATH +  'top/mobile-title.png',
                 titleBottom: IMG_PATH +  'top/title-bottom.png',
+                mobileTitleBottom: IMG_PATH +  'top/mobile-title-bottom.png',
                 logo: IMG_PATH +  'top/box.png',
             },
             zoom: 1,
@@ -265,7 +280,6 @@ export default {
                     desc: '密林往事，亟待探索，全新五人秘境“栖灵洞天·旧事”已在测试服开放挑战！它位于万灵山庄中的建木海深处，只有隐秘的小路与外界相通，少有人知。栖灵洞天是乘黄一族与颂家共同的圣地，这次颂家归来，引来了三十年前舜英城血案的受害者遗留家属的聚集，而在这一切背后，似乎还隐藏了更多秘密'
                 },
                 jld: {
-                    title: '九老洞',
                     introductionUrl: '',
                     bg: IMG_PATH+'two/jld.png',
                     button: IMG_PATH+'two/jld-button.png',
@@ -298,7 +312,7 @@ export default {
                 nextBtn: IMG_PATH+'three/next.png'
             },
             // p4画质
-            refreshText: IMG_PATH+'four/refresh.png.png',
+            refreshText: IMG_PATH + 'four/refresh.png',
             currentContrast: 0,
             contrastBorder: {
                 qjhz: IMG_PATH+'four/qjhz.png',
@@ -445,7 +459,7 @@ export default {
             } else if (w <= 1920) {
                 zoom = 0.5;
             }
-            total = total * zoom - 64;
+            total = total * w / 3840 - 64;
             if (index == 0) {
                 total = 0
             }
@@ -518,17 +532,31 @@ export default {
                 this.navActive = 1
             }
         },
+        resize() {
+            let w = document.body.clientWidth || document.documentElement.clientWidth
+            const el = document.getElementsByClassName('m-index');
+            el[0].style = `zoom: ${w/3840}`
+        }
     },
     filters: {},
-    created: function () { },
-    mounted: function () {
+    created: function () {
         this.init();
-        window.addEventListener('scroll', this.setNav);
+    },
+    mounted: function () {
+        if(!this.isMobile) {
+            window.addEventListener('scroll', this.setNav);
+            this.resize();
+            window.addEventListener('resize', this.resize);
+        }
     },
 };
 </script>
 
 <style lang="less">
 @import "../../assets/css/wanlingdangge/index.less";
+.p-topic-footer {
+    position: relative;
+    z-index: 9999 !important;
+}
 </style>
 
