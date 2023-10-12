@@ -76,25 +76,25 @@
             <div class="u-title p-animation" v-animate="'fadeInUpBig'"></div>
             <div class="u-line"></div>
             <div class="m-content p-animation" v-animate="'fadeInUpBig'">
-                <div class="m-content-box p-animation"
-                     v-for="(item, index) in ['qxzx','wlsh']"
-                     v-show="currentJq === item"
-                     :key="'jq'+index"
-                     v-animate="'fadeIn'">
-                    <img class="u-bg-img" :src="jq[item].bg" alt="">
-                    <div class="m-text-box">
-                        <img class="u-logo" :src="jq[item].logo">
-                        <div class="u-desc" v-html="jq[item].desc"></div>
-                        <a href="" class="u-change u-pre" :class="{disabled: currentJq === 'qxzx'}"
-                           @click.prevent="currentJq = 'qxzx'">
-                            <img :src="jq.preBtn" alt="">
-                        </a>
-                        <a href="" class="u-change u-next" :class="{disabled: currentJq === 'wlsh'}"
-                           @click.prevent="currentJq = 'wlsh'">
-                            <img :src="jq.nextBtn" alt="">
-                        </a>
+                <transition v-for="(item, index) in ['qxzx','wlsh']" :key="'jq'+index" name="fade-jq">
+                    <div class="m-content-box"
+                         v-show="currentJq === item">
+                        <img class="u-bg-img" :src="jq[item].bg" alt="">
+                        <div class="m-text-box">
+                            <img class="u-logo" :src="jq[item].logo">
+                            <div class="u-desc" v-html="jq[item].desc"></div>
+                            <a href="" class="u-change u-pre" :class="{disabled: currentJq === 'qxzx'}"
+                               @click.prevent="changeJq('qxzx')">
+                                <img :src="jq.preBtn" alt="">
+                            </a>
+                            <a href="" class="u-change u-next" :class="{disabled: currentJq === 'wlsh'}"
+                               @click.prevent="changeJq('wlsh')" >
+                                <img :src="jq.nextBtn" alt="">
+                            </a>
+                        </div>
                     </div>
-                </div>
+                </transition>
+
             </div>
         </div>
         <!--4旗舰画质-->
@@ -536,6 +536,9 @@ export default {
             let w = document.body.clientWidth || document.documentElement.clientWidth
             const el = document.getElementsByClassName('m-index');
             el[0].style = `zoom: ${w/3840}`
+        },
+        changeJq(jq) {
+            this.currentJq = jq;
         }
     },
     filters: {},
@@ -557,6 +560,20 @@ export default {
 .p-topic-footer {
     position: relative;
     z-index: 9999 !important;
+}
+.fade-jq-leave-active {
+    animation: dissolve 1000ms ease-out forwards;
+    z-index: 3;
+}
+
+@keyframes dissolve {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(3);
+    }
 }
 </style>
 

@@ -256,7 +256,6 @@ body {
 .m-nav{
     .size(662px,3714px);
     .pf;
-    pointer-events: auto;
     background: url("@{kv_wanlingdangge}nav/bg.png") no-repeat;
     background-size: cover;
     //position: absolute;
@@ -596,6 +595,12 @@ body {
             }
             .m-text-box{
                 .pa;
+                // On click
+                // Change to: "Frame 15";
+                // Animate: Dissolve;
+                animation-timing-function: ease-out;
+                animation-duration: 1000ms;
+
                 .size(1102px, 817px);
                 left: 482px;
                 top: 260px;
@@ -949,7 +954,6 @@ body {
     }
 }
 
-
 @keyframes button_scale_125 {
     0% {
         transform: scale(1);
@@ -1014,7 +1018,6 @@ body {
         transform: translateY(2px);
     }
 }
-
 @media screen and (min-width: 2560px){
     .u-subscribe {
         animation-name: button_scale_90 !important;
