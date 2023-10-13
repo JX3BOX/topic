@@ -1,6 +1,6 @@
 <template>
     <div class="m-index" :class="{'is-mobile': isMobile}">
-        <div class="m-nav p-animation" v-animate="'fadeInDown'" :style="navStyle" @mouseleave="mouseout" v-if="!isMobile">
+        <div class="m-nav p-animation" v-animate="'fadeIn'" :style="navStyle" @mouseleave="mouseout" v-if="!isMobile">
             <img :src="item.bg" class="u-img"
                  :class="['u-nav-active' + index, index == mouseoverActive ? 'u-img-contrast' : '', index != navActive ? 'u-not-active' : '']" v-for="(item, index) in navs"
                  :key="'navimg' + index" @click="goAnchor(index)" @mouseover="mouseover(index)">
@@ -10,10 +10,10 @@
         </div>
         <!--首屏-->
         <div class="m-top m-jump">
-            <video class="u-video-background" autoplay muted loop v-if="!isMobile">
+            <video class="u-video-background" autoplay muted loop>
                 <source :src="top.video" type="video/mp4">
             </video>
-            <img class="u-title" :src="isMobile ? top.mobileTitle :top.title"/>
+            <img class="u-title" :src="top.title"/>
             <div class="u-transition">
                 <div class="m-down" v-if="isMobile">
                     <img class="u-down-icon" :src="topDownIcon" />
@@ -21,7 +21,7 @@
                 </div>
             </div>
             <a href="" class="u-button" @click.prevent="playVideo('top')"></a>
-            <img class="u-title-bottom" :src="isMobile ? top.mobileTitleBottom : top.titleBottom"/>
+            <img class="u-title-bottom" :src="top.titleBottom"/>
             <a href="https://www.jx3box.com/index/">
                 <img class="u-box-logo" :src="top.logo"/>
             </a>
@@ -29,7 +29,7 @@
         <!--1全新门派-->
         <div class="m-one m-jump">
             <div class="u-title p-animation" v-animate="'fadeInUpBig'"></div>
-            <div class="u-line"></div>
+            <div class="u-line p-animation" v-animate="'fadeInUpBig'"></div>
             <div class="m-content p-animation" v-animate="'fadeInUpBig'">
                 <div class="m-content-box">
                     <div class="u-sect-logo"></div>
@@ -48,33 +48,33 @@
         <!--2副本-->
         <div class="m-two m-jump">
             <div class="u-title p-animation" v-animate="'fadeInUpBig'"></div>
-            <div class="u-line"></div>
+            <div class="u-line p-animation" v-animate="'fadeInUpBig'"></div>
             <div class="m-content p-animation" id="two-content" v-animate="'fadeInUpBig'">
-                <div class="m-content-box p-animation"
-                     v-for="(item, index) in ['qldt','jld']"
-                     v-show="currentFb === item || isMobile"
-                     :key="'fb'+index"
-                     v-animate="'fadeIn'">
-                    <img class="u-bg-img" :src="fb[item].bg" alt="">
-                    <div v-show="currentFb === item" class="u-title-fb p-animation">{{fb[item].title}}</div>
-                    <div class="u-desc">{{fb[item].desc}}</div>
-                    <a :href="fb[item].introductionUrl">
-                        <img
-                           class="u-button-introduction "
-                           :src="fb[item].button"
-                            />
-                    </a>
-                    <a href="" class="u-change-fb" v-if="!isMobile"
-                       @click.prevent="currentFb === 'qldt' ? currentFb = 'jld' :  currentFb = 'qldt'">
-                        切换到{{currentFb === 'qldt' ? '九老洞' : '栖灵洞天·旧事'}}
-                    </a>
-                </div>
+                <transition v-for="(item, index) in ['qldt','jld']"
+                            :key="'fb'+index" name="fade-jq">
+                    <div class="m-content-box"
+                         v-show="currentFb === item || isMobile">
+                            <img class="u-bg-img" :src="fb[item].bg" alt="">
+                            <div v-show="currentFb === item" class="u-title-fb p-animation">{{fb[item].title}}</div>
+                            <div class="u-desc">{{fb[item].desc}}</div>
+                            <a :href="fb[item].introductionUrl">
+                                <img
+                                   class="u-button-introduction "
+                                   :src="fb[item].button"
+                                    />
+                            </a>
+                            <a href="" class="u-change-fb" v-if="!isMobile"
+                               @click.prevent="currentFb === 'qldt' ? currentFb = 'jld' :  currentFb = 'qldt'">
+                                切换到{{currentFb === 'qldt' ? '九老洞' : '栖灵洞天·旧事'}}
+                            </a>
+                    </div>
+                </transition>
             </div>
         </div>
         <!--3剧情-->
         <div class="m-three m-jump">
             <div class="u-title p-animation" v-animate="'fadeInUpBig'"></div>
-            <div class="u-line"></div>
+            <div class="u-line p-animation" v-animate="'fadeInUpBig'"></div>
             <div class="m-content p-animation" v-animate="'fadeInUpBig'">
                 <transition v-for="(item, index) in ['qxzx','wlsh']" :key="'jq'+index" name="fade-jq">
                     <div class="m-content-box"
@@ -94,13 +94,12 @@
                         </div>
                     </div>
                 </transition>
-
             </div>
         </div>
         <!--4旗舰画质-->
         <div class="m-four m-jump">
             <div class="u-title p-animation" v-animate="'fadeInUpBig'"></div>
-            <div class="u-line"></div>
+            <div class="u-line p-animation" v-animate="'fadeInUpBig'"></div>
             <div class="m-content p-animation" v-animate="'fadeInUpBig'">
                 <div class="m-content-box">
                     <a href=""
@@ -147,7 +146,7 @@
         <!--5捏脸-->
         <div class="m-five m-jump">
             <div class="u-title p-animation" v-animate="'fadeInUpBig'"></div>
-            <div class="u-line"></div>
+            <div class="u-line p-animation" v-animate="'fadeInUpBig'"></div>
             <div class="m-content p-animation" v-animate="'fadeInUpBig'">
                 <div class="m-content-box">
                     <div class="m-box-left">
@@ -190,7 +189,7 @@
         <!--p6more-->
         <div class="m-more m-jump">
             <div class="u-title p-animation" v-animate="'fadeInUpBig'"></div>
-            <div class="u-line"></div>
+            <div class="u-line p-animation" v-animate="'fadeInUpBig'"></div>
             <div class="m-content p-animation" v-animate="'fadeInUpBig'">
                 <div class="m-content-box">
                     <a :href="item.link" v-for="(item, index) in more" :key="`more${index}`">
@@ -535,7 +534,13 @@ export default {
         resize() {
             let w = document.body.clientWidth || document.documentElement.clientWidth
             const el = document.getElementsByClassName('m-index');
-            el[0].style = `zoom: ${w/3840}`
+            let zoom =  w / 3840
+            if (zoom < 0.5) {
+                zoom = 0.5
+            }
+            el[0].style = `zoom: ${zoom}; margin-top:${64/zoom}px`
+            const pt = document.getElementsByClassName('p-topic');
+            pt[0].style = 'min-width: 1920px'
         },
         changeJq(jq) {
             this.currentJq = jq;
@@ -563,7 +568,27 @@ export default {
 }
 .fade-jq-leave-active {
     animation: dissolve 1000ms ease-out forwards;
-    z-index: 3;
+    //z-index: 3;
+    //.u-bg-img{
+    //    animation: dissolve 1000ms ease-out forwards;
+    //}
+    //.m-text-box {
+    //    * {
+    //        animation: dissolve 1000ms ease-out forwards;
+    //    }
+    //}
+}
+.fade-jq-enter-active {
+    animation: dissolve 1000ms ease-out forwards reverse;
+    //z-index: 2;
+    //.u-bg-img{
+    //    animation: dissolve 1000ms ease-out forwards reverse;
+    //}
+    //.m-text-box {
+    //    * {
+    //        animation: dissolve 1000ms ease-out forwards reverse;
+    //    }
+    //}
 }
 
 @keyframes dissolve {
@@ -572,7 +597,6 @@ export default {
     }
     100% {
         opacity: 0;
-        transform: scale(3);
     }
 }
 </style>
