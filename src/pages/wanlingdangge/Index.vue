@@ -36,13 +36,13 @@
                     <div class="u-sect-desc" v-html="sectDesc"></div>
                 </div>
                 <a href="" class="u-video-button" @click.prevent="playVideo('top')"></a>
-                <a href="" class="u-button u-introduction">门派攻略</a>
-                <a href="" class="u-button u-macro">门派宏库</a>
+                <a :href="sectUrl.marco" target="_blank" class="u-button u-introduction">门派攻略</a>
+                <a :href="sectUrl.bps" target="_blank" class="u-button u-macro">门派宏库</a>
             </div>
             <div class="m-content m-content-mobile p-animation" v-animate="'fadeInUpBig'" v-if="isMobile">
                 <a href="" class="u-video-button" @click.prevent="playVideo('top')"></a>
-                <a href="" class="u-button u-introduction">门派攻略</a>
-                <a href="" class="u-button u-macro">门派宏库</a>
+                <a :href="sectUrl.marco" target="_blank" class="u-button u-introduction">门派攻略</a>
+                <a :href="sectUrl.bps" target="_blank" class="u-button u-macro">门派宏库</a>
             </div>
         </div>
         <!--2副本-->
@@ -57,7 +57,7 @@
                             <img class="u-bg-img" :src="fb[item].bg" alt="">
                             <div v-show="currentFb === item" class="u-title-fb p-animation">{{fb[item].title}}</div>
                             <div class="u-desc">{{fb[item].desc}}</div>
-                            <a :href="fb[item].introductionUrl">
+                            <a :href="fb[item].introductionUrl"  target="_blank">
                                 <img
                                    class="u-button-introduction "
                                    :src="fb[item].button"
@@ -132,7 +132,7 @@
                         {{contentDesc}}
                     </div>
                     <div class="m-content-bottom">
-                        <a :href="subscribe.url">
+                        <a :href="subscribe.url" target="_blank">
                             <img
                                 class="u-button u-subscribe"
                                 :src="subscribe.img"
@@ -176,7 +176,7 @@
                             </div>
                             </div>
                         </div>
-                        <a :href="faceContent.url">
+                        <a :href="faceContent.url" target="_blank">
                             <img
                                 class="u-button u-subscribe"
                                 :src="faceContent.img"
@@ -267,19 +267,25 @@ export default {
             currentFb: 'qldt',
             currentJq: 'qxzx',
             // p1 门派
+            sectUrl: {
+                marco: '/macro/?subtype=山海心诀',
+                bps: '/bps/?subtype=山海心诀'
+            },
             sectDesc: `<p>从 地理上来说，万灵山庄隶于岭南道苍梧郡，连绵不绝的岭南山峦如同绿色的屏障，将尘世的喧嚣隔绝在外。这里森林密布，茂盛的古树与清澈的溪流环绕着山庄，阳光透过稠密的树冠洒下斑斓的光影，万灵就在这里栖息。</p>
                         <p>明 风野、缀星泽、建木海……这一个个区域栖息着多种多样的鸟兽。栖灵洞天则是万灵山庄与乘黄共同的圣地，这里承载两族先辈风云激荡的过往，也是人与兽相互依存的象征。而门派主殿“万灵殿”，更像是生灵们的乐园，动物们凭借自身的意愿随意出入，一些动物甚至在主殿内还有担任不同的职责，一切尽待侠士们的探索。</p>`,
             // p2 副本
             fb: {
                 qldt: {
+                    name: '栖灵洞天·旧事',
                     title: '栖灵洞天·旧事',
-                    introductionUrl: '',
+                    introductionUrl: '/fb/?fb_name=栖灵洞天',
                     bg: IMG_PATH+'two/qldt.png',
                     button: IMG_PATH+'/two/qldt-button.png',
                     desc: '密林往事，亟待探索，全新五人秘境“栖灵洞天·旧事”已在测试服开放挑战！它位于万灵山庄中的建木海深处，只有隐秘的小路与外界相通，少有人知。栖灵洞天是乘黄一族与颂家共同的圣地，这次颂家归来，引来了三十年前舜英城血案的受害者遗留家属的聚集，而在这一切背后，似乎还隐藏了更多秘密'
                 },
                 jld: {
-                    introductionUrl: '',
+                    name: '九老洞',
+                    introductionUrl: '/fb/?fb_name=九老洞',
                     bg: IMG_PATH+'two/jld.png',
                     button: IMG_PATH+'two/jld-button.png',
                     desc: '九老洞是华山龙脉所在，洞中生有龙木，异象丛生，且有神兽麒麟守护。吕洞宾探寻华山龙脉时发现了这一处宝地，见龙脉运转的自然之理后得悟天道，离去时以阴阳太极之理布下阵法以守护龙脉。多年来许多人误入洞中，无一人能破解阵法，前往洞底龙脉所在，只见到阵中卦象所推演的幻境。久而久之，此洞被传为仙人聚会之所，故称九老洞。月泉淮为了挑战纯阳至高武学，与神秘方士联手闯入九老洞，华山龙脉危在旦夕，中原武林众多高手驰援华山，携手诛恶。'
@@ -356,7 +362,7 @@ export default {
 
             ],
             faceContent: {
-                url: '',
+                url: '/face',
                 img: IMG_PATH+'five/button.png',
                 face: new Array(10).fill(IMG_PATH+'five/face.png'),
             },
@@ -429,6 +435,11 @@ export default {
         init: function () {
             getTopic(KEY).then((res) => {
                 this.more = res.data.data.filter(i => i.subtype === 'more').map(i => {return {img: i.img, link: i.link}});
+                const face = res.data.data.filter(i => i.subtype === 'face').map(i => i.img);
+                this.faceContent.face = Array.from(Array(10), (item, index) => {
+                    const i =  index % face.length;
+                    return face[i];
+                })
             });
         },
         playVideo() {
