@@ -194,8 +194,8 @@
             <div class="u-line p-animation" v-animate="'fadeInUpBig'"></div>
             <div class="m-content p-animation" v-animate="'fadeInUpBig'">
                 <div class="m-content-box">
-                    <div class="m-item">
-                        <a :href="item.link" v-for="(item, index) in more" :key="`more${index}`">
+                    <div class="m-item" v-for="(item, index) in more" :key="`more${index}`">
+                        <a :href="item.link" >
                             <img :src="item.img" alt="">
                             <div class="m-mask"></div>
                             <div class="u-text">
