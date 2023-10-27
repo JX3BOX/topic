@@ -172,7 +172,9 @@
                         <div class="m-face-box" v-for="(item, index) in faceContent.face" :key="index">
                             <div class="m-face-rotate-box">
                             <div class="u-face">
-                                <img :src="item" alt="">
+                                <a :href="item.link">
+                                    <img :src="item.img" alt="">
+                                </a>
                             </div>
                             </div>
                         </div>
@@ -192,9 +194,15 @@
             <div class="u-line p-animation" v-animate="'fadeInUpBig'"></div>
             <div class="m-content p-animation" v-animate="'fadeInUpBig'">
                 <div class="m-content-box">
-                    <a :href="item.link" v-for="(item, index) in more" :key="`more${index}`">
-                        <img :src="item.img" alt="">
-                    </a>
+                    <div class="m-item">
+                        <a :href="item.link" v-for="(item, index) in more" :key="`more${index}`">
+                            <img :src="item.img" alt="">
+                            <div class="m-mask"></div>
+                            <div class="u-text">
+                               {{ item.title }}
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -434,8 +442,8 @@ export default {
     methods: {
         init: function () {
             getTopic(KEY).then((res) => {
-                this.more = res.data.data.filter(i => i.subtype === 'more').map(i => {return {img: i.img, link: i.link}});
-                const face = res.data.data.filter(i => i.subtype === 'face').map(i => i.img);
+                this.more = res.data.data.filter(i => i.subtype === 'more').map(i => {return {img: i.img, link: i.link,title: i.title}});
+                const face = res.data.data.filter(i => i.subtype === 'face').map(i =>  {return {img: i.img, link: i.link}});
                 this.faceContent.face = Array.from(Array(10), (item, index) => {
                     const i =  index % face.length;
                     return face[i];

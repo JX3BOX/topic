@@ -249,7 +249,6 @@ body {
                     img {
                         .size(90vw, 60vw);
                         margin: 5vw;
-
                         &:hover {
                             filter: brightness(110%);
                         }
@@ -946,12 +945,36 @@ body {
             .auto(x);
             left: 0;
             right: 0;
+            cursor:pointer;
             top: 20px;
-            img {
-                .size(600px, 400px);
-                margin: 70px;
+            .m-item {
+                .pr;
+                img {
+                    .size(600px, 400px);
+                    margin: 70px;
+                }
+                .m-mask{
+                    .pa;
+                    margin: 70px;
+                    .size(561px, 322px);
+                    .lt(0,0);
+                    border: 20px #00000099 solid;
+                    border-bottom: 60px #00000099 solid;
+
+                }
+                .u-text {
+                    .pa;
+                    .size(560px, 60px);
+                    .fz(28px, 60px);
+                    .lb(90px,74px);
+                    color: white;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis
+                }
                 &:hover {
                     filter: brightness(110%);
+
                 }
             }
         }
