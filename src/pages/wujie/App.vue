@@ -22,7 +22,7 @@ export default {
 		return {};
 	},
 	provide: {
-		__imgRoot: __imgPath + "topic/welcome/",
+		__imgRoot: __imgPath + "topic/demo/",
 	},
 	computed: {
 		page_name: function () {
@@ -33,12 +33,12 @@ export default {
 	methods: {},
 	filters: {},
 	created: function () {
-		postStat("topic", "welcome");
+		postStat("topic", "demo");
 	},
 	mounted: function () {},
 };
 </script>
 
 <style lang="less">
-@import "../../assets/css/welcome/common.less";
+// @import "../../assets/css/demo/common.less";
 </style>
