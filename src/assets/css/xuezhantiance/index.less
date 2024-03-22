@@ -1,36 +1,143 @@
-.m-top {
-    position: relative;
-    .m-top-bg {
-        display: block;
-        width: 100%;
-    }
-    .m-top-retouch {
-        display: block;
-        width: 100%;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-    }
-    .m-top-other-img {
-        position: absolute;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        img {
+body {
+    background-color: #9c2b2e;
+}
+.m-layout {
+    width: 100%;
+    .m-top {
+        position: relative;
+        background-image: url(../../../pages/xuezhantiance/img/top-bg.png);
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        .m-top-retouch {
             display: block;
-        }
-        .m-top-author {
+            width: 100%;
             position: absolute;
+            bottom: 0;
             left: 0;
-            top: 85px;
         }
-        .m-top-main {
-            margin-top: 560px;
-
-            .m-top-title-tip {
+        .m-top-other-img {
+            img {
+                display: block;
+            }
+            .m-top-author {
+                position: absolute;
+                left: 0;
+                top: 85px;
+            }
+            .m-top-main {
+                margin-top: 30%;
+                .m-top-title-tip {
+                    margin: 0 auto;
+                    margin-top: -12.89px;
+                }
+                .m-top-jump__icon {
+                    margin: 0 auto;
+                    margin-top: 107px;
+                }
+            }
+        }
+    }
+    .m-plate-img {
+        display: block;
+        margin: 0 auto;
+    }
+    .m-one {
+        padding-top: 29px;
+        background-image: url(../../../pages/xuezhantiance/img/p1/plate-bg.jpg);
+        background-size: cover;
+        background-position: center;
+        .m-one-text {
+            font-size: 18px;
+            text-align: center;
+            color: white;
+            opacity: 0.5;
+            p {
+                margin: 0;
+                line-height: 26px;
+            }
+        }
+        .m-boss-list {
+            margin-top: 175px;
+            .m-item {
+                width: fit-content;
+                position: relative;
                 margin: 0 auto;
-                margin-top: -12.89px;
+                img {
+                    display: block;
+                }
+                .m-item-boss__icon {
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                }
+                .m-item-boss__name {
+                    position: absolute;
+                    right: 34px;
+                    top: 24px;
+                    color: #991f1d;
+                    font-size: 75px;
+                    font-weight: bold;
+                    line-height: 107px;
+                }
+                .m-item-boss__brief {
+                    position: absolute;
+                    right: 65.5px;
+                    bottom: 37px;
+                    color: black;
+                    opacity: 0.5;
+                    line-height: 32px;
+                    width: 618px;
+                    text-align: right;
+                }
+                .m-item-boss__tip {
+                    position: absolute;
+                    left: 0;
+                    bottom: 37px;
+                    display: flex;
+                    align-items: center;
+                    .m-item-boss__tip__item {
+                        background-color: black;
+                        color: white;
+                        padding: 5px 22px;
+                        font-size: 22px;
+                        line-height: 32px;
+                        &.m-item-boss__tip__item__white {
+                            background-color: white;
+                            color: black;
+                        }
+                    }
+                }
+                &:nth-of-type(2) {
+                    margin-top: 78px;
+                }
+                &.m-item__left {
+                    .m-item-bg {
+                        transform: scaleX(-1);
+                    }
+                    .m-item-boss__icon {
+                        left: initial;
+                        right: 0;
+                    }
+                    .m-item-boss__level {
+                        position: absolute;
+                        left: 75.5px;
+                        top: 181px;
+                        color: #824c3b;
+                        font-size: 60px;
+                        font-weight: bold;
+                    }
+                    .m-item-boss__brief {
+                        position: absolute;
+                        right: initial;
+                        bottom: 40px;
+                        left: 75.5px;
+                        text-align: left;
+                    }
+                    .m-item-boss__tip {
+                        left: initial;
+                        right: 0;
+                    }
+                }
             }
         }
     }
