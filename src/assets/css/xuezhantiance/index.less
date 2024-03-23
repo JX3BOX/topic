@@ -1,11 +1,11 @@
-body {
+.p-topic {
     background-color: #9c2b2e;
 }
 .m-layout {
     width: 100%;
     .m-top {
         position: relative;
-        background-image: url(../../../pages/xuezhantiance/img/top-bg.png);
+        background-image: url("@{kv_xuezhantiance}top-bg.png");
         background-size: 100% auto;
         background-repeat: no-repeat;
         .m-top-retouch {
@@ -43,7 +43,7 @@ body {
     }
     .m-one {
         padding-top: 29px;
-        background-image: url(../../../pages/xuezhantiance/img/p1/plate-bg.jpg);
+        background-image: url("@{kv_xuezhantiance}p1/plate-bg.jpg");
         background-size: cover;
         background-position: center;
         .m-one-text {
@@ -88,6 +88,7 @@ body {
                     line-height: 32px;
                     width: 618px;
                     text-align: right;
+                    font-size: 22px;
                 }
                 .m-item-boss__tip {
                     position: absolute;
@@ -106,9 +107,6 @@ body {
                             color: black;
                         }
                     }
-                }
-                &:nth-of-type(2) {
-                    margin-top: 78px;
                 }
                 &.m-item__left {
                     .m-item-bg {
@@ -138,6 +136,33 @@ body {
                         right: 0;
                     }
                 }
+                &:nth-of-type(2) {
+                    margin-top: 78px;
+                    .m-item-boss__icon {
+                        bottom: -40px;
+                    }
+                }
+                &:nth-of-type(3) {
+                    margin-top: 92px;
+                }
+                &:nth-of-type(4) {
+                    margin-top: 92px;
+                    .m-item-boss__icon {
+                        bottom: -26px;
+                    }
+                    .m-item-boss__level {
+                        top: 111px;
+                    }
+                    .m-item-boss__brief {
+                        width: 519px;
+                    }
+                }
+                &:nth-of-type(5) {
+                    margin-top: 85px;
+                    .m-item-boss__icon {
+                        left: -180px;
+                    }
+                }
             }
         }
     }
@@ -149,4 +174,10 @@ body {
     max-width: 1920px;
     align-items: center;
     flex-direction: column;
+}
+
+@media screen and (max-width: 980px) {
+    .p-topic {
+        zoom: 0.5;
+    }
 }
