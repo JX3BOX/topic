@@ -3,6 +3,23 @@
 }
 .m-layout {
     width: 100%;
+    img {
+        display: block;
+    }
+    .m-plate-img {
+        display: block;
+        margin: 0 auto;
+    }
+    .m-plate-text {
+        font-size: 18px;
+        text-align: center;
+        color: white;
+        opacity: 0.5;
+        p {
+            margin: 0;
+            line-height: 26px;
+        }
+    }
     .m-top {
         position: relative;
         background-image: url("@{kv_xuezhantiance}top-bg.png");
@@ -16,9 +33,6 @@
             left: 0;
         }
         .m-top-other-img {
-            img {
-                display: block;
-            }
             .m-top-author {
                 position: absolute;
                 left: 0;
@@ -37,25 +51,11 @@
             }
         }
     }
-    .m-plate-img {
-        display: block;
-        margin: 0 auto;
-    }
     .m-one {
         padding-top: 29px;
         background-image: url("@{kv_xuezhantiance}p1/plate-bg.jpg");
         background-size: cover;
         background-position: center;
-        .m-one-text {
-            font-size: 18px;
-            text-align: center;
-            color: white;
-            opacity: 0.5;
-            p {
-                margin: 0;
-                line-height: 26px;
-            }
-        }
         .m-boss-list {
             margin-top: 175px;
             .m-item {
@@ -162,6 +162,223 @@
                     .m-item-boss__icon {
                         left: -180px;
                     }
+                }
+            }
+        }
+    }
+    .m-two {
+        margin-top: 301px;
+        position: relative;
+        .m-factions-box {
+            margin-top: 112px;
+            max-width: 1590px;
+            position: relative;
+            .m-factions-bg {
+                background-image: url("@{kv_xuezhantiance}p2/factions-bg.svg");
+                background-size: cover;
+                background-position: center;
+                height: 664px;
+            }
+            .m-factions-change__icon {
+                position: absolute;
+                right: 0;
+                top: 0;
+                cursor: pointer;
+            }
+            .m-factions-detail {
+                position: absolute;
+                right: 105px;
+                top: 58px;
+            }
+            .m-factions-kv {
+                position: absolute;
+                right: 390px;
+                bottom: 0;
+            }
+            .m-factions-tip__text {
+                position: absolute;
+                right: 27px;
+                bottom: 36px;
+                font-size: 20px;
+                color: white;
+                opacity: 0.5;
+            }
+        }
+        .m-factions-retouch {
+            position: absolute;
+            left: 0;
+            bottom: -160px;
+            right: 0;
+        }
+    }
+    .m-three {
+        padding-top: 246px;
+        background-image: url("@{kv_xuezhantiance}p3/plate-bg.jpg");
+        background-size: cover;
+        background-position: center;
+        padding-bottom: 468px;
+        .m-award-box {
+            margin-top: 50px;
+            .m-award-title {
+                margin: 0 auto;
+            }
+            .m-award-info {
+                display: flex;
+                justify-content: center;
+                align-items: baseline;
+                margin-top: 32px;
+                .m-award-info__item {
+                    .m-item-detail {
+                        position: relative;
+                        margin-top: 36px;
+                        .m-item-detail__text {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 22px;
+                            color: white;
+                            line-height: 33px;
+                            padding: 22px 16px;
+                        }
+                    }
+                }
+                .m-award-info__connect {
+                    width: 116px;
+                    padding-bottom: 20px;
+                    img {
+                        margin: 0 auto;
+                    }
+                }
+            }
+        }
+    }
+    .m-four {
+        margin-top: -215px;
+        background-image: url("@{kv_xuezhantiance}top-bg-retouch.png");
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        background-position: bottom 200px center;
+        .m-stage-title {
+            margin: 0 auto;
+            &.m-stage-title__foster {
+                margin-top: 63px;
+            }
+            &.m-stage-title__master {
+                margin-top: 76px;
+            }
+        }
+        .m-content-box {
+            .m-foster-item {
+                background-color: #efe5d8;
+                border-radius: 10px;
+                position: relative;
+                box-sizing: border-box;
+                .m-foster-title {
+                    color: #7d1413;
+                    font-size: 48px;
+                    margin: 0;
+                    line-height: 37.5px;
+                }
+                .m-foster-text {
+                    color: #6e4e4e;
+                    font-size: 24px;
+                    line-height: 37.5px;
+                    margin: 0;
+                }
+                .m-foster-icon {
+                    position: absolute;
+                }
+            }
+            .m-foster-top {
+                display: flex;
+                justify-content: center;
+                margin-top: 57px;
+                .m-foster-item {
+                    &:nth-of-type(1) {
+                        width: 731px;
+                        height: 297px;
+                        padding-left: 31px;
+                        padding-right: 152px;
+                        .m-foster-title {
+                            padding-top: 51px;
+                            padding-bottom: 35px;
+                        }
+                        .m-foster-icon {
+                            right: 2px;
+                            bottom: 14px;
+                        }
+                    }
+                    &:nth-of-type(2) {
+                        margin-left: 22px;
+                        width: 527px;
+                        height: 297px;
+                        padding-left: 28px;
+                        padding-right: 85px;
+                        .m-foster-title {
+                            padding-top: 100px;
+                            padding-bottom: 62px;
+                        }
+                        .m-foster-icon {
+                            top: 36px;
+                            right: 13px;
+                        }
+                    }
+                }
+            }
+            .m-foster-bottom {
+                display: flex;
+                justify-content: center;
+                margin-top: 24px;
+                .m-foster-item {
+                    &:nth-of-type(1) {
+                        width: 607px;
+                        height: 364px;
+                        padding-left: 31px;
+                        padding-right: 28px;
+                        .m-foster-title {
+                            padding-top: 91px;
+                            padding-bottom: 55px;
+                            padding-left: 191px;
+                        }
+                        .m-foster-icon {
+                            top: 25px;
+                            left: 31px;
+                        }
+                    }
+                    &:nth-of-type(2) {
+                        margin-left: 23px;
+                        width: 650px;
+                        height: 364px;
+                        padding-left: 26px;
+                        padding-right: 17px;
+                        .m-foster-title {
+                            padding-top: 91px;
+                            padding-bottom: 53px;
+                            padding-left: 217px;
+                        }
+                        .m-foster-icon {
+                            top: 39px;
+                            left: 26px;
+                        }
+                    }
+                }
+            }
+            .m-master-box {
+                width: 1280px;
+                padding: 0 471px 29px 31px;
+                margin: 57px auto 0;
+                .m-foster-title {
+                    padding-top: 46px;
+                    padding-bottom: 30px;
+                }
+                .m-foster-icon {
+                    right: 25px;
+                    bottom: 0;
                 }
             }
         }
