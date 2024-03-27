@@ -13,7 +13,8 @@ import "@jx3box/jx3box-common/css/normalize.css";
 Vue.use(JX3BOX_UI);
 // import Comments from "@jx3box/jx3box-comment-ui"
 // Vue.use(Comments)
-
+import reporter from "@jx3box/jx3box-common/js/reporter";
+reporter.install(Vue);
 import EasySlider from 'vue-easy-slider'
 Vue.use(EasySlider)
 
