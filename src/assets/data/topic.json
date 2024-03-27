@@ -26,6 +26,14 @@
     ],
     "origin": [
         {
+            "name": "血战天策",
+            "key": "xuezhantiance",
+            "year": "2024",
+            "date": "03-21",
+            "time": "2024.03.21",
+            "link": "./xuezhantiance"
+        },
+        {
             "name": "安史之乱",
             "key": "anshizhiluan",
             "year": "2023",
