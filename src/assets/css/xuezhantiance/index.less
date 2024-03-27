@@ -47,6 +47,18 @@
                 .m-top-jump__icon {
                     margin: 0 auto;
                     margin-top: 107px;
+                    animation: blink 1s infinite;
+                }
+                @keyframes blink {
+                    0% {
+                        opacity: 1;
+                    }
+                    50% {
+                        opacity: 0;
+                    }
+                    100% {
+                        opacity: 1;
+                    }
                 }
             }
         }
@@ -62,6 +74,10 @@
                 width: fit-content;
                 position: relative;
                 margin: 0 auto;
+                transition: 0.3s all;
+                &:hover {
+                    transform: scale(1.05);
+                }
                 img {
                     display: block;
                 }
@@ -218,7 +234,7 @@
     .m-three {
         padding-top: 246px;
         background-image: url("@{kv_xuezhantiance}top-bg-retouch.png"), url("@{kv_xuezhantiance}p3/plate-bg.jpg");
-        background-size: 100% auto, cover;
+        background-size: 100% auto, 100% 100%;
         background-position: top 417px left, center;
         background-repeat: no-repeat;
         padding-bottom: 468px;
@@ -233,6 +249,10 @@
                 align-items: baseline;
                 margin-top: 32px;
                 .m-award-info__item {
+                    transition: 0.3s all;
+                    &:hover {
+                        transform: scale(1.1);
+                    }
                     .m-item-detail {
                         position: relative;
                         margin-top: 36px;
@@ -288,15 +308,43 @@
                     font-size: 48px;
                     margin: 0;
                     line-height: 37.5px;
+                    transition: 0.3s all;
                 }
                 .m-foster-text {
                     color: #6e4e4e;
                     font-size: 24px;
                     line-height: 37.5px;
                     margin: 0;
+                    transition: 0.3s all;
                 }
                 .m-foster-icon {
                     position: absolute;
+                    transform-origin: center;
+                }
+                &:hover {
+                    .m-foster-title,
+                    .m-foster-text {
+                        transform: scale(1.03);
+                    }
+                    .m-foster-icon {
+                        animation: shake 1s ease-in-out infinite;
+                    }
+                }
+                @keyframes shake {
+                    0%,
+                    80% {
+                        transform: rotate(0deg);
+                    }
+                    20%,
+                    40%,
+                    60% {
+                        transform: rotate(-2deg);
+                    }
+                    10%,
+                    30%,
+                    50% {
+                        transform: rotate(2deg);
+                    }
                 }
             }
             .m-foster-top {
@@ -394,7 +442,7 @@
         padding-bottom: 705px;
 
         background-image: url("@{kv_xuezhantiance}top-bg-retouch.png"), url("@{kv_xuezhantiance}p5/plate-bg.jpg");
-        background-size: 100% auto, cover;
+        background-size: 100% auto, 100% 100%;
         background-position: top 109px left, center;
         background-repeat: no-repeat, no-repeat;
         .m-content-box {
@@ -468,6 +516,24 @@
                 opacity: 0.5;
                 font-size: 24px;
                 line-height: 34.75px;
+            }
+            .m-gift-discount {
+                animation: shake 1s ease-in-out infinite;
+            }
+            @keyframes shake {
+                0%,
+                70% {
+                    transform: rotate(0deg);
+                }
+                10%,
+                30%,
+                50% {
+                    transform: rotate(-2deg);
+                }
+                20%,
+                40% {
+                    transform: rotate(2deg);
+                }
             }
             .m-gift-display {
                 position: relative;

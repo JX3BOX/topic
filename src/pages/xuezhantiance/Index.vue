@@ -24,7 +24,7 @@
                 <div class="m-boss-list">
                     <div class="m-item">
                         <img
-                            class="m-item-boss__icon p-animation"
+                            class="m-item-boss__icon p-animations"
                             v-animate="'fadeInLeft'"
                             :src="`${imgPath}/p1/b-xsy.png`"
                         />
@@ -45,7 +45,7 @@
                     </div>
                     <div class="m-item m-item__left">
                         <img
-                            class="m-item-boss__icon p-animation"
+                            class="m-item-boss__icon p-animations"
                             v-animate="'fadeInRight'"
                             :src="`${imgPath}/p1/g-gstcf.png`"
                         />
@@ -66,7 +66,7 @@
                     </div>
                     <div class="m-item">
                         <img
-                            class="m-item-boss__icon p-animation"
+                            class="m-item-boss__icon p-animations"
                             v-animate="'fadeInLeft'"
                             :src="`${imgPath}/p1/b-cyl.png`"
                         />
@@ -90,7 +90,7 @@
                     </div>
                     <div class="m-item m-item__left">
                         <img
-                            class="m-item-boss__icon p-animation"
+                            class="m-item-boss__icon p-animations"
                             v-animate="'fadeInRight'"
                             :src="`${imgPath}/p1/g-shqymc.png`"
                         />
@@ -114,7 +114,7 @@
                     </div>
                     <div class="m-item">
                         <img
-                            class="m-item-boss__icon p-animation"
+                            class="m-item-boss__icon p-animations"
                             v-animate="'fadeInLeft'"
                             :src="`${imgPath}/p1/b-asncl.png`"
                         />
@@ -145,23 +145,38 @@
                 </div>
                 <div class="m-factions-box p-animation" v-animate="'fadeIn'">
                     <div class="m-factions-bg"></div>
-                    <img
-                        class="m-factions-change__icon"
-                        @click="changeFactions"
-                        :src="`${imgPath}/p2/c-o-factions.svg`"
-                        v-if="factionStatus"
-                    />
-                    <img
-                        class="m-factions-change__icon"
-                        @click="changeFactions"
-                        :src="`${imgPath}/p2/c-n-factions.svg`"
-                        v-else
-                    />
-                    <img v-if="factionStatus" class="m-factions-detail" :src="`${imgPath}/p2/new-factions.png`" />
-                    <img v-else class="m-factions-detail" :src="`${imgPath}/p2/old-factions.png`" />
+                    <template v-if="factionStatus == 'old'">
+                        <img
+                            class="m-factions-change__icon p-animation"
+                            v-animate="'fadeIn'"
+                            @click="changeFactions"
+                            :src="`${imgPath}/p2/c-o-factions.svg`"
+                            v-if="factionStatus"
+                        />
+                        <img
+                            v-if="factionStatus"
+                            class="m-factions-detail p-animation"
+                            v-animate="'fadeIn'"
+                            :src="`${imgPath}/p2/new-factions.png`"
+                        />
+                    </template>
+                    <template v-else-if="factionStatus == 'new'">
+                        <img
+                            class="m-factions-change__icon p-animation"
+                            v-animate="'fadeIn'"
+                            @click="changeFactions"
+                            :src="`${imgPath}/p2/c-n-factions.svg`"
+                        />
+
+                        <img
+                            class="m-factions-detail p-animation"
+                            v-animate="'fadeIn'"
+                            :src="`${imgPath}/p2/old-factions.png`"
+                        />
+                    </template>
                     <img
                         class="m-factions-kv p-animation"
-                        v-animate="'fadeInLeft'"
+                        v-animate="'fadeIn'"
                         :src="`${imgPath}/p2/factions-kv.png`"
                     />
                     <div class="m-factions-tip__text">
@@ -376,7 +391,7 @@ export default {
     data: function () {
         return {
             imgPath: __imgPath + "topic/" + KEY,
-            factionStatus: true,
+            factionStatus: "old",
         };
     },
     directives: {
@@ -427,7 +442,16 @@ export default {
             });
         },
         changeFactions() {
-            this.factionStatus = !this.factionStatus;
+            let newVal = "";
+            if (this.factionStatus == "old") {
+                newVal = "new";
+            } else {
+                newVal = "old";
+            }
+            this.factionStatus = "";
+            setTimeout(() => {
+                this.factionStatus = newVal;
+            }, 5);
         },
     },
     mounted: function () {
