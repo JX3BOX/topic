@@ -121,7 +121,7 @@
                 <img class="p-animation" v-animate="'fadeInUp'" :src="`${imgPath}/p6/jx-icon.png`" />
             </div>
             <div class="m-pic">
-                <img class="u-img u-img-bg p-animation" v-animate="'fadeInUp'" :src="`${imgPath}/p6/xx-bg.png`" />
+                <img class="u-img u-img-bg p-animation" v-animate="'fadeIn'" :src="`${imgPath}/p6/xx-bg.png`" />
                 <img class="u-img p-animation" v-animate="'fadeInLeft'" :src="`${imgPath}/p6/xx-left.png`" />
                 <img class="u-img p-animation" v-animate="'fadeInRight'" :src="`${imgPath}/p6/xx-right.png`" />
             </div>
