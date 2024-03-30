@@ -1,5 +1,6 @@
 <template>
     <div class="m-index">
+        <div class="m-mark"></div>
         <!-- 头部 -->
         <div class="m-top">
             <img class="u-img u-top-author" :src="`${imgPath}/top-author.png`" />
@@ -9,8 +10,8 @@
         </div>
         <!-- 血战天策 -->
         <div class="m-one m-section">
-            <h2 class="u-title u-title-1">血战天策</h2>
-            <div class="u-plate-text p-animation" v-animate="'fadeIn'">
+            <h2 class="u-title u-title-1 p-animation" v-animate="'fadeInUp'">血战天策</h2>
+            <div class="u-plate-text p-animation" v-animate="'fadeInUp'">
                 <p>史诗级“血战天策”战役将在战乱后的天策府打响，</p>
                 <p>乱世中英勇侠士们与狼牙军的巅峰对决即将上演!</p>
                 <p>护城河已被鲜血染红，</p>
@@ -18,12 +19,16 @@
             </div>
             <div class="m-boss-list">
                 <div class="m-item" v-for="(item, i) in boss" :key="i">
-                    <img class="u-boss p-animations" v-animate="'fadeInLeft'" :src="`${imgPath}/p1/${item.img}.png`" />
-                    <div class="u-box p-animation" v-animate="'fadeInRight'">
+                    <img
+                        class="u-boss p-animations"
+                        v-animate="i % 2 === 0 ? 'fadeInLeft' : 'fadeInRight'"
+                        :src="`${imgPath}/p1/${item.img}.png`"
+                    />
+                    <diUpv class="u-box p-animation" v-animate="i % 2 === 0 ? 'fadeInRight' : 'fadeInLeft'">
                         <span class="u-name">{{ item.name }}</span>
                         <span class="u-brief">{{ item.brief }}</span>
-                    </div>
-                    <div class="u-tips p-animation" v-animate="'fadeInLeft'">
+                    </diUpv>
+                    <div class="u-tips p-animation" v-animate="'fadeInUp'">
                         <span class="u-label">机制要点</span>
                         <span class="u-text">{{ item.tip }}</span>
                     </div>
@@ -33,8 +38,8 @@
 
         <!-- 镇派新结构 -->
         <div class="m-two m-section">
-            <h2 class="u-title u-title-2">镇派新结构</h2>
-            <div class="u-plate-text p-animation" v-animate="'fadeIn'">新镇派系统全面适配！武学体系灵活构建！</div>
+            <h2 class="u-title u-title-2 p-animation" v-animate="'fadeInUp'">镇派新结构</h2>
+            <div class="u-plate-text p-animation" v-animate="'fadeInUp'">新镇派系统全面适配！武学体系灵活构建！</div>
             <div class="m-factions-box p-animation" v-animate="'fadeIn'">
                 <span class="u-img u-button" @click="old = !old">
                     <img v-animate="'fadeIn'" :src="`${imgPath}/p2/c-${old ? 'n' : 'o'}-factions.svg`" />
@@ -49,8 +54,8 @@
 
         <!-- 非酋福音 -->
         <div class="m-three m-section">
-            <h2 class="u-title u-title-3">非酋福音</h2>
-            <div class="u-plate-text p-animation" v-animate="'fadeIn'">低保装备仍不满意？集碎片来自选！</div>
+            <h2 class="u-title u-title-3 p-animation" v-animate="'fadeInUp'">非酋福音</h2>
+            <div class="u-plate-text p-animation" v-animate="'fadeInUp'">低保装备仍不满意？集碎片来自选！</div>
             <div class="u-sub-title">
                 <img class="p-animation" v-animate="'fadeInUp'" :src="`${imgPath}/p3/plate-tip.png`" />
             </div>
@@ -66,8 +71,8 @@
 
         <!-- 萌新成长 -->
         <div class="m-four m-section">
-            <h2 class="u-title u-title-4">萌新成长</h2>
-            <div class="u-plate-text p-animation" v-animate="'fadeIn'">初入江湖的侠士，你们的福气真来了！</div>
+            <h2 class="u-title u-title-4 p-animation" v-animate="'fadeInUp'">萌新成长</h2>
+            <div class="u-plate-text p-animation" v-animate="'fadeInUp'">初入江湖的侠士，你们的福气真来了！</div>
             <div class="u-sub-title">
                 <img class="p-animation" v-animate="'fadeInUp'" :src="`${imgPath}/p4/yc-title.png`" />
             </div>
@@ -89,12 +94,17 @@
         </div>
         <!-- 养成系奇遇  -->
         <div class="m-five m-section">
-            <h2 class="u-title u-title-5">养成系奇遇</h2>
-            <div class="u-plate-text p-animation" v-animate="'fadeIn'">
+            <h2 class="u-title u-title-5 p-animation" v-animate="'fadeInUp'">养成系奇遇</h2>
+            <div class="u-plate-text p-animation" v-animate="'fadeInUp'">
                 该绝世奇遇预计于初夏正式上线，实际以游戏上线内容为准
             </div>
             <div class="m-content">
-                <div class="m-item p-animation" v-for="(item, i) in adventure" :key="i" v-animate="'fadeInLeft'">
+                <div
+                    class="m-item p-animation"
+                    v-for="(item, i) in adventure"
+                    :key="i"
+                    v-animate="i % 2 === 0 ? 'fadeInLeft' : 'fadeInRight'"
+                >
                     <img class="u-img" :src="`${imgPath}/p5/${item.img}`" />
                     <div class="u-desc" v-html="item.desc"></div>
                 </div>
@@ -102,19 +112,19 @@
         </div>
         <!-- 行侠豪礼 -->
         <div class="m-six m-section">
-            <h2 class="u-title u-title-5">行侠豪礼</h2>
-            <div class="u-plate-text p-animation" v-animate="'fadeIn'">七级五行石、精美成衣、奇趣坐骑、趣味跟宠</div>
+            <h2 class="u-title u-title-5 p-animation" v-animate="'fadeInUp'">行侠豪礼</h2>
+            <div class="u-plate-text p-animation" v-animate="'fadeInUp'">七级五行石、精美成衣、奇趣坐骑、趣味跟宠</div>
             <div class="u-sub-title">
                 <img class="p-animation" v-animate="'fadeInUp'" :src="`${imgPath}/p6/zk-icon.png`" />
             </div>
-            <div class="u-plate-text u-tips p-animation" v-animate="'fadeIn'">
+            <div class="u-plate-text u-tips p-animation" v-animate="'fadeInUp'">
                 3月21日版本更新后，<br />
                 全民（含新创建角色）赠送6.8折优惠券，活动长期有效。
             </div>
             <span class="u-img">
-                <img :src="`${imgPath}/p6/discount.png`" />
+                <img class="p-animation" v-animate="'fadeInUp'" :src="`${imgPath}/p6/discount.png`" />
             </span>
-            <span class="u-plate-text" v-animate="'fadeIn'">
+            <span class="u-plate-text" v-animate="'fadeInUp'">
                 ※ 折扣券支持商城永久可购买的成衣、发型、武器及外装拓印收集，以及部分挂件、跟宠、坐骑、小玩意儿。
             </span>
             <div class="u-sub-title">
@@ -128,7 +138,7 @@
             <div class="u-sub-title u-more">
                 <img class="p-animation" v-animate="'fadeInUp'" :src="`${imgPath}/p6/qd-icon.png`" />
             </div>
-            <p class="u-tips p-animation" v-animate="'fadeIn'">
+            <p class="u-tips p-animation" v-animate="'fadeInUp'">
                 团队秘境“血战天策·决战”<br />
                 小队秘境“直城门”<br />
                 休闲向策略对战玩法<br />
@@ -142,7 +152,7 @@
                 <img class="p-animation" v-animate="'fadeInUp'" :src="`${imgPath}/top-author.png`" />
             </div>
         </div>
-        <img class="u-img" :src="`${imgPath}/p6/page-bottom.png`" />
+        <img class="u-footer" :src="`${imgPath}/p6/page-bottom.png`" />
     </div>
 </template>
 
