@@ -1,11 +1,15 @@
 <template>
     <div class="m-index">
-        <div class="m-mark"></div>
+        <div class="m-mark" ref="mark"></div>
         <!-- 头部 -->
         <div class="m-top">
-            <img class="u-img u-top-author" :src="`${imgPath}/top-author.png`" />
-            <img class="u-img u-top-title" :src="`${imgPath}/top-title.png`" />
-            <img class="u-img u-top-title-tip" :src="`${imgPath}/top-title-tip.png`" />
+            <img class="u-img u-top-author p-animation" v-animate="'fadeInLeft'" :src="`${imgPath}/top-author.png`" />
+            <img class="u-img u-top-title p-animation" v-animate="'fadeInDown'" :src="`${imgPath}/top-title.png`" />
+            <img
+                class="u-img u-top-title-tip p-animation"
+                v-animate="'fadeInUp'"
+                :src="`${imgPath}/top-title-tip.png`"
+            />
             <img class="u-img u-top-jump__icon" :src="`${imgPath}/top-jump-icon.png`" />
         </div>
         <!-- 血战天策 -->
@@ -24,10 +28,10 @@
                         v-animate="i % 2 === 0 ? 'fadeInLeft' : 'fadeInRight'"
                         :src="`${imgPath}/p1/${item.img}.png`"
                     />
-                    <diUpv class="u-box p-animation" v-animate="i % 2 === 0 ? 'fadeInRight' : 'fadeInLeft'">
+                    <div class="u-box p-animation" v-animate="i % 2 === 0 ? 'fadeInRight' : 'fadeInLeft'">
                         <span class="u-name">{{ item.name }}</span>
                         <span class="u-brief">{{ item.brief }}</span>
-                    </diUpv>
+                    </div>
                     <div class="u-tips p-animation" v-animate="'fadeInUp'">
                         <span class="u-label">机制要点</span>
                         <span class="u-text">{{ item.tip }}</span>
@@ -40,14 +44,18 @@
         <div class="m-two m-section">
             <h2 class="u-title u-title-2 p-animation" v-animate="'fadeInUp'">镇派新结构</h2>
             <div class="u-plate-text p-animation" v-animate="'fadeInUp'">新镇派系统全面适配！武学体系灵活构建！</div>
-            <div class="m-factions-box p-animation" v-animate="'fadeIn'">
-                <span class="u-img u-button" @click="old = !old">
-                    <img v-animate="'fadeIn'" :src="`${imgPath}/p2/c-${old ? 'n' : 'o'}-factions.svg`" />
+            <div class="m-factions-box p-animation" v-animate="'pulse'">
+                <span
+                    :key="old ? old + 'o' : old + 'n'"
+                    :class="`u-img u-button p-animation flipInY`"
+                    @click="old = !old"
+                >
+                    <img :src="`${imgPath}/p2/c-${old ? 'n' : 'o'}-factions.svg`" />
                 </span>
-                <span class="u-img p-animation">
-                    <img v-animate="'fadeIn'" :src="`${imgPath}/p2/${old ? 'old' : 'new'}-factions.png`" />
+                <span class="u-img p-animation pulse" :key="old ? 'o' : 'n'">
+                    <img :src="`${imgPath}/p2/${old ? 'old' : 'new'}-factions.png`" />
                 </span>
-                <img class="u-kv p-animation" v-animate="'fadeIn'" :src="`${imgPath}/p2/factions-kv.png`" />
+                <img class="u-kv" :src="`${imgPath}/p2/factions-kv.png`" />
                 <span class="u-text">*以[拥雪]为例</span>
             </div>
         </div>
@@ -59,10 +67,10 @@
             <div class="u-sub-title">
                 <img class="p-animation" v-animate="'fadeInUp'" :src="`${imgPath}/p3/plate-tip.png`" />
             </div>
-            <div class="m-award-box">
+            <div class="m-award-box p-animation">
                 <div class="m-item" v-for="(item, i) in award" :key="i">
                     <img class="u-img" :src="`${imgPath}/p3/icon-${i + 1}.png`" />
-                    <div class="u-detail">
+                    <div class="u-detail p-animation" v-animate="'fadeInUpBig'">
                         <span class="u-text"> {{ item }}</span>
                     </div>
                 </div>
@@ -77,7 +85,12 @@
                 <img class="p-animation" v-animate="'fadeInUp'" :src="`${imgPath}/p4/yc-title.png`" />
             </div>
             <div class="m-content">
-                <div :class="`m-item m-item-${i + 1}`" v-for="(item, i) in activity.slice(0, 4)" :key="i">
+                <div
+                    :class="`m-item m-item-${i + 1}  p-animation`"
+                    v-animate="i % 2 === 0 ? 'fadeInLeft' : 'fadeInRight'"
+                    v-for="(item, i) in activity.slice(0, 4)"
+                    :key="i"
+                >
                     <h3>{{ item.title }}</h3>
                     <span class="u-desc" v-html="item.desc"></span>
                     <img class="u-icon" :src="`${imgPath}/p4/${item.icon}`" />
@@ -86,7 +99,7 @@
             <div class="u-sub-title">
                 <img class="p-animation" v-animate="'fadeInUp'" :src="`${imgPath}/p4/st-title.png`" />
             </div>
-            <div class="m-item m-item-5">
+            <div class="m-item m-item-5 p-animation" v-animate="'fadeInUp'">
                 <h3>{{ st.title }}</h3>
                 <span class="u-desc" v-html="st.desc"></span>
                 <img class="u-icon" :src="`${imgPath}/p4/${st.icon}`" />
@@ -121,8 +134,8 @@
                 3月21日版本更新后，<br />
                 全民（含新创建角色）赠送6.8折优惠券，活动长期有效。
             </div>
-            <span class="u-img">
-                <img class="p-animation" v-animate="'fadeInUp'" :src="`${imgPath}/p6/discount.png`" />
+            <span class="u-img p-animation" v-animate="'fadeInUp'">
+                <img class="u-card" :src="`${imgPath}/p6/discount.png`" />
             </span>
             <span class="u-plate-text" v-animate="'fadeInUp'">
                 ※ 折扣券支持商城永久可购买的成衣、发型、武器及外装拓印收集，以及部分挂件、跟宠、坐骑、小玩意儿。
@@ -131,7 +144,7 @@
                 <img class="p-animation" v-animate="'fadeInUp'" :src="`${imgPath}/p6/jx-icon.png`" />
             </div>
             <div class="m-pic">
-                <img class="u-img u-img-bg p-animation" v-animate="'fadeIn'" :src="`${imgPath}/p6/xx-bg.png`" />
+                <img class="u-img u-img-bg p-animation" v-animate="'pulse'" :src="`${imgPath}/p6/xx-bg.png`" />
                 <img class="u-img p-animation" v-animate="'fadeInLeft'" :src="`${imgPath}/p6/xx-left.png`" />
                 <img class="u-img p-animation" v-animate="'fadeInRight'" :src="`${imgPath}/p6/xx-right.png`" />
             </div>
@@ -291,9 +304,19 @@ export default {
                 // this.pve = this.data.index_pve;
             });
         },
+        handleMask(event) {
+            let x = -event.clientX / 150;
+            let y = -event.clientY / 150;
+
+            if (this.$refs.mark) {
+                this.$refs.mark.style.backgroundPositionX = x + "px";
+                this.$refs.mark.style.backgroundPositionY = y + "px";
+            }
+        },
     },
     mounted: function () {
         this.init();
+        window.addEventListener("mousemove", this.handleMask);
     },
 };
 </script>

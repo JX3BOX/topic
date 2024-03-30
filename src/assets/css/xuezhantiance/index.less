@@ -27,7 +27,7 @@
     }
     .u-top-author {
         .size(500px,100px);
-        top: 85px;
+        .lt(0,20px);
     }
     .u-top-title {
         .ct(o,1058px,334px);
@@ -80,6 +80,7 @@
                 .pa;
                 .z(3);
                 .lb(0);
+                transition: all 0.3s ease;
             }
             .u-box {
                 .flex;
@@ -163,6 +164,14 @@
                     left: -180px;
                 }
             }
+            &:hover {
+                .u-boss {
+                    filter: brightness(120%);
+                }
+                .u-name {
+                    animation: pulse 0.7s;
+                }
+            }
         }
     }
 }
@@ -195,6 +204,12 @@
             .mr(-80px);
             color: #fff;
         }
+        .u-img {
+            transition: all 0.3s ease;
+            &:hover {
+                filter: brightness(110%);
+            }
+        }
     }
 }
 .m-three {
@@ -208,12 +223,17 @@
         .m-item {
             .w(350px);
             .u-img {
+                .pointer;
                 .size(350px);
-                transition: 0.2s all;
+                transition: all 0.2s ease;
                 &:hover {
-                    transform: scale(1.1);
+                    .mt(-5px);
+                    .mb(5px);
+                    filter: brightness(110%);
+                    transform: scale(1.01);
                 }
             }
+
             .u-detail {
                 .pr;
                 .flex;
@@ -274,6 +294,12 @@
         }
         .u-icon {
             .pa;
+        }
+        &:hover {
+            .u-icon {
+                filter: brightness(105%);
+                animation: swing 0.7s;
+            }
         }
     }
     .m-item-1 {
@@ -377,6 +403,14 @@
     }
     .u-more {
         .mt(280px);
+    }
+    .u-card {
+        transition: all 0.2s ease-in;
+        &:hover {
+            cursor: pointer;
+            filter: brightness(110%);
+            animation: pulse 0.7s;
+        }
     }
 }
 .u-footer {
