@@ -273,7 +273,6 @@ export default {
             return this.activity[4];
         },
     },
-    watch: {},
     methods: {
         init: function () {
             getTopic(KEY).then((res) => {
@@ -281,18 +280,6 @@ export default {
                 // this.video = this.data.index_video[0]["link"];
                 // this.pve = this.data.index_pve;
             });
-        },
-        changeFactions() {
-            let newVal = "";
-            if (this.factionStatus == "old") {
-                newVal = "new";
-            } else {
-                newVal = "old";
-            }
-            this.factionStatus = "";
-            setTimeout(() => {
-                this.factionStatus = newVal;
-            }, 5);
         },
     },
     mounted: function () {
