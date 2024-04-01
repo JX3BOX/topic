@@ -55,7 +55,26 @@
                 <span class="u-img p-animation pulse" :key="old ? 'o' : 'n'">
                     <img :src="`${imgPath}/p2/${old ? 'old' : 'new'}-factions.png`" />
                 </span>
-                <img class="u-kv" :src="`${imgPath}/p2/factions-kv.png`" />
+                <div class="m-kv p-animation pulse" :key="old ? 'o' : 'n'">
+                    <img :src="`${imgPath}/p2/factions-kv.png`" />
+                    <template v-if="old">
+                        <div class="u-desc">
+                            <span class="u-desc__title">旧</span>
+                            <span class="u-desc__sub">镇派</span>
+                        </div>
+                    </template>
+                    <template v-else>
+                        <div class="u-desc">
+                            <span class="u-desc__title">新</span>
+                            <span class="u-desc__sub">镇派</span>
+                            <p>
+                                所有输出心法可在第三/第五层镇派中<br />
+                                对三种<b>关键武学套路</b>进行<b>选择、取舍</b><br />
+                                来构建自身武学体系，灵活搭配探索克敌之道！
+                            </p>
+                        </div>
+                    </template>
+                </div>
                 <span class="u-text">*以[拥雪]为例</span>
             </div>
         </div>
@@ -125,7 +144,7 @@
         </div>
         <!-- 行侠豪礼 -->
         <div class="m-six m-section">
-            <h2 class="u-title u-title-5 p-animation" v-animate="'fadeInUp'">行侠豪礼</h2>
+            <h2 class="u-title u-title-6 p-animation" v-animate="'fadeInUp'">行侠豪礼</h2>
             <div class="u-plate-text p-animation" v-animate="'fadeInUp'">七级五行石、精美成衣、奇趣坐骑、趣味跟宠</div>
             <div class="u-sub-title">
                 <img class="p-animation" v-animate="'fadeInUp'" :src="`${imgPath}/p6/zk-icon.png`" />
