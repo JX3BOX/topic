@@ -55,25 +55,17 @@
                 <span class="u-img p-animation pulse" :key="old ? 'o' : 'n'">
                     <img :src="`${imgPath}/p2/${old ? 'old' : 'new'}-factions.png`" />
                 </span>
-                <div class="m-kv p-animation pulse" :key="old ? 'o' : 'n'">
+                <div class="m-kv">
                     <img :src="`${imgPath}/p2/factions-kv.png`" />
-                    <template v-if="old">
-                        <div class="u-desc">
-                            <span class="u-desc__title">旧</span>
-                            <span class="u-desc__sub">镇派</span>
-                        </div>
-                    </template>
-                    <template v-else>
-                        <div class="u-desc">
-                            <span class="u-desc__title">新</span>
-                            <span class="u-desc__sub">镇派</span>
-                            <p>
-                                所有输出心法可在第三/第五层镇派中<br />
-                                对三种<b>关键武学套路</b>进行<b>选择、取舍</b><br />
-                                来构建自身武学体系，灵活搭配探索克敌之道！
-                            </p>
-                        </div>
-                    </template>
+                    <div class="u-desc p-animation bounceIn" :key="old ? 'o-img' : 'n-img'">
+                        <span class="u-desc__title">{{ old ? "旧" : "新" }}</span>
+                        <span class="u-desc__sub">镇派</span>
+                        <p v-if="!old">
+                            所有输出心法可在第三/第五层镇派中<br />
+                            对三种<b>关键武学套路</b>进行<b>选择、取舍</b><br />
+                            来构建自身武学体系，灵活搭配探索克敌之道！
+                        </p>
+                    </div>
                 </div>
                 <span class="u-text">*以[拥雪]为例</span>
             </div>
