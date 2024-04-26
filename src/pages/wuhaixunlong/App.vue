@@ -4,9 +4,7 @@
 		<Header :overlayEnable="true"></Header>
 		<router-view></router-view>
 		<div class="p-topic-footer">
-			<div class="wp">
-				<Footer></Footer>
-			</div>
+				<Footer darkMode></Footer>
 		</div>
 	</div>
 </template>
@@ -22,7 +20,7 @@ export default {
 		return {};
 	},
 	provide: {
-		__imgRoot: __imgPath + "topic/demo/",
+		__imgRoot: __imgPath + "topic/wuhaixunlong/",
 	},
 	computed: {
 		page_name: function () {
@@ -33,9 +31,9 @@ export default {
 	methods: {},
 	filters: {},
 	created: function () {
-		postStat("topic", "xuezhantiance");
+		postStat("topic", "wuhaixunlong");
 	},
-	mounted: function () {},
+	mounted: function () { },
 };
 </script>
 

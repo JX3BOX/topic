@@ -97,6 +97,14 @@
     ],
     "std": [
         {
+            "name": "雾海寻龙",
+            "key": "wuhaixunlong",
+            "year": "2023",
+            "date": "10-25",
+            "time": "2023.10.25",
+            "link": "./wuhaixunlong"
+        },
+        {
             "name": "万灵当歌",
             "key": "wanlingdangge",
             "year": "2023",
