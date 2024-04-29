@@ -137,7 +137,7 @@
                 .w(170px);
                 .r(10px);
                 .pointer();
-                transition: 0.2s all;
+                transition: 0.2s all ease-in-out;
                 &:not(:first-child) {
                     .ml(11.94px);
                 }
@@ -152,7 +152,7 @@
             .auto(x);
             .mt(40px);
             img {
-                transition: 0.2s all;
+                transition: 0.2s all ease-in-out;
                 .r(10px);
                 &:hover {
                     transform: scale(1.05);
@@ -175,7 +175,7 @@
                 padding: 55px 53.5px;
                 .x();
                 .pointer();
-                transition: 0.2s all;
+                transition: 0.2s all ease-in-out;
                 .u-icon {
                     .w(104px);
                     filter: invert(1);
@@ -206,7 +206,7 @@
             .mt(40px);
             .w(1000px);
             .pointer();
-            transition: 0.2s all;
+            transition: 0.2s all ease-in-out;
             &:hover {
                 transform: scale(1.1);
             }
@@ -264,6 +264,7 @@
             .pointer();
         }
     }
+    transition: 1s all ease-in-out;
 }
 
 @media screen and (max-width: 1024px) {
