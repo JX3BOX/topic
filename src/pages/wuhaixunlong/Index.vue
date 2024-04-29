@@ -5,7 +5,7 @@
             <video class="u-video" autoplay muted loop>
                 <source :src="`${imgPath}/top/top-kv.mp4`" type="video/mp4" />
             </video>
-            <div class="m-top__ent p-animation" v-animate="'fadeInDown'">
+            <div class="m-top__ent p-animation fadeInDown">
                 <img class="u-text" :src="`${imgPath}/top/text.png`" />
                 <img class="u-person" :src="`${imgPath}/top/human.png`" />
                 <img class="u-video__play" @click="kvVideoVisible = true" :src="`${imgPath}/top/play.svg`" />
