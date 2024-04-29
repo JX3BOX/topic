@@ -47,7 +47,7 @@
                     />
                 </div>
 
-                <a href="/rank/race/#/8/info" class="u-kv p-animation" v-animate="'fadeInUp'" target="_blank">
+                <a href="/rank/race/#/8" class="u-kv p-animation" v-animate="'fadeInUp'" target="_blank">
                     <img :src="`${imgPath}/p2/kv.png`" alt="" />
                 </a>
             </div>
