@@ -46,17 +46,10 @@
                         "
                     />
                 </div>
-                <iframe
-                    class="u-iframe p-animation"
-                    v-animate="'fadeInUp'"
-                    src="//player.bilibili.com/player.html?aid=1902832755&bvid=BV1Km41167jZ&cid=1501355857&p=1"
-                    scrolling="no"
-                    border="0"
-                    frameborder="no"
-                    framespacing="0"
-                    allowfullscreen="true"
-                >
-                </iframe>
+
+                <a href="/rank/race/#/8/info" class="u-kv p-animation" v-animate="'fadeInUp'" target="_blank">
+                    <img :src="`${imgPath}/p2/kv.png`" alt="" />
+                </a>
             </div>
             <div class="m-three p-animation" v-animate="'fadeInUp'">
                 <img class="u-title" :src="`${imgPath}/p3/title.png`" />

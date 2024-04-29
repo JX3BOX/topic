@@ -146,11 +146,18 @@
                 }
             }
         }
-        .u-iframe {
+        .u-kv {
             .db();
             .size(1080px,580px);
             .auto(x);
             .mt(40px);
+            img {
+                transition: 0.2s all;
+                .r(10px);
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
         }
     }
     .m-three {
@@ -224,13 +231,14 @@
 .m-secret-mask {
     background-color: transparent;
     .w(max-content);
+    box-shadow: none;
     .el-dialog__header {
         .none();
     }
     .el-dialog__body {
         padding: 0;
         .flex();
-        align-items: start;
+        align-items: flex-start;
         .m-secret-mask__left {
             .pr();
             .mr(14px);
