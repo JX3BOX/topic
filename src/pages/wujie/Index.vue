@@ -35,6 +35,12 @@
                 <div class="u-item-box"></div>
             </div>
         </div>
+        <!-- 分割3 -->
+        <div class="m-excessive3">
+            <img class="u-img" :src="`${imgPath}/excessive3.png`" />
+        </div>
+        <!-- 攻略 -->
+        <div class="m-four"></div>
     </div>
 </template>
 
