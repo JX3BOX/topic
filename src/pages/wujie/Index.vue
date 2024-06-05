@@ -9,7 +9,7 @@
         <!-- 多图切换区 -->
         <div class="m-two">
             <div v-for="item in 4" :key="item" v-show="active == item">
-                <img :src="`${imgPath}/${item}.jpg`" class="p-animations lightSpeedInRight" />
+                <img :src="`${imgPath}/${item}.jpg`" class="p-animations" />
             </div>
 
             <div class="u-switch">
