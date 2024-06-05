@@ -20,16 +20,16 @@ reporter.install(Vue);
 // 全局过滤器
 import * as filters from "@/utils/filters.js";
 Object.keys(filters).forEach((key) => {
-	Vue.filter(key, filters[key]);
+    Vue.filter(key, filters[key]);
 });
 
-// 数据与路由 
-// import router from "./router.js";
+// 数据与路由
+import router from "./router.js";
 // import store from "../../store";
 
 import App from "./App.vue";
 new Vue({
-	// router,
-	// store,
-	render: (h) => h(App),
+    router,
+    // store,
+    render: (h) => h(App),
 }).$mount("#app");
