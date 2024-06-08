@@ -8,8 +8,10 @@
         </div>
         <!-- 多图切换区 -->
         <div class="m-two">
-            <div v-for="item in 4" :key="item" v-show="active == item">
-                <img :src="`${imgPath}/${item}.jpg`" class="p-animations" />
+            <div class="image-group" :class="isChange ? 'change-image' : ''" v-for="item in 4" :key="item" v-show="active == item">
+                <div class="prev"><img :src="`${imgPath}/${prevIndex}.jpg`" class="p-animations" /></div>
+                <div class="cur"><img :src="`${imgPath}/${active}.jpg`" class="p-animations" /></div>
+                <div class="next"><img :src="`${imgPath}/${nextIndex}.jpg`" class="p-animations" /></div>
             </div>
 
             <div class="u-switch">
@@ -45,6 +47,8 @@
 </template>
 
 <script>
+import el from "element-ui/src/locale/lang/el";
+
 const KEY = "wujie";
 import { getTopic } from "@/service/topic";
 import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
@@ -55,6 +59,8 @@ export default {
         return {
             imgPath: __imgPath + "topic/" + KEY,
             active: 1,
+            isChange: false,
+            timer: null,
         };
     },
     directives: {
@@ -94,6 +100,16 @@ export default {
             });
             return _data;
         },
+        prevIndex() {
+            if (this.active == 1) {
+                return 4
+            } else return  this.active - 1
+        },
+        nextIndex() {
+            if (this.active == 4) {
+                return 1
+            } else return  this.active + 1
+        }
     },
     watch: {},
     methods: {
@@ -116,7 +132,18 @@ export default {
     mounted: function () {
         this.init();
         window.addEventListener("mousemove", this.hanldMask);
+        this.timer = setInterval(() => {
+            this.isChange = true;
+            setTimeout(() => {
+                this.isChange = false;
+                if (this.active == 4) this.active = 1;
+                else this.active ++;
+            }, 1000)
+        }, 5000)
     },
+    beforeDestroy() {
+        clearInterval(this.timer)
+    }
 };
 </script>
 
