@@ -8,14 +8,16 @@
         </div>
         <!-- 多图切换区 -->
         <div class="m-two">
-            <div class="image-group" :class="isChange ? 'change-image' : ''" v-for="item in 4" :key="item" v-show="active == item">
+            <div class="image-group" :class="isChange ? 'change-image' : ''" v-for="item in 4" :key="item"
+                 v-show="active == item">
                 <div class="prev"><img :src="`${imgPath}/${prevIndex}.jpg`" class="p-animations" /></div>
                 <div class="cur"><img :src="`${imgPath}/${active}.jpg`" class="p-animations" /></div>
                 <div class="next"><img :src="`${imgPath}/${nextIndex}.jpg`" class="p-animations" /></div>
             </div>
 
             <div class="u-switch">
-                <div class="u-round" v-for="item in 4" :key="item" :class="{ solid: active == item }" @click="active = item"></div>
+                <div class="u-round" v-for="item in 4" :key="item" :class="{ solid: active == item }"
+                     @click="active = item"></div>
             </div>
         </div>
         <!-- 分割2 -->
@@ -25,16 +27,16 @@
         <!-- 5分区框图 -->
         <div class="m-three">
             <div class="u-main-box">
-                <img class="u-img" :src="`${imgPath}/five-1.png`" />
+                <div class="u-video" v-html="video"></div>
             </div>
             <div class="u-five-box">
-                <div class="u-item-box">
-                    <img class="u-img" :src="`${imgPath}/five-1.png`" />
+                <div v-for="(item, index) in boxData"
+                     :key="index"
+                     @click="chooseImage(index)"
+                     class="u-item-box"
+                     :class=" boxActive === index ? 'u-item-box-active' : ''">
+                    <img class="u-img" :src="`${imgPath}/${item.imageName}`" />
                 </div>
-                <div class="u-item-box"></div>
-                <div class="u-item-box"></div>
-                <div class="u-item-box"></div>
-                <div class="u-item-box"></div>
             </div>
         </div>
         <!-- 分割3 -->
@@ -52,20 +54,40 @@ import el from "element-ui/src/locale/lang/el";
 const KEY = "wujie";
 import { getTopic } from "@/service/topic";
 import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
+
 export default {
     name: "Index",
     components: {},
-    data: function () {
+    data: function() {
         return {
             imgPath: __imgPath + "topic/" + KEY,
             active: 1,
             isChange: false,
             timer: null,
+            boxActive: 0,
+            boxData: [
+                {
+                    imageName: `five-1.png`,
+                },
+                {
+                    imageName: `five-1.png`,
+                },
+                {
+                    imageName: `five-1.png`,
+                },
+                {
+                    imageName: `five-1.png`,
+                },
+                {
+                    imageName: `five-1.png`,
+                },
+            ],
+            video: "<iframe src = '//player.bilibili.com/player.html?aid=811065697&bvid=BV1k34y1e7Aj&cid=585993196&page=1' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'> </iframe>"
         };
     },
     directives: {
         animate: {
-            inserted: function (el, binding) {
+            inserted: function(el, binding) {
                 binding.addClass = () => {
                     const { top } = el.getBoundingClientRect();
                     const h = document.documentElement.clientHeight || document.body.clientHeight;
@@ -82,7 +104,7 @@ export default {
                 window.addEventListener("scroll", binding.addClass, true);
                 binding.addClass();
             },
-            unbind: function (el, binding) {
+            unbind: function(el, binding) {
                 if (binding.addClass) {
                     window.removeEventListener("scroll", binding.addClass);
                 }
@@ -90,7 +112,7 @@ export default {
         },
     },
     computed: {
-        data: function () {
+        data: function() {
             let _data = {};
             this.raw.forEach((item) => {
                 if (!_data[item.subtype]) {
@@ -102,18 +124,18 @@ export default {
         },
         prevIndex() {
             if (this.active == 1) {
-                return 4
-            } else return  this.active - 1
+                return 4;
+            } else return this.active - 1;
         },
         nextIndex() {
             if (this.active == 4) {
-                return 1
-            } else return  this.active + 1
-        }
+                return 1;
+            } else return this.active + 1;
+        },
     },
     watch: {},
     methods: {
-        init: function () {
+        init: function() {
             getTopic(KEY).then((res) => {
                 this.raw = res.data.data;
                 // this.video = this.data.index_video[0]["link"];
@@ -128,8 +150,17 @@ export default {
                 this.$refs.mark.style.backgroundPositionY = y + "px";
             }
         },
+        chooseImage(index) {
+            this.boxActive = index;
+            if (index === 0) {
+                this.video = "<iframe src = '//player.bilibili.com/player.html?aid=811065697&bvid=BV1k34y1e7Aj&cid=585993196&page=1' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'> </iframe>"
+            } else {
+                this.video = null
+            }
+
+        },
     },
-    mounted: function () {
+    mounted: function() {
         this.init();
         window.addEventListener("mousemove", this.hanldMask);
         this.timer = setInterval(() => {
@@ -137,13 +168,13 @@ export default {
             setTimeout(() => {
                 this.isChange = false;
                 if (this.active == 4) this.active = 1;
-                else this.active ++;
-            }, 1000)
-        }, 5000)
+                else this.active++;
+            }, 1000);
+        }, 5000);
     },
     beforeDestroy() {
-        clearInterval(this.timer)
-    }
+        clearInterval(this.timer);
+    },
 };
 </script>
 
