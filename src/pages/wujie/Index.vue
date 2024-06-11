@@ -8,16 +8,16 @@
         </div>
         <!-- 多图切换区 -->
         <div class="m-two">
-            <div class="image-group" :class="isChange ? 'change-image' : ''" v-for="item in 4" :key="item"
-                 v-show="active == item">
+            <div class="image-group" :class="changeClass" v-for="item in 4" :key="item"
+                 v-show="active === item">
                 <div class="prev"><img :src="`${imgPath}/${prevIndex}.jpg`" class="p-animations" /></div>
                 <div class="cur"><img :src="`${imgPath}/${active}.jpg`" class="p-animations" /></div>
                 <div class="next"><img :src="`${imgPath}/${nextIndex}.jpg`" class="p-animations" /></div>
             </div>
 
             <div class="u-switch">
-                <div class="u-round" v-for="item in 4" :key="item" :class="{ solid: active == item }"
-                     @click="active = item"></div>
+                <div class="u-round" v-for="item in 4" :key="item" :class="{ solid: active === item }"
+                     @click="changeActive(item)"></div>
             </div>
         </div>
         <!-- 分割2 -->
@@ -67,9 +67,11 @@ export default {
         return {
             imgPath: __imgPath + "topic/" + KEY,
             active: 1,
-            isChange: false,
             timer: null,
             boxActive: 0,
+            prevIndex: 4,
+            nextIndex: 2,
+            changeFlag: "",
             boxData: [
                 {
                     imageName: `five-1.png`,
@@ -132,16 +134,17 @@ export default {
             });
             return _data;
         },
-        prevIndex() {
-            if (this.active == 1) {
-                return 4;
-            } else return this.active - 1;
+        changeClass() {
+            switch (this.changeFlag) {
+                case "up":
+                    return "change-image-up";
+                case "down":
+                    return "change-image-down";
+                default:
+                    return ""
+            }
         },
-        nextIndex() {
-            if (this.active == 4) {
-                return 1;
-            } else return this.active + 1;
-        },
+
     },
     watch: {},
     methods: {
@@ -161,23 +164,62 @@ export default {
                 this.$refs.mark.style.backgroundPositionY = y + "px";
             }
         },
+        changeActive(index) {
+            if (this.active === index) return;
+            //点击时先清空计时器
+            clearInterval(this.timer);
+            if (this.active > index) {
+                this.prevIndex = index
+                this.changeFlag = "down"
+            } else {
+                this.nextIndex = index
+                this.changeFlag = "up"
+            }
+            setTimeout(() => {
+                this.changeFlag = ""
+                this.active = index;
+                this.setActiveImage();
+                //动画特效结束后，重置计时器
+                this.timer = setInterval(() => {
+                    this.changeFlag = "up";
+                    setTimeout(() => {
+                        this.changeFlag = "";
+                        if (this.active === 4) {
+                            this.active = 1
+                        } else this.active++
+                        this.setActiveImage()
+                    }, 1000);
+                }, 5000);
+            }, 1000)
+        },
         chooseImage(index) {
             this.boxActive = index;
             this.video = this.boxData[index].videoUrl
         },
         getMoreVideos() {
             window.open("https://space.bilibili.com/2066064028")
+        },
+        setActiveImage() {
+            if (this.active === 1) {
+                this.prevIndex = 4;
+            } else this.prevIndex = this.active - 1;
+            if (this.active === 4) {
+                this.nextIndex = 1
+            } else this.nextIndex = this.active + 1;
         }
+
     },
     mounted: function() {
         this.init();
         window.addEventListener("mousemove", this.hanldMask);
         this.timer = setInterval(() => {
-            this.isChange = true;
+            this.changeFlag = "up";
             setTimeout(() => {
-                this.isChange = false;
-                if (this.active == 4) this.active = 1;
-                else this.active++;
+                this.changeFlag = "";
+                if (this.active === 4) {
+                    this.active = 1
+                } else this.active++
+                this.setActiveImage()
             }, 1000);
         }, 5000);
     },
