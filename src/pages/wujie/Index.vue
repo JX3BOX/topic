@@ -37,6 +37,9 @@
                      :class=" boxActive === index ? 'u-item-box-active' : ''">
                     <img class="u-img" :src="`${imgPath}/${item.imageName}`" />
                 </div>
+                <div class="u-item-box" @click="getMoreVideos">
+                    <img class="u-img" :src="`${imgPath}/five-6.png`" />
+                </div>
             </div>
         </div>
         <!-- 分割3 -->
@@ -44,7 +47,9 @@
             <img class="u-img" :src="`${imgPath}/excessive3.png`" />
         </div>
         <!-- 攻略 -->
-        <div class="m-four"></div>
+        <div class="m-four">
+            <img :src="`${imgPath}/qrcode_index_box.png`" alt />
+        </div>
     </div>
 </template>
 
@@ -68,21 +73,26 @@ export default {
             boxData: [
                 {
                     imageName: `five-1.png`,
+                    videoUrl: "<iframe src = '//player.bilibili.com/player.html?bvid=BV1vn4y1d7NX' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'> </iframe>"
                 },
                 {
-                    imageName: `five-1.png`,
+                    imageName: `five-2.png`,
+                    videoUrl: "<iframe src = '//player.bilibili.com/player.html?bvid=BV1NS411N74E' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'> </iframe>"
                 },
                 {
-                    imageName: `five-1.png`,
+                    imageName: `five-3.png`,
+                    videoUrl: "<iframe src = '//player.bilibili.com/player.html?bvid=BV1bx4y1J71h' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'> </iframe>"
                 },
                 {
-                    imageName: `five-1.png`,
+                    imageName: `five-4.png`,
+                    videoUrl: "<iframe src = '//player.bilibili.com/player.html?bvid=BV1Nw4m1v77C' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'> </iframe>"
                 },
                 {
-                    imageName: `five-1.png`,
+                    imageName: `five-5.png`,
+                    videoUrl: "<iframe src = '//player.bilibili.com/player.html?bvid=BV1xS411K7MP' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'> </iframe>"
                 },
             ],
-            video: "<iframe src = '//player.bilibili.com/player.html?aid=811065697&bvid=BV1k34y1e7Aj&cid=585993196&page=1' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'> </iframe>"
+            video: ""
         };
     },
     directives: {
@@ -140,6 +150,7 @@ export default {
                 this.raw = res.data.data;
                 // this.video = this.data.index_video[0]["link"];
                 // this.pve = this.data.index_pve;
+                this.video = this.boxData[0].videoUrl
             });
         },
         hanldMask(event) {
@@ -152,13 +163,11 @@ export default {
         },
         chooseImage(index) {
             this.boxActive = index;
-            if (index === 0) {
-                this.video = "<iframe src = '//player.bilibili.com/player.html?aid=811065697&bvid=BV1k34y1e7Aj&cid=585993196&page=1' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'> </iframe>"
-            } else {
-                this.video = null
-            }
-
+            this.video = this.boxData[index].videoUrl
         },
+        getMoreVideos() {
+            window.open("https://space.bilibili.com/2066064028")
+        }
     },
     mounted: function() {
         this.init();
