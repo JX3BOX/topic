@@ -165,6 +165,8 @@ export default {
             }
         },
         changeActive(index) {
+            //动画结束前禁用切换
+            if (this.changeFlag !== "") return;
             if (this.active === index) return;
             //点击时先清空计时器
             clearInterval(this.timer);
