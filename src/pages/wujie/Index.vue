@@ -41,7 +41,7 @@
                     class="u-item-box"
                     :class="boxActive === index ? 'u-item-box-active' : ''"
                 >
-                    <img class="u-img" :src="`${imgPath}/${item.title}`" />
+                    <img class="u-img" :src="item.img" />
                 </div>
                 <div class="u-item-box" @click="getMoreVideos">
                     <img class="u-img" :src="`${imgPath}/five-6.png`" />
@@ -121,7 +121,7 @@ export default {
             getTopic(KEY).then((res) => {
                 this.raw = res.data.data;
                 this.videoList = this.data.video;
-                this.chooseImage(0)
+                this.chooseImage(0);
             });
         },
         hanldMask(event) {
