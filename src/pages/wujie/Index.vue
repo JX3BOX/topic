@@ -8,17 +8,15 @@
         </div>
         <!-- 多图切换区 -->
         <div class="m-two">
-            <div class="image-group" :class="changeClass" v-for="item in 4" :key="item"
-                 v-show="active === item">
-                <div class="prev"><img :src="`${imgPath}/${prevIndex}.jpg`" class="p-animations" /></div>
-                <div class="cur"><img :src="`${imgPath}/${active}.jpg`" class="p-animations" /></div>
-                <div class="next"><img :src="`${imgPath}/${nextIndex}.jpg`" class="p-animations" /></div>
+            <div class="u-switch">
+                <div class="u-round" v-for="item in 4" :key="item" :class="{ solid: active === item - 1 }" @click="setActiveImg(item - 1)"></div>
             </div>
 
-            <div class="u-switch">
-                <div class="u-round" v-for="item in 4" :key="item" :class="{ solid: active === item }"
-                     @click="changeActive(item)"></div>
-            </div>
+            <el-carousel ref="imgCarousel" height="1073px" autoplay direction="vertical" @change="imgChange">
+                <el-carousel-item v-for="item in 4" :key="item">
+                    <img :src="`${imgPath}/${item}.jpg`" />
+                </el-carousel-item>
+            </el-carousel>
         </div>
         <!-- 分割2 -->
         <div class="m-excessive2">
@@ -30,11 +28,13 @@
                 <div class="u-video" v-html="video"></div>
             </div>
             <div class="u-five-box">
-                <div v-for="(item, index) in boxData"
-                     :key="index"
-                     @click="chooseImage(index)"
-                     class="u-item-box"
-                     :class=" boxActive === index ? 'u-item-box-active' : ''">
+                <div
+                    v-for="(item, index) in boxData"
+                    :key="index"
+                    @click="chooseImage(index)"
+                    class="u-item-box"
+                    :class="boxActive === index ? 'u-item-box-active' : ''"
+                >
                     <img class="u-img" :src="`${imgPath}/${item.imageName}`" />
                 </div>
                 <div class="u-item-box" @click="getMoreVideos">
@@ -54,8 +54,6 @@
 </template>
 
 <script>
-import el from "element-ui/src/locale/lang/el";
-
 const KEY = "wujie";
 import { getTopic } from "@/service/topic";
 import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
@@ -63,43 +61,45 @@ import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
 export default {
     name: "Index",
     components: {},
-    data: function() {
+    data: function () {
         return {
             imgPath: __imgPath + "topic/" + KEY,
-            active: 1,
+            active: 0,
             timer: null,
-            boxActive: 0,
-            prevIndex: 4,
-            nextIndex: 2,
-            changeFlag: "",
             boxData: [
                 {
                     imageName: `five-1.png`,
-                    videoUrl: "<iframe src = '//player.bilibili.com/player.html?bvid=BV1vn4y1d7NX' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'> </iframe>"
+                    videoUrl:
+                        "<iframe src = '//player.bilibili.com/player.html?bvid=BV1vn4y1d7NX' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'> </iframe>",
                 },
                 {
                     imageName: `five-2.png`,
-                    videoUrl: "<iframe src = '//player.bilibili.com/player.html?bvid=BV1NS411N74E' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'> </iframe>"
+                    videoUrl:
+                        "<iframe src = '//player.bilibili.com/player.html?bvid=BV1NS411N74E' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'> </iframe>",
                 },
                 {
                     imageName: `five-3.png`,
-                    videoUrl: "<iframe src = '//player.bilibili.com/player.html?bvid=BV1bx4y1J71h' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'> </iframe>"
+                    videoUrl:
+                        "<iframe src = '//player.bilibili.com/player.html?bvid=BV1bx4y1J71h' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'> </iframe>",
                 },
                 {
                     imageName: `five-4.png`,
-                    videoUrl: "<iframe src = '//player.bilibili.com/player.html?bvid=BV1Nw4m1v77C' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'> </iframe>"
+                    videoUrl:
+                        "<iframe src = '//player.bilibili.com/player.html?bvid=BV1Nw4m1v77C' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'> </iframe>",
                 },
                 {
                     imageName: `five-5.png`,
-                    videoUrl: "<iframe src = '//player.bilibili.com/player.html?bvid=BV1xS411K7MP' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'> </iframe>"
+                    videoUrl:
+                        "<iframe src = '//player.bilibili.com/player.html?bvid=BV1xS411K7MP' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'> </iframe>",
                 },
             ],
-            video: ""
+            video: "",
+            boxActive: 0,
         };
     },
     directives: {
         animate: {
-            inserted: function(el, binding) {
+            inserted: function (el, binding) {
                 binding.addClass = () => {
                     const { top } = el.getBoundingClientRect();
                     const h = document.documentElement.clientHeight || document.body.clientHeight;
@@ -116,7 +116,7 @@ export default {
                 window.addEventListener("scroll", binding.addClass, true);
                 binding.addClass();
             },
-            unbind: function(el, binding) {
+            unbind: function (el, binding) {
                 if (binding.addClass) {
                     window.removeEventListener("scroll", binding.addClass);
                 }
@@ -124,7 +124,7 @@ export default {
         },
     },
     computed: {
-        data: function() {
+        data: function () {
             let _data = {};
             this.raw.forEach((item) => {
                 if (!_data[item.subtype]) {
@@ -134,26 +134,13 @@ export default {
             });
             return _data;
         },
-        changeClass() {
-            switch (this.changeFlag) {
-                case "up":
-                    return "change-image-up";
-                case "down":
-                    return "change-image-down";
-                default:
-                    return ""
-            }
-        },
-
     },
     watch: {},
     methods: {
-        init: function() {
+        init: function () {
             getTopic(KEY).then((res) => {
                 this.raw = res.data.data;
-                // this.video = this.data.index_video[0]["link"];
-                // this.pve = this.data.index_pve;
-                this.video = this.boxData[0].videoUrl
+                this.video = this.boxData[0].videoUrl;
             });
         },
         hanldMask(event) {
@@ -164,69 +151,25 @@ export default {
                 this.$refs.mark.style.backgroundPositionY = y + "px";
             }
         },
-        changeActive(index) {
-            //动画结束前禁用切换
-            if (this.changeFlag !== "") return;
-            if (this.active === index) return;
-            //点击时先清空计时器
-            clearInterval(this.timer);
-            if (this.active > index) {
-                this.prevIndex = index
-                this.changeFlag = "down"
-            } else {
-                this.nextIndex = index
-                this.changeFlag = "up"
-            }
-            setTimeout(() => {
-                this.changeFlag = ""
-                this.active = index;
-                this.setActiveImage();
-                //动画特效结束后，重置计时器
-                this.timer = setInterval(() => {
-                    this.changeFlag = "up";
-                    setTimeout(() => {
-                        this.changeFlag = "";
-                        if (this.active === 4) {
-                            this.active = 1
-                        } else this.active++
-                        this.setActiveImage()
-                    }, 1000);
-                }, 5000);
-            }, 1000)
+        imgChange(index) {
+            console.log(index);
+            this.active = index;
         },
+        setActiveImg(index) {
+            this.$refs.imgCarousel.setActiveItem(index);
+        },
+
         chooseImage(index) {
             this.boxActive = index;
-            this.video = this.boxData[index].videoUrl
+            this.video = this.boxData[index].videoUrl;
         },
         getMoreVideos() {
-            window.open("https://space.bilibili.com/2066064028")
+            window.open("https://space.bilibili.com/2066064028");
         },
-        setActiveImage() {
-            if (this.active === 1) {
-                this.prevIndex = 4;
-            } else this.prevIndex = this.active - 1;
-            if (this.active === 4) {
-                this.nextIndex = 1
-            } else this.nextIndex = this.active + 1;
-        }
-
     },
-    mounted: function() {
+    mounted: function () {
         this.init();
         window.addEventListener("mousemove", this.hanldMask);
-        this.timer = setInterval(() => {
-            this.changeFlag = "up";
-            setTimeout(() => {
-                this.changeFlag = "";
-                if (this.active === 4) {
-                    this.active = 1
-                } else this.active++
-                this.setActiveImage()
-            }, 1000);
-        }, 5000);
-    },
-    beforeDestroy() {
-        clearInterval(this.timer);
     },
 };
 </script>
