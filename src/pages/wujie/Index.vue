@@ -9,7 +9,13 @@
         <!-- 多图切换区 -->
         <div class="m-two">
             <div class="u-switch">
-                <div class="u-round" v-for="item in 4" :key="item" :class="{ solid: active === item - 1 }" @click="setActiveImg(item - 1)"></div>
+                <div
+                    class="u-round"
+                    v-for="item in 4"
+                    :key="item"
+                    :class="{ solid: active === item - 1 }"
+                    @click="setActiveImg(item - 1)"
+                ></div>
             </div>
 
             <el-carousel ref="imgCarousel" height="1073px" autoplay direction="vertical" @change="imgChange">
@@ -29,13 +35,13 @@
             </div>
             <div class="u-five-box">
                 <div
-                    v-for="(item, index) in boxData"
+                    v-for="(item, index) in videoList"
                     :key="index"
                     @click="chooseImage(index)"
                     class="u-item-box"
                     :class="boxActive === index ? 'u-item-box-active' : ''"
                 >
-                    <img class="u-img" :src="`${imgPath}/${item.imageName}`" />
+                    <img class="u-img" :src="`${imgPath}/${item.title}`" />
                 </div>
                 <div class="u-item-box" @click="getMoreVideos">
                     <img class="u-img" :src="`${imgPath}/five-6.png`" />
@@ -66,33 +72,7 @@ export default {
             imgPath: __imgPath + "topic/" + KEY,
             active: 0,
             timer: null,
-            boxData: [
-                {
-                    imageName: `five-1.png`,
-                    videoUrl:
-                        "<iframe src = '//player.bilibili.com/player.html?bvid=BV1vn4y1d7NX' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'> </iframe>",
-                },
-                {
-                    imageName: `five-2.png`,
-                    videoUrl:
-                        "<iframe src = '//player.bilibili.com/player.html?bvid=BV1NS411N74E' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'> </iframe>",
-                },
-                {
-                    imageName: `five-3.png`,
-                    videoUrl:
-                        "<iframe src = '//player.bilibili.com/player.html?bvid=BV1bx4y1J71h' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'> </iframe>",
-                },
-                {
-                    imageName: `five-4.png`,
-                    videoUrl:
-                        "<iframe src = '//player.bilibili.com/player.html?bvid=BV1Nw4m1v77C' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'> </iframe>",
-                },
-                {
-                    imageName: `five-5.png`,
-                    videoUrl:
-                        "<iframe src = '//player.bilibili.com/player.html?bvid=BV1xS411K7MP' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'> </iframe>",
-                },
-            ],
+            videoList: [],
             video: "",
             boxActive: 0,
         };
@@ -140,7 +120,8 @@ export default {
         init: function () {
             getTopic(KEY).then((res) => {
                 this.raw = res.data.data;
-                this.video = this.boxData[0].videoUrl;
+                this.videoList = this.data.video;
+                this.chooseImage(0)
             });
         },
         hanldMask(event) {
@@ -152,7 +133,6 @@ export default {
             }
         },
         imgChange(index) {
-            console.log(index);
             this.active = index;
         },
         setActiveImg(index) {
@@ -161,7 +141,7 @@ export default {
 
         chooseImage(index) {
             this.boxActive = index;
-            this.video = this.boxData[index].videoUrl;
+            this.video = this.videoList[index].link;
         },
         getMoreVideos() {
             window.open("https://space.bilibili.com/2066064028");
