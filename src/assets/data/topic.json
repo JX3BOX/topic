@@ -26,7 +26,15 @@
     ],
     "origin": [
         {
-            "name": "血战天策",
+            "name": "缘起苍云",
+            "key": "yuanqicangyun",
+            "year": "2024",
+            "date": "03-21",
+            "time": "2024.03.21",
+            "link": "./yuanqicangyun"
+        },
+        {
+            "name": "yuanqicangyun",
             "key": "xuezhantiance",
             "year": "2024",
             "date": "03-21",
