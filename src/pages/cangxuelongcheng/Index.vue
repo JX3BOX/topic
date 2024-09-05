@@ -25,10 +25,22 @@
             <div class="u-content">
                 <img :src="imgurl + '1menpai/mpts.png'" class="u-mpts" />
                 <div class="u-text">
-                    新门派「苍云」具有擎刀、擎盾多体态的输出形式、攻防兼备，有较强输出压制能力的同时，兼具控制与防守能力。使用全新镇派系统，苍云侠士需取舍关键层镇派来构建缘起专属武学体系，灵活搭配以探索克敌之道。
+                    {{ sectDesc }}
                 </div>
-                <img :src="imgurl + '1menpai/xf-1.png'" class="u-tg p-animations" v-animate="'fadeInLeft'" />
-                <img :src="imgurl + '1menpai/xf-4.png'" class="u-fs p-animations" v-animate="'fadeInRight'" />
+                <img
+                    :src="imgurl + '1menpai/xf-1.png'"
+                    class="u-tg p-animations"
+                    v-animate="'fadeInLeft'"
+                    @mouseenter="changeDesc(1)"
+                    @mouseleave="levelChangeDesc"
+                />
+                <img
+                    :src="imgurl + '1menpai/xf-4.png'"
+                    class="u-fs p-animations"
+                    v-animate="'fadeInRight'"
+                    @mouseenter="changeDesc(2)"
+                    @mouseleave="levelChangeDesc"
+                />
             </div>
         </div>
         <!-- 全新秘境 -->
@@ -174,6 +186,8 @@ export default {
                 { img: "hy.png", bgUrl: "hy-bg.png" },
                 { img: "wm.png", bgUrl: "wm-bg.png" },
             ],
+            sectDesc:
+                "新门派「苍云」具有擎刀、擎盾多体态的输出形式、攻防兼备，有较强输出压制能力的同时，兼具控制与防守能力。使用全新镇派系统，苍云侠士需取舍关键层镇派来构建缘起专属武学体系，灵活搭配以探索克敌之道。",
         };
     },
     directives: {
@@ -209,6 +223,17 @@ export default {
             getTopic(KEY).then((res) => {
                 console.log(res);
             });
+        },
+        changeDesc(type) {
+            if (type == 1) {
+                this.sectDesc = "此功运之有如铁甲在身，攻守兼备，近身者周身如芒在刺，亦难伤其分毫。";
+            } else {
+                this.sectDesc = "此功运之有如惊雷开山之势，霸道强横，非勇猛无匹者不能习。";
+            }
+        },
+        levelChangeDesc() {
+            this.sectDesc =
+                "新门派「苍云」具有擎刀、擎盾多体态的输出形式、攻防兼备，有较强输出压制能力的同时，兼具控制与防守能力。使用全新镇派系统，苍云侠士需取舍关键层镇派来构建缘起专属武学体系，灵活搭配以探索克敌之道。";
         },
         getBoss() {
             let bg1 = "",
