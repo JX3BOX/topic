@@ -107,9 +107,7 @@
     }
 }
 // 全新秘境
-.u-boss-kv {
-    padding: 250px 0 20px 0;
-}
+
 .m-new-secret {
     .pr;
     .mt(80px);
@@ -140,10 +138,18 @@
         }
     }
     .u-boss-list {
-        .h(1100px);
-        background-position: -20% bottom, 120% bottom;
+        .h(1290px);
+        background-position: -30% bottom, 120% bottom;
         background-repeat: no-repeat, no-repeat;
         background-size: contain, contain;
+        .flex;
+        flex-direction: column;
+        align-items: center;
+
+        .u-boss-kv {
+            .pt(180px);
+            .pb(20px);
+        }
         .u-boss {
             .dbi;
             .pr;
@@ -157,10 +163,10 @@
                 cursor: pointer;
             }
             .u-left {
-                .lt(-80px,270px);
+                .lt(-80px,320px);
             }
             .u-right {
-                .rt(-80px,270px);
+                .rt(-80px,320px);
                 transform: rotateY(180deg);
             }
         }
@@ -170,11 +176,12 @@
 .m-new-encounter {
     .pr;
     .x;
-    .h(2000px);
+    .h(1900px);
+    .mt(240px);
     .m-classify {
         .x;
         .pa;
-        top: -285px;
+        top: -390px;
         .w(100%);
         img {
             .w(1414px);
@@ -182,11 +189,11 @@
     }
     .u-scqy {
         .pr;
-        top: 200px;
+        top: 160px;
     }
 
     .u-yljs {
-        top: 300px;
+        top: 260px;
         background: url("@{kv_yuanqicangyun}3qiyu/jx-3.png") no-repeat;
 
         .u-left {
@@ -199,7 +206,7 @@
         }
     }
     .u-gyfy {
-        .lt(80px,340px);
+        .lt(80px,280px);
         background: url("@{kv_yuanqicangyun}3qiyu/jx-2.png") no-repeat;
         .u-left {
             .pa;
@@ -211,7 +218,7 @@
         }
     }
     .u-xzcg {
-        top: 380px;
+        top: 300px;
         background: url("@{kv_yuanqicangyun}3qiyu/jx-1.png") no-repeat;
         .u-left {
             .pa;
@@ -238,11 +245,11 @@
     }
     .u-cwqy {
         .pr;
-        top: 500px;
+        top: 400px;
     }
     .u-pet-list {
         .pr;
-        top: 720px;
+        top: 620px;
         .flex;
         justify-content: space-between;
         .w(1100px);
@@ -278,6 +285,7 @@
         justify-content: center;
         gap: 182px;
         .u-item {
+            .w(550px);
             .u-top-img {
                 .mb(60px);
             }
@@ -287,7 +295,7 @@
                 }
             }
             .flex;
-            max-width: 368px;
+            // max-width: 368px;
             flex-direction: column;
             .u-text {
                 .mt(28px);

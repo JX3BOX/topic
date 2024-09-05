@@ -43,8 +43,9 @@
                     唐简、李复等人即追踪而至，此外，为寻觅身世之谜的遗孤陈月也来到此处，穆玄英和莫雨为护其周全，也不约而同赶往此处。<br />多股势力纷至沓来，这白雪皑皑之下的山村已然无法保持往日的宁静……
                 </div>
             </div>
-            <img :src="imgurl + '2mijing/slzs.png'" class="u-boss-kv" />
+
             <div class="u-boss-list" :style="getBoss()">
+                <img :src="imgurl + '2mijing/slzs.png'" class="u-boss-kv" />
                 <div class="u-boss">
                     <img
                         :src="imgurl + '2mijing/' + boss[active_boss].img"
@@ -165,12 +166,12 @@ export default {
     data: function () {
         return {
             imgurl: "https://img.jx3box.com/topic/cangxuelongcheng/",
-            active_boss: 1,
+            active_boss: 0,
             boss: [
-                { img: "dzyh.png", bgUrl: "dzyh-bg.png" },
-                { img: "hy.png", bgUrl: "hy-bg.png" },
                 { img: "mxc.png", bgUrl: "mxc-bg.png" },
+                { img: "dzyh.png", bgUrl: "dzyh-bg.png" },
                 { img: "szy.png", bgUrl: "szy-bg.png" },
+                { img: "hy.png", bgUrl: "hy-bg.png" },
                 { img: "wm.png", bgUrl: "wm-bg.png" },
             ],
         };
