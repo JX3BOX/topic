@@ -1,5 +1,5 @@
 <template>
-    < class="m-index">
+    <div class="m-index">
         <!-- logo -->
         <div class="m-logo p-animation" v-animate="'fadeInDown'">
             <img :src="imgurl + '0top/logo.png'" width="100%" />
@@ -9,7 +9,7 @@
         </div>
         <!-- 权益部分 -->
         <div class="m-equities">
-            <div class="u-box">
+            <div class="u-box p-animation" v-animate="'bounceIn'">
                 <img :src="imgurl + '0top/qymd.png'" width="100%" />
                 <img :src="imgurl + '0top/fz.png'" class="u-img" />
                 <div class="u-text-1">一次买断·终身受益大幅</div>
@@ -18,7 +18,7 @@
         </div>
         <!-- 全新门派 -->
         <div class="m-new-sect">
-            <div class="m-classify">
+            <div class="m-classify p-animation" v-animate="'bounceIn'">
                 <img :src="imgurl + '1menpai/1xmp.png'" />
             </div>
             <img :src="imgurl + '1menpai/cylh.png'" class="u-cylh" />
@@ -29,6 +29,127 @@
                 </div>
                 <img :src="imgurl + '1menpai/xf-1.png'" class="u-tg" />
                 <img :src="imgurl + '1menpai/xf-4.png'" class="u-fs" />
+            </div>
+        </div>
+        <!-- 全新秘境 -->
+        <div class="m-new-secret">
+            <div class="m-classify">
+                <img :src="imgurl + '2mijing/qxmj.png'" />
+            </div>
+            <div class="u-top">
+                <img :src="imgurl + '2mijing/fxdxc.png'" class="u-img" />
+                <div class="u-text">
+                    史朝义受安庆绪重金及权位待遇拉拢，奉其密令前往风雪稻香村暗会前任无名王毛仲，合谋杀害安禄山之计。<br />
+                    唐简、李复等人即追踪而至，此外，为寻觅身世之谜的遗孤陈月也来到此处，穆玄英和莫雨为护其周全，也不约而同赶往此处。<br />多股势力纷至沓来，这白雪皑皑之下的山村已然无法保持往日的宁静……
+                </div>
+            </div>
+            <img :src="imgurl + '2mijing/slzs.png'" class="u-boss-kv" />
+            <div class="u-boss-list" :style="getBoss()">
+                <div class="u-boss">
+                    <img
+                        :src="imgurl + '2mijing/' + boss[active_boss].img"
+                        class="u-boss-img p-animation"
+                        v-animate="'bounceIn'"
+                    />
+                    <img :src="imgurl + '2mijing/jt.png'" class="u-left" @click="changeBoss(1)" />
+                    <img :src="imgurl + '2mijing/jt.png'" class="u-right" @click="changeBoss(2)" />
+                </div>
+            </div>
+        </div>
+        <!-- 全新奇遇 -->
+        <div class="m-new-encounter">
+            <div class="m-classify">
+                <img :src="imgurl + '3qiyu/qxjy.png'" />
+            </div>
+            <img :src="imgurl + '3qiyu/scqy.png'" class="u-scqy" />
+            <div class="u-yljs">
+                <div class="u-left">
+                    <img :src="imgurl + '3qiyu/yanlong.png'" />
+                </div>
+                <div class="u-right">
+                    <img :src="imgurl + '3qiyu/yljs.png'" />
+                    <div class="u-text">玄骨觅巧匠，偃甲试机锋</div>
+                </div>
+            </div>
+            <div class="u-gyfy">
+                <div class="u-left">
+                    <img :src="imgurl + '3qiyu/guyuan.png'" />
+                </div>
+                <div class="u-right">
+                    <img :src="imgurl + '3qiyu/gyfy.png'" />
+                    <div class="u-text">游子归来意，故园满离情</div>
+                </div>
+            </div>
+            <div class="u-xzcg">
+                <div class="u-left">
+                    <img :src="imgurl + '3qiyu/xiazhe.png'" />
+                </div>
+                <div class="u-right">
+                    <img :src="imgurl + '3qiyu/xzcg.png'" />
+                    <div class="u-text">浩荡江湖远，且念同路谊，且记桃李情</div>
+                </div>
+            </div>
+            <img :src="imgurl + '3qiyu/cwqy.png'" class="u-cwqy" />
+            <!-- 宠物奇遇 -->
+            <div class="u-pet-list">
+                <div class="u-pet-item">
+                    <img :src="imgurl + '3qiyu/dd.png'" />
+                    <div class="u-tips-img">
+                        <img :src="imgurl + '3qiyu/dd-kv.png'" />
+                    </div>
+                </div>
+                <div class="u-pet-item">
+                    <img :src="imgurl + '3qiyu/yqxg.png'" />
+                    <div class="u-tips-img">
+                        <img :src="imgurl + '3qiyu/yqxg-kv.png'" />
+                    </div>
+                </div>
+                <div class="u-pet-item">
+                    <img :src="imgurl + '3qiyu/mjk.png'" />
+                    <div class="u-tips-img">
+                        <img :src="imgurl + '3qiyu/mjk-kv.png'" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 全新玩法 -->
+        <div class="m-new-play">
+            <div class="m-classify">
+                <img :src="imgurl + '4wanfa/qxwf.png'" />
+            </div>
+            <div class="u-content">
+                <div class="u-item">
+                    <img :src="imgurl + '4wanfa/qycz.png'" class="u-top-img" />
+                    <img :src="imgurl + '4wanfa/qycz-bg.png'" />
+                    <div class="u-text">
+                        侠士的一天都在干嘛？那当然是起床先去广场做一下节日任务，再去宠物房摸两把小宠物，接着搂两杆子，最后美滋滋叫上亲友一起搓麻将啦！麻将玩法趣味来袭！亲友凑桌，随时随地热血开玩！
+                    </div>
+                </div>
+                <div class="u-item">
+                    <img :src="imgurl + '4wanfa/hhdj.png'" class="u-top-img" />
+                    <img :src="imgurl + '4wanfa/hgdj-bg.png'" />
+                    <div class="u-text">
+                        横戈荡决攻守博弈再度升级，据点归属，军械竞逐，巨大的城主模拟器！诚邀侠士来大唐当一回城主吧！各个据点将新增帮会归属，排兵布局、军械攻守全部都听你的！
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 更多精彩 -->
+        <div class="m-more">
+            <div class="m-classify">
+                <img :src="imgurl + '5gengduo/gdjc.png'" />
+            </div>
+            <div class="u-img-list">
+                <img :src="imgurl + '5gengduo/sbty.png'" />
+                <img :src="imgurl + '5gengduo/xyztg.png'" />
+                <img :src="imgurl + '5gengduo/tbkf.png'" />
+                <img :src="imgurl + '5gengduo/qxxdssmj.png'" />
+                <img :src="imgurl + '5gengduo/zbsx.png'" />
+
+                <img :src="imgurl + '5gengduo/sl.png'" />
+            </div>
+            <div class="u-footer">
+                <img :src="imgurl + '5gengduo/footer.png'" />
             </div>
         </div>
     </div>
@@ -44,6 +165,14 @@ export default {
     data: function () {
         return {
             imgurl: "https://img.jx3box.com/topic/yuanqicangyun/",
+            active_boss: 1,
+            boss: [
+                { img: "dzyh.png", bgUrl: "dzyh-bg.png" },
+                { img: "hy.png", bgUrl: "hy-bg.png" },
+                { img: "mxc.png", bgUrl: "mxc-bg.png" },
+                { img: "szy.png", bgUrl: "szy-bg.png" },
+                { img: "wm.png", bgUrl: "wm-bg.png" },
+            ],
         };
     },
     directives: {
@@ -84,6 +213,39 @@ export default {
             getTopic(KEY).then((res) => {
                 console.log(res);
             });
+        },
+        getBoss() {
+            let bg1 = "",
+                bg2 = "";
+            if (this.active_boss == 0) {
+                bg1 = this.boss[this.active_boss + 1].bgUrl;
+                bg2 = this.boss[this.boss.length - 1].bgUrl;
+            } else if (this.active_boss == this.boss.length - 1) {
+                bg1 = this.boss[0].bgUrl;
+                bg2 = this.boss[this.active_boss - 1].bgUrl;
+            } else {
+                bg1 = this.boss[this.active_boss + 1].bgUrl;
+                bg2 = this.boss[this.active_boss - 1].bgUrl;
+            }
+
+            return {
+                "background-image": `url(${this.imgurl}2mijing/${bg1}), url(${this.imgurl}2mijing/${bg2})`,
+            };
+        },
+        changeBoss(type) {
+            if (type == 1) {
+                if (this.active_boss == 0) {
+                    this.active_boss = this.boss.length - 1;
+                } else {
+                    this.active_boss = this.active_boss - 1;
+                }
+            } else {
+                if (this.active_boss == this.boss.length - 1) {
+                    this.active_boss = 0;
+                } else {
+                    this.active_boss = this.active_boss + 1;
+                }
+            }
         },
     },
     filters: {},
