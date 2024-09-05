@@ -140,15 +140,34 @@
             color: rgba(255, 255, 255, 1);
         }
     }
+    .u-boss-box {
+        .h(1290px);
+    }
     .u-boss-list {
         .h(1290px);
-        background-position: -30% bottom, 120% bottom;
-        background-repeat: no-repeat, no-repeat;
-        background-size: contain, contain;
+
         .flex;
         flex-direction: column;
         align-items: center;
-
+        .u-boss-bg {
+            .pa;
+            .z(0);
+            .flex;
+            .w(100%);
+            .u-left,
+            .u-right {
+                .pr;
+                .h(1290px);
+                .w(50%);
+                background-repeat: no-repeat;
+            }
+            .u-left {
+                background-position: 140% bottom;
+            }
+            .u-right {
+                background-position: 10% bottom;
+            }
+        }
         .u-boss-kv {
             .pt(180px);
             .pb(20px);

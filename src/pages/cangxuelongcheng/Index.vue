@@ -55,17 +55,22 @@
                     唐简、李复等人即追踪而至，此外，为寻觅身世之谜的遗孤陈月也来到此处，穆玄英和莫雨为护其周全，也不约而同赶往此处。<br />多股势力纷至沓来，这白雪皑皑之下的山村已然无法保持往日的宁静……
                 </div>
             </div>
-
-            <div class="u-boss-list" :style="getBoss()">
-                <img :src="imgurl + '2mijing/slzs.png'" class="u-boss-kv" />
-                <div class="u-boss">
-                    <img
-                        :src="imgurl + '2mijing/' + boss[active_boss].img"
-                        class="u-boss-img p-animations"
-                        v-animate="'bounceIn'"
-                    />
-                    <img :src="imgurl + '2mijing/jt.png'" class="u-left" @click="changeBoss(1)" />
-                    <img :src="imgurl + '2mijing/jt.png'" class="u-right" @click="changeBoss(2)" />
+            <div class="u-boss-box">
+                <div class="u-boss-list" v-show="showBoss">
+                    <div class="u-boss-bg">
+                        <div class="u-left p-animation" v-animate="'fadeInDown'" :style="last_boss">
+                            <!-- <img :src="last_boss" /> -->
+                        </div>
+                        <div class="u-right p-animation" v-animate="'fadeInDown'" :style="before_boss">
+                            <!-- <img :src="before_boss" /> -->
+                        </div>
+                    </div>
+                    <img :src="imgurl + '2mijing/slzs.png'" class="u-boss-kv p-animations" v-animate="'fadeIn'" />/>
+                    <div class="u-boss p-animations" v-animate="'fadeIn'">
+                        <img :src="imgurl + '2mijing/' + boss[active_boss].img" class="u-boss-img" />
+                        <img :src="imgurl + '2mijing/jt.png'" class="u-left" @click="changeBoss(1)" />
+                        <img :src="imgurl + '2mijing/jt.png'" class="u-right" @click="changeBoss(2)" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -179,6 +184,9 @@ export default {
         return {
             imgurl: "https://img.jx3box.com/topic/cangxuelongcheng/",
             active_boss: 0,
+            last_boss: "",
+            before_boss: "",
+            showBoss: true,
             boss: [
                 { img: "mxc.png", bgUrl: "mxc-bg.png" },
                 { img: "dzyh.png", bgUrl: "dzyh-bg.png" },
@@ -248,29 +256,41 @@ export default {
                 bg1 = this.boss[this.active_boss + 1].bgUrl;
                 bg2 = this.boss[this.active_boss - 1].bgUrl;
             }
-
-            return {
-                "background-image": `url(${this.imgurl}2mijing/${bg1}), url(${this.imgurl}2mijing/${bg2})`,
+            this.last_boss = {
+                "background-image": `url(${this.imgurl}2mijing/${bg1})`,
             };
+            this.before_boss = {
+                "background-image": `url(${this.imgurl}2mijing/${bg2})`,
+            };
+            // return {
+            //     "background-image": `url(${this.imgurl}2mijing/${bg1}), url(${this.imgurl}2mijing/${bg2})`,
+            // };
         },
         changeBoss(type) {
-            if (type == 1) {
-                if (this.active_boss == 0) {
-                    this.active_boss = this.boss.length - 1;
+            this.showBoss = false;
+            setTimeout(() => {
+                if (type == 1) {
+                    if (this.active_boss == 0) {
+                        this.active_boss = this.boss.length - 1;
+                    } else {
+                        this.active_boss = this.active_boss - 1;
+                    }
                 } else {
-                    this.active_boss = this.active_boss - 1;
+                    if (this.active_boss == this.boss.length - 1) {
+                        this.active_boss = 0;
+                    } else {
+                        this.active_boss = this.active_boss + 1;
+                    }
                 }
-            } else {
-                if (this.active_boss == this.boss.length - 1) {
-                    this.active_boss = 0;
-                } else {
-                    this.active_boss = this.active_boss + 1;
-                }
-            }
+                this.getBoss();
+                this.showBoss = true;
+            }, 200);
         },
     },
     filters: {},
-    created: function () {},
+    created: function () {
+        this.getBoss();
+    },
     mounted: function () {},
 };
 </script>
