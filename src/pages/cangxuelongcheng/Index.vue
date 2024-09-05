@@ -1,7 +1,7 @@
 <template>
     <div class="m-index">
         <!-- logo -->
-        <div class="m-logo p-animation" v-animate="'fadeInDown'">
+        <div class="m-logo p-animation" v-animate="'fadeInLeft'">
             <img :src="imgurl + '0top/logo.png'" width="100%" />
         </div>
         <div class="m-top-banner p-animation" v-animate="'fadeInDown'">
@@ -9,36 +9,36 @@
         </div>
         <!-- 权益部分 -->
         <div class="m-equities">
-            <div class="u-box p-animation" v-animate="'bounceIn'">
-                <img :src="imgurl + '0top/qymd.png'" width="100%" />
-                <img :src="imgurl + '0top/fz.png'" class="u-img" />
-                <div class="u-text-1">一次买断·终身受益大幅</div>
-                <div class="u-text-2">提高日常收益自由交易无忧畅玩</div>
+            <div class="u-box">
+                <img :src="imgurl + '0top/qymd.png'" width="100%" class="p-animation" v-animate="'fadeInDown'" />
+                <img :src="imgurl + '0top/fz.png'" class="u-img p-animation" v-animate="'fadeInUp'" />
+                <div class="u-text-1 p-animation" v-animate="'fadeInLeft'">一次买断·终身受益大幅</div>
+                <div class="u-text-2 p-animation" v-animate="'fadeInRight'">提高日常收益自由交易无忧畅玩</div>
             </div>
         </div>
         <!-- 全新门派 -->
         <div class="m-new-sect">
-            <div class="m-classify p-animation" v-animate="'bounceIn'">
-                <img :src="imgurl + '1menpai/1xmp.png'" />
+            <div class="m-classify">
+                <img :src="imgurl + '1menpai/1xmp.png'" class="p-animations" v-animate="'fadeInDown'" />
             </div>
-            <img :src="imgurl + '1menpai/cylh.png'" class="u-cylh" />
+            <img :src="imgurl + '1menpai/cylh.png'" class="u-cylh p-animations" v-animate="'fadeInDown'" />
             <div class="u-content">
                 <img :src="imgurl + '1menpai/mpts.png'" class="u-mpts" />
                 <div class="u-text">
                     新门派「苍云」具有擎刀、擎盾多体态的输出形式、攻防兼备，有较强输出压制能力的同时，兼具控制与防守能力。使用全新镇派系统，苍云侠士需取舍关键层镇派来构建缘起专属武学体系，灵活搭配以探索克敌之道。
                 </div>
-                <img :src="imgurl + '1menpai/xf-1.png'" class="u-tg" />
-                <img :src="imgurl + '1menpai/xf-4.png'" class="u-fs" />
+                <img :src="imgurl + '1menpai/xf-1.png'" class="u-tg p-animations" v-animate="'fadeInLeft'" />
+                <img :src="imgurl + '1menpai/xf-4.png'" class="u-fs p-animations" v-animate="'fadeInRight'" />
             </div>
         </div>
         <!-- 全新秘境 -->
         <div class="m-new-secret">
             <div class="m-classify">
-                <img :src="imgurl + '2mijing/qxmj.png'" />
+                <img :src="imgurl + '2mijing/qxmj.png'" class="p-animations" v-animate="'fadeInDown'" />
             </div>
             <div class="u-top">
-                <img :src="imgurl + '2mijing/fxdxc.png'" class="u-img" />
-                <div class="u-text">
+                <img :src="imgurl + '2mijing/fxdxc.png'" class="u-img p-animations" v-animate="'fadeInUp'" />
+                <div class="u-text p-animations" v-animate="'bounce'">
                     史朝义受安庆绪重金及权位待遇拉拢，奉其密令前往风雪稻香村暗会前任无名王毛仲，合谋杀害安禄山之计。<br />
                     唐简、李复等人即追踪而至，此外，为寻觅身世之谜的遗孤陈月也来到此处，穆玄英和莫雨为护其周全，也不约而同赶往此处。<br />多股势力纷至沓来，这白雪皑皑之下的山村已然无法保持往日的宁静……
                 </div>
@@ -48,7 +48,7 @@
                 <div class="u-boss">
                     <img
                         :src="imgurl + '2mijing/' + boss[active_boss].img"
-                        class="u-boss-img p-animation"
+                        class="u-boss-img p-animations"
                         v-animate="'bounceIn'"
                     />
                     <img :src="imgurl + '2mijing/jt.png'" class="u-left" @click="changeBoss(1)" />
@@ -59,10 +59,10 @@
         <!-- 全新奇遇 -->
         <div class="m-new-encounter">
             <div class="m-classify">
-                <img :src="imgurl + '3qiyu/qxjy.png'" />
+                <img :src="imgurl + '3qiyu/qxjy.png'" class="p-animations" v-animate="'fadeInDown'" />
             </div>
-            <img :src="imgurl + '3qiyu/scqy.png'" class="u-scqy" />
-            <div class="u-yljs">
+            <img :src="imgurl + '3qiyu/scqy.png'" class="u-scqy p-animations" v-animate="'fadeInUp'" />
+            <div class="u-yljs p-animations" v-animate="'fadeInLeft'">
                 <div class="u-left">
                     <img :src="imgurl + '3qiyu/yanlong.png'" />
                 </div>
@@ -71,7 +71,7 @@
                     <div class="u-text">玄骨觅巧匠，偃甲试机锋</div>
                 </div>
             </div>
-            <div class="u-gyfy">
+            <div class="u-gyfy p-animations" v-animate="'fadeInRight'">
                 <div class="u-left">
                     <img :src="imgurl + '3qiyu/guyuan.png'" />
                 </div>
@@ -80,7 +80,7 @@
                     <div class="u-text">游子归来意，故园满离情</div>
                 </div>
             </div>
-            <div class="u-xzcg">
+            <div class="u-xzcg p-animations" v-animate="'fadeInLeft'">
                 <div class="u-left">
                     <img :src="imgurl + '3qiyu/xiazhe.png'" />
                 </div>
@@ -89,9 +89,9 @@
                     <div class="u-text">浩荡江湖远，且念同路谊，且记桃李情</div>
                 </div>
             </div>
-            <img :src="imgurl + '3qiyu/cwqy.png'" class="u-cwqy" />
+            <img :src="imgurl + '3qiyu/cwqy.png'" class="u-cwqy p-animations" v-animate="'fadeInUp'" />
             <!-- 宠物奇遇 -->
-            <div class="u-pet-list">
+            <div class="u-pet-list p-animations" v-animate="'fadeInLeft'">
                 <div class="u-pet-item">
                     <img :src="imgurl + '3qiyu/dd.png'" />
                     <div class="u-tips-img">
@@ -115,19 +115,19 @@
         <!-- 全新玩法 -->
         <div class="m-new-play">
             <div class="m-classify">
-                <img :src="imgurl + '4wanfa/qxwf.png'" />
+                <img :src="imgurl + '4wanfa/qxwf.png'" class="p-animations" v-animate="'fadeInDown'" />
             </div>
             <div class="u-content">
-                <div class="u-item">
+                <div class="u-item p-animations" v-animate="'fadeInLeft'">
                     <img :src="imgurl + '4wanfa/qycz.png'" class="u-top-img" />
-                    <img :src="imgurl + '4wanfa/qycz-bg.png'" />
+                    <img :src="imgurl + '4wanfa/qycz-bg.png'" class="u-bg-img" />
                     <div class="u-text">
                         侠士的一天都在干嘛？那当然是起床先去广场做一下节日任务，再去宠物房摸两把小宠物，接着搂两杆子，最后美滋滋叫上亲友一起搓麻将啦！麻将玩法趣味来袭！亲友凑桌，随时随地热血开玩！
                     </div>
                 </div>
-                <div class="u-item">
+                <div class="u-item p-animations" v-animate="'fadeInRight'">
                     <img :src="imgurl + '4wanfa/hhdj.png'" class="u-top-img" />
-                    <img :src="imgurl + '4wanfa/hgdj-bg.png'" />
+                    <img :src="imgurl + '4wanfa/hgdj-bg.png'" class="u-bg-img" />
                     <div class="u-text">
                         横戈荡决攻守博弈再度升级，据点归属，军械竞逐，巨大的城主模拟器！诚邀侠士来大唐当一回城主吧！各个据点将新增帮会归属，排兵布局、军械攻守全部都听你的！
                     </div>
@@ -137,9 +137,9 @@
         <!-- 更多精彩 -->
         <div class="m-more">
             <div class="m-classify">
-                <img :src="imgurl + '5gengduo/gdjc.png'" />
+                <img :src="imgurl + '5gengduo/gdjc.png'" class="p-animations" v-animate="'fadeInDown'" />
             </div>
-            <div class="u-img-list">
+            <div class="u-img-list p-animations" v-animate="'fadeInUp'">
                 <img :src="imgurl + '5gengduo/sbty.png'" />
                 <img :src="imgurl + '5gengduo/xyztg.png'" />
                 <img :src="imgurl + '5gengduo/tbkf.png'" />
@@ -149,7 +149,7 @@
                 <img :src="imgurl + '5gengduo/sl.png'" />
             </div>
             <div class="u-footer">
-                <img :src="imgurl + '5gengduo/footer.png'" />
+                <img :src="imgurl + '5gengduo/footer.png'" class="p-animations" v-animate="'fadeInDown'" />
             </div>
         </div>
     </div>
@@ -191,24 +191,19 @@ export default {
                         }
                     }
                 };
-
+                window.addEventListener("scroll", binding.addClass, true);
                 binding.addClass();
             },
-            unbind: function (el, binding) {},
+            unbind: function (el, binding) {
+                if (binding.addClass) {
+                    window.removeEventListener("scroll", binding.addClass);
+                }
+            },
         },
     },
     computed: {},
     watch: {},
     methods: {
-        mouseover(val) {
-            // console.log(val)
-            // this.navActive=this.navActive+','+val
-            this.mouseoverActive = val;
-        },
-        mouseout() {
-            // console.log('likai')
-            this.mouseoverActive = null;
-        },
         init: function () {
             getTopic(KEY).then((res) => {
                 console.log(res);
