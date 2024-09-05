@@ -156,7 +156,7 @@
 </template>
 
 <script>
-const KEY = "yuanqicangyun";
+const KEY = "cangxuelongcheng";
 import { getTopic } from "@/service/topic";
 export default {
     name: "Index",
@@ -164,7 +164,7 @@ export default {
     components: {},
     data: function () {
         return {
-            imgurl: "https://img.jx3box.com/topic/yuanqicangyun/",
+            imgurl: "https://img.jx3box.com/topic/cangxuelongcheng/",
             active_boss: 1,
             boss: [
                 { img: "dzyh.png", bgUrl: "dzyh-bg.png" },
