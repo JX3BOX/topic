@@ -12,8 +12,8 @@
             <div class="u-box">
                 <img :src="imgurl + '0top/qymd.png'" width="100%" class="p-animation" v-animate="'fadeInDown'" />
                 <img :src="imgurl + '0top/fz.png'" class="u-img p-animation" v-animate="'fadeInUp'" />
-                <div class="u-text-1 p-animation" v-animate="'fadeInLeft'">一次买断·终身受益大幅</div>
-                <div class="u-text-2 p-animation" v-animate="'fadeInRight'">提高日常收益自由交易无忧畅玩</div>
+                <div class="u-text-1 p-animation" v-animate="'fadeInLeft'">一次买断·终身受益</div>
+                <div class="u-text-2 p-animation" v-animate="'fadeInRight'">大幅提高日常收益自由交易无忧畅玩</div>
             </div>
         </div>
         <!-- 全新门派 -->
