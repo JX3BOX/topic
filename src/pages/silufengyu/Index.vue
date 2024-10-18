@@ -155,5 +155,5 @@ export default {
 </script>
 
 <style lang="less">
-@import "~@/assets/css/wujie/index.less";
+@import "~@/assets/css/silufengyu/index.less";
 </style>

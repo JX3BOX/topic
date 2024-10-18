@@ -22,7 +22,7 @@ export default {
         return {};
     },
     provide: {
-        __imgRoot: __imgPath + "topic/wujie/",
+        __imgRoot: __imgPath + "topic/silufengyu/",
     },
     computed: {
         page_name: function () {
@@ -33,7 +33,7 @@ export default {
     methods: {},
     filters: {},
     created: function () {
-        postStat("topic", "wujie");
+        postStat("topic", "silufengyu");
     },
     mounted: function () {},
 };
