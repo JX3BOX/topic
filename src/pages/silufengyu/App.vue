@@ -14,6 +14,8 @@
 <script>
 import { postStat } from "@jx3box/jx3box-common/js/stat";
 import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
+const isDev = process.env.NODE_ENV === "development";
+const imgPath = isDev ? "/tmp/" :  __imgPath + "topic/silufengyu/"
 export default {
     name: "App",
     props: [],
@@ -22,7 +24,7 @@ export default {
         return {};
     },
     provide: {
-        __imgRoot: __imgPath + "topic/silufengyu/",
+        __imgRoot: imgPath
     },
     computed: {
         page_name: function () {
