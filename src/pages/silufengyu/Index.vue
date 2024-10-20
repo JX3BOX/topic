@@ -1,75 +1,61 @@
 <template>
-    <div class="m-index">
-        <div class="m-top"><img class="u-kv p-animations fadeInDown" :src="`${imgPath}/kv.jpg`" /></div>
-        <div class="m-excessive">
-            <img class="u-img" :src="`${imgPath}/excessive1-l.png`" />
-            <img class="u-img" :src="`${imgPath}/excessive1-r.png`" />
-            <div class="u-img-line"><img :src="`${imgPath}/excessive-line.png`" /></div>
-        </div>
-        <!-- 多图切换区 -->
-        <div class="m-two">
-            <div class="u-switch">
-                <div
-                    class="u-round"
-                    v-for="item in 4"
-                    :key="item"
-                    :class="{ solid: active === item - 1 }"
-                    @click="setActiveImg(item - 1)"
-                ></div>
+    <div class="container">
+        <!-- 主横幅 -->
+        <section class="banner">
+            <img class="banner__logo" :src="buildImgUrl('bg/banner__title.png')" alt="丝路风语" />
+        </section>
+        <!-- 剧情推进模块 -->
+        <section class="story-progress">
+            <!-- 包裹图片和叠加文本 -->
+            <div class="story-progress__content">
+                <!-- 在图片上叠加的文本 -->
+                <div class="story-progress__text">
+                    <h2 class="u-title">剧情推进</h2>
+                    <p class="u-desc">
+                        振武军探得史朝义已派特使潜入回鹘，另一边吐蕃频扰河西，甚至已取得丝绸之路南道的主导权。九天深感西域的动向将直接影响大唐与周边民族的格局，可如今的大唐岌岌可危，西域形势更是扑朔迷离。
+                    </p>
+                </div>
             </div>
+        </section>
+        <!--pr1  资料片速览 -->
+        <section class="rsc-overview">
+            <div class="rsc-overview__content m-section">
+                <block-title :order="1"></block-title>
 
-            <el-carousel ref="imgCarousel" height="1073px" autoplay direction="vertical" @change="imgChange">
-                <el-carousel-item v-for="item in 4" :key="item">
-                    <img :src="`${imgPath}/${item}.jpg`" />
-                </el-carousel-item>
-            </el-carousel>
-        </div>
-        <!-- 分割2 -->
-        <div class="m-excessive2">
-            <img class="u-img" :src="`${imgPath}/excessive2.png`" />
-        </div>
-        <!-- 5分区框图 -->
-        <div class="m-three">
-            <div class="u-main-box">
-                <div class="u-video" v-html="video"></div>
+                <ul class="expansion-overview__list">
+                    <li class="expansion-overview__item">
+                        <img :src="buildImgUrl('001/pr1u1.png')" alt="新地图" class="expansion-overview__image" />
+                    </li>
+                    <li class="expansion-overview__item">
+                        <img :src="buildImgUrl('001/pr1u2.png')" alt="新门派" class="expansion-overview__image" />
+                    </li>
+                    <li class="expansion-overview__item">
+                        <img :src="buildImgUrl('001/pr1u3.png')" alt="新副本" class="expansion-overview__image" />
+                    </li>
+                    <li class="expansion-overview__item">
+                        <img :src="buildImgUrl('001/pr1u4.png')" alt="颜值优化" class="expansion-overview__image" />
+                    </li>
+                    <li class="expansion-overview__item">
+                        <img :src="buildImgUrl('001/pr1u5.png')" alt="引擎升级" class="expansion-overview__image" />
+                    </li>
+                </ul>
+
+                <!-- 在图片上叠加的文本 -->
             </div>
-            <div class="u-five-box">
-                <div
-                    v-for="(item, index) in videoList"
-                    :key="index"
-                    @click="chooseImage(index)"
-                    class="u-item-box"
-                    :class="boxActive === index ? 'u-item-box-active' : ''"
-                >
-                    <img class="u-img" :src="item.img" />
-                </div>
-                <div class="u-item-box" @click="getMoreVideos">
-                    <img class="u-img" :src="`${imgPath}/five-6.png`" />
-                </div>
-            </div>
-        </div>
-        <!-- 分割3 -->
-        <div class="m-excessive3">
-            <img class="u-img" :src="`${imgPath}/excessive3.png`" />
-        </div>
-        <!-- 攻略 -->
-        <div class="m-four">
-            <img :src="`${imgPath}/qrcode_index_box.png`" alt />
-        </div>
+        </section>
     </div>
 </template>
 
 <script>
-const KEY = "wujie";
-import { getTopic } from "@/service/topic";
-import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
-
+import BlockTitle from "./components/title.vue";
 export default {
     name: "Index",
-    components: {},
+    components: {
+        BlockTitle,
+    },
+    inject: ["__imgRoot"],
     data: function () {
         return {
-            imgPath: __imgPath + "topic/" + KEY,
             active: 0,
             timer: null,
             videoList: [],
@@ -117,13 +103,7 @@ export default {
     },
     watch: {},
     methods: {
-        init: function () {
-            getTopic(KEY).then((res) => {
-                this.raw = res.data.data;
-                this.videoList = this.data.video;
-                this.chooseImage(0);
-            });
-        },
+        init: function () {},
         hanldMask(event) {
             let x = -event.clientX / 150;
             let y = -event.clientY / 150;
@@ -138,13 +118,15 @@ export default {
         setActiveImg(index) {
             this.$refs.imgCarousel.setActiveItem(index);
         },
-
         chooseImage(index) {
             this.boxActive = index;
             this.video = this.videoList[index].link;
         },
         getMoreVideos() {
             window.open("https://space.bilibili.com/2066064028");
+        },
+        buildImgUrl(url) {
+            return this.__imgRoot + url;
         },
     },
     mounted: function () {

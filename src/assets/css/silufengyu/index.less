@@ -1,0 +1,130 @@
+// 仅本地测试使用！！！
+@kv_silufengyu : '/tmp';
+body{
+    min-height: 3000px;
+}
+
+@import '../../../../node_modules/csslab/reset.less';
+@import './module.less';
+
+// 整体
+// ====================
+    .container{
+        padding-top:@header-height;
+        width: 1920px;
+        margin: 0 auto;
+        font-family: "Microsoft YaHei", sans-serif;
+    }
+
+    // 主KV
+    .banner {
+        background-image: url('@{kv_silufengyu}/bg/banner__bg.jpg');
+        background-repeat: no-repeat;
+        background-position: center top;
+        height: 1200px;
+    }
+
+    .banner__logo{
+        display: block;
+        margin: 0 auto;
+        padding-top:560px;
+    }
+
+
+/* 剧情推进模块 */
+// --------------------
+    .story-progress {
+        height: 300px;
+        background-image: url('@{kv_silufengyu}/bg/story-progress__bg.jpg');
+        background-position: center top;
+        background-repeat: no-repeat;
+    }
+
+    .story-progress__content {
+        background:url('@{kv_silufengyu}/bg/story-progress__img.png') no-repeat center top;
+        background-origin:content-box;
+        width: 1039px;
+        height: 218px;
+        margin: 0 auto;
+        padding-top: 46px;
+    }
+
+    /* 叠加在图片上的文本 */
+    .story-progress__text {
+        padding-left:30px;
+        padding-top:30px;
+        color: #7a1f17;
+        width: 380px;
+
+        .u-title{
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .u-desc{
+            margin-top:20px;
+            font-size: 16px;
+        }
+    }
+
+
+/* 剧情推进模块 */
+// -------------------
+.rsc-overview{
+    padding-top:70px;
+    background-image: url("@{kv_silufengyu}/bg/pr1__bg.jpg");
+}
+
+.expansion-overview__list {
+    margin-top:60px;
+
+    display: flex;
+    justify-content: center;
+    gap:20px;
+
+    // text-align: center;
+}
+
+// .expansion-overview__item{
+//     display: inline-block;
+//     margin-right:20px;
+//     &:last-child{
+//         margin-right:0;
+//     }
+// }
+
+
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+        transform: translateY(-30%);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.expansion-overview__image{
+    .size(189px,310px);
+    animation: fadeIn 0.5s ease-in-out forwards;
+    opacity: 0;
+}
+
+.expansion-overview__item{
+    &:nth-child(1) .expansion-overview__image{
+        animation-delay: 0.1s;
+    }
+    &:nth-child(2) .expansion-overview__image{
+        animation-delay: 0.2s;
+    }
+    &:nth-child(3) .expansion-overview__image{
+        animation-delay: 0.3s;
+    }
+    &:nth-child(4) .expansion-overview__image{
+        animation-delay: 0.4s;
+    }
+    &:nth-child(5) .expansion-overview__image{
+        animation-delay: 0.5s;
+    }
+}

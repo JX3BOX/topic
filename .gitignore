@@ -25,4 +25,4 @@ yarn-error.log*
 .user.ini
 .nuxt
 
-public/tmp
+public/tmp/*
