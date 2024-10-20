@@ -10,18 +10,6 @@
         </section>
 
         <!-- 剧情推进模块 -->
-        <!-- <section
-            class="story-progress"
-            style="background: url('/tmp/bg/story-progress__bg.jpg') no-repeat center; background-size: cover"
-        >
-            <div class="story-progress__content">
-                <img src="/tmp/bg/story-progress__img.png" alt="剧情推进" class="story-progress__image" />
-                <div class="story-progress__text">
-                    <h2>剧情推进</h2>
-                    <p>振武军探得史朝义已派特使潜入回鹘，另一边吐蕃频扰河西，甚至已取得丝绸之路南道的主导权。九天深感西域的动向将直接影响大唐与周边民族的格局，可如今的大唐岌岌可危，西域形势更是扑朔迷离。</p>
-                </div>
-            </div>
-        </section> -->
 
         <section class="story-progress">
             <div class="story-progress__content">
@@ -31,7 +19,9 @@
                     <!-- 在图片上叠加的文本 -->
                     <div class="story-progress__text-overlay">
                         <h2>剧情推进</h2>
-                        <p>振武军探得史朝义已派特使潜入回鹘，另一边吐蕃频扰河西，甚至已取得丝绸之路南道的主导权。九天深感西域的动向将直接影响大唐与周边民族的格局，可如今的大唐岌岌可危，西域形势更是扑朔迷离。</p>
+                        <p>
+                            振武军探得史朝义已派特使潜入回鹘，另一边吐蕃频扰河西，甚至已取得丝绸之路南道的主导权。九天深感西域的动向将直接影响大唐与周边民族的格局，可如今的大唐岌岌可危，西域形势更是扑朔迷离。
+                        </p>
                     </div>
                 </div>
             </div>
