@@ -45,6 +45,10 @@
     background-size: cover;
     position: relative;
     background-position: center; /* 调整背景人物位置 */
+    // .pr;
+    // .w(100%);
+    // .auto(x);
+    // max-width: 1920px;
 }
 
 /* 保证内容在横幅内居中 */
@@ -64,7 +68,7 @@
 .title-image {
     width: 100%;
     max-width: 900px;
-    height: auto;
+    // height: auto;
     // width: 1270px;
     // height: 489px;
     // top: 551px;
@@ -77,13 +81,11 @@
     .title-image {
         width: 120%; /* 在小屏幕上让标题图片更大 */
     }
-
 }
-
 
 /* 剧情推进模块 */
 .story-progress {
-    background-image: url('/tmp/bg/story-progress__bg.jpg');
+    background-image: url("/tmp/bg/story-progress__bg.jpg");
     background-size: cover;
     background-position: center;
     max-width: 1920px;
@@ -123,9 +125,9 @@
     top: 15%;
     left: 8%;
     transform: translate(-20%, -20%); /* 确保文本居中 */
-    color: #7A1F17;
+    color: #7a1f17;
     text-align: left;
-    background-color:transparent;
+    background-color: transparent;
     padding: 10px 20px;
     border-radius: 5px;
     z-index: 1; /* 保证文本在图片上方 */
@@ -135,16 +137,89 @@
 .story-progress__text-overlay h2 {
     font-size: 24px;
     margin-bottom: 10px;
-    font-family: 'Microsoft YaHei', sans-serif;
+    font-family: "Microsoft YaHei", sans-serif;
     font-weight: 700;
     line-height: 31.68px;
-    color: #7A1F17;
+    color: #7a1f17;
 }
 
 .story-progress__text-overlay p {
     font-size: 16px;
     font-weight: 400;
     line-height: 21.12px;
-    font-family: 'Microsoft YaHei', sans-serif;
-    color: #7A1F17;
+    font-family: "Microsoft YaHei", sans-serif;
+    color: #7a1f17;
+}
+
+/* 剧情推进模块 */
+.rsc-overview{
+    background-image: url("/tmp/bg/pr1__bg.jpg");
+    background-size: cover;
+    background-position: center;
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 218px; /* 设置模块的高度 */
+}
+
+.expansion-overview {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.expansion-overview__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.rsc-overview__title {
+    margin-right: 10px; /* 两张图片之间的间距 */
+    max-width: 80px; /* 限制第一张图片的宽度 */
+}
+
+.rsc-overview__subtitle {
+    max-width: 200px; /* 限制第二张图片的宽度 */
+}
+
+.expansion-overview__list {
+    list-style: none; /* 移除默认的列表样式 */
+    display: flex; /* 使用 flexbox 布局 */
+    justify-content: space-around; /* 均匀分布项目 */
+    align-items: center; /* 垂直居中 */
+    padding: 0;
+    margin: 0;
+}
+
+.expansion-overview__item {
+    max-width: 200px; /* 限制每个项目的最大宽度 */
+    text-align: center;
+}
+
+.expansion-overview__image {
+    width: 100%; /* 图片宽度为父元素宽度 */
+    height: auto; /* 保持图片比例 */
+    border: 2px solid #7a1f17; /* 设置边框，颜色为深红色 */
+    border-radius: 10px; /* 边框圆角 */
+    margin-bottom: 10px; /* 图片与文字之间的间距 */
+}
+
+.expansion-overview__text {
+    font-size: 16px;
+    color: #7a1f17; /* 文本颜色为深红色 */
+    font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+    .expansion-overview__list {
+        flex-direction: column; /* 在小屏幕上改为垂直布局 */
+    }
+
+    .expansion-overview__item {
+        margin-bottom: 20px; /* 每个项目之间的间距 */
+    }
 }

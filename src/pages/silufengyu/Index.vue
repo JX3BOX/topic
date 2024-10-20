@@ -26,6 +26,37 @@
                 </div>
             </div>
         </section>
+        <!--pr1  资料片速览 -->
+        <section class="rsc-overview">
+            <div class="rsc-overview__content m-section">
+                <!-- 包裹图片和叠加文本 -->
+                <div class="expansion-overview__title">
+                    <img src="/tmp/title/title1.png" alt="01" class="rsc-overview__title" />
+                    <img src="/tmp/subtitle/subtitle1.png" alt="资料片预览" class="rsc-overview__subtitle" />
+                </div>
+                <section class="expansion-overview">
+                    <ul class="expansion-overview__list">
+                        <li class="expansion-overview__item">
+                            <img src="/tmp/001/pr1u1.png" alt="新地图" class="expansion-overview__image" />
+                        </li>
+                        <li class="expansion-overview__item">
+                            <img src="/tmp/001/pr1u2.png" alt="新门派" class="expansion-overview__image" />
+                        </li>
+                        <li class="expansion-overview__item">
+                            <img src="/tmp/001/pr1u3.png" alt="新副本" class="expansion-overview__image" />
+                        </li>
+                        <li class="expansion-overview__item">
+                            <img src="/tmp/001/pr1u4.png" alt="颜值优化" class="expansion-overview__image" />
+                        </li>
+                        <li class="expansion-overview__item">
+                            <img src="/tmp/001/pr1u5.png" alt="引擎升级" class="expansion-overview__image" />
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- 在图片上叠加的文本 -->
+            </div>
+        </section>
     </div>
 </template>
 
