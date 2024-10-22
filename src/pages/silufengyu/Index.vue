@@ -92,13 +92,13 @@
                 <!-- 菜单导航栏 -->
                 <div class="nav">
                     <div
-                        v-for="(tab, index) in tabs"
-                        :key="index"
+                        v-for="tab in tabs"
+                        :key="tab.key"
                         class="tab"
-                        :class="{ active: activeTab === index }"
-                        @click="activeTab = index"
+                        :class="{ active: activeTab === tab.key }"
+                        @click="activeTab = tab.key"
                     >
-                        {{ tab }}
+                        <img :src="buildTabImgUrl(tab.key)"  class="tab_img"/>
                     </div>
                 </div>
 
@@ -121,116 +121,128 @@
 import BlockTitle from "./components/title.vue";
 
 export default {
-  name: "Index",
-  components: {
-    BlockTitle,
-  },
-  inject: ["__imgRoot"],
-  data() {
-    return {
-      imgurl: "./tmp/", // 你的图片路径
-      currentIndex: 0, // 当前轮播索引
-      images: ["002/mainpic1.png", "002/mainpic2.png", "002/mainpic3.png"], // 图片路径数组
-      titles: ["河西瀚漠", "西域！", "开放！"], // 对应的标题数组
-      descriptions: [
-        "视线从中原转向有着沙漠和雪山的西域之地，打造前所未有的西域开放大世界！",
-        "携手敦煌博物馆和非遗保护中心的赵虎主任细细雕琢出原汁原味的“丝绸之路”",
-        "敦煌石窟、汉长城遗址、沙尘暴、哈密瓜田……独属于丝绸之路的风土人情将一幕幕展开，等你自由探索",
-      ], // 描述内容数组
-      activeTab: 0, // 当前激活的选项卡
-      tabs: ["武学", "校服", "场景", "跟宠", "群像", "武器"], // 菜单选项
-      active: 0,
-      timer: null,
-      videoList: [],
-      video: "",
-      boxActive: 0,
-    };
-  },
-  computed: {
-    currentImage() {
-      return this.buildImgUrl(this.images[this.currentIndex]);
+    name: "Index",
+    components: {
+        BlockTitle,
     },
-    currentTitle() {
-      return this.titles[this.currentIndex];
-    },
-    currentDescription() {
-      return this.descriptions[this.currentIndex];
-    },
+    inject: ["__imgRoot"],
     data() {
-      let _data = {};
-      this.raw.forEach((item) => {
-        if (!_data[item.subtype]) {
-          _data[item.subtype] = [];
-        }
-        _data[item.subtype].push(item);
-      });
-      return _data;
-    },
-  },
-  mounted() {
-    this.startCarousel();
-    this.init();
-    window.addEventListener("mousemove", this.hanldMask);
-  },
-  methods: {
-    buildImgUrl(path) {
-      return `${this.imgurl}${path}`;
-    },
-    startCarousel() {
-      setInterval(() => {
-        this.currentIndex = (this.currentIndex + 1) % this.images.length;
-      }, 15000); // 每15秒切换一次
-    },
-    init() {
-      // 你的初始化逻辑
-    },
-    hanldMask(event) {
-      let x = -event.clientX / 150;
-      let y = -event.clientY / 150;
-      if (this.$refs.mark) {
-        this.$refs.mark.style.backgroundPositionX = x + "px";
-        this.$refs.mark.style.backgroundPositionY = y + "px";
-      }
-    },
-    imgChange(index) {
-      this.active = index;
-    },
-    setActiveImg(index) {
-      this.$refs.imgCarousel.setActiveItem(index);
-    },
-    chooseImage(index) {
-      this.boxActive = index;
-      this.video = this.videoList[index].link;
-    },
-    getMoreVideos() {
-      window.open("https://space.bilibili.com/2066064028");
-    },
-  },
-  directives: {
-    animate: {
-      inserted(el, binding) {
-        binding.addClass = () => {
-          const { top } = el.getBoundingClientRect();
-          const h = document.documentElement.clientHeight || document.body.clientHeight;
-          if (top < h) {
-            if (!el.className.includes(binding.value)) {
-              el.className = binding.value + " " + el.className;
-            }
-            if (binding.addClass) {
-              window.removeEventListener("scroll", binding.addClass);
-            }
-          }
+        return {
+            imgurl: "./tmp/", // 你的图片路径
+            currentIndex: 0, // 当前轮播索引
+            images: ["002/mainpic1.png", "002/mainpic2.png", "002/mainpic3.png"], // 图片路径数组
+            titles: ["河西瀚漠", "西域！", "开放！"], // 对应的标题数组
+            descriptions: [
+                "视线从中原转向有着沙漠和雪山的西域之地，打造前所未有的西域开放大世界！",
+                "携手敦煌博物馆和非遗保护中心的赵虎主任细细雕琢出原汁原味的“丝绸之路”",
+                "敦煌石窟、汉长城遗址、沙尘暴、哈密瓜田……独属于丝绸之路的风土人情将一幕幕展开，等你自由探索",
+            ], // 描述内容数组
+            activeTab: "wuxue", // 当前激活的选项卡
+            tabs: [
+                { key: "wuxue", label: "武学" },
+                { key: "xiaofu", label: "校服" },
+                { key: "changjing", label: "场景" },
+                { key: "genchong", label: "跟宠" },
+                { key: "qunxiang", label: "群像" },
+                { key: "wuqi", label: "武器" },
+            ],
+            active: 0,
+            timer: null,
+            videoList: [],
+            video: "",
+            boxActive: 0,
         };
-        window.addEventListener("scroll", binding.addClass, true);
-        binding.addClass();
-      },
-      unbind(el, binding) {
-        if (binding.addClass) {
-          window.removeEventListener("scroll", binding.addClass);
-        }
-      },
     },
-  },
+    computed: {
+        currentImage() {
+            return this.buildImgUrl(this.images[this.currentIndex]);
+        },
+        currentTitle() {
+            return this.titles[this.currentIndex];
+        },
+        currentDescription() {
+            return this.descriptions[this.currentIndex];
+        },
+        data() {
+            let _data = {};
+            this.raw.forEach((item) => {
+                if (!_data[item.subtype]) {
+                    _data[item.subtype] = [];
+                }
+                _data[item.subtype].push(item);
+            });
+            return _data;
+        },
+    },
+    mounted() {
+        this.startCarousel();
+        this.init();
+        window.addEventListener("mousemove", this.hanldMask);
+    },
+    methods: {
+        buildTabImgUrl(tab){
+            const imgUrl=this.activeTab===tab?tab+"_active":tab
+            return this.buildImgUrl(`004/pr4tab/${imgUrl}.png`);
+        },
+
+        buildImgUrl(path) {
+            return `${this.imgurl}${path}`;
+        },
+        startCarousel() {
+            setInterval(() => {
+                this.currentIndex = (this.currentIndex + 1) % this.images.length;
+            }, 15000); // 每15秒切换一次
+        },
+        init() {
+            // 你的初始化逻辑
+        },
+        hanldMask(event) {
+            let x = -event.clientX / 150;
+            let y = -event.clientY / 150;
+            if (this.$refs.mark) {
+                this.$refs.mark.style.backgroundPositionX = x + "px";
+                this.$refs.mark.style.backgroundPositionY = y + "px";
+            }
+        },
+        imgChange(index) {
+            this.active = index;
+        },
+        setActiveImg(index) {
+            this.$refs.imgCarousel.setActiveItem(index);
+        },
+        chooseImage(index) {
+            this.boxActive = index;
+            this.video = this.videoList[index].link;
+        },
+        getMoreVideos() {
+            window.open("https://space.bilibili.com/2066064028");
+        },
+    },
+    directives: {
+        animate: {
+            inserted(el, binding) {
+                binding.addClass = () => {
+                    const { top } = el.getBoundingClientRect();
+                    const h = document.documentElement.clientHeight || document.body.clientHeight;
+                    if (top < h) {
+                        if (!el.className.includes(binding.value)) {
+                            el.className = binding.value + " " + el.className;
+                        }
+                        if (binding.addClass) {
+                            window.removeEventListener("scroll", binding.addClass);
+                        }
+                    }
+                };
+                window.addEventListener("scroll", binding.addClass, true);
+                binding.addClass();
+            },
+            unbind(el, binding) {
+                if (binding.addClass) {
+                    window.removeEventListener("scroll", binding.addClass);
+                }
+            },
+        },
+    },
 };
 </script>
 
