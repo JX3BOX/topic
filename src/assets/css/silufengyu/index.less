@@ -1,130 +1,463 @@
 // 仅本地测试使用！！！
-@kv_silufengyu : '/tmp';
-body{
+@kv_silufengyu: "/tmp";
+body {
     min-height: 3000px;
 }
 
-@import '../../../../node_modules/csslab/reset.less';
-@import './module.less';
+@import "../../../../node_modules/csslab/reset.less";
+@import "./module.less";
 
 // 整体
 // ====================
-    .container{
-        padding-top:@header-height;
-        width: 1920px;
-        margin: 0 auto;
-        font-family: "Microsoft YaHei", sans-serif;
-    }
+.container {
+    padding-top: @header-height;
+    width: 1920px;
+    margin: 0 auto;
+    font-family: "Microsoft YaHei", sans-serif;
+}
 
-    // 主KV
-    .banner {
-        background-image: url('@{kv_silufengyu}/bg/banner__bg.jpg');
-        background-repeat: no-repeat;
-        background-position: center top;
-        height: 1200px;
-    }
+// 主KV
+.banner {
+    background-image: url("@{kv_silufengyu}/bg/banner__bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center top;
+    height: 1200px;
+}
 
-    .banner__logo{
-        display: block;
-        margin: 0 auto;
-        padding-top:560px;
-    }
-
+.banner__logo {
+    display: block;
+    margin: 0 auto;
+    padding-top: 560px;
+}
 
 /* 剧情推进模块 */
 // --------------------
-    .story-progress {
-        height: 300px;
-        background-image: url('@{kv_silufengyu}/bg/story-progress__bg.jpg');
-        background-position: center top;
-        background-repeat: no-repeat;
+.story-progress {
+    height: 300px;
+    background-image: url("@{kv_silufengyu}/bg/story-progress__bg.jpg");
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.story-progress__content {
+    background: url("@{kv_silufengyu}/bg/story-progress__img.png") no-repeat center top;
+    background-origin: content-box;
+    width: 1039px;
+    height: 218px;
+    margin: 0 auto;
+    padding-top: 46px;
+}
+
+/* 叠加在图片上的文本 */
+.story-progress__text {
+    padding-left: 30px;
+    padding-top: 30px;
+    color: #7a1f17;
+    width: 380px;
+
+    .u-title {
+        font-size: 24px;
+        font-weight: 700;
     }
 
-    .story-progress__content {
-        background:url('@{kv_silufengyu}/bg/story-progress__img.png') no-repeat center top;
-        background-origin:content-box;
-        width: 1039px;
-        height: 218px;
-        margin: 0 auto;
-        padding-top: 46px;
+    .u-desc {
+        margin-top: 20px;
+        font-size: 16px;
     }
-
-    /* 叠加在图片上的文本 */
-    .story-progress__text {
-        padding-left:30px;
-        padding-top:30px;
-        color: #7a1f17;
-        width: 380px;
-
-        .u-title{
-            font-size: 24px;
-            font-weight: 700;
-        }
-
-        .u-desc{
-            margin-top:20px;
-            font-size: 16px;
-        }
-    }
-
+}
 
 /* 剧情推进模块 */
 // -------------------
-.rsc-overview{
-    padding-top:70px;
+
+.rsc-overview {
+    padding-top: 70px;
     background-image: url("@{kv_silufengyu}/bg/pr1__bg.jpg");
+    background-repeat: no-repeat;
+    // background-size: cover; /* 让背景图片覆盖整个区域 */
+    width: 1920px;
+    height: 568px;
+    // background-position: 100% auto;
 }
 
 .expansion-overview__list {
-    margin-top:60px;
+    margin-top: 60px;
 
     display: flex;
     justify-content: center;
-    gap:20px;
+    gap: 20px;
 
     // text-align: center;
 }
 
-// .expansion-overview__item{
-//     display: inline-block;
-//     margin-right:20px;
-//     &:last-child{
-//         margin-right:0;
-//     }
-// }
-
-
 @keyframes fadeIn {
-    from{
+    from {
         opacity: 0;
         transform: translateY(-30%);
     }
-    to{
+    to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-.expansion-overview__image{
+.expansion-overview__image {
     .size(189px,310px);
     animation: fadeIn 0.5s ease-in-out forwards;
     opacity: 0;
 }
 
-.expansion-overview__item{
-    &:nth-child(1) .expansion-overview__image{
+.expansion-overview__item {
+    &:nth-child(1) .expansion-overview__image {
         animation-delay: 0.1s;
     }
-    &:nth-child(2) .expansion-overview__image{
+    &:nth-child(2) .expansion-overview__image {
         animation-delay: 0.2s;
     }
-    &:nth-child(3) .expansion-overview__image{
+    &:nth-child(3) .expansion-overview__image {
         animation-delay: 0.3s;
     }
-    &:nth-child(4) .expansion-overview__image{
+    &:nth-child(4) .expansion-overview__image {
         animation-delay: 0.4s;
     }
-    &:nth-child(5) .expansion-overview__image{
+    &:nth-child(5) .expansion-overview__image {
         animation-delay: 0.5s;
     }
 }
+
+
+// 第二部分 新地图上线
+.new-map {
+    margin-top: -71px;
+    padding-top: 70px;
+    background-repeat: no-repeat;
+    background-image: url("@{kv_silufengyu}/bg/pr2__bg.jpg");
+    width: 1920px;
+    height: 1100px;
+
+    // background-position: 100% auto;
+}
+
+.new-map__bg2 {
+    display: inline-block;
+    width: 1920px;
+    height: 900px;
+}
+
+.block-title2 {
+    display: inline-block;
+    position: relative;
+    top: 210px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.new-map__mainpic {
+    display: inline-block;
+    position: relative;
+    top: -630px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.new-map__textbg {
+    position: relative;
+    top: -655px;
+    left: -280px;
+}
+.new-map__text {
+    display: inline-block;
+    position: relative;
+    left: -710px;
+    top: -680px;
+    color: #7a1f17;
+    width: 380px;
+
+    .u-title {
+        font-size: 24px;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .u-desc {
+        margin-top: 20px;
+        font-size: 16px;
+        text-align: center;
+    }
+}
+
+.new-sec {
+    margin-top: -71px;
+    padding-top: 130px;
+    background-image: url("@{kv_silufengyu}/bg/new-sec__bg.jpg");
+    background-repeat: no-repeat;
+    // background-size: cover; /* 让背景图片覆盖整个区域 */
+    width: 1920px;
+    height: 1230px;
+}
+
+.new-sec__text {
+    display: inline-block;
+    position: relative;
+    left: 1169px;
+    top: -660px;
+    color: #7a1f17;
+    // width: 421px;
+
+    .u-title {
+        font-size: 64px;
+        font-weight: 700;
+        line-height: 84.47px;
+        text-align: left;
+        width: 421px;
+        height: 84px;
+    }
+    .u-desc {
+        width: 201px;
+        height: 36px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18.48px;
+        text-align: center;
+        color: #7a1f1780;
+    }
+    .new-sec__textP {
+        width: 421px;
+        height: 234px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18.48px;
+        text-align: left;
+        .u-desc1 {
+            margin-top: 20px;
+        }
+        .u-desc2 {
+            margin-top: 20px;
+        }
+        .u-desc3 {
+            margin-top: 20px;
+        }
+    }
+}
+
+.duanshi {
+    margin-top: -130px;
+    // padding-top: 130px;
+    background-image: url("@{kv_silufengyu}/bg/pr45__bg.jpg");
+    background-repeat: no-repeat;
+    // background-size: cover; /* 让背景图片覆盖整个区域 */
+    width: 1920px;
+    height: 1200px;
+
+    padding: 130px 0px 130px 0px;
+    gap: 60px;
+}
+.duanshi__mainpic {
+    padding-top: 60px;
+    width: 1920px;
+    height: 800px;
+    padding-bottom: 130px;
+}
+
+.m-six-gap {
+    .size(100%, 350px);
+    background: url("@{kv_riyuemingzun}/p5/p5-gap.png")top center no-repeat;
+}
+
+.m-six {
+    .size(100%, 1400px);
+    .pr;
+    background: url("@{kv_riyuemingzun}/p5/p5-bg2.png")top center no-repeat;
+
+
+    .u-title {
+        .size(1440px, 250px);
+        .auto(x);
+        background: url("@{kv_riyuemingzun}/p5/p5-title.png")top center no-repeat;
+        .mb(55px);
+    }
+
+    .m-boss {
+        .size(1080px, 100px);
+        .auto(x);
+        .flex;
+        overflow: hidden;
+        justify-content: space-between;
+        .mb(78px);
+
+        .u-profile {
+            .size(100px);
+            .pr;
+            .flex;
+            align-items: center;
+            justify-content: center;
+            .pointer;
+
+            &::after {
+                content: '';
+                .db;
+                .size(20px, 2px);
+                .pa;
+                top: 50px;
+                left: 110px;
+                background: url("@{kv_riyuemingzun}/p5/p5-cut.png")center no-repeat;
+            }
+
+            .u-icon {
+                .size(72px);
+                -webkit-transition: all 0.5s;
+                transition: all 0.5s;
+            }
+
+            &:hover {
+                .u-icon {
+                    scale: 1.05;
+                }
+            }
+        }
+
+        .u-profile-moon {
+            background: url("@{kv_riyuemingzun}/p5/p5-profile.png")center no-repeat;
+            background-size: 100%;
+        }
+
+        .u-profile-sun {
+            background: url("@{kv_riyuemingzun}/p5/p5-profile-full.png")center no-repeat;
+            background-size: 100%;
+        }
+
+    }
+
+    .m-fb {
+        .size(1440px, 720px);
+        .auto(x);
+
+
+        .u-name {
+            .size(706px, 245px);
+            .ml(35px);
+            .mb(22px);
+            background: url("@{kv_riyuemingzun}/p5/p5-name.png") no-repeat;
+        }
+
+        .u-text {
+            .w(570px);
+            color: #fff;
+            .fz(18px, 20px);
+            .mb(34px);
+            .ml(43px);
+        }
+
+        .m-buttonGroup {
+            .size(440px, 58px);
+            .flex;
+            justify-content: space-between;
+            .ml(43px);
+
+            .u-button {
+                .size(200px, 100%);
+                background: url("@{kv_riyuemingzun}/p3/p3-button.png")no-repeat;
+                opacity: 0.6;
+                .bold;
+                color: #fff;
+                .fz(22px, 54px);
+                letter-spacing: 1px;
+                text-align: center;
+                .pointer;
+                -webkit-transition: all 0.5s;
+                transition: all 0.5s;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+
+    }
+
+    .u-bg-all {
+        background: url("@{kv_riyuemingzun}/p5/p5-boss.png")right no-repeat;
+    }
+
+    .u-bg-hd {
+        background: url("@{kv_riyuemingzun}/p5/p5-pic-hd.png")850px top no-repeat;
+    }
+
+    .u-bg-sde {
+        background: url("@{kv_riyuemingzun}/p5/p5-pic-sde.png")750px top no-repeat;
+    }
+
+    .u-bg-zzlr {
+        background: url("@{kv_riyuemingzun}/p5/p5-pic-zzlr.png")800px top no-repeat;
+    }
+
+    .u-bg-nzls {
+        background: url("@{kv_riyuemingzun}/p5/p5-pic-nzls.png")750px top no-repeat;
+    }
+
+    .u-bg-qqz {
+        background: url("@{kv_riyuemingzun}/p5/p5-pic-qqz.png")850px top no-repeat;
+    }
+
+    .u-bg-lx {
+        background: url("@{kv_riyuemingzun}/p5/p5-pic-lx.png")750px top no-repeat;
+    }
+
+    .u-bg-wmg {
+        background: url("@{kv_riyuemingzun}/p5/p5-pic-wmg.png")800px top no-repeat;
+    }
+}
+
+
+
+/* pr4 页面布局 */
+.page-wrapper {
+  width: 100%;
+  padding: 20px;
+  background-color: #f7f7f7;
+}
+
+/* 顶部标题部分 */
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.page-title img {
+  width: 300px;
+}
+
+/* 导航菜单样式 */
+.nav {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.tab.active {
+  border-bottom: 2px solid #333;
+}
+
+/* 内容样式 */
+.content {
+  text-align: center;
+}
+
+/* 武学部分图片展示 */
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.full-skill-image {
+  width: 80%; /* 调整大小以适应布局 */
+  max-width: 1200px;
+}
+
