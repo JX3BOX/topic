@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "env DEV_SERVER=true vue-cli-service serve",
     "serve": "vue-cli-service serve",
-    "preview": "cross-env BUILD_MODE=preview vue-cli-service build",
+    "preview": "env BUILD_MODE=preview vue-cli-service build",
     "node+": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
