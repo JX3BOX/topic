@@ -1,6 +1,6 @@
 <template>
     <div class="m-mapshow">
-        <div class="u-mapbox" v-for="(item, i) in list" :key="i" ref="mapbox">
+        <div class="u-mapbox fadeIn" v-for="(item, i) in list" :key="i" ref="mapbox">
             <img :src="buildImageUrl(item)" alt="地图" class="u-pic" />
             <div class="u-textbox">
                 <span class="u-title">{{ item.title }}</span>
@@ -46,19 +46,15 @@ export default {
         slideShow(){
             const mapbox_list = this.$refs.mapbox;
             let i = 0;
-            // Immediately add fadeIn class to the first item
-            mapbox_list[i]?.classList.add("fadeIn");
-
+            mapbox_list[0].style.display = "block";
             setInterval(() => {
-                mapbox_list[i]?.classList.remove("fadeIn");
-
+                mapbox_list[i].style.display = "none";
                 if(i === mapbox_list.length - 1){
                     i = 0;
                 }else{
                     i++;
                 }
-
-                mapbox_list[i]?.classList.add("fadeIn");
+                mapbox_list[i].style.display = "block";
             }, 3000);
         },
     },
@@ -79,7 +75,7 @@ export default {
     .u-mapbox{
         .size(@w,@h);
         position: absolute;
-        opacity: 0;
+        display: none;
     }
 
     .u-pic {
@@ -116,13 +112,12 @@ export default {
         .auto(x);
     }
 
-    @keyframes fadeIn{
+    @keyframes mapFadeIn{
         from{opacity: 0;}
         to{opacity: 1;}
     }
     .fadeIn{
-        z-index: 10;
-        animation: fadeIn 0.4s ease-in-out forwards;
+        animation: mapFadeIn 0.4s ease-in-out forwards;
     }
 
 }

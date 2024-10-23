@@ -173,7 +173,6 @@ export default {
         },
     },
     mounted() {
-        this.startCarousel();
         this.init();
         window.addEventListener("mousemove", this.hanldMask);
     },
@@ -185,11 +184,6 @@ export default {
 
         buildImgUrl(path) {
             return `${this.__imgRoot}${path}`;
-        },
-        startCarousel() {
-            setInterval(() => {
-                this.currentIndex = (this.currentIndex + 1) % this.images.length;
-            }, 15000); // 每15秒切换一次
         },
         init() {
             // 你的初始化逻辑

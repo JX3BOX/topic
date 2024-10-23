@@ -108,6 +108,11 @@ body {
 }
 
 .expansion-overview__item {
+    transition: all 0.3s ease-in-out !important;
+    &:hover{
+        transform: scale(1.05) !important;
+    }
+
     &:nth-child(1) .expansion-overview__image {
         animation-delay: 0.1s;
     }

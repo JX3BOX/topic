@@ -10,6 +10,7 @@
 <script>
 export default {
     name: "duanshi",
+    components: {},
     inject: ["__imgRoot"],
     props: {
         pics: {
@@ -17,7 +18,6 @@ export default {
             default: () => [],
         },
     },
-    components: {},
     data: function () {
         return {
             activeIndex : 0,
@@ -77,9 +77,10 @@ export default {
     .u-img{
         position: absolute;
 
-        display: none;
+        transition: all 0.3s ease-in-out;
+        opacity: 0;
         &.show{
-            display: block;
+            opacity: 1;
         }
     }
 }
