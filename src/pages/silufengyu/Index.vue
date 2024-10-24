@@ -42,33 +42,27 @@
             </div>
         </section>
 
+        <!-- p2 -->
         <section class="new-map">
             <div class="new-map__content m-section">
                 <!-- 标题模块 -->
-                <block-title :order="2" class="block-title2"></block-title>
-
-                <!-- 背景图 -->
-                <img :src="buildImgUrl('002/pr2-frame1.jpg')" alt="背景图" class="new-map__bg2" />
+                <block-title :order="2" class="new-map__title"></block-title>
 
                 <!-- 轮播的主图和文本 -->
-                <img :src="currentImage" alt="主图" class="new-map__mainpic" />
-                <img :src="buildImgUrl('002/text-bg.png')" alt="文本背景" class="new-map__textbg" />
-
-                <!-- 动态文本 -->
-                <div class="new-map__text">
-                    <h2 class="u-title">{{ currentTitle }}</h2>
-                    <p class="u-desc">{{ currentDescription }}</p>
-                </div>
+                <mapshow class="new-map__pics"></mapshow>
             </div>
         </section>
 
+        <!-- p3 -->
         <section class="new-sec">
+            <block-title :order="3" class="block-title3"></block-title>
             <div class="new-sec_content m-section">
-                <block-title :order="3" class="block-title3"></block-title>
-                <img :src="buildImgUrl('003/new-sec__mainpic.png')" alt="主图" class="new-sec__mainpic" />
                 <div class="new-sec__text">
                     <h3 class="u-title">段式</h3>
-                    <p class="u-desc">苍山雪覆衡门外 洱月观花倦尘嚣 世第含章远逐鹿 周天风劲予逍遥</p>
+                    <p class="u-desc">
+                        <span>苍山雪覆衡门外 洱月观花倦尘嚣</span>
+                        <span>世第含章远逐鹿 周天风劲予逍遥</span>
+                    </p>
                     <div class="new-sec__textP">
                         <p class="u-desc1">
                             段氏自春秋时期兴起，跟随历史的步伐南迁，在滇中一带扩张自己的家族势力。为求自保，段氏号召族中弟子习武，在融天岭修建了气势恢宏的大理宫、天龙寺与神剑宫，逐步成为西南豪门。
@@ -84,33 +78,33 @@
             </div>
         </section>
 
+        <!-- p4 -->
         <section class="duanshi">
-            <div class="duanshi_content m-section">
-                <block-title :order="4" class="block-title4"></block-title>
-                <img :src="buildImgUrl('004/duanshi-frame.jpg')" alt="主图" class="duanshi__mainpic" />
+            <block-title :order="4" class="block-title4"></block-title>
 
+            <div class="duanshi__content m-section">
                 <!-- 菜单导航栏 -->
-                <div class="nav">
-                    <div
-                        v-for="tab in tabs"
-                        :key="tab.key"
-                        class="tab"
-                        :class="{ active: activeTab === tab.key }"
-                        @click="activeTab = tab.key"
+                <ul class="duanshi__nav">
+                    <li
+                        v-for="item in duanshi"
+                        :key="item.key"
+                        class="u-tab"
+                        :class="{ active: activeTab === item.key }"
+                        @click="activeTab = item.key"
                     >
-                        <img :src="buildTabImgUrl(tab.key)"  class="tab_img"/>
-                    </div>
-                </div>
+                        <img :src="buildTabImgUrl(item.key)" class="u-img" />
+                    </li>
+                </ul>
 
-                <!-- 内容展示区 -->
-                <div class="content">
-                    <!-- 根据当前激活的 Tab 渲染内容 -->
-                    <div v-if="activeTab === 0" class="hero-section">
-                        <!-- 武学部分，使用设计师提供的完整图片 -->
-                        <img :src="imgurl + 'combined-skill-image.png'" alt="武学展示图" class="full-skill-image" />
-                    </div>
-
-                    <!-- 其他 Tab 对应的内容展示（例如校服、场景等）可以在这里实现 -->
+                <!-- 内容 -->
+                <div class="duanshi__primary">
+                    <DS
+                        class="u-content"
+                        v-for="(item, i) in duanshi"
+                        :key="i"
+                        :pics="item.pics"
+                        :class="{ active: activeTab === item.key }"
+                    />
                 </div>
             </div>
         </section>
@@ -119,32 +113,36 @@
 
 <script>
 import BlockTitle from "./components/title.vue";
+import Mapshow from "./components/mapshow.vue";
+import DS from "./components/duanshi.vue";
 
 export default {
     name: "Index",
     components: {
         BlockTitle,
+        Mapshow,
+        DS,
     },
     inject: ["__imgRoot"],
     data() {
         return {
-            imgurl: "./tmp/", // 你的图片路径
             currentIndex: 0, // 当前轮播索引
-            images: ["002/mainpic1.png", "002/mainpic2.png", "002/mainpic3.png"], // 图片路径数组
-            titles: ["河西瀚漠", "西域！", "开放！"], // 对应的标题数组
-            descriptions: [
-                "视线从中原转向有着沙漠和雪山的西域之地，打造前所未有的西域开放大世界！",
-                "携手敦煌博物馆和非遗保护中心的赵虎主任细细雕琢出原汁原味的“丝绸之路”",
-                "敦煌石窟、汉长城遗址、沙尘暴、哈密瓜田……独属于丝绸之路的风土人情将一幕幕展开，等你自由探索",
-            ], // 描述内容数组
             activeTab: "wuxue", // 当前激活的选项卡
-            tabs: [
-                { key: "wuxue", label: "武学" },
-                { key: "xiaofu", label: "校服" },
-                { key: "changjing", label: "场景" },
-                { key: "genchong", label: "跟宠" },
-                { key: "qunxiang", label: "群像" },
-                { key: "wuqi", label: "武器" },
+            duanshi: [
+                { key: "wuxue", label: "武学", pics: ["004/content/wuxue_1.png"] },
+                { key: "xiaofu", label: "校服", pics: ["004/content/xiaofu_1.png", "004/content/xiaofu_2.png"] },
+                {
+                    key: "changjing",
+                    label: "场景",
+                    pics: ["004/content/changjing_1.png", "004/content/changjing_2.png"],
+                },
+                { key: "genchong", label: "跟宠", pics: ["004/content/pet.png"] },
+                { key: "qunxiang", label: "群像", pics: ["004/content/photo_1.png", "004/content/photo_2.png"] },
+                {
+                    key: "wuqi",
+                    label: "武器",
+                    pics: ["004/content/weapon_1.png", "004/content/weapon_2.png", "004/content/weapon_3.png"],
+                },
             ],
             active: 0,
             timer: null,
@@ -175,23 +173,19 @@ export default {
         },
     },
     mounted() {
-        this.startCarousel();
         this.init();
         window.addEventListener("mousemove", this.hanldMask);
     },
     methods: {
-        buildTabImgUrl(tab){
-            const imgUrl=this.activeTab===tab?tab+"_active":tab
+        buildTabImgUrl(tab) {
+            const imgUrl = this.activeTab === tab ? tab + "_active" : tab;
             return this.buildImgUrl(`004/pr4tab/${imgUrl}.png`);
         },
 
         buildImgUrl(path) {
-            return `${this.imgurl}${path}`;
-        },
-        startCarousel() {
-            setInterval(() => {
-                this.currentIndex = (this.currentIndex + 1) % this.images.length;
-            }, 1500); // 每15秒切换一次
+
+            return `${this.__imgRoot}${path}`;
+
         },
         init() {
             // 你的初始化逻辑

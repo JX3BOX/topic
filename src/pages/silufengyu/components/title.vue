@@ -33,3 +33,10 @@ export default {
     mounted: function () {},
 };
 </script>
+
+
+<style lang="less">
+.m-title{
+    text-align: center;
+}
+</style>
