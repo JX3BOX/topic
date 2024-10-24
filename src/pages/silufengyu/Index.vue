@@ -191,7 +191,7 @@ export default {
         startCarousel() {
             setInterval(() => {
                 this.currentIndex = (this.currentIndex + 1) % this.images.length;
-            }, 15000); // 每15秒切换一次
+            }, 1500); // 每15秒切换一次
         },
         init() {
             // 你的初始化逻辑
