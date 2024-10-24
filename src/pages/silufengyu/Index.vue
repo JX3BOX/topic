@@ -108,6 +108,49 @@
                 </div>
             </div>
         </section>
+
+         <!-- p5 -->
+         <section class="new-instance">
+            <block-title :order="5" class="block-title5"></block-title>
+            <div class="new-instance__text">
+                        <p class="u-desc1">
+                            之窟位处广袤无垠的大沙海腹地，正是传闻中会浮现于海市蜃楼幻影里的失落城池。
+                        </p>
+                        <p class="u-desc2">
+                            元凤四年，傅介子斩楼兰王安归，另立质子为王。
+                        </p>
+                        <p class="u-desc3">
+                            尉屠耆归国后，将王城南迁至扜泥城，依附王都而兴起的周边城镇逐渐凋敝。
+                        </p>
+                        <p class="u-desc4">
+                            随着水源枯竭与风沙肆虐，被抛弃的故城最终完全被浩瀚沙海所吞没，成为世人遗忘的尘埃。
+                        </p>
+                        <p class="u-desc5">
+                            直至求法的僧侣循着蜃景神迹的引领再度踏足，他们以为找寻到了圣迹，于是决定在这片佛光照耀的土地上开窟塑像。
+                        </p>
+                        <p class="u-desc6">
+                            然而，随着前所未有的大沙暴席卷了干涸的河谷，僧人连同尚未完成的佛窟一并被无情地吞噬了。
+                        </p>
+                        <p class="u-desc7">
+                            开皇年间，九天筹建四方宝库时，意外寻到此地。
+                        </p>
+                        <p class="u-desc8">
+                            借助流动变换的沙丘和深邃幽暗的洞窟，九天设计了繁复的机关与迷阵，建立了守护九天秘宝的“一之窟”。
+                        </p>
+                        <p class="u-desc9">
+                            除非有地图与“钥匙”相辅，否则再难踏入这片神秘的藏宝地。
+                        </p>
+                    </div>
+
+
+            <div class="new-instance__content m-section">
+ <!-- 调用 BossShow 组件 -->
+ <boss-show />
+
+
+                </div>
+                </section>
+
     </div>
 </template>
 
@@ -115,6 +158,7 @@
 import BlockTitle from "./components/title.vue";
 import Mapshow from "./components/mapshow.vue";
 import DS from "./components/duanshi.vue";
+import BossShow from './components/bossshow.vue';
 
 export default {
     name: "Index",
@@ -122,6 +166,7 @@ export default {
         BlockTitle,
         Mapshow,
         DS,
+        BossShow
     },
     inject: ["__imgRoot"],
     data() {
