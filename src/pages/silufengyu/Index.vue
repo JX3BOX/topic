@@ -114,7 +114,7 @@
             <block-title :order="5" class="block-title5"></block-title>
             <div class="new-instance__text">
                         <p class="u-desc1">
-                            之窟位处广袤无垠的大沙海腹地，正是传闻中会浮现于海市蜃楼幻影里的失落城池。
+                            一之窟位处广袤无垠的大沙海腹地，正是传闻中会浮现于海市蜃楼幻影里的失落城池。
                         </p>
                         <p class="u-desc2">
                             元凤四年，傅介子斩楼兰王安归，另立质子为王。
