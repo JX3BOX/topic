@@ -138,6 +138,166 @@
                 <boss-show />
             </div>
         </section>
+
+          <!-- p6 -->
+          <section class="ranking-list">
+    <div class="ranking-list__content m-section">
+
+        <div class="ranking-list__title-number">
+            <img :src="buildImgUrl('title/6.png')" alt="06" class="ranking-list__number-image" />
+        </div>
+
+
+        <div class="ranking-list__title-banner">
+            <img :src="buildImgUrl('006/ranking-list.png')"  alt="秘境百强榜" class="ranking-list__title-image" />
+        </div>
+
+        <!-- 立即报名 图片 -->
+        <div class="ranking-list__btn">
+            <a href="https://www.jx3box.com/rank/#/9/info" target="_blank">
+                <img :src="buildImgUrl('006/register.png')" alt="立即报名" class="ranking-list__signup-image" />
+            </a>
+        </div>
+    </div>
+</section>
+
+
+          <!-- p7 -->
+<section class="new-season">
+    <div class="new-season__content m-section">
+        <block-title :order="7" class="block-title7"></block-title>
+
+        <!-- 图标和小标题列表 -->
+        <ul class="new-season__list">
+            <li class="new-season__item">
+                <a href="https://www.jx3box.com/macro" target="_blank">
+                    <div class="new-season__icon-bg">
+                        <img :src="buildImgUrl('007/icon/macro.png')" alt="宏库" class="new-season__icon" />
+                    </div>
+                    <div class="new-season__namebar">
+                        <span class="new-season__label">宏库</span>
+                    </div>
+                </a>
+            </li>
+            <li class="new-season__item">
+                <a href="https://www.jx3box.com/profession" target="_blank">
+                    <div class="new-season__icon-bg">
+                        <img :src="buildImgUrl('007/icon/bps.png')" alt="职业" class="new-season__icon" />
+                    </div>
+                    <div class="new-season__namebar">
+                        <span class="new-season__label">职业</span>
+                    </div>
+                </a>
+            </li>
+            <li class="new-season__item">
+                <a href="https://www.jx3box.com/dungeon" target="_blank">
+                    <div class="new-season__icon-bg">
+                        <img :src="buildImgUrl('007/icon/fb.png')" alt="副本" class="new-season__icon" />
+                    </div>
+                    <div class="new-season__namebar">
+                        <span class="new-season__label">副本</span>
+                    </div>
+                </a>
+            </li>
+            <li class="new-season__item">
+                <a href="https://www.jx3box.com/team" target="_blank">
+                    <div class="new-season__icon-bg">
+                        <img :src="buildImgUrl('007/icon/team.png')" alt="团队" class="new-season__icon" />
+                    </div>
+                    <div class="new-season__namebar">
+                        <span class="new-season__label">团队</span>
+                    </div>
+                </a>
+            </li>
+            <li class="new-season__item">
+                <a href="https://www.jx3box.com/combat" target="_blank">
+                    <div class="new-season__icon-bg">
+                        <img :src="buildImgUrl('007/icon/battle.png')" alt="战斗分析" class="new-season__icon" />
+                    </div>
+                    <div class="new-season__namebar">
+                        <span class="new-season__label">战斗分析</span>
+                    </div>
+                </a>
+            </li>
+            <li class="new-season__item">
+                <a href="https://www.jx3box.com/jcl" target="_blank">
+                    <div class="new-season__icon-bg">
+                        <img :src="buildImgUrl('007/icon/jcl.png')" alt="JCL" class="new-season__icon" />
+                    </div>
+                    <div class="new-season__namebar">
+                        <span class="new-season__label">JCL</span>
+                    </div>
+                </a>
+            </li>
+            <li class="new-season__item">
+                <a href="https://www.jx3box.com/equip" target="_blank">
+                    <div class="new-season__icon-bg">
+                        <img :src="buildImgUrl('007/icon/pz.png')" alt="配装器" class="new-season__icon" />
+                    </div>
+                    <div class="new-season__namebar">
+                        <span class="new-season__label">配装器</span>
+                    </div>
+                </a>
+            </li>
+            <li class="new-season__item">
+                <a href="https://www.jx3box.com/data" target="_blank">
+                    <div class="new-season__icon-bg">
+                        <img :src="buildImgUrl('007/icon/database.png')" alt="游戏数据" class="new-season__icon" />
+                    </div>
+                    <div class="new-season__namebar">
+                        <span class="new-season__label">游戏数据</span>
+                    </div>
+                </a>
+            </li>
+            <li class="new-season__item">
+                <a href="https://www.jx3box.com/face" target="_blank">
+                    <div class="new-season__icon-bg">
+                        <img :src="buildImgUrl('007/icon/face 1.png')" alt="捏脸" class="new-season__icon" />
+                    </div>
+                    <div class="new-season__namebar">
+                        <span class="new-season__label">捏脸</span>
+                    </div>
+                </a>
+            </li>
+            <li class="new-season__item">
+                <a href="https://www.jx3box.com/achievement" target="_blank">
+                    <div class="new-season__icon-bg">
+                        <img :src="buildImgUrl('007/icon/cj.png')" alt="成就" class="new-season__icon" />
+                    </div>
+                    <div class="new-season__namebar">
+                        <span class="new-season__label">成就</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</section>
+
+
+          <!-- p8 -->
+          <section class="visual-enhancement">
+    <block-title :order="8" class="block-title8"></block-title>
+    <div class="visual-enhancement__content m-section">
+
+        <img :src="buildImgUrl('008/canvas.png')" alt="Canvas Background" class="visual-enhancement__canvas" />
+
+        <div class="visual-enhancement__maincontent">
+            <img :src="buildImgUrl('008/maincontent.png')" alt="Top 100 Ranking" class="visual-enhancement__maincontent-image" />
+        </div>
+    </div>
+</section>
+
+<!-- p9-->
+<section class="engine-update">
+    <block-title :order="9" class="block-title9"></block-title>
+    <div class="engine-update__content m-section">
+          <!-- 轮播的主图和文本 -->
+          <mapdisplay class="new-map__play"></mapdisplay>
+        </div>
+
+</section>
+
+
     </div>
 </template>
 
@@ -146,6 +306,7 @@ import BlockTitle from "./components/title.vue";
 import Mapshow from "./components/mapshow.vue";
 import DS from "./components/duanshi.vue";
 import BossShow from "./components/bossshow.vue";
+import Mapdisplay from "./components/mapdisplay.vue";
 
 export default {
     name: "Index",
@@ -154,6 +315,7 @@ export default {
         Mapshow,
         DS,
         BossShow,
+        Mapdisplay,
     },
     inject: ["__imgRoot"],
     data() {

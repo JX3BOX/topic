@@ -12,10 +12,7 @@
         <!-- BOSS 描述区域 -->
         <div class="boss-show__description">
             <!-- 编号标题，如 "1号首领" -->
-            <h3 class="boss-show__number">
-                <span v-if="activeBoss">{{ activeBoss + 1 }}号首领</span>
-                <span v-else>★</span>
-            </h3>
+            <h3 class="boss-show__number">{{ activeBoss + 1 }}号首领</h3>
             <!-- BOSS 名称 -->
             <h2 class="boss-show__title">{{ bosses[activeBoss].title }}</h2>
             <!-- BOSS 描述 -->
@@ -30,7 +27,7 @@ export default {
     inject: ["__imgRoot"], // 从父组件注入图片根路径
     data() {
         return {
-            activeBoss: 0, // 默认第一个 BOSS 被选中
+            activeBoss: 1, // 默认第一个 BOSS 被选中
             bosses: [
                 // {
                 //     name: "boss0",
