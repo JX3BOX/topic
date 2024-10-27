@@ -161,18 +161,17 @@
 
         <!-- p7 -->
         <section class="new-season">
-    <div class="new-season__content m-section">
-        <!-- 标题块 -->
-        <block-title :order="7" class="block-title7"></block-title>
+    <div class="new-season__main m-section">
+        <block-title :order="7" class="new-season__title"></block-title>
 
         <!-- 图标和小标题列表 -->
         <ul class="new-season__list">
             <li v-for="(item, index) in icons" :key="index" class="new-season__item">
                 <a :href="item.link" target="_blank">
-                    <div class="new-season__icon-bg">
+                    <div class="u-icon">
                         <img :src="buildImgUrl(item.img)" :alt="item.title" class="new-season__icon" />
                     </div>
-                    <div class="new-season__namebar">
+                    <div class="u-label">
                         <span class="new-season__label">{{ item.title }}</span>
                     </div>
                 </a>
@@ -242,16 +241,16 @@ export default {
                 },
             ],
             icons: [
-                { title: "宏库", img: "007/icon/macro.png", link: "https://www.jx3box.com/macro" },
-                { title: "职业", img: "007/icon/bps.png", link: "https://www.jx3box.com/profession" },
-                { title: "副本", img: "007/icon/fb.png", link: "https://www.jx3box.com/dungeon" },
-                { title: "团队", img: "007/icon/team.png", link: "https://www.jx3box.com/team" },
-                { title: "战斗分析", img: "007/icon/battle.png", link: "https://www.jx3box.com/combat" },
-                { title: "JCL", img: "007/icon/jcl.png", link: "https://www.jx3box.com/jcl" },
-                { title: "配装器", img: "007/icon/pz.png", link: "https://www.jx3box.com/equip" },
-                { title: "游戏数据", img: "007/icon/database.png", link: "https://www.jx3box.com/data" },
-                { title: "捏脸", img: "007/icon/face 1.png", link: "https://www.jx3box.com/face" },
-                { title: "成就", img: "007/icon/cj.png", link: "https://www.jx3box.com/achievement" }
+                { title: "宏库", img: "007/icon/macro.png", link: "/macro" },
+                { title: "职业", img: "007/icon/bps.png", link: "/bps" },
+                { title: "副本", img: "007/icon/fb.png", link: "/fb" },
+                { title: "团队", img: "007/icon/team.png", link: "/team" },
+                { title: "战斗分析", img: "007/icon/battle.png", link: "/battle" },
+                { title: "JCL", img: "007/icon/jcl.png", link: "/jcl" },
+                { title: "配装器", img: "007/icon/pz.png", link: "/pz" },
+                { title: "游戏数据", img: "007/icon/database.png", link: "/app/database" },
+                { title: "成就", img: "007/icon/cj.png", link: "/achievement" },
+                { title: "捏脸", img: "007/icon/face 1.png", link: "/face" }
             ],
             active: 0,
             timer: null,
