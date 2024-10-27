@@ -37,6 +37,11 @@ export default {
 
 <style lang="less">
 .m-title{
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .u-no{
+        margin-right: 20px;
+    }
 }
 </style>
