@@ -77,12 +77,8 @@ export default {
         position: absolute;
         display: none;
     }
-
     .u-pic {
-        padding:30px;
         display: block;
-        margin-left: auto;
-        margin-right: auto;
     }
     .u-textbox{
         .size(480px,130px);
