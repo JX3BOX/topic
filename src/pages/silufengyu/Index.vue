@@ -163,109 +163,20 @@
 
 
           <!-- p7 -->
-<section class="new-season">
+          <section class="new-season">
     <div class="new-season__content m-section">
+        <!-- 标题块 -->
         <block-title :order="7" class="block-title7"></block-title>
 
         <!-- 图标和小标题列表 -->
         <ul class="new-season__list">
-            <li class="new-season__item">
-                <a href="https://www.jx3box.com/macro" target="_blank">
+            <li v-for="(item, index) in icons" :key="index" class="new-season__item">
+                <a :href="item.link" target="_blank">
                     <div class="new-season__icon-bg">
-                        <img :src="buildImgUrl('007/icon/macro.png')" alt="宏库" class="new-season__icon" />
+                        <img :src="buildImgUrl(item.img)" :alt="item.title" class="new-season__icon" />
                     </div>
                     <div class="new-season__namebar">
-                        <span class="new-season__label">宏库</span>
-                    </div>
-                </a>
-            </li>
-            <li class="new-season__item">
-                <a href="https://www.jx3box.com/profession" target="_blank">
-                    <div class="new-season__icon-bg">
-                        <img :src="buildImgUrl('007/icon/bps.png')" alt="职业" class="new-season__icon" />
-                    </div>
-                    <div class="new-season__namebar">
-                        <span class="new-season__label">职业</span>
-                    </div>
-                </a>
-            </li>
-            <li class="new-season__item">
-                <a href="https://www.jx3box.com/dungeon" target="_blank">
-                    <div class="new-season__icon-bg">
-                        <img :src="buildImgUrl('007/icon/fb.png')" alt="副本" class="new-season__icon" />
-                    </div>
-                    <div class="new-season__namebar">
-                        <span class="new-season__label">副本</span>
-                    </div>
-                </a>
-            </li>
-            <li class="new-season__item">
-                <a href="https://www.jx3box.com/team" target="_blank">
-                    <div class="new-season__icon-bg">
-                        <img :src="buildImgUrl('007/icon/team.png')" alt="团队" class="new-season__icon" />
-                    </div>
-                    <div class="new-season__namebar">
-                        <span class="new-season__label">团队</span>
-                    </div>
-                </a>
-            </li>
-            <li class="new-season__item">
-                <a href="https://www.jx3box.com/combat" target="_blank">
-                    <div class="new-season__icon-bg">
-                        <img :src="buildImgUrl('007/icon/battle.png')" alt="战斗分析" class="new-season__icon" />
-                    </div>
-                    <div class="new-season__namebar">
-                        <span class="new-season__label">战斗分析</span>
-                    </div>
-                </a>
-            </li>
-            <li class="new-season__item">
-                <a href="https://www.jx3box.com/jcl" target="_blank">
-                    <div class="new-season__icon-bg">
-                        <img :src="buildImgUrl('007/icon/jcl.png')" alt="JCL" class="new-season__icon" />
-                    </div>
-                    <div class="new-season__namebar">
-                        <span class="new-season__label">JCL</span>
-                    </div>
-                </a>
-            </li>
-            <li class="new-season__item">
-                <a href="https://www.jx3box.com/equip" target="_blank">
-                    <div class="new-season__icon-bg">
-                        <img :src="buildImgUrl('007/icon/pz.png')" alt="配装器" class="new-season__icon" />
-                    </div>
-                    <div class="new-season__namebar">
-                        <span class="new-season__label">配装器</span>
-                    </div>
-                </a>
-            </li>
-            <li class="new-season__item">
-                <a href="https://www.jx3box.com/data" target="_blank">
-                    <div class="new-season__icon-bg">
-                        <img :src="buildImgUrl('007/icon/database.png')" alt="游戏数据" class="new-season__icon" />
-                    </div>
-                    <div class="new-season__namebar">
-                        <span class="new-season__label">游戏数据</span>
-                    </div>
-                </a>
-            </li>
-            <li class="new-season__item">
-                <a href="https://www.jx3box.com/face" target="_blank">
-                    <div class="new-season__icon-bg">
-                        <img :src="buildImgUrl('007/icon/face 1.png')" alt="捏脸" class="new-season__icon" />
-                    </div>
-                    <div class="new-season__namebar">
-                        <span class="new-season__label">捏脸</span>
-                    </div>
-                </a>
-            </li>
-            <li class="new-season__item">
-                <a href="https://www.jx3box.com/achievement" target="_blank">
-                    <div class="new-season__icon-bg">
-                        <img :src="buildImgUrl('007/icon/cj.png')" alt="成就" class="new-season__icon" />
-                    </div>
-                    <div class="new-season__namebar">
-                        <span class="new-season__label">成就</span>
+                        <span class="new-season__label">{{ item.title }}</span>
                     </div>
                 </a>
             </li>
@@ -337,6 +248,18 @@ export default {
                     label: "武器",
                     pics: ["004/content/weapon_1.png", "004/content/weapon_2.png", "004/content/weapon_3.png"],
                 },
+            ],
+            icons: [
+                { title: "宏库", img: "007/icon/macro.png", link: "https://www.jx3box.com/macro" },
+                { title: "职业", img: "007/icon/bps.png", link: "https://www.jx3box.com/profession" },
+                { title: "副本", img: "007/icon/fb.png", link: "https://www.jx3box.com/dungeon" },
+                { title: "团队", img: "007/icon/team.png", link: "https://www.jx3box.com/team" },
+                { title: "战斗分析", img: "007/icon/battle.png", link: "https://www.jx3box.com/combat" },
+                { title: "JCL", img: "007/icon/jcl.png", link: "https://www.jx3box.com/jcl" },
+                { title: "配装器", img: "007/icon/pz.png", link: "https://www.jx3box.com/equip" },
+                { title: "游戏数据", img: "007/icon/database.png", link: "https://www.jx3box.com/data" },
+                { title: "捏脸", img: "007/icon/face 1.png", link: "https://www.jx3box.com/face" },
+                { title: "成就", img: "007/icon/cj.png", link: "https://www.jx3box.com/achievement" }
             ],
             active: 0,
             timer: null,
