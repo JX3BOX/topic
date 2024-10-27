@@ -153,7 +153,7 @@
                 </div>
 
                 <!-- 立即报名 图片 -->
-                <a class="ranking-list__btn" href="https://www.jx3box.com/rank/#/9/info" target="_blank">
+                <a class="ranking-list__btn" href="/rank/#/9/info" target="_blank">
                     <img :src="buildImgUrl('006/register.png')" alt="立即报名" class="ranking-list__signup-image" />
                 </a>
             </div>
