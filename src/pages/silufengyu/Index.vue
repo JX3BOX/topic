@@ -58,7 +58,7 @@
             <block-title :order="3" class="block-title3"></block-title>
             <div class="new-sec_content m-section">
                 <div class="new-sec__text">
-                    <h3 class="u-title">段式</h3>
+                    <h3 class="u-title">段氏</h3>
                     <p class="u-desc">
                         <span>苍山雪覆衡门外 洱月观花倦尘嚣</span>
                         <span>世第含章远逐鹿 周天风劲予逍遥</span>
