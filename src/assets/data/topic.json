@@ -105,6 +105,14 @@
     ],
     "std": [
         {
+            "name": "丝路风语",
+            "key": "silufengyu",
+            "year": "2024",
+            "date": "10-31",
+            "time": "2024.10.31",
+            "link": "./silufengyu"
+        },
+        {
             "name": "无界",
             "key": "wujie",
             "year": "2024",
