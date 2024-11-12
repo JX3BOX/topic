@@ -1,6 +1,5 @@
 <template>
     <div class="container">
-
         <!-- 主横幅 -->
         <section class="banner slide-in" v-animate="'visible'">
             <img class="banner__logo hover-scale" :src="buildImgUrl('bg/banner__title.png')" alt="丝路风语" />
@@ -24,10 +23,12 @@
                 <block-title :order="1"></block-title>
 
                 <ul class="expansion-overview__list">
-                    <li class="expansion-overview__item"
+                    <li
+                        class="expansion-overview__item"
                         v-for="(item, index) in expansionItems"
                         :key="index"
-                        :style="{ animationDelay: index * 0.2 + 's' }">
+                        :style="{ animationDelay: index * 0.2 + 's' }"
+                    >
                         <img :src="buildImgUrl(item.img)" alt="新地图" class="expansion-overview__image" />
                     </li>
                 </ul>
@@ -50,7 +51,7 @@
             <block-title :order="3" class="block-title3"></block-title>
             <div class="new-sec_content m-section">
                 <div class="new-sec__text">
-                    <h3 class="u-title">段式</h3>
+                    <h3 class="u-title">段氏</h3>
                     <p class="u-desc">
                         <span>苍山雪覆衡门外 洱月观花倦尘嚣</span>
                         <span>世第含章远逐鹿 周天风劲予逍遥</span>
@@ -153,34 +154,30 @@
 
         <!-- p7 -->
         <section class="new-season">
-    <div class="new-season__main m-section">
-        <block-title :order="7" class="new-season__title"></block-title>
+            <div class="new-season__main m-section">
+                <block-title :order="7" class="new-season__title"></block-title>
 
-        <!-- 图标和小标题列表 -->
-        <ul class="new-season__list">
-            <li v-for="(item, index) in icons" :key="index" class="new-season__item">
-                <a :href="item.link" target="_blank">
-                    <div class="u-icon">
-                        <img :src="buildImgUrl(item.img)" :alt="item.title" class="new-season__icon" />
-                    </div>
-                    <div class="u-label">
-                        <span class="new-season__label">{{ item.title }}</span>
-                    </div>
-                </a>
-            </li>
-        </ul>
-    </div>
-</section>
+                <!-- 图标和小标题列表 -->
+                <ul class="new-season__list">
+                    <li v-for="(item, index) in icons" :key="index" class="new-season__item">
+                        <a :href="item.link" target="_blank">
+                            <div class="u-icon">
+                                <img :src="buildImgUrl(item.img)" :alt="item.title" class="new-season__icon" />
+                            </div>
+                            <div class="u-label">
+                                <span class="new-season__label">{{ item.title }}</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
 
         <!-- p8 -->
         <section class="visual-enhancement">
             <block-title :order="8" class="visual-enhancement__title"></block-title>
             <div class="visual-enhancement__content m-section">
-                <img
-                    :src="buildImgUrl('008/maincontent.png')"
-                    alt="Top 100 Ranking"
-                    class="u-pic"
-                />
+                <img :src="buildImgUrl('008/maincontent.png')" alt="Top 100 Ranking" class="u-pic" />
             </div>
         </section>
 
@@ -242,7 +239,7 @@ export default {
                 { title: "配装器", img: "007/icon/pz.png", link: "/pz" },
                 { title: "游戏数据", img: "007/icon/database.png", link: "/app/database" },
                 { title: "成就", img: "007/icon/cj.png", link: "/achievement" },
-                { title: "捏脸", img: "007/icon/face 1.png", link: "/face" }
+                { title: "捏脸", img: "007/icon/face 1.png", link: "/face" },
             ],
             active: 0,
             timer: null,
@@ -251,11 +248,11 @@ export default {
             boxActive: 0,
             popApplication: [],
             expansionItems: [
-                { img: '001/pr1u1.png', alt: '新地图' },
-                { img: '001/pr1u2.png', alt: '新门派' },
-                { img: '001/pr1u3.png', alt: '新副本' },
-                { img: '001/pr1u4.png', alt: '颜值优化' },
-                { img: '001/pr1u5.png', alt: '引擎升级' }
+                { img: "001/pr1u1.png", alt: "新地图" },
+                { img: "001/pr1u2.png", alt: "新门派" },
+                { img: "001/pr1u3.png", alt: "新副本" },
+                { img: "001/pr1u4.png", alt: "颜值优化" },
+                { img: "001/pr1u5.png", alt: "引擎升级" },
             ],
         };
     },
@@ -281,7 +278,6 @@ export default {
         },
     },
     mounted() {
-  
         this.initScrollAnimation();
     },
     methods: {
@@ -291,7 +287,7 @@ export default {
         },
 
         buildImgUrl(path) {
-            return `${this.__imgRoot}${path}`;
+            return `${this.__imgRoot}${path}`;  
         },
         init() {
             // 你的初始化逻辑
@@ -318,20 +314,23 @@ export default {
             window.open("https://space.bilibili.com/2066064028");
         },
         initScrollAnimation() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("visible");
+                        }
+                    });
+                },
+                {
+                    threshold: 0.1,
+                }
+            );
 
-            document.querySelectorAll('.slide-in').forEach(el => {
+            document.querySelectorAll(".slide-in").forEach((el) => {
                 observer.observe(el);
             });
-        }
+        },
     },
     directives: {
         animate: {
