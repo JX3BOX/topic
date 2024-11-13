@@ -235,14 +235,23 @@ body {
         font-weight: 400;
         line-height: 18.48px;
         text-align: left;
+        .u-desc1, .u-desc2, .u-desc3 {
+            opacity: 0;  // 初始状态设为不可见
+            animation: fadeIn auto linear;
+            animation-timeline: view();
+        }
+
+        // 为每段文字设置不同的动画范围，创造依次出现的效果
         .u-desc1 {
-            margin-top: 20px;
+            animation-range: entry 20% cover 40%;
         }
+
         .u-desc2 {
-            margin-top: 20px;
+            animation-range: entry 30% cover 50%;
         }
+
         .u-desc3 {
-            margin-top: 20px;
+            animation-range: entry 40% cover 60%;
         }
     }
 }

@@ -43,19 +43,44 @@ export default {
         buildImageUrl(item) {
             return this.__imgRoot + item.url;
         },
-        slideShow(){
+        slideShow() {
+            // 获取所有图片元素
             const mapbox_list = this.$refs.mapbox;
-            let i = 0;
-            mapbox_list[0].style.display = "block";
+            // 当前显示的图片序号
+            let currentIndex = 0;
+
+            // 显示第一张图片
+            showImage(currentIndex);
+
+            // 每3秒切换一次图片
             setInterval(() => {
-                mapbox_list[i].style.display = "none";
-                if(i === mapbox_list.length - 1){
-                    i = 0;
-                }else{
-                    i++;
-                }
-                mapbox_list[i].style.display = "block";
+                // 隐藏当前图片
+                hideImage(currentIndex);
+
+                // 计算下一张图片的序号
+                currentIndex = currentIndex === mapbox_list.length - 1 ? 0 : currentIndex + 1;
+
+                // 显示下一张图片
+                showImage(currentIndex);
             }, 3000);
+
+            // 显示图片的函数
+            function showImage(index) {
+                mapbox_list[index].style.display = 'block';
+                // 短暂延迟后改变透明度，保过渡效果生效
+                setTimeout(() => {
+                    mapbox_list[index].style.opacity = '1';
+                }, 50);
+            }
+
+            // 隐藏图片的函数
+            function hideImage(index) {
+                mapbox_list[index].style.opacity = '0';
+                // 等待淡出动画完成后，将图片隐藏
+                setTimeout(() => {
+                    mapbox_list[index].style.display = 'none';
+                }, 300);
+            }
         },
     },
     created: function () {},
@@ -76,6 +101,8 @@ export default {
         .size(@w,@h);
         position: absolute;
         display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
     }
 
     .u-pic {
